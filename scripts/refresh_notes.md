@@ -21,7 +21,18 @@ Record the CERT/report date in `assets_note`. For credit unions use the press re
 Check vendor newsrooms weekly: Corelation, Jack Henry, Fiserv, FIS, Synergent, Finastra, Temenos, Q2, nCino, Alkami, CU*Answers, Co-op Solutions, Candescent. Also search "selects" + "core" + "credit union"/"bank". Only include named US institutions (aggregate "six CUs signed" releases need each name verified separately).
 
 ## 4. New executives
-SEC 8-K Item 5.02 (EDGAR full-text search: "Chief Executive Officer" bank, last 7 days), bank/CU newsroom pages, American Banker / CU Times / CU Today headlines. Focus on CEO, president, CIO/CTO, chief digital or lending officers.
+**Run the harvester first** (collection only, no judgment, ~1.5 min for 14 days):
+```
+python3 scripts/harvest_exec.py                 # default last 14 days -> /workspace/fisignal-state/exec_candidates.json
+python3 scripts/lookup_assets.py --candidates   # optional: adds FDIC/NCUA state+assets suggestions per candidate
+python3 scripts/read_candidates.py --n 40       # fetches each source_url, prints dated key sentences to verify
+```
+- Sources: SEC 8-K Item 5.02 from bank-SIC filers (EDGAR daily index; highest precision), PR Newswire banking category, Google News RSS (wires + CU Today / CUInsight / American Banker / Banking Dive / local papers; links decoded to the publisher URL), Finextra / ABA Banking Journal / Bank Director / CUInsight / American Banker / Banking Dive RSS.
+- Dedupes against `data/triggers.json` (by URL / SEC accession) and `/workspace/fisignal-state/seen.json` (anything already surfaced). `--days 60 --no-seen --no-mark-seen` re-runs a backfill.
+- Candidates are NOT rows. For each one: open `source_url`, confirm a **named US bank/credit union**, a C-level / president / EVP-level (tech, ops, lending, digital, risk, finance, retail/commercial) change, and the **real announcement date** (Google News often resurfaces old articles: check the date on the page). Skip market/branch presidents, boards-only items, non-US institutions, vendors/fintechs, leagues/associations.
+- Many publishers (Business Wire, bizjournals, CU Times, GlobeNewswire, Banking Dive) block curl: open those with a normal browser/WebFetch. If you can't open the page, don't add the row.
+- State/assets: `scripts/lookup_assets.py "Bank Name" --state XX` (FDIC for banks, NCUA call-report data for CUs). Use the **bank/CU entity** assets and say so in `assets_note`; use `null` if unsure.
+- Focus: CEO, president, CFO, COO, CIO/CTO, chief digital / technology / lending / credit / risk / operations officers, head of retail or commercial banking.
 
 ## 5. Update the data
 1. Edit `data/triggers.json`: add rows (next `id`), bump top-level `updated`.

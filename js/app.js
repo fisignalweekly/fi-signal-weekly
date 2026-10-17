@@ -1,6 +1,6 @@
 (function(){
   var TYPE_LABEL={merger:"Pending merger",core:"Core renewal / conversion",executive:"New executive"};
-  var all=[],$=function(id){return document.getElementById(id)};
+  var PAGE=30,shown=PAGE,all=[],$=function(id){return document.getElementById(id)};
   function fmtAssets(m){
     if(m==null) return "Assets n/a";
     if(m>=1000) return "~$"+(m/1000).toFixed(m>=10000?0:1).replace(/\.0$/,"")+"B assets";
@@ -17,9 +17,9 @@
         (!q||(r.institution+" "+r.summary).toLowerCase().indexOf(q)>-1);
     }).sort(function(a,b){return a.date<b.date?1:-1});
     var list=$("cards");list.textContent="";
-    $("count").textContent=rows.length+" of "+all.length+" triggers";
+    $("count").textContent=rows.length>shown?"Showing "+shown+" of "+rows.length+" matching triggers ("+all.length+" total)":rows.length+" of "+all.length+" triggers";
     if(!rows.length){var li=el("li","empty","No triggers match these filters.");list.appendChild(li);return}
-    rows.forEach(function(r){
+    rows.slice(0,shown).forEach(function(r){
       var li=el("li","card "+r.type);
       li.appendChild(el("h3",null,r.institution));
       var m=el("div","meta");
@@ -33,15 +33,19 @@
       li.appendChild(a);
       list.appendChild(li);
     });
+    if(rows.length>shown){
+      var more=el("li","empty");var b=el("button","ghost","Show "+Math.min(PAGE,rows.length-shown)+" more");b.type="button";
+      b.addEventListener("click",function(){shown+=PAGE;render()});more.appendChild(b);list.appendChild(more);
+    }
   }
   function init(data){
     all=data.rows;
     $("updated").textContent=fmtDate(data.updated);
     var states=Array.from(new Set(all.map(function(r){return r.state}))).sort();
     states.forEach(function(s){var o=el("option",null,s);o.value=s;$("f-state").appendChild(o)});
-    ["f-type","f-state","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",render)});
-    $("f-q").addEventListener("input",render);
-    $("reset").addEventListener("click",function(){["f-type","f-state","f-from","f-to","f-q"].forEach(function(id){$(id).value=""});render()});
+    ["f-type","f-state","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",function(){shown=PAGE;render()})});
+    $("f-q").addEventListener("input",function(){shown=PAGE;render()});
+    $("reset").addEventListener("click",function(){["f-type","f-state","f-from","f-to","f-q"].forEach(function(id){$(id).value=""});shown=PAGE;render()});
     render();
   }
   if($("cards")){
