@@ -1,0 +1,175 @@
+{
+  "updated": "2026-10-16",
+  "rows": [
+    {
+      "type": "merger",
+      "institution": "SAFE Credit Union",
+      "state": "CA",
+      "assets_millions": 4600,
+      "date": "2026-08-04",
+      "summary": "Regulators approved SAFE's combination into BECU (WA, ~$29.4B); SAFE member vote closes Oct 27, 2026, with legal close targeted Jan 1, 2027.",
+      "source_url": "https://www.safecu.org/safe-news/planned-combination-to-advance-to-SAFE-member-vote",
+      "assets_note": "SAFE: 'more than $4.6B' per Nov 18, 2025 release",
+      "id": "t001"
+    },
+    {
+      "type": "merger",
+      "institution": "LGE Community Credit Union",
+      "state": "GA",
+      "assets_millions": 2300,
+      "date": "2026-09-22",
+      "summary": "LGE (~$2.3B) merging into Ascend FCU (TN, ~$4.7B) after regulatory approval; LGE member vote Nov 9, target merger date Jan 1, 2027, full systems integration targeted Q1 2028.",
+      "source_url": "https://www.cutoday.info/Fresh-Today/Regulators-Approve-7B-Ascend-LGE-Merger-Member-Vote-Begins",
+      "assets_note": "Approximate, per CUToday",
+      "id": "t002"
+    },
+    {
+      "type": "merger",
+      "institution": "WeStreet Credit Union",
+      "state": "OK",
+      "assets_millions": 1000,
+      "date": "2026-10-14",
+      "summary": "NCUA approved WeStreet's merger into CommunityAmerica CU (KS, ~$10B); WeStreet member vote underway (NCUA lists Nov 20, 2026). Combined CU approaches $11B.",
+      "source_url": "https://www.communityamerica.com/news/westreet-credit-union-merger",
+      "assets_note": "'nearly $1 billion' per press release",
+      "id": "t003"
+    },
+    {
+      "type": "merger",
+      "institution": "MSU Federal Credit Union",
+      "state": "MI",
+      "assets_millions": 9300,
+      "date": "2026-10-13",
+      "summary": "MSUFCU (~$9.3B) and UFCU (TX, ~$4.2B) announced a combination into a $13.5B, 850K-member credit union; closing likely summer 2027 pending approvals.",
+      "source_url": "https://ufcu.org/about/news/detail/news/2026/10/13/ufcu-msufcu-combine",
+      "assets_note": "Per press release",
+      "id": "t004"
+    },
+    {
+      "type": "merger",
+      "institution": "CASE Credit Union",
+      "state": "MI",
+      "assets_millions": null,
+      "date": "2026-09-01",
+      "summary": "Regulators approved CASE's merger with Team One CU (combined ~$1.1B, 76K+ members); CASE member vote concludes Oct 20, 2026, effective Jan 1, 2027.",
+      "source_url": "https://www.casecu.org/bolder-together/merger-vote",
+      "assets_note": "CASE standalone assets not verified; combined ~$1.1B",
+      "id": "t005"
+    },
+    {
+      "type": "merger",
+      "institution": "Great Plains National Bank (Great Plains Bancshares)",
+      "state": "OK",
+      "assets_millions": 1929,
+      "date": "2026-10-07",
+      "summary": "Third Coast Bancshares (TX) to acquire Great Plains Bancshares (23 branches in OK/TX) in a ~$239.6M all-stock deal; combined ~$9B; close expected Q1 2027.",
+      "source_url": "https://www.prnewswire.com/news-releases/third-coast-bancshares-inc-and-great-plains-bancshares-inc-announce-definitive-merger-agreement-302900499.html",
+      "assets_note": "FDIC, 6/30/2026 (CERT 34207)",
+      "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A34207&fields=NAME,STALP,ASSET,REPDTE",
+      "id": "t006"
+    },
+    {
+      "type": "merger",
+      "institution": "Capital Bancorp, Inc. (Capital Bank, N.A.)",
+      "state": "MD",
+      "assets_millions": 3900,
+      "date": "2026-09-30",
+      "summary": "Peoples Bancorp (OH) to acquire Capital Bancorp in a ~$728M all-stock deal; combined ~$14B; Capital brings OpenSky, Windsor Advantage and mortgage units; close expected 1H 2027.",
+      "source_url": "https://www.prnewswire.com/news-releases/peoples-bancorp-inc-and-capital-bancorp-inc-announce-merger-agreement-302893578.html",
+      "assets_note": "~$3.9B at 6/30/2026 per press release",
+      "id": "t007"
+    },
+    {
+      "type": "core",
+      "institution": "State Employees' Credit Union (SECU)",
+      "state": "NC",
+      "assets_millions": 59000,
+      "date": "2026-05-18",
+      "summary": "Second-largest US credit union signed with Corelation to convert to KeyStone core as part of a multi-year transformation plan.",
+      "source_url": "https://corelationinc.com/wp-content/uploads/2026/05/Corelation_SECU_PR_2026-0518.pdf",
+      "assets_note": "'over $59 billion' per press release",
+      "id": "t008"
+    },
+    {
+      "type": "core",
+      "institution": "Hanscom Federal Credit Union",
+      "state": "MA",
+      "assets_millions": 2100,
+      "date": "2026-03-03",
+      "summary": "Selected Corelation KeyStone as its core; conversion scheduled for July 2027.",
+      "source_url": "https://corelationinc.com/wp-content/uploads/2026/02/Corelation_HanscomFCU_PR_2026-0303.pdf",
+      "assets_note": "Per press release",
+      "id": "t009"
+    },
+    {
+      "type": "core",
+      "institution": "Central Maine Federal Credit Union",
+      "state": "ME",
+      "assets_millions": null,
+      "date": "2026-07-02",
+      "summary": "Signed a new 10-year hosted Jack Henry Symitar core agreement via Synergent, plus five-year digital banking, bill pay and check services deals; converting to Symitar.",
+      "source_url": "https://synergentcorp.com/company-news/central-maine-federal-credit-union-selects-synergent-for-core-processing-and-integrated-services/",
+      "assets_note": null,
+      "id": "t010"
+    },
+    {
+      "type": "core",
+      "institution": "UW Credit Union",
+      "state": "WI",
+      "assets_millions": null,
+      "date": "2026-08-05",
+      "summary": "Selected Fiserv DNA as its future core processing platform, expanding a multi-solution Fiserv relationship.",
+      "source_url": "https://investors.fiserv.com/news-releases/news-release-details/uw-credit-union-selects-dna-fiserv-power-its-next-stage-growth",
+      "assets_note": null,
+      "id": "t011"
+    },
+    {
+      "type": "executive",
+      "institution": "Truist Bank (Truist Financial)",
+      "state": "NC",
+      "assets_millions": 548346,
+      "date": "2026-06-15",
+      "summary": "Michael P. Lyons named President & CEO effective Sept 1, 2026; Bill Rogers becomes executive chair until April 2027 retirement.",
+      "source_url": "https://ir.truist.com/2026-06-15-Truist-announces-Michael-P-Lyons-as-incoming-CEO",
+      "assets_note": "FDIC, 6/30/2026 (CERT 9846)",
+      "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A9846&fields=NAME,STALP,ASSET,REPDTE",
+      "id": "t012"
+    },
+    {
+      "type": "executive",
+      "institution": "Bangor Savings Bank",
+      "state": "ME",
+      "assets_millions": 7740,
+      "date": "2026-07-28",
+      "summary": "Yolanda 'Lannie' Moffatt (formerly EVP & COO) succeeded Bob Montgomery-Rice as President & CEO on Sept 1, 2026.",
+      "source_url": "https://www.bangor.com/about-us/news/bangor-savings-bank-names-lannie-moffatt-as-next-president-and-ceo/",
+      "assets_note": "FDIC, 6/30/2026 (CERT 18408)",
+      "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A18408&fields=NAME,STALP,ASSET,REPDTE",
+      "id": "t013"
+    },
+    {
+      "type": "executive",
+      "institution": "First Mid Bancshares (First Mid Bank & Trust)",
+      "state": "IL",
+      "assets_millions": 9143,
+      "date": "2026-04-29",
+      "summary": "Matthew K. Smith became CEO & President effective July 1, 2026; Joseph Dively moved to Executive Chair.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/700565/000117184326002841/f8k_042926.htm",
+      "assets_note": "FDIC, 6/30/2026 (CERT 3705)",
+      "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A3705&fields=NAME,STALP,ASSET,REPDTE",
+      "id": "t014"
+    },
+    {
+      "type": "executive",
+      "institution": "QNB Corp. (QNB Bank)",
+      "state": "PA",
+      "assets_millions": 2375,
+      "date": "2026-05-13",
+      "summary": "Christopher Cattie becomes Bank President Nov 1, 2026, and is slated to succeed CEO David Freeman on his planned Dec 31, 2028 retirement.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/750558/000119312526221451/qnbc-20260513.htm",
+      "assets_note": "FDIC, 6/30/2026 (CERT 7714)",
+      "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A7714&fields=NAME,STALP,ASSET,REPDTE",
+      "id": "t015"
+    }
+  ]
+}
