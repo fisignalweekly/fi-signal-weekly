@@ -36,3 +36,8 @@ button.ghost{background:#eef2fa;color:var(--ink)}
 .note{font-size:.82rem;color:var(--muted);margin-top:8px}
 footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem}
 .prose{max-width:720px}.prose h2{margin-top:28px}
+.subscribe h2{margin:0 0 4px;font-size:1.25rem}
+.subscribe .note{margin:0 0 12px}
+.subscribe .note.small{margin:12px 0 0;font-size:.85rem}
+.subscribe-form{min-height:60px;max-width:560px}
+#subscribe{scroll-margin-top:72px}
