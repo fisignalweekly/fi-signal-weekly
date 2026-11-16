@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-16",
   "rows": [
     {
       "type": "merger",
@@ -2343,6 +2343,30 @@
       "source_url": "https://www.prnewswire.com/news-releases/third-coast-bank-appoints-laura-rau-as-chief-risk-officer-302932990.html",
       "assets_note": "FDIC CERT 58716, Humble TX, ~$6.73B at 6/30/2026 (per Verifier)",
       "assets_source": "https://www.sec.gov/Archives/edgar/data/1781730/000119312526159039/d46578ddef14a.htm (April 16, 2026 DEF 14A, CRO since Jan 2026); FDIC CERT 58716"
+    },
+    {
+      "id": "t220",
+      "type": "executive",
+      "institution": "Penn State Federal Credit Union",
+      "state": "PA",
+      "assets_millions": 274,
+      "date": "2026-11-14",
+      "summary": "Penn State Federal Credit Union named David Restino chief financial officer; he was CFO of First United National Bank, and the seat opened when Rick Tabor became CEO earlier this year.",
+      "source_url": "https://www.statecollege.com/articles/business/penn-state-federal-credit-union-names-david-restino-as-chief-financial-officer/",
+      "assets_note": "~$274.4M at 6/30/2026 per Verifier (NCUA Form 5300, #12729)",
+      "assets_source": "NCUA 6/30/2026 per Verifier"
+    },
+    {
+      "id": "t221",
+      "type": "executive",
+      "institution": "First Bankers Trust Company, N.A.",
+      "state": "IL",
+      "assets_millions": 1224,
+      "date": "2026-11-14",
+      "summary": "First Bankers Trust (Quincy, IL) named Melinda Boyer chief transformation officer, a new role leading process reengineering, automation and AI; she keeps oversight of HR.",
+      "source_url": "https://muddyrivernews.com/communities/illinois/first-bankers-trust-company-n-a-names-melinda-boyer-chief-transformation-officer/20261114075300/",
+      "assets_note": "~$1.224B at 6/30/2026 per Verifier (FDIC CERT 16501)",
+      "assets_source": "FDIC 6/30/2026 per Verifier"
     }
   ]
 }
