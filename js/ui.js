@@ -5,7 +5,7 @@
   var t=document.getElementById("filters-toggle"),box=document.getElementById("filters");
   if(!t||!box)return;
   var panel=t.parentNode,cnt=document.getElementById("filters-count");
-  function active(){return [].filter.call(box.querySelectorAll("select,input"),function(e){return e.value&&e.value.trim()}).length}
+  function active(){return [].filter.call(box.querySelectorAll("select,input:not([type=checkbox])"),function(e){return e.value&&e.value.trim()}).length}
   function update(){
     var n=active();
     cnt.hidden=!n;cnt.textContent=n?n+" active":"";

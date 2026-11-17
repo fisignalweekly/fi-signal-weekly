@@ -48,14 +48,92 @@
   // because the credit union is named in the row.
   function charter(r){if(r.charter_type==="bank"||r.charter_type==="cu")return r.charter_type;return /credit union/i.test(r.institution)||/\b[A-Z]*CU\b/.test(r.institution)?"cu":"bank"}
   var FILTERS=["f-type","f-state","f-charter","f-assets","f-from","f-to","f-q"];
+  function selStates(){var v=$("f-state").value;return v?v.split(","):[]}
   function filtered(){
-    var t=$("f-type").value,s=$("f-state").value,c=$("f-charter").value,sz=$("f-assets").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
+    var t=$("f-type").value,s=selStates(),c=$("f-charter").value,sz=$("f-assets").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
     return all.filter(function(r){
-      return (!t||r.type===t)&&(!s||r.state===s)&&(!c||charter(r)===c)&&inTier(r,sz)&&(!from||r.date>=from)&&(!to||r.date<=to)&&
+      return (!t||r.type===t)&&(!s.length||s.indexOf(r.state)>-1)&&(!c||charter(r)===c)&&inTier(r,sz)&&(!from||r.date>=from)&&(!to||r.date<=to)&&
         (!q||(r.institution+" "+r.summary).toLowerCase().indexOf(q)>-1);
     }).sort(function(a,b){return a.date<b.date?1:-1});
   }
-  function rowUrl(id){return location.href.split("#")[0]+"#"+id}
+  // Row links never carry the current view: /#t217 always shows that row.
+  function rowUrl(id){return location.origin+location.pathname+"#"+id}
+
+  // ---- Saved territory views: every filter lives in the query string (plain URLs, no accounts, no tracking) ----
+  // ?type=merger&state=MI,OH&charter=cu&assets=1b-10b&from=2026-10-01&to=2026-11-30&q=core
+  // Opening such a URL restores the filters. A #tNNN anchor still wins: it clears filters that hide its row.
+  var PARAMS=[["type","f-type"],["state","f-state"],["charter","f-charter"],["assets","f-assets"],["from","f-from"],["to","f-to"],["q","f-q"]];
+  function viewQuery(){
+    return PARAMS.map(function(p){var v=$(p[1]).value.trim();return v?p[0]+"="+encodeURIComponent(v).replace(/%2C/g,","):""}).filter(Boolean).join("&");
+  }
+  function viewUrl(){var q=viewQuery();return location.origin+location.pathname+(q?"?"+q:"")}
+  function syncUrl(dropRowHash){
+    if(!window.history||!history.replaceState)return;
+    var h=location.hash||"";if(dropRowHash&&/^#t\d+$/i.test(h))h="";
+    var q=viewQuery(),u=location.pathname+(q?"?"+q:"")+h;
+    if(u!==location.pathname+location.search+location.hash)history.replaceState(null,"",u);
+  }
+  function optOk(id,v){return [].some.call($(id).options,function(o){return o.value===v})}
+  function applyQuery(search){
+    var p=new URLSearchParams(search||""),get=function(k){return (p.get(k)||"").trim()};
+    ["type","charter","assets"].forEach(function(k){var id="f-"+k,v=get(k).toLowerCase();$(id).value=v&&optOk(id,v)?v:""});
+    ["from","to"].forEach(function(k){var v=get(k);$("f-"+k).value=/^\d{4}-\d{2}-\d{2}$/.test(v)?v:""});
+    $("f-q").value=get("q").slice(0,100);
+    setStates(get("state").toUpperCase().split(/[\s,]+/).filter(function(x){return USPS.indexOf(x)>-1}));
+  }
+  function clearFilters(){FILTERS.forEach(function(id){$(id).value=""});setStates([])}
+
+  // State picker: one or more states. The chosen states live in the hidden #f-state input as "MI,OH".
+  var stateCounts={};
+  var USPS="AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY PR GU VI AS MP".split(" ");
+  function setStates(list){
+    var seen={},v=list.filter(function(x){if(seen[x])return false;seen[x]=1;return true}).sort();
+    v.forEach(function(x){if(!(x in stateCounts)){stateCounts[x]=0;buildStateOpts()}});
+    $("f-state").value=v.join(",");
+    [].forEach.call($("f-state-opts").querySelectorAll("input"),function(cb){cb.checked=v.indexOf(cb.value)>-1});
+    $("f-state-text").textContent=!v.length?"All states":v.length<=3?v.join(", "):v.slice(0,2).join(", ")+" +"+(v.length-2);
+  }
+  function buildStateOpts(){
+    var box=$("f-state-opts"),cur=selStates();box.textContent="";
+    Object.keys(stateCounts).sort().forEach(function(st){
+      var l=el("label","ms-opt"),cb=document.createElement("input");cb.type="checkbox";cb.value=st;cb.checked=cur.indexOf(st)>-1;
+      l.appendChild(cb);l.appendChild(el("span",null,st));l.appendChild(el("small",null,String(stateCounts[st])));box.appendChild(l);
+    });
+  }
+  function statePicker(){
+    var btn=$("f-state-btn"),pop=$("f-state-pop"),wrap=$("f-state-wrap");
+    function open(on){pop.hidden=!on;btn.setAttribute("aria-expanded",on?"true":"false");wrap.classList.toggle("open",on)}
+    btn.addEventListener("click",function(){open(pop.hidden)});
+    $("f-state-done").addEventListener("click",function(){open(false);btn.focus()});
+    $("f-state-all").addEventListener("click",function(){setStates([]);changed()});
+    $("f-state-opts").addEventListener("change",function(e){
+      e.stopPropagation();
+      setStates([].filter.call($("f-state-opts").querySelectorAll("input"),function(c){return c.checked}).map(function(c){return c.value}));
+      changed();
+    });
+    document.addEventListener("click",function(e){if(!pop.hidden&&!wrap.contains(e.target))open(false)});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pop.hidden){open(false);btn.focus()}});
+  }
+  function changed(){shown=PAGE;render();syncUrl(true);var f=$("filters");if(f)f.dispatchEvent(new Event("change"))}
+
+  var toastTimer;
+  function toast(msg){var t=$("toast");if(!t)return;t.textContent=msg;t.hidden=false;t.classList.remove("show");void t.offsetWidth;t.classList.add("show");
+    clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove("show");t.hidden=true},2600)}
+  function copyText(text,done){
+    function fallback(){
+      var ta=document.createElement("textarea");ta.value=text;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.top="-1000px";
+      document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+      document.body.removeChild(ta);done(ok);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(function(){done(true)},fallback);else fallback();
+  }
+  function copyView(){
+    var u=viewUrl(),n=filtered().length;
+    copyText(u,function(ok){
+      if(ok)toast("Link copied: "+(viewQuery()?"this view ("+n+" triggers)":"the full board"));
+      else window.prompt("Copy this link:",u);
+    });
+  }
   function render(){
     var rows=filtered();
     var list=$("cards");list.textContent="";
@@ -92,12 +170,18 @@
   function init(data){
     all=data.rows;
     $("updated").textContent=fmtDate(data.updated);
-    var states=Array.from(new Set(all.map(function(r){return r.state}))).sort();
-    states.forEach(function(s){var o=el("option",null,s);o.value=s;$("f-state").appendChild(o)});
-    ["f-type","f-state","f-charter","f-assets","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",function(){shown=PAGE;render()})});
-    $("f-q").addEventListener("input",function(){shown=PAGE;render()});
-    $("reset").addEventListener("click",function(){FILTERS.forEach(function(id){$(id).value=""});shown=PAGE;render()});
-    render();
+    all.forEach(function(r){stateCounts[r.state]=(stateCounts[r.state]||0)+1});
+    buildStateOpts();statePicker();
+    ["f-type","f-charter","f-assets","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",changed)});
+    $("f-q").addEventListener("input",changed);
+    $("reset").addEventListener("click",function(){clearFilters();changed()});
+    $("copy-view").addEventListener("click",copyView);
+    [].forEach.call(document.querySelectorAll(".view-chip"),function(a){
+      a.addEventListener("click",function(e){e.preventDefault();applyQuery(a.getAttribute("href").split("?")[1]);changed();
+        var c=$("count");if(c&&c.getBoundingClientRect().top>window.innerHeight)c.scrollIntoView({block:"center"})});
+    });
+    applyQuery(location.search);
+    render();syncUrl(false);
     goToRow();
     window.addEventListener("hashchange",goToRow);
   }
@@ -110,7 +194,7 @@
     if(!all.some(function(r){return r.id===id}))return;
     var rows=filtered();
     idx=rows.findIndex(function(r){return r.id===id});
-    if(idx<0){FILTERS.forEach(function(f){$(f).value=""});rows=filtered();idx=rows.findIndex(function(r){return r.id===id});render()}
+    if(idx<0){clearFilters();rows=filtered();idx=rows.findIndex(function(r){return r.id===id});render();syncUrl(false);var f=$("filters");if(f)f.dispatchEvent(new Event("change"))}
     if(idx<0)return;
     if(idx>=shown)shown=Math.ceil((idx+1)/PAGE)*PAGE;
     if(!$(id))render();
