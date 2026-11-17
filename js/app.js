@@ -38,10 +38,9 @@
   function fmtDate(d){
     var p=d.split("-");return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
   }
-  // "New" = row went live on the board (r.added) within the last NEW_DAYS days
-  var NEW_DAYS=7,newCutoff=(function(){var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-NEW_DAYS);
-    return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)})();
-  function isNew(r){return !!r.added&&r.added>newCutoff}
+  // "New" = the row's publish date (r.added) is today's date in America/New_York (see js/newtag.js).
+  // Computed at load; a tab left open past midnight ET does not have to refresh itself.
+  function isNew(r){return FINew.isNew(r)}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   // Bank vs. credit union: the real charter (r.charter_type, from the FDIC / NCUA record linked by
   // scripts/link_institutions.py). Fallback for rows with no linked record, derived from the institution name:
