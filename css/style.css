@@ -141,3 +141,44 @@ nav{display:flex;align-items:center;flex-shrink:0}
 @media(max-width:350px){.logo .mark{display:none}}
 /* asset size on row cards (FDIC / NCUA call report): keep "$36.3B assets (2026Q2)" on one line */
 .meta .assets{white-space:nowrap}
+/* ---- Saved territory views (query-string filters, state multi-pick, quick views, copy link) ---- */
+.filters .views{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.views-label{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin-right:4px}
+.view-chip{display:inline-flex;align-items:center;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:.88rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.view-chip:hover{border-color:var(--navy-700);color:var(--navy-700)}
+.ms{position:relative}
+.ms-btn{display:flex;align-items:center;gap:8px;width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-weight:400;text-align:left}
+.ms-btn #f-state-text{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-btn .chev{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;flex-shrink:0}
+.ms.open .ms-btn{border-color:var(--navy-700);box-shadow:0 0 0 2px rgba(10,42,92,.15)}
+.ms-pop{position:absolute;z-index:30;top:calc(100% + 6px);left:0;width:380px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,15,38,.18);padding:10px}
+.ms-pop[hidden]{display:none}
+.ms-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;max-height:360px;overflow:auto}
+.ms-opt{display:flex;align-items:center;gap:5px;margin:0;padding:5px 6px;border-radius:6px;font-size:.9rem;font-weight:600;color:var(--ink);text-transform:none;letter-spacing:0;cursor:pointer}
+.ms-opt:hover{background:#F0F4FA}
+.ms-opt input{margin:0;width:16px;height:16px;accent-color:var(--navy-700);flex-shrink:0}
+.ms-opt small{color:var(--muted);font-weight:400;font-size:.75rem}
+.ms-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.ms-actions button{padding:8px 14px}
+.f-actions{display:flex;gap:8px;grid-column:span 2}
+.f-actions .copy-view{flex:1;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);z-index:50;max-width:calc(100vw - 32px);background:var(--navy-900);color:#fff;border-left:4px solid var(--signal);border-radius:10px;padding:12px 16px;font-weight:600;font-size:.95rem;box-shadow:0 8px 24px rgba(0,15,38,.3);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:759px){
+  .filters .views{gap:8px}
+  .views-label{width:100%;font-size:.85rem}
+  .view-chip{min-height:44px;font-size:.95rem;padding:0 14px}
+  .ms{position:static}
+  .ms-btn{min-height:44px;font-size:16px}
+  .filters{position:relative}
+  .ms-pop{left:6px;right:6px;width:auto;top:auto;margin-top:6px}
+  .ms-grid{grid-template-columns:repeat(4,minmax(0,1fr));max-height:min(52vh,380px)}
+  .ms-opt{min-height:44px;font-size:1rem;padding:0 3px;gap:4px}
+  .ms-opt input{width:18px;height:18px}
+  .ms-opt small{font-size:.8rem}
+  .ms-actions button{flex:1;min-height:44px}
+  .f-actions{grid-column:1/-1}
+  .filters .f-actions button{width:auto}
+  .f-actions #reset{flex:0 0 auto;padding:10px 18px}
+  .toast{bottom:16px;width:calc(100vw - 32px);text-align:center}
+}
