@@ -14,7 +14,8 @@ use these strings (checked Nov 17, 2026):
     cuex-*  executive                   -> cu_executive       (CU exec move)
     cumg-*  merger, acquisition         -> cu_merger          (CU merger)
     cucr-*  core                        -> core               (these two rows are core conversions, not charter changes)
-A row already typed with a board type (e.g. cu_charter) keeps it.
+    db-*    (any staging trigger_type)  -> digital_banking_change  (Phase 1 digital-banking; staging starts Nov 18, 2026)
+A row already typed with a board type (e.g. cu_charter) keeps it. A db-* id always maps to digital_banking_change.
 """
 import sys
 
@@ -26,6 +27,7 @@ TYPES = {
     "cu_executive": "CU exec move",
     "cu_merger": "CU merger",
     "cu_charter": "CU charter change",
+    "digital_banking_change": "Digital banking change",
 }
 
 # (staging id prefix, staging trigger_type) -> board type
@@ -38,12 +40,20 @@ STAGING_MAP = {
 }
 
 
+# Prefixes that always map to one board type (db-* = Phase 1 digital-banking rows).
+PREFIX_MAP = {
+    "db": "digital_banking_change",
+}
+
+
 def board_type(row_id, trigger_type):
     """Board type for a staging row, or raise ValueError if it has no mapping."""
     prefix = (row_id or "").split("-", 1)[0].lower()
     t = (trigger_type or "").strip().lower()
     if (prefix, t) in STAGING_MAP:
         return STAGING_MAP[(prefix, t)]
+    if prefix in PREFIX_MAP:
+        return PREFIX_MAP[prefix]
     if t in TYPES:
         return t
     raise ValueError(f"no board type for {row_id!r} / {trigger_type!r}")

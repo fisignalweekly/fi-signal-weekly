@@ -3,7 +3,7 @@
   --navy-900:#000F26;--navy-800:#031940;--navy-700:#0A2A5C;--signal:#40E737;--signal-ink:#15803D;
   --on-dark:#FFFFFF;--on-dark-muted:#A8BACC;
   --bg:#F4F7FB;--card:#FFFFFF;--ink:#0B1B33;--muted:#4A5B73;--line:#DCE3EE;--brand:#1450B8;
-  --merger:#7C3AED;--core:#0E7490;--executive:#B45309}
+  --merger:#7C3AED;--core:#0E7490;--executive:#B45309;--digital_banking_change:#1D4ED8}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
 a{color:var(--brand)}
@@ -27,11 +27,11 @@ button.ghost{background:#E6ECF5;color:var(--ink)}
 .count{color:var(--muted);margin:0 0 10px;font-size:.9rem}
 .cards{display:grid;gap:12px;padding:0;margin:0;list-style:none}
 .card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy-700);border-radius:10px;padding:14px 16px}
-.card.merger{border-left-color:var(--merger)}.card.core{border-left-color:var(--core)}.card.executive{border-left-color:var(--executive)}
+.card.merger{border-left-color:var(--merger)}.card.core{border-left-color:var(--core)}.card.executive{border-left-color:var(--executive)}.card.digital_banking_change{border-left-color:var(--digital_banking_change)}
 .card h3{margin:0 0 4px;font-size:1.05rem}
 .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.82rem;color:var(--muted);margin-bottom:6px;align-items:center}
 .badge{display:inline-block;padding:2px 9px;border-radius:999px;color:#fff;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
-.badge.merger{background:var(--merger)}.badge.core{background:var(--core)}.badge.executive{background:var(--executive)}
+.badge.merger{background:var(--merger)}.badge.core{background:var(--core)}.badge.executive{background:var(--executive)}.badge.digital_banking_change{background:var(--digital_banking_change)}
 .card p{margin:0 0 8px}
 .card .src{font-size:.88rem;font-weight:600}
 .empty{padding:24px;text-align:center;color:var(--muted)}
@@ -205,7 +205,7 @@ nav{display:flex;align-items:center;flex-shrink:0}
 .facts dd{margin:0;overflow-wrap:anywhere}
 .sig-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .sig-list .sig{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy-700);border-radius:10px;padding:12px 14px}
-.sig-list .sig.merger{border-left-color:var(--merger)}.sig-list .sig.core{border-left-color:var(--core)}.sig-list .sig.executive{border-left-color:var(--executive)}
+.sig-list .sig.merger{border-left-color:var(--merger)}.sig-list .sig.core{border-left-color:var(--core)}.sig-list .sig.executive{border-left-color:var(--executive)}.sig-list .sig.digital_banking_change{border-left-color:var(--digital_banking_change)}
 .sig-list p{margin:0 0 6px}
 .sig-inst{display:block;font-weight:700;margin-bottom:2px}
 .sig-links{display:flex;flex-wrap:wrap;gap:4px 18px;font-weight:600;font-size:.9rem}
