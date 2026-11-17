@@ -14,11 +14,16 @@
     return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)})();
   function isNew(r){return !!r.added&&r.added>newCutoff}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
-  var FILTERS=["f-type","f-state","f-from","f-to","f-q"];
+  // Bank vs. credit union, derived from the institution name (there is no charter field in triggers.json):
+  // "Credit Union" anywhere, or an all-caps word ending in "CU" (CU, FCU, TDECU, WSECU, GECU, DFCU) => credit union;
+  // everything else => bank. Cross-charter deals (a credit union buying a bank) count as credit union,
+  // because the credit union is named in the row.
+  function charter(r){return /credit union/i.test(r.institution)||/\b[A-Z]*CU\b/.test(r.institution)?"cu":"bank"}
+  var FILTERS=["f-type","f-state","f-charter","f-from","f-to","f-q"];
   function filtered(){
-    var t=$("f-type").value,s=$("f-state").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
+    var t=$("f-type").value,s=$("f-state").value,c=$("f-charter").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
     return all.filter(function(r){
-      return (!t||r.type===t)&&(!s||r.state===s)&&(!from||r.date>=from)&&(!to||r.date<=to)&&
+      return (!t||r.type===t)&&(!s||r.state===s)&&(!c||charter(r)===c)&&(!from||r.date>=from)&&(!to||r.date<=to)&&
         (!q||(r.institution+" "+r.summary).toLowerCase().indexOf(q)>-1);
     }).sort(function(a,b){return a.date<b.date?1:-1});
   }
@@ -61,7 +66,7 @@
     $("updated").textContent=fmtDate(data.updated);
     var states=Array.from(new Set(all.map(function(r){return r.state}))).sort();
     states.forEach(function(s){var o=el("option",null,s);o.value=s;$("f-state").appendChild(o)});
-    ["f-type","f-state","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",function(){shown=PAGE;render()})});
+    ["f-type","f-state","f-charter","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",function(){shown=PAGE;render()})});
     $("f-q").addEventListener("input",function(){shown=PAGE;render()});
     $("reset").addEventListener("click",function(){FILTERS.forEach(function(id){$(id).value=""});shown=PAGE;render()});
     render();
