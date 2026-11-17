@@ -182,3 +182,9 @@ nav{display:flex;align-items:center;flex-shrink:0}
   .f-actions #reset{flex:0 0 auto;padding:10px 18px}
   .toast{bottom:16px;width:calc(100vw - 32px);text-align:center}
 }
+/* ---- Credit-union trigger types (scripts/trigger_types.py). "CU buys bank" is highlighted in pulse green. ---- */
+:root{--cu_acquires_bank:#15803D;--cu_executive:#9A3412;--cu_merger:#5B21B6;--cu_charter:#BE185D}
+.card.cu_acquires_bank{border-left-color:var(--signal);background:linear-gradient(90deg,#EFFCEE,#fff 60%);box-shadow:0 0 0 1px #9BEF95}
+.card.cu_executive{border-left-color:var(--cu_executive)}.card.cu_merger{border-left-color:var(--cu_merger)}.card.cu_charter{border-left-color:var(--cu_charter)}
+.badge.cu_acquires_bank{background:var(--signal);color:var(--navy-900)}
+.badge.cu_executive{background:var(--cu_executive)}.badge.cu_merger{background:var(--cu_merger)}.badge.cu_charter{background:var(--cu_charter)}
