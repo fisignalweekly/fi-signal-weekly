@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "rows": [
     {
       "type": "merger",
@@ -4015,6 +4015,74 @@
       "fi_assets_as_of": "2026Q2",
       "fi_assets_date": "2026-06-30",
       "fi_match": "id_in_note"
+    },
+    {
+      "id": "t222",
+      "type": "executive",
+      "institution": "Origin Bank (Origin Bancorp)",
+      "state": "LA",
+      "date": "2026-11-16",
+      "added": "2026-11-17",
+      "summary": "Origin Bancorp (Ruston, LA) appointed Derek McGee, previously its chief legal counsel, as Chief Operating Officer effective Nov 13, 2026, per its SEC 8-K.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1516912/000151691226000070/obnk-20261113.htm",
+      "fi_id": "fdic-12614",
+      "fi_name": "Origin Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 10177963000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
+    },
+    {
+      "id": "t223",
+      "type": "executive",
+      "institution": "WesBanco, Inc. (WesBanco Bank)",
+      "state": "WV",
+      "date": "2026-11-16",
+      "added": "2026-11-17",
+      "summary": "WesBanco appointed Matthew Coppola Executive Vice President and Chief Credit Officer, effective Nov 16, 2026.",
+      "source_url": "https://investor.wesbanco.com/news/news-details/2026/WesBanco-Inc--Appoints-Matthew-Coppola-as-Chief-Credit-Officer/default.aspx",
+      "fi_id": "fdic-803",
+      "fi_name": "WesBanco Bank, Inc.",
+      "charter_type": "bank",
+      "fi_assets_usd": 27745993000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
+    },
+    {
+      "id": "t224",
+      "type": "executive",
+      "institution": "Unity Bancorp (Unity Bank)",
+      "state": "NJ",
+      "date": "2026-11-16",
+      "added": "2026-11-17",
+      "summary": "Unity Bank named Minsu Kim Chief Lending Officer effective Nov 12, 2026 after James Donovan retired, and it plans to search for a new Chief Credit Officer, per its SEC 8-K.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/920427/000119312526463384/unty-20261112.htm",
+      "fi_id": "fdic-33503",
+      "fi_name": "Unity Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3184193000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
+    },
+    {
+      "id": "t225",
+      "type": "executive",
+      "institution": "Chartway Credit Union",
+      "state": "VA",
+      "date": "2026-11-09",
+      "added": "2026-11-17",
+      "summary": "Chartway Credit Union (Virginia Beach, VA) appointed Dustin Montoya, formerly chief technology officer at Elevations Credit Union, as chief information officer, based in Salt Lake City.",
+      "source_url": "https://www.chartway.com/post/chartway_credit_union_welcomes_dustin_montoya_as_chief_information_officer.html",
+      "fi_id": "ncua-13242",
+      "fi_name": "Chartway",
+      "charter_type": "cu",
+      "fi_assets_usd": 3228466783,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     }
   ]
 }
