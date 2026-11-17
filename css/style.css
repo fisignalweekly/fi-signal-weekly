@@ -47,3 +47,8 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem}
 .muted-inline{font-size:.8rem}
 nav a.follow-x{color:var(--brand)}
 .tag-new{display:inline-block;padding:1px 7px;border-radius:999px;background:#16a34a;color:#fff;font-weight:800;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle;margin-left:8px}
+.card{scroll-margin-top:24px}
+.card .row-link{font-size:.8rem;margin-left:14px;color:var(--muted);text-decoration:none}
+.card .row-link:hover{color:var(--brand);text-decoration:underline}
+@keyframes rowhl{0%,60%{box-shadow:0 0 0 3px #16a34a,0 0 18px rgba(22,163,74,.45)}100%{box-shadow:0 0 0 3px rgba(22,163,74,0),0 0 18px rgba(22,163,74,0)}}
+.card.row-hl{animation:rowhl 6s ease-out forwards}
