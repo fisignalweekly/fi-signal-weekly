@@ -35,10 +35,11 @@ python3 scripts/read_candidates.py --n 40       # fetches each source_url, print
 - Focus: CEO, president, CFO, COO, CIO/CTO, chief digital / technology / lending / credit / risk / operations officers, head of retail or commercial banking.
 
 ## 5. Update the data
-1. Edit `data/triggers.json`: add rows (next `id`), bump top-level `updated`.
-2. Fields: `type` (merger|core|executive), `institution`, `state` (2-letter), `assets_millions` (number or null), `date`, `summary` (one line), `source_url`, optional `assets_note`, `assets_source`.
-3. `python3 scripts/validate.py` (checks schema), then `python3 -m http.server 8000` and eyeball filters.
-4. Publish the site, then send the Friday digest from the newest rows (not automated yet).
+1. Edit `data/triggers.json`: add rows (next `id`), bump top-level `updated` to the publish date (the site shows it as "Board updated"; it is the date the board data last changed, not an event date).
+2. Fields: `type` (merger|core|executive), `institution`, `state` (2-letter), `assets_millions` (number or null), `date` (event/announcement date), `added` (publish date the row went live, `YYYY-MM-DD`), `summary` (one line), `source_url`, optional `assets_note`, `assets_source`.
+3. `python3 scripts/stamp_added.py` sets `added` = top-level `updated` on any new row that lacks it (never changes existing rows). The board shows a "New" tag on rows whose `added` is within the last 7 days.
+4. `python3 scripts/validate.py` (checks schema, warns on rows missing `added`), then `python3 -m http.server 8000` and eyeball filters.
+5. Publish the site, then send the Friday digest from the newest rows (not automated yet).
 
 ## Automation ideas (later)
 - Script the NCUA table scrape + diff against last week's dockets to flag new mergers.
