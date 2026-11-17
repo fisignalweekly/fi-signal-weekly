@@ -1,7 +1,7 @@
 (function(){
   // Board types; scripts/trigger_types.py is the master list (validate.py checks this matches).
   var TYPE_LABEL={merger:"Pending merger",core:"Core renewal / conversion",executive:"New executive",
-    cu_acquires_bank:"CU buys bank",cu_executive:"CU exec move",cu_merger:"CU merger",cu_charter:"CU charter change"};
+    cu_acquires_bank:"CU buys bank",cu_executive:"CU exec move",cu_merger:"CU merger",cu_charter:"CU charter change",digital_banking_change:"Digital banking change"};
   var PAGE=30,shown=PAGE,all=[],fiPaths={},$=function(id){return document.getElementById(id)};
   function fmtAssets(m){
     if(m==null) return "Assets n/a";

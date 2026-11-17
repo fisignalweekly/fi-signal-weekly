@@ -21,9 +21,9 @@ Navy and pulse green are sampled from the X avatar and header (`img/mark-512.png
 | Page background | `#F4F7FB` | Page background |
 | Card | `#FFFFFF` | Board cards and panels |
 | Line | `#DCE3EE` | Borders |
-| Merger / Core / Executive | `#7C3AED` / `#0E7490` / `#B45309` | Signal-type badges (white text) |
+| Merger / Core / Executive / Digital banking change | `#7C3AED` / `#0E7490` / `#B45309` / `#1D4ED8` | Signal-type badges (white text) |
 
-Contrast (WCAG AA, 4.5:1 for normal text): white on Navy 900 19.2:1; pulse green on Navy 900 11.6:1; on-dark muted on Navy 900 9.6:1; ink on page background 16.0:1; muted on white 6.9:1; link on white 7.3:1; white on the three badge colors 5.7 / 5.4 / 5.0:1; white on `#15803D` 5.0:1. Pulse green on white is only 1.6:1, so never use it for text on light backgrounds.
+Contrast (WCAG AA, 4.5:1 for normal text): white on Navy 900 19.2:1; pulse green on Navy 900 11.6:1; on-dark muted on Navy 900 9.6:1; ink on page background 16.0:1; muted on white 6.9:1; link on white 7.3:1; white on the merger / core / executive / digital-banking badge colors 5.7 / 5.4 / 5.0 / 6.7:1; white on `#15803D` 5.0:1. Pulse green on white is only 1.6:1, so never use it for text on light backgrounds.
 
 ## Logo and mark
 
