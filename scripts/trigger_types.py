@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Board trigger types: the one place that lists them and maps staging rows onto them.
+
+    python3 scripts/trigger_types.py                         # list board types and labels
+    python3 scripts/trigger_types.py cuex-foo-2026-11-01 executive   # print the board type for a staging row
+
+TYPES is what data/triggers.json "type" may hold (scripts/validate.py checks it). The site's labels live in
+js/app.js (TYPE_LABEL), index.html (#f-type options) and css/style.css (.card.<type>, .badge.<type>);
+validate.py checks that every type here appears in each of them.
+
+Staging files (staging.tsv, cu_verified_ready.tsv) carry a trigger_type per row. The credit-union batch rows
+use these strings (checked Nov 17, 2026):
+    cuab-*  cu_acquires_bank            -> cu_acquires_bank   (CU buys bank)
+    cuex-*  executive                   -> cu_executive       (CU exec move)
+    cumg-*  merger, acquisition         -> cu_merger          (CU merger)
+    cucr-*  core                        -> core               (these two rows are core conversions, not charter changes)
+A row already typed with a board type (e.g. cu_charter) keeps it.
+"""
+import sys
+
+TYPES = {
+    "merger": "Pending merger",
+    "core": "Core renewal / conversion",
+    "executive": "New executive",
+    "cu_acquires_bank": "CU buys bank",
+    "cu_executive": "CU exec move",
+    "cu_merger": "CU merger",
+    "cu_charter": "CU charter change",
+}
+
+# (staging id prefix, staging trigger_type) -> board type
+STAGING_MAP = {
+    ("cuab", "cu_acquires_bank"): "cu_acquires_bank",
+    ("cuex", "executive"): "cu_executive",
+    ("cumg", "merger"): "cu_merger",
+    ("cumg", "acquisition"): "cu_merger",
+    ("cucr", "core"): "core",
+}
+
+
+def board_type(row_id, trigger_type):
+    """Board type for a staging row, or raise ValueError if it has no mapping."""
+    prefix = (row_id or "").split("-", 1)[0].lower()
+    t = (trigger_type or "").strip().lower()
+    if (prefix, t) in STAGING_MAP:
+        return STAGING_MAP[(prefix, t)]
+    if t in TYPES:
+        return t
+    raise ValueError(f"no board type for {row_id!r} / {trigger_type!r}")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 3:
+        try:
+            print(board_type(sys.argv[1], sys.argv[2]))
+        except ValueError as ex:
+            sys.exit(str(ex))
+    else:
+        for k, v in TYPES.items():
+            print(f"{k}\t{v}")

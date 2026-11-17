@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
-import json,sys,re
+import json,sys,re,os
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+from trigger_types import TYPES  # the one list of board types
 d=json.load(open("data/triggers.json"));ok=True
+# every board type needs its label, filter option and colors on the site
+_app,_idx,_css=(open(p).read() for p in ("js/app.js","index.html","css/style.css"))
+for t,label in TYPES.items():
+    if not re.search(r"\b"+t+r':"'+re.escape(label)+'"',_app): print("type missing from js/app.js TYPE_LABEL:",t);ok=False
+    if 'value="'+t+'"' not in _idx: print("type missing from #f-type in index.html:",t);ok=False
+    if ".badge."+t not in _css or ".card."+t not in _css: print("type missing colors in css/style.css:",t);ok=False
 for r in d["rows"]:
     for k in ("id","type","institution","state","date","summary","source_url"):
         if not r.get(k): print("missing",k,r.get("id"));ok=False
-    if r["type"] not in("merger","core","executive"): print("bad type",r["id"]);ok=False
+    if r["type"] not in TYPES: print("bad type",r["id"],r["type"]);ok=False
     if not re.match(r"\d{4}-\d{2}-\d{2}$",r["date"]): print("bad date",r["id"]);ok=False
     if not r["source_url"].startswith("http"): print("bad url",r["id"]);ok=False
     # "added" = date the row went live on the board (drives the "New" tag); set it with scripts/stamp_added.py
