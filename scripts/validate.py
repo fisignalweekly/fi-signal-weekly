@@ -15,7 +15,7 @@ for r in d["rows"]:
     if r["type"] not in TYPES: print("bad type",r["id"],r["type"]);ok=False
     if not re.match(r"\d{4}-\d{2}-\d{2}$",r["date"]): print("bad date",r["id"]);ok=False
     if not r["source_url"].startswith("http"): print("bad url",r["id"]);ok=False
-    # "added" = date the row went live on the board (drives the "New" tag); set it with scripts/stamp_added.py
+    # "added" = date the row went live on the board (drives the "New" tag, shown only that ET calendar day); set it with scripts/stamp_added.py
     if "added" not in r: print("warning: missing added (run scripts/stamp_added.py)",r["id"])
     elif not re.match(r"\d{4}-\d{2}-\d{2}$",str(r["added"])): print("bad added",r["id"]);ok=False
 if not re.match(r"\d{4}-\d{2}-\d{2}$",str(d.get("updated",""))): print("bad top-level updated");ok=False
