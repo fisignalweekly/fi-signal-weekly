@@ -188,3 +188,66 @@ nav{display:flex;align-items:center;flex-shrink:0}
 .card.cu_executive{border-left-color:var(--cu_executive)}.card.cu_merger{border-left-color:var(--cu_merger)}.card.cu_charter{border-left-color:var(--cu_charter)}
 .badge.cu_acquires_bank{background:var(--signal);color:var(--navy-900)}
 .badge.cu_executive{background:var(--cu_executive)}.badge.cu_merger{background:var(--cu_merger)}.badge.cu_charter{background:var(--cu_charter)}
+/* ---- FI directory (/fi/, built by scripts/build_directory.py) ---- */
+.dir main.wrap{padding-bottom:8px}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;margin:18px 0 6px;font-size:.88rem;color:var(--muted)}
+.crumbs a{color:var(--muted);font-weight:600}
+.crumbs .sep{color:var(--line)}
+.dir h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:4px 0 6px}
+.dir h2{font-size:1.15rem;margin:26px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fi-sub{color:var(--muted);margin:0 0 14px;max-width:680px}
+.count-pill{display:inline-block;background:#E6ECF5;color:var(--ink);border-radius:999px;padding:1px 10px;font-size:.8rem;font-weight:700}
+.dir-hero{padding-top:8px}
+.facts{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 16px}
+.facts>div{display:grid;grid-template-columns:170px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.facts>div:last-child{border-bottom:0}
+.facts dt{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;padding-top:2px}
+.facts dd{margin:0;overflow-wrap:anywhere}
+.sig-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sig-list .sig{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy-700);border-radius:10px;padding:12px 14px}
+.sig-list .sig.merger{border-left-color:var(--merger)}.sig-list .sig.core{border-left-color:var(--core)}.sig-list .sig.executive{border-left-color:var(--executive)}
+.sig-list p{margin:0 0 6px}
+.sig-inst{display:block;font-weight:700;margin-bottom:2px}
+.sig-links{display:flex;flex-wrap:wrap;gap:4px 18px;font-weight:600;font-size:.9rem}
+.more-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:18px 0 0;font-weight:600}
+.empty-note{color:var(--muted)}
+.fi-list{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fi-list li+li{border-top:1px solid var(--line)}
+.fi-list a{display:grid;grid-template-columns:1fr auto;gap:0 10px;align-items:center;padding:9px 14px;min-height:44px;text-decoration:none;color:var(--ink)}
+.fi-list a:hover{background:#F0F4FA}
+.fi-list .nm{font-weight:700;color:var(--brand);overflow-wrap:anywhere}
+.fi-list .sigs{grid-row:span 2;align-self:center;background:var(--signal-ink);color:#fff;border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:800;white-space:nowrap}
+.fi-list .sub{grid-column:1;font-size:.85rem;color:var(--muted)}
+.fi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.fi-grid li+li{border-top:0}
+.fi-grid li{border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.fi-search{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;align-items:end}
+.fi-search .fs-q{grid-column:1/-1}
+.fi-search .fs-sig{grid-column:1/-1}
+.fi-search input[type=search]{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:16px;background:#fff}
+label.check{display:inline-flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--ink);font-weight:600;margin:0;cursor:pointer}
+label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
+#fs-more-wrap{margin:12px 0 0}
+.card h3 .fi-link{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:3px}
+.card h3 .fi-link:hover{color:var(--brand);text-decoration-color:currentColor}
+@media(max-width:759px){
+  .crumbs{margin:12px 0 4px;font-size:.92rem}
+  .crumbs a{display:inline-flex;align-items:center;min-height:44px}
+  .facts{padding:2px 14px}
+  .facts>div{grid-template-columns:1fr;gap:2px;padding:10px 0}
+  .sig-links a,.more-links a{display:inline-flex;align-items:center;min-height:44px}
+  .facts dd a,.empty-note a{display:inline-flex;align-items:center;min-height:44px}
+  .facts>div{padding:6px 0}
+  .more-links{gap:0 18px}
+  .fi-list a{padding:10px 14px;min-height:52px}
+  .fi-grid{grid-template-columns:1fr 1fr}
+  .fi-search{grid-template-columns:1fr 1fr;gap:12px 10px}
+  .fi-search .fs-q{grid-column:1/-1}
+  .fi-search>div{min-width:0}
+  .fi-search input[type=search]{min-height:48px}
+  label.check{min-height:44px}
+  .card h3 .fi-link{display:inline-flex;align-items:center;min-height:44px}
+}
+@media(max-width:459px){nav a.nav-dir{padding:0 6px}}
+.sig-list .sig.cu_acquires_bank{border-left-color:var(--signal);background:linear-gradient(90deg,#EFFCEE,#fff 60%);box-shadow:0 0 0 1px #9BEF95}
+.sig-list .sig.cu_executive{border-left-color:var(--cu_executive)}.sig-list .sig.cu_merger{border-left-color:var(--cu_merger)}.sig-list .sig.cu_charter{border-left-color:var(--cu_charter)}

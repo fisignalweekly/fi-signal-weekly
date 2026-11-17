@@ -2,7 +2,7 @@
   // Board types; scripts/trigger_types.py is the master list (validate.py checks this matches).
   var TYPE_LABEL={merger:"Pending merger",core:"Core renewal / conversion",executive:"New executive",
     cu_acquires_bank:"CU buys bank",cu_executive:"CU exec move",cu_merger:"CU merger",cu_charter:"CU charter change"};
-  var PAGE=30,shown=PAGE,all=[],$=function(id){return document.getElementById(id)};
+  var PAGE=30,shown=PAGE,all=[],fiPaths={},$=function(id){return document.getElementById(id)};
   function fmtAssets(m){
     if(m==null) return "Assets n/a";
     if(m>=1000) return "~$"+(m/1000).toFixed(m>=10000?0:1).replace(/\.0$/,"")+"B assets";
@@ -143,7 +143,8 @@
     if(!rows.length){var li=el("li","empty","No triggers match these filters.");list.appendChild(li);return}
     rows.slice(0,shown).forEach(function(r){
       var li=el("li","card "+r.type);li.id=r.id;
-      var h=el("h3",null,r.institution);
+      var h=el("h3"),fp=r.fi_id&&fiPaths[r.fi_id];
+      if(fp){var na=el("a","fi-link",r.institution);na.href=fp;na.title="Directory page: "+(r.fi_name||r.institution);h.appendChild(na)}else h.textContent=r.institution;
       if(isNew(r)){var tg=el("span","tag-new","New");tg.title="Added to the board "+fmtDate(r.added);h.appendChild(tg)}
       li.appendChild(h);
       var m=el("div","meta");
@@ -209,7 +210,10 @@
     clearTimeout(hlTimer);hlTimer=setTimeout(function(){card.classList.remove("row-hl")},6000);
   }
   if($("cards")){
-    fetch("data/triggers.json").then(function(r){return r.json()}).then(init).catch(function(){
+    // fi/linked.json (scripts/build_directory.py): fi_id -> directory page, used to link institution names.
+    // Optional: if it fails to load, names just stay plain text.
+    var links=fetch("fi/linked.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {}});
+    fetch("data/triggers.json").then(function(r){return r.json()}).then(function(d){return links.then(function(l){fiPaths=l||{};init(d)})}).catch(function(){
       $("cards").textContent="";$("cards").appendChild(el("li","empty","Couldn't load data/triggers.json. Serve the site over HTTP (e.g. python3 -m http.server)."));
     });
   }
