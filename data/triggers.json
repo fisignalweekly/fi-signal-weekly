@@ -11,7 +11,14 @@
       "summary": "Regulators approved SAFE's combination into BECU (WA, ~$29.4B); SAFE member vote closes Oct 27, 2026, with legal close targeted Jan 1, 2027.",
       "source_url": "https://www.safecu.org/safe-news/planned-combination-to-advance-to-SAFE-member-vote",
       "assets_note": "SAFE: 'more than $4.6B' per Nov 18, 2025 release",
-      "id": "t001"
+      "id": "t001",
+      "fi_id": "ncua-68366",
+      "fi_name": "SAFE",
+      "charter_type": "cu",
+      "fi_assets_usd": 4417704889,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "merger",
@@ -23,7 +30,14 @@
       "summary": "LGE (~$2.3B) merging into Ascend FCU (TN, ~$4.7B) after regulatory approval; LGE member vote Nov 9, target merger date Jan 1, 2027, full systems integration targeted Q1 2028.",
       "source_url": "https://www.cutoday.info/Fresh-Today/Regulators-Approve-7B-Ascend-LGE-Merger-Member-Vote-Begins",
       "assets_note": "Approximate, per CUToday",
-      "id": "t002"
+      "id": "t002",
+      "fi_id": "ncua-68581",
+      "fi_name": "Lge Community",
+      "charter_type": "cu",
+      "fi_assets_usd": 2408657733,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "merger",
@@ -35,7 +49,14 @@
       "summary": "NCUA approved WeStreet's merger into CommunityAmerica CU (KS, ~$10B); WeStreet member vote underway (NCUA lists Nov 20, 2026). Combined CU approaches $11B.",
       "source_url": "https://www.communityamerica.com/news/westreet-credit-union-merger",
       "assets_note": "'nearly $1 billion' per press release",
-      "id": "t003"
+      "id": "t003",
+      "fi_id": "ncua-24812",
+      "fi_name": "Westreet",
+      "charter_type": "cu",
+      "fi_assets_usd": 966834773,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "merger",
@@ -47,7 +68,14 @@
       "summary": "MSUFCU (~$9.3B) and UFCU (TX, ~$4.2B) announced a combination into a $13.5B, 850K-member credit union; closing likely summer 2027 pending approvals.",
       "source_url": "https://ufcu.org/about/news/detail/news/2026/10/13/ufcu-msufcu-combine",
       "assets_note": "Per press release",
-      "id": "t004"
+      "id": "t004",
+      "fi_id": "ncua-23279",
+      "fi_name": "Michigan State University",
+      "charter_type": "cu",
+      "fi_assets_usd": 8868387451,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "type": "merger",
@@ -59,7 +87,14 @@
       "summary": "Regulators approved CASE's merger with Team One CU (combined ~$1.1B, 76K+ members); CASE member vote concludes Oct 20, 2026, effective Jan 1, 2027.",
       "source_url": "https://www.casecu.org/bolder-together/merger-vote",
       "assets_note": "CASE standalone assets not verified; combined ~$1.1B",
-      "id": "t005"
+      "id": "t005",
+      "fi_id": "ncua-61908",
+      "fi_name": "Case",
+      "charter_type": "cu",
+      "fi_assets_usd": 400104470,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "merger",
@@ -72,7 +107,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/third-coast-bancshares-inc-and-great-plains-bancshares-inc-announce-definitive-merger-agreement-302900499.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 34207)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A34207&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t006"
+      "id": "t006",
+      "fi_id": "fdic-34207",
+      "fi_name": "Great Plains National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1928955000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "merger",
@@ -84,7 +126,14 @@
       "summary": "Peoples Bancorp (OH) to acquire Capital Bancorp in a ~$728M all-stock deal; combined ~$14B; Capital brings OpenSky, Windsor Advantage and mortgage units; close expected 1H 2027.",
       "source_url": "https://www.prnewswire.com/news-releases/peoples-bancorp-inc-and-capital-bancorp-inc-announce-merger-agreement-302893578.html",
       "assets_note": "~$3.9B at 6/30/2026 per press release",
-      "id": "t007"
+      "id": "t007",
+      "fi_id": "fdic-35278",
+      "fi_name": "Capital Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 3837265000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "type": "core",
@@ -96,7 +145,14 @@
       "summary": "Second-largest US credit union signed with Corelation to convert to KeyStone core as part of a multi-year transformation plan.",
       "source_url": "https://corelationinc.com/wp-content/uploads/2026/05/Corelation_SECU_PR_2026-0518.pdf",
       "assets_note": "'over $59 billion' per press release",
-      "id": "t008"
+      "id": "t008",
+      "fi_id": "ncua-66310",
+      "fi_name": "State Employees'",
+      "charter_type": "cu",
+      "fi_assets_usd": 59971279455,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "core",
@@ -108,7 +164,14 @@
       "summary": "Selected Corelation KeyStone as its core; conversion scheduled for July 2027.",
       "source_url": "https://corelationinc.com/wp-content/uploads/2026/02/Corelation_HanscomFCU_PR_2026-0303.pdf",
       "assets_note": "Per press release",
-      "id": "t009"
+      "id": "t009",
+      "fi_id": "ncua-9095",
+      "fi_name": "Hanscom",
+      "charter_type": "cu",
+      "fi_assets_usd": 2176313938,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "core",
@@ -120,7 +183,14 @@
       "summary": "Signed a new 10-year hosted Jack Henry Symitar core agreement via Synergent, plus five-year digital banking, bill pay and check services deals; converting to Symitar.",
       "source_url": "https://synergentcorp.com/company-news/central-maine-federal-credit-union-selects-synergent-for-core-processing-and-integrated-services/",
       "assets_note": null,
-      "id": "t010"
+      "id": "t010",
+      "fi_id": "ncua-6936",
+      "fi_name": "Central Maine",
+      "charter_type": "cu",
+      "fi_assets_usd": 145484838,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "core",
@@ -132,7 +202,14 @@
       "summary": "Selected Fiserv DNA as its future core processing platform, expanding a multi-solution Fiserv relationship.",
       "source_url": "https://investors.fiserv.com/news-releases/news-release-details/uw-credit-union-selects-dna-fiserv-power-its-next-stage-growth",
       "assets_note": null,
-      "id": "t011"
+      "id": "t011",
+      "fi_id": "ncua-66492",
+      "fi_name": "University of Wisconsin",
+      "charter_type": "cu",
+      "fi_assets_usd": 6716051700,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "type": "executive",
@@ -145,7 +222,14 @@
       "source_url": "https://ir.truist.com/2026-06-15-Truist-announces-Michael-P-Lyons-as-incoming-CEO",
       "assets_note": "FDIC, 6/30/2026 (CERT 9846)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A9846&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t012"
+      "id": "t012",
+      "fi_id": "fdic-9846",
+      "fi_name": "Truist Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 548346000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -158,7 +242,14 @@
       "source_url": "https://www.bangor.com/about-us/news/bangor-savings-bank-names-lannie-moffatt-as-next-president-and-ceo/",
       "assets_note": "FDIC, 6/30/2026 (CERT 18408)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A18408&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t013"
+      "id": "t013",
+      "fi_id": "fdic-18408",
+      "fi_name": "Bangor Savings Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 7739717000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -171,7 +262,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/700565/000117184326002841/f8k_042926.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 3705)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A3705&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t014"
+      "id": "t014",
+      "fi_id": "fdic-3705",
+      "fi_name": "First Mid Bank & Trust, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 9142999000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -184,7 +282,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/750558/000119312526221451/qnbc-20260513.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 7714)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A7714&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t015"
+      "id": "t015",
+      "fi_id": "fdic-7714",
+      "fi_name": "QNB Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2374999000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -197,7 +302,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1403475/000140347526000041/bmrc-20261016.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 32779; Bank of Marin, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A32779&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t016"
+      "id": "t016",
+      "fi_id": "fdic-32779",
+      "fi_name": "Bank of Marin",
+      "charter_type": "bank",
+      "fi_assets_usd": 3856103000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -210,7 +322,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/truist-announces-leadership-appointments-302910916.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 9846; Truist Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A9846&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t017"
+      "id": "t017",
+      "fi_id": "fdic-9846",
+      "fi_name": "Truist Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 548346000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -223,7 +342,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1702750/000119312526418064/by-20261008.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 20624; Byline Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A20624&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t018"
+      "id": "t018",
+      "fi_id": "fdic-20624",
+      "fi_name": "Byline Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 9909436000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -236,7 +362,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/712534/000071253426000067/frme-20261001.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 4365; First Merchants Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A4365&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t019"
+      "id": "t019",
+      "fi_id": "fdic-4365",
+      "fi_name": "First Merchants Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 21320482000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -249,7 +382,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1835385/000094337426000436/mbbc-20260930.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 29745; Marathon Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A29745&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t020"
+      "id": "t020",
+      "fi_id": "fdic-29745",
+      "fi_name": "Marathon Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 261059000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -262,7 +402,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001171/000114036126038424/ef20083218_8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 34352; City First Bank, National Association, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A34352&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t021"
+      "id": "t021",
+      "fi_id": "fdic-34352",
+      "fi_name": "City First Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 1562007000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -275,7 +422,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/73124/000007312426000057/ntrs-20260928.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 913; The Northern Trust Company, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A913&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t022"
+      "id": "t022",
+      "fi_id": "fdic-913",
+      "fi_name": "The Northern Trust Company",
+      "charter_type": "bank",
+      "fi_assets_usd": 178566494000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -288,7 +442,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000308/wfc-20260923.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 3511; Wells Fargo Bank, National Association, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A3511&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t023"
+      "id": "t023",
+      "fi_id": "fdic-3511",
+      "fi_name": "Wells Fargo Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 1907928000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -301,7 +462,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/709337/000143774926030756/fmnb20260918c_8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 6540; The Farmers National Bank of Canfield, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A6540&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t024"
+      "id": "t024",
+      "fi_id": "fdic-6540",
+      "fi_name": "The Farmers National Bank of Canfield",
+      "charter_type": "bank",
+      "fi_assets_usd": 7159502000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -314,7 +482,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1437479/000117494726000884/form8k-36361_enbf.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 7493; The Ephrata National Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A7493&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t025"
+      "id": "t025",
+      "fi_id": "fdic-7493",
+      "fi_name": "The Ephrata National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2389971000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -327,7 +502,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1108134/000119312526396127/d145233d8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 17798; Beacon Bank and Trust, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A17798&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t026"
+      "id": "t026",
+      "fi_id": "fdic-17798",
+      "fi_name": "Beacon Bank and Trust",
+      "charter_type": "bank",
+      "fi_assets_usd": 22201546000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -340,7 +522,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/714562/000110465926108611/tm2625641d1_8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 4382; First Financial Bank, National Association, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A4382&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t027"
+      "id": "t027",
+      "fi_id": "fdic-4382",
+      "fi_name": "First Financial Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 6171777000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -353,7 +542,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/743367/000110465926107929/bhb-20260915x8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 11971; Bar Harbor Bank & Trust, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A11971&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t028"
+      "id": "t028",
+      "fi_id": "fdic-11971",
+      "fi_name": "Bar Harbor Bank & Trust",
+      "charter_type": "bank",
+      "fi_assets_usd": 4734427000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -366,7 +562,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1531193/000110465926108950/tm2625756d1_8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 35530; First Carolina Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A35530&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t029"
+      "id": "t029",
+      "fi_id": "fdic-35530",
+      "fi_name": "First Carolina Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3405879000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -379,7 +582,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1275168/000162828026062528/fsbc-20260914.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 35361; Five Star Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A35361&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t030"
+      "id": "t030",
+      "fi_id": "fdic-35361",
+      "fi_name": "Five Star Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 5377033000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -392,7 +602,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/907471/000090747126000039/cash-20260914.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 30776; Pathward, National Association, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A30776&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t031"
+      "id": "t031",
+      "fi_id": "fdic-30776",
+      "fi_name": "Pathward, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 7313151000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -405,7 +622,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/708955/000070895526000155/ffbc-20260914.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 6600; First Financial Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A6600&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t032"
+      "id": "t032",
+      "fi_id": "fdic-6600",
+      "fi_name": "First Financial Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 22351293000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -418,7 +642,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/93751/000009375126000580/stt-20260911.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 14; State Street Bank and Trust Company, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A14&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t033"
+      "id": "t033",
+      "fi_id": "fdic-14",
+      "fi_name": "State Street Bank and Trust Company",
+      "charter_type": "bank",
+      "fi_assets_usd": 412620000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -431,7 +662,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1710482/000155278126000472/e26378_jmsb-8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 58243; John Marshall Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A58243&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t034"
+      "id": "t034",
+      "fi_id": "fdic-58243",
+      "fi_name": "John Marshall Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2398504000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -444,7 +682,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/944745/000119312526375432/civb-20260831.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 12982; Civista Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12982&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t035"
+      "id": "t035",
+      "fi_id": "fdic-12982",
+      "fi_name": "Civista Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 4286454000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -457,7 +702,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1336706/000133670626000068/npb-20260828.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 34953; Northpointe Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A34953&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t036"
+      "id": "t036",
+      "fi_id": "fdic-34953",
+      "fi_name": "Northpointe Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 7529347000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -470,7 +722,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/860413/000086041326000088/fibk-20260821.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 1105; First Interstate Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A1105&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t037"
+      "id": "t037",
+      "fi_id": "fdic-1105",
+      "fi_name": "First Interstate Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 25794971000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -483,7 +742,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/715072/000071507226000079/rnst-20260820.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 12437; Renasant Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A12437&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t038"
+      "id": "t038",
+      "fi_id": "fdic-12437",
+      "fi_name": "Renasant Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 26986725000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -496,7 +762,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/united-community-names-tom-speir-as-new-chief-financial-officer-302854656.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 16889; United Community Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A16889&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t039"
+      "id": "t039",
+      "fi_id": "fdic-16889",
+      "fi_name": "United Community Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 28987812000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -509,7 +782,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/763901/000119312526359008/d26601d8k.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 34968; Banco Popular de Puerto Rico, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A34968&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t040"
+      "id": "t040",
+      "fi_id": "fdic-34968",
+      "fi_name": "Banco Popular de Puerto Rico",
+      "charter_type": "bank",
+      "fi_assets_usd": 63342000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -522,7 +802,14 @@
       "source_url": "https://www.businesswire.com/news/home/20261006237951/en/Fifth-Third-Names-Darren-King-Head-of-the-Commercial-Bank",
       "assets_note": "FDIC, 6/30/2026 (CERT 6672; Fifth Third Bank, National Association, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A6672&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t041"
+      "id": "t041",
+      "fi_id": "fdic-6672",
+      "fi_name": "Fifth Third Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 299177000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -535,7 +822,14 @@
       "source_url": "https://stylemagazine.com/news/2026/oct/15/tdecu-promotes-jason-schneider-to-executive-vice-president-and-chief-operating-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 60705; Texas Dow Employees)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t042"
+      "id": "t042",
+      "fi_id": "ncua-60705",
+      "fi_name": "Texas Dow Employees",
+      "charter_type": "cu",
+      "fi_assets_usd": 5018855847,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -548,7 +842,14 @@
       "source_url": "https://www.daytondailynews.com/tncms/asset/editorial/2fb30565-84d2-5761-abfe-236b100ed447",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 66835; Day Air)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t043"
+      "id": "t043",
+      "fi_id": "ncua-66835",
+      "fi_name": "Day Air",
+      "charter_type": "cu",
+      "fi_assets_usd": 908755539,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -561,7 +862,14 @@
       "source_url": "https://www.cutoday.info/Fresh-Today/CAMPUS-USA-CEO-Jerry-Benton-To-Retire-Successor-Named",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 68391; Campus Usa)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t044"
+      "id": "t044",
+      "fi_id": "ncua-68391",
+      "fi_name": "Campus USA",
+      "charter_type": "cu",
+      "fi_assets_usd": 4043825914,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -574,7 +882,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/missy-key-announced-as-next-president-and-ceo-of-america-first-credit-union-302909201.html",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 24694; America First)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t045"
+      "id": "t045",
+      "fi_id": "ncua-24694",
+      "fi_name": "America First",
+      "charter_type": "cu",
+      "fi_assets_usd": 25985751122,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -587,7 +902,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/touchmark-bancshares-inc-announces-departure-of-chief-lending-officer-302909104.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 58687; Touchmark National Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A58687&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t046"
+      "id": "t046",
+      "fi_id": "fdic-58687",
+      "fi_name": "Touchmark National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 416900000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -600,7 +922,14 @@
       "source_url": "https://www.citybiz.co/article/918588/hatch-bank-appoints-former-holdings-financial-technologies-ceo-jason-garcia-as-chief-transformation-officer/",
       "assets_note": "FDIC, 6/30/2026 (CERT 25803; Hatch Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A25803&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t047"
+      "id": "t047",
+      "fi_id": "fdic-25803",
+      "fi_name": "Hatch Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 177458000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -613,7 +942,14 @@
       "source_url": "https://www.akbizmag.com/industry/finance/credit-union-1-hires-chief-information-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 66157; Credit Union 1)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t048"
+      "id": "t048",
+      "fi_id": "ncua-66157",
+      "fi_name": "Credit Union 1",
+      "charter_type": "cu",
+      "fi_assets_usd": 1700572787,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -626,7 +962,14 @@
       "source_url": "https://finance.yahoo.com/markets/stocks/articles/mid-penn-bank-names-christopher-193600053.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 9889; Mid Penn Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A9889&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t049"
+      "id": "t049",
+      "fi_id": "fdic-9889",
+      "fi_name": "Mid Penn Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 7038845000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -639,7 +982,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/southern-michigan-bank--trust-thanks-outgoing-ceo-for-his-service-announces-search-for-new-ceo-302902035.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 5019; Southern Michigan Bank & Trust, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A5019&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t050"
+      "id": "t050",
+      "fi_id": "fdic-5019",
+      "fi_name": "Southern Michigan Bank & Trust",
+      "charter_type": "bank",
+      "fi_assets_usd": 1681505000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -652,7 +1002,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/potomac-bank-announces-strategic-alignment-for-growth-with-appointment-of-lisa-kilgour-as-executive-vice-president-and-chief-operations-officer-302899781.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 9023; Potomac Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A9023&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t051"
+      "id": "t051",
+      "fi_id": "fdic-9023",
+      "fi_name": "Potomac Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 980213000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -665,7 +1022,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/potomac-bank-bolsters-commitment-to-innovation-with-announcement-of-anthony-ranghellis-promotion-to-chief-innovation-and-strategy-officer-302901343.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 9023; Potomac Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A9023&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t052"
+      "id": "t052",
+      "fi_id": "fdic-9023",
+      "fi_name": "Potomac Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 980213000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -678,7 +1042,14 @@
       "source_url": "https://www.cutoday.info/site/Fresh-Today/Secured-Advantage-FCU-Names-Maghupoy-New-CEO",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 12877; Secured Advantage)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t053"
+      "id": "t053",
+      "fi_id": "ncua-12877",
+      "fi_name": "Secured Advantage",
+      "charter_type": "cu",
+      "fi_assets_usd": 55718917,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -691,7 +1062,14 @@
       "source_url": "https://patch.com/massachusetts/marlborough/marlborough-bank-names-new-president-ceo",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 67864; St. Mary's)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t054"
+      "id": "t054",
+      "fi_id": "ncua-67864",
+      "fi_name": "St. Mary's",
+      "charter_type": "cu",
+      "fi_assets_usd": 1025753352,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -704,7 +1082,14 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1490906/000149090626000032/cffn-20260922.htm",
       "assets_note": "FDIC, 6/30/2026 (CERT 27981; Capitol Federal Savings Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A27981&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t055"
+      "id": "t055",
+      "fi_id": "fdic-27981",
+      "fi_name": "Capitol Federal Savings Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 9677291000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -717,7 +1102,14 @@
       "source_url": "https://www.americanbanker.com/list/unity-bancorp-names-first-new-ceo-in-22-years",
       "assets_note": "FDIC, 6/30/2026 (CERT 33503; Unity Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A33503&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t056"
+      "id": "t056",
+      "fi_id": "fdic-33503",
+      "fi_name": "Unity Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3184193000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -730,7 +1122,14 @@
       "source_url": "https://www.cuinsight.com/press-release/kitsap-credit-union-appoints-puneet-malhotra-as-chief-digital-experience-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 68576; Kitsap)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t057"
+      "id": "t057",
+      "fi_id": "ncua-68576",
+      "fi_name": "Kitsap",
+      "charter_type": "cu",
+      "fi_assets_usd": 2506976489,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -743,7 +1142,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/lake-ridge-bank-announces-casey-mcclyman-as-chief-credit-officer-as-pete-graven-retires-302881099.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 15091; Lake Ridge Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A15091&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t058"
+      "id": "t058",
+      "fi_id": "fdic-15091",
+      "fi_name": "Lake Ridge Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3353305000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -756,7 +1162,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/portage-community-bank-announces-new-president-302880678.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 34760; Portage Community Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A34760&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t059"
+      "id": "t059",
+      "fi_id": "fdic-34760",
+      "fi_name": "Portage Community Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 552199000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -769,7 +1182,14 @@
       "source_url": "https://hartfordbusiness.com/article/torrington-savings-bank-names-new-cfo-chief-risk-officer/",
       "assets_note": "FDIC, 6/30/2026 (CERT 16636; The Torrington Savings Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A16636&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t060"
+      "id": "t060",
+      "fi_id": "fdic-16636",
+      "fi_name": "The Torrington Savings Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1001277000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -782,7 +1202,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/huntington-names-brant-standridge-president-302872283.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 6560; The Huntington National Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A6560&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t061"
+      "id": "t061",
+      "fi_id": "fdic-6560",
+      "fi_name": "The Huntington National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 283073605000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -795,7 +1222,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/huntington-bank-names-ameesh-vakharia-chief-marketing-and-digital-products-officer-302866840.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 6560; The Huntington National Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A6560&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t062"
+      "id": "t062",
+      "fi_id": "fdic-6560",
+      "fi_name": "The Huntington National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 283073605000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -808,7 +1242,14 @@
       "source_url": "https://www.cuinsight.com/press-release/vocal-credit-union-appoints-dallas-rasmussen-as-president-and-ceo/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 68677; Vocal)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t063"
+      "id": "t063",
+      "fi_id": "ncua-68677",
+      "fi_name": "Vocal",
+      "charter_type": "cu",
+      "fi_assets_usd": 52601210,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -821,7 +1262,14 @@
       "source_url": "https://www.cuinsight.com/press-release/deseret-first-credit-union-names-annalesa-vernon-president-and-chief-executive-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 24708; Deseret First)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t064"
+      "id": "t064",
+      "fi_id": "ncua-24708",
+      "fi_name": "Deseret First",
+      "charter_type": "cu",
+      "fi_assets_usd": 1274027806,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -834,7 +1282,14 @@
       "source_url": "https://www.cutoday.info/Fresh-Today/Longtime-Reliant-CEO-Pamela-Heald-To-Retire-in-January",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 20258; Reliant Community)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t065"
+      "id": "t065",
+      "fi_id": "ncua-20258",
+      "fi_name": "Reliant Community",
+      "charter_type": "cu",
+      "fi_assets_usd": 788369192,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -847,7 +1302,14 @@
       "source_url": "https://www.tradingview.com/news/tradingview:512ebf9963eea:0-glacier-bancorp-appoints-byron-pollan-as-deputy-cfo-to-succeed-cfo-in-mid-2027/",
       "assets_note": "FDIC, 6/30/2026 (CERT 30788; Glacier Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A30788&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t066"
+      "id": "t066",
+      "fi_id": "fdic-30788",
+      "fi_name": "Glacier Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 31577225000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -860,7 +1322,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/home-federal-bank-announces-planned-ceo-transition-302860647.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 29683; Home Federal Bank of Tennessee, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A29683&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t067"
+      "id": "t067",
+      "fi_id": "fdic-29683",
+      "fi_name": "Home Federal Bank of Tennessee",
+      "charter_type": "bank",
+      "fi_assets_usd": 2725901000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -873,7 +1342,14 @@
       "source_url": "https://www.businesswire.com/news/home/20260825379637/en/Mission-Valley-Bank-Names-Brian-Carlson-President-and-CEO-in-Planned-Leadership-Succession",
       "assets_note": "FDIC, 6/30/2026 (CERT 57101; Mission Valley Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A57101&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t068"
+      "id": "t068",
+      "fi_id": "fdic-57101",
+      "fi_name": "Mission Valley Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 782004000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -886,7 +1362,14 @@
       "source_url": "https://www.bankingdive.com/news/cashmere-valley-bank-names-next-ceo/828707/",
       "assets_note": "FDIC, 6/30/2026 (CERT 1265; Cashmere Valley Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A1265&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t069"
+      "id": "t069",
+      "fi_id": "fdic-1265",
+      "fi_name": "Cashmere Valley Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2316834000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -899,7 +1382,14 @@
       "source_url": "https://www.cuinsight.com/press-release/peoples-credit-union-appoints-leiyina-tavarez-head-of-retail/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 65861; The Peoples)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t070"
+      "id": "t070",
+      "fi_id": "ncua-65861",
+      "fi_name": "The Peoples",
+      "charter_type": "cu",
+      "fi_assets_usd": 811196629,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -912,7 +1402,14 @@
       "source_url": "https://pennbizreport.com/news/33384-first-resource-bank-appoints-executive-vice-presidents/",
       "assets_note": "FDIC, 6/30/2026 (CERT 57967; First Resource Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A57967&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t071"
+      "id": "t071",
+      "fi_id": "fdic-57967",
+      "fi_name": "First Resource Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 840919000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -925,7 +1422,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/keycorp-appoints-chris-doll-as-chief-strategy-officer--deputy-cfo-302865196.html",
       "assets_note": "FDIC, 6/30/2026 (CERT 17534; KeyBank National Association, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A17534&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t072"
+      "id": "t072",
+      "fi_id": "fdic-17534",
+      "fi_name": "KeyBank National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 188555486000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -938,7 +1442,14 @@
       "source_url": "https://www.prnewswire.com/news-releases/harry-zhu-named-wsecus-next-president--ceo-302856682.html",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 60042; Washington State Employees)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t073"
+      "id": "t073",
+      "fi_id": "ncua-60042",
+      "fi_name": "Washington State Employees",
+      "charter_type": "cu",
+      "fi_assets_usd": 5088771078,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -951,7 +1462,14 @@
       "source_url": "https://www.cuinsight.com/press-release/vantage-west-credit-union-names-michelle-goeppner-chief-lending-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 68558; Vantage West)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t074"
+      "id": "t074",
+      "fi_id": "ncua-68558",
+      "fi_name": "Vantage West",
+      "charter_type": "cu",
+      "fi_assets_usd": 3336309495,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -964,7 +1482,14 @@
       "source_url": "https://www.cuinsight.com/press-release/neighbors-federal-credit-union-welcomes-cassidy-mcfarland-as-chief-financial-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 9229; Neighbors)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t075"
+      "id": "t075",
+      "fi_id": "ncua-9229",
+      "fi_name": "Neighbors",
+      "charter_type": "cu",
+      "fi_assets_usd": 1409039072,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -977,7 +1502,14 @@
       "source_url": "https://patch.com/alabama/tuscaloosa/bryant-bank-announces-leadership-changes-names-mike-mitchell-president",
       "assets_note": "FDIC, 6/30/2026 (CERT 57997; Bryant Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A57997&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t076"
+      "id": "t076",
+      "fi_id": "fdic-57997",
+      "fi_name": "Bryant Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2937170000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -990,7 +1522,14 @@
       "source_url": "https://talkbusiness.net/2026/08/arvest-bank-cfo-karla-payne-to-retire-successor-named/",
       "assets_note": "FDIC, 6/30/2026 (CERT 8728; Arvest Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A8728&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t077"
+      "id": "t077",
+      "fi_id": "fdic-8728",
+      "fi_name": "Arvest Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 28053172000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -1003,7 +1542,14 @@
       "source_url": "https://www.manilatimes.net/2026/08/18/tmt-newswire/globenewswire/calprivate-bank-announces-appointment-of-new-chief-credit-officer/2407170",
       "assets_note": "FDIC, 6/30/2026 (CERT 58291; CalPrivate Bank, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A58291&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t078"
+      "id": "t078",
+      "fi_id": "fdic-58291",
+      "fi_name": "CalPrivate Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2707809000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -1016,7 +1562,14 @@
       "source_url": "https://www.cuinsight.com/press-release/members-first-credit-union-promotes-john-pepmeier-to-chief-financial-officer/",
       "assets_note": "NCUA call report 2026-06 (NCUA charter 62076; Members First)",
       "assets_source": "https://ncua.gov/analysis/credit-union-corporate-call-report-data",
-      "id": "t079"
+      "id": "t079",
+      "fi_id": "ncua-62076",
+      "fi_name": "Members First",
+      "charter_type": "cu",
+      "fi_assets_usd": 905439582,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "type": "executive",
@@ -1029,7 +1582,14 @@
       "source_url": "https://www.manilatimes.net/2026/10/08/tmt-newswire/globenewswire/first-national-bank-alaska-announces-leadership-transition/2441221",
       "assets_note": "FDIC, 6/30/2026 (CERT 16130; First National Bank Alaska, bank-level)",
       "assets_source": "https://api.fdic.gov/banks/institutions?filters=CERT%3A16130&fields=NAME,STALP,ASSET,REPDTE",
-      "id": "t080"
+      "id": "t080",
+      "fi_id": "fdic-16130",
+      "fi_name": "First National Bank Alaska",
+      "charter_type": "bank",
+      "fi_assets_usd": 5123849000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t096",
@@ -1041,7 +1601,14 @@
       "added": "2026-10-30",
       "summary": "Pinnacle Bancorp ($20.2B, 164 branches, 8 states) agreed to acquire Southern Bancshares, parent of SouthStar Bank (Moulton, TX; $1.35B, 16 Central Texas locations plus an Austin LPO). Terms not disclosed; close expected January 2027 pending regulatory approval.",
       "source_url": "https://www.pinnbank.com/news/southstar-bank-acquisition",
-      "assets_note": "Pinnacle $20.2B; SouthStar $1.35B, per Pinnacle's Oct 8 release"
+      "assets_note": "Pinnacle $20.2B; SouthStar $1.35B, per Pinnacle's Oct 8 release",
+      "fi_id": "fdic-10634",
+      "fi_name": "Pinnacle Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 9177122000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t097",
@@ -1053,7 +1620,14 @@
       "added": "2026-10-30",
       "summary": "Members Plus CU (Medford) is sending corrected merger disclosures; ballots on merging into Metro CU are accepted through Dec 14, 2026 (special meeting Dec 14, Dorchester).",
       "source_url": "https://www.cuballot.com/docs/MPCU_Combined.pdf",
-      "assets_note": "Metro CU ~$3.3B, Members Plus ~$349M, NCUA 5300 call report 6/30/2026 (local copy)"
+      "assets_note": "Metro CU ~$3.3B, Members Plus ~$349M, NCUA 5300 call report 6/30/2026 (local copy)",
+      "fi_id": "ncua-66706",
+      "fi_name": "Members Plus",
+      "charter_type": "cu",
+      "fi_assets_usd": 348982599,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t098",
@@ -1065,7 +1639,14 @@
       "added": "2026-10-30",
       "summary": "Dime agreed to acquire ES Bancshares, parent of Staten Island-based Empire State Bank (~$596M at 9/30/26), for ~$58M (720,000 shares plus $30.0M cash). Empire State Bank merges into Dime; close expected Q1 2027 pending regulatory and Empire shareholder approval.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/846617/000110465926117199/tm2627821d1_ex99-2.htm",
-      "assets_note": "Dime ~$15B; Empire ~$596M, per release"
+      "assets_note": "Dime ~$15B; Empire ~$596M, per release",
+      "fi_id": "fdic-6976",
+      "fi_name": "Dime Commercial Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 15033530000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t099",
@@ -1077,7 +1658,14 @@
       "added": "2026-10-30",
       "summary": "North Shore Bank completed its merger with PyraMax Bank on Oct 31, 2026 (Brookfield, WI mutual, >$2.5B). Systems and branding transition planned for February 2027. Prior row was the Oct 13 all-approvals notice; this is the completion update.",
       "source_url": "https://www.northshorebank.com/about-us/pyramax-welcome",
-      "assets_note": "North Shore '>$2.5B' per prior verified release; PyraMax not disclosed"
+      "assets_note": "North Shore '>$2.5B' per prior verified release; PyraMax not disclosed",
+      "fi_id": "fdic-28679",
+      "fi_name": "North Shore Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2608511000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t100",
@@ -1089,7 +1677,14 @@
       "added": "2026-10-30",
       "summary": "Zions named Michael MacDonald President of its California Bank & Trust division, reporting to CB&T CEO Eric Ellingsen and overseeing commercial, corporate and specialty banking; he keeps leading Zions Capital Markets.",
       "source_url": "https://www.prnewswire.com/news-releases/california-bank--trust-names-michael-macdonald-as-president-302919729.html",
-      "assets_note": "No separate assets (division); Size scored on parent Zions Bancorporation, N.A. ($89.0B per Verifier)"
+      "assets_note": "No separate assets (division); Size scored on parent Zions Bancorporation, N.A. ($89.0B per Verifier)",
+      "fi_id": "fdic-2270",
+      "fi_name": "Zions Bancorporation, N.A.",
+      "charter_type": "bank",
+      "fi_assets_usd": 89041284000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t101",
@@ -1101,7 +1696,14 @@
       "added": "2026-10-30",
       "summary": "Tim Cox named U.S. Country Head and CEO of BMO Financial Corp. and BMO Bank N.A., effective Nov 1, 2026; Darrel Hackett retires as U.S. CEO and becomes Executive Vice-Chair & Senior Advisor.",
       "source_url": "https://www.prnewswire.com/news-releases/bmo-announces-executive-appointments-884231365.html",
-      "assets_note": "~$255B, FDIC 6/30/2026"
+      "assets_note": "~$255B, FDIC 6/30/2026",
+      "fi_id": "fdic-16571",
+      "fi_name": "BMO Bank National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 254972746000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t102",
@@ -1113,7 +1715,14 @@
       "added": "2026-10-30",
       "summary": "Drue Anderson (ex-JPMorgan Chase divisional director of consumer banking and head of virtual banking) named to lead Retail Banking, succeeding Kevin Sloan, who retires at the end of 2026.",
       "source_url": "https://www.prnewswire.com/news-releases/keybank-names-drue-anderson-to-lead-retail-banking-302893157.html",
-      "assets_note": "~$189B, FDIC 6/30/2026 bank-level (as in live row t072)"
+      "assets_note": "~$189B, FDIC 6/30/2026 bank-level (as in live row t072)",
+      "fi_id": "fdic-17534",
+      "fi_name": "KeyBank National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 188555486000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t103",
@@ -1125,7 +1734,14 @@
       "added": "2026-10-30",
       "summary": "8-K: Chief Information & Digital Officer Renato Derraik is resigning to pursue other endeavors (notice Oct 14); last day Nov 6, 2026.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1462120/000146212026000065/lob-20261014.htm",
-      "assets_note": "~$16B, FDIC 6/30/2026"
+      "assets_note": "~$16B, FDIC 6/30/2026",
+      "fi_id": "fdic-58665",
+      "fi_name": "Live Oak Banking Company",
+      "charter_type": "bank",
+      "fi_assets_usd": 15959938000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t104",
@@ -1137,7 +1753,14 @@
       "added": "2026-10-30",
       "summary": "Fed H.2 (week ending Oct 17) lists approval on Oct 9 of First Financial Bank, Cincinnati, to merge with Peoples Bank, Munster, IN, and a filing waiver for First Financial Bancorp to merge with Finward Bancorp. Close date not stated.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261017/delactions.htm",
-      "assets_note": "First Financial Bank $22.4B from existing site row t032 (FDIC 6/30/26); not re-checked this run"
+      "assets_note": "First Financial Bank $22.4B from existing site row t032 (FDIC 6/30/26); not re-checked this run",
+      "fi_id": "fdic-6600",
+      "fi_name": "First Financial Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 22351293000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t105",
@@ -1149,7 +1772,14 @@
       "added": "2026-10-30",
       "summary": "Arbor Bancorp agreed to buy Huron Valley Bancorp (Milford) for $59/share in cash, ~$52.1M; combined ~$3.8B; close expected late Q4 2026 or Q1 2027 pending regulatory and Huron Valley shareholder approval.",
       "source_url": "https://www.hvsb.com/Portals/0/HVSB%20Announcement.pdf?ver=z9mZDzw8osh-rvIS832_Xw%3D%3D",
-      "assets_note": "~$3.8B combined per release"
+      "assets_note": "~$3.8B combined per release",
+      "fi_id": "fdic-34120",
+      "fi_name": "Bank of Ann Arbor",
+      "charter_type": "bank",
+      "fi_assets_usd": 3496950000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t106",
@@ -1161,7 +1791,14 @@
       "added": "2026-10-30",
       "summary": "M&F's board unanimously reaffirmed its merger with Optus Bank and found Triad Business Bank's fourth proposal not superior; the Oct 20 special meeting was adjourned to Nov 4, 10 am. Combined ~$1.3B per Columbia Business Monthly.",
       "source_url": "https://www.mfbonline.com/mf-bancorp-board-responds-to-triad-business-banks-letter-and-reaffirms-unanimous-support-for-optus-merger/",
-      "assets_note": "~$1.3B combined per Columbia Business Monthly (secondary)"
+      "assets_note": "~$1.3B combined per Columbia Business Monthly (secondary)",
+      "fi_id": "fdic-12266",
+      "fi_name": "Mechanics & Farmers Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 475992000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t107",
@@ -1173,7 +1810,14 @@
       "added": "2026-10-30",
       "summary": "Both companies' shareholders approved Northrim's acquisition of PBCO on Oct 20; still subject to regulatory approvals; close expected on or about Jan 1, 2027.",
       "source_url": "https://www.globenewswire.com/news-release/2026/10/22/3386821/8875/en/northrim-bancorp-inc-and-pbco-financial-corporation-announce-shareholder-approvals-for-proposed-acquisition.html",
-      "assets_note": "Assets not in release (no FDIC check this run); Size scored 1"
+      "assets_note": "Assets not in release (no FDIC check this run); Size scored 1",
+      "fi_id": "fdic-33216",
+      "fi_name": "Northrim Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3395565000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t108",
@@ -1185,7 +1829,14 @@
       "added": "2026-10-30",
       "summary": "Utah DFI and NCUA approved the merger; P&S member vote began Oct 1; if approved, effective Dec 1, 2026, with operations combined over about a year. ~$94M combined, 5,700 members.",
       "source_url": "https://www.firefighterscu.com/about/news/firefighters-cu--ps-cu-to-merge/",
-      "assets_note": "~$94M combined per CU post"
+      "assets_note": "~$94M combined per CU post",
+      "fi_id": "ncua-67079",
+      "fi_name": "Firefighters",
+      "charter_type": "cu",
+      "fi_assets_usd": 69621137,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t109",
@@ -1197,7 +1848,14 @@
       "added": "2026-10-30",
       "summary": "Realigned an eight-member senior leadership team: Courtney Rowan Chief Growth Officer over a new Growth organization (digital, product and marketing strategy); Michael Desimone Chief Banking & Lending Officer; Don Scala COO; Chris Palumbo CRO; Eric Skinner CIO. No effective date given.",
       "source_url": "https://www.prnewswire.com/news-releases/citadel-credit-union-aligns-senior-leadership-to-power-its-next-chapter-of-growth-302920024.html",
-      "assets_note": "~$7.1B per release; NCUA $7.13B"
+      "assets_note": "~$7.1B per release; NCUA $7.13B",
+      "fi_id": "ncua-2099",
+      "fi_name": "Citadel",
+      "charter_type": "cu",
+      "fi_assets_usd": 6868260559,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t110",
@@ -1209,7 +1867,14 @@
       "added": "2026-10-30",
       "summary": "PenAir and Fort McClellan CU (Anniston, AL) plan to merge with PenAir continuing; needs regulatory approval and an FMCU member vote; legal merger expected 1H 2027, integration into 2028; 22 locations, 155K+ members combined.",
       "source_url": "https://www.penair.org/pressrelease/penair-credit-union-and-fort-mcclellan-credit-union-announce-merger-expanding-combined-organization-to-22-locations/",
-      "assets_note": "PenAir 'surpassing $2.7 billion' per release"
+      "assets_note": "PenAir 'surpassing $2.7 billion' per release",
+      "fi_id": "ncua-68734",
+      "fi_name": "Penair",
+      "charter_type": "cu",
+      "fi_assets_usd": 2823572366,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t111",
@@ -1221,7 +1886,14 @@
       "added": "2026-10-30",
       "summary": "DFCU Financial (Dearborn, $8B+) announced its intent to acquire Sarasota-based Gulfside Bank (~$345M at 6/30/26); both boards approved; subject to regulatory approval; rebrand and service integration planned for 2H 2027.",
       "source_url": "https://www.globenewswire.com/news-release/2026/10/19/3383565/0/en/dfcu-financial-announces-intent-to-acquire-gulfside-bank-further-expanding-florida-footprint.html",
-      "assets_note": "DFCU $8B+; Gulfside ~$345M, per release"
+      "assets_note": "DFCU $8B+; Gulfside ~$345M, per release",
+      "fi_id": "ncua-61844",
+      "fi_name": "DFCU Financial",
+      "charter_type": "cu",
+      "fi_assets_usd": 8040188023,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t112",
@@ -1233,7 +1905,14 @@
       "added": "2026-10-30",
       "summary": "President Joe Conover adds CEO of Northwest Bank effective Nov 1, 2026 and is named EVP of Northwest Financial Corp.; Greg Post steps down as bank CEO and stays President & CEO of the holding company.",
       "source_url": "https://www.nw.bank/blog-detail/news/2026/10/23/northwest-bank-names-joe-conover-president-and-chief-executive-office",
-      "assets_note": "$3.00B, FDIC 6/30/2026"
+      "assets_note": "$3.00B, FDIC 6/30/2026",
+      "fi_id": "fdic-32647",
+      "fi_name": "Northwest Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2999288000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t113",
@@ -1245,7 +1924,14 @@
       "added": "2026-10-30",
       "summary": "CEO John W. Bordelon retires effective Jan 8, 2027 and stays as Chairman; President Darren E. Guidry becomes CEO.",
       "source_url": "https://www.prnewswire.com/news-releases/home-bancorp-inc-announces-ceo-retirement-and-leadership-transition-302913111.html",
-      "assets_note": "~$3.6B, FDIC 6/30/2026"
+      "assets_note": "~$3.6B, FDIC 6/30/2026",
+      "fi_id": "fdic-28094",
+      "fi_name": "Home Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 3602958000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t114",
@@ -1257,7 +1943,14 @@
       "added": "2026-10-30",
       "summary": "Leadership reshuffle: Brie Husk named Chief Operations Officer; Jeff Smith Chief Credit & Impact Officer; Kathryn Lagerstedt Chief Experience Officer; Ryan Keighley VP of IT; Shawna Bell VP of Innovation, Digital & Payments. Transitions finish by early January 2027.",
       "source_url": "https://www.prnewswire.com/news-releases/northcountry-federal-credit-union-building-a-strong-future-with-big-promotions-302897613.html",
-      "assets_note": "~$1.1B per NCUA 6/30/2026 ($1.136B)"
+      "assets_note": "~$1.1B per NCUA 6/30/2026 ($1.136B)",
+      "fi_id": "ncua-24312",
+      "fi_name": "North Country",
+      "charter_type": "cu",
+      "fi_assets_usd": 1135850757,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t115",
@@ -1269,7 +1962,14 @@
       "added": "2026-10-30",
       "summary": "Temenos announced Sound Credit Union (Tacoma) selected Temenos Collections, delivered as SaaS, to modernize its collections operations. No timeline given. Collections software, filed as 'core' (nearest site type).",
       "source_url": "https://www.temenos.com/press_release/sound-credit-union-selects-temenos-saas-to-modernize-collections-operations/",
-      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)"
+      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)",
+      "fi_id": "ncua-66331",
+      "fi_name": "Sound",
+      "charter_type": "cu",
+      "fi_assets_usd": 3403158551,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t116",
@@ -1281,7 +1981,14 @@
       "added": "2026-10-30",
       "summary": "CEO Michael P. Daly announced his retirement, coinciding with the legal merger with Adams Community Bank into Trailmark Bank (divisions of Trailmark from Nov 2, 2026; conversion Dec 7). No retirement date stated; the charter ends at the merger.",
       "source_url": "https://www.iberkshires.com/story/84291/Pittsfield-Cooperative-Bank-CEO-Announces-Retirement-.html",
-      "assets_note": "~$452M, FDIC 6/30/2026"
+      "assets_note": "~$452M, FDIC 6/30/2026",
+      "fi_id": "fdic-26393",
+      "fi_name": "The Pittsfield Co-operative Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 451501000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t117",
@@ -1293,7 +2000,14 @@
       "added": "2026-10-30",
       "summary": "Walt Martin named next CEO; joins Jan 4, 2027 as CEO-elect and becomes CEO after a transition, succeeding Marshall Boutwell (CEO 32+ years).",
       "source_url": "https://www.cuinsight.com/press-release/peach-state-federal-credit-union-welcomes-mr-walt-martin-as-next-ceo/",
-      "assets_note": "$1.12B, NCUA 6/2026"
+      "assets_note": "$1.12B, NCUA 6/2026",
+      "fi_id": "ncua-14676",
+      "fi_name": "Peach State",
+      "charter_type": "cu",
+      "fi_assets_usd": 1119945792,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t118",
@@ -1305,7 +2019,14 @@
       "added": "2026-10-30",
       "summary": "Jeff Newgard (GBank President & CEO since June 2026, ex-Bank of Idaho) named President, CEO and director of GBank Financial Holdings; founder Edward Nigro stepped down as CEO and Executive Chair; James K. Sims becomes independent Chairman.",
       "source_url": "https://www.globenewswire.com/news-release/2026/10/22/3386923/0/en/gbank-financial-holdings-names-jeff-newgard-president-and-chief-executive-officer.html",
-      "assets_note": "$1.43B, FDIC 6/30/2026"
+      "assets_note": "$1.43B, FDIC 6/30/2026",
+      "fi_id": "fdic-58626",
+      "fi_name": "GBank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1427371000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t119",
@@ -1317,7 +2038,14 @@
       "added": "2026-10-30",
       "summary": "COO Richard Sellwood became President/CEO effective Oct 19, 2026, succeeding Rick Skaggs.",
       "source_url": "https://www.citybiz.co/article/921551/usf-credit-union-appoints-richard-sellwood-president-and-chief-executive-officer/",
-      "assets_note": "~$1.4B, NCUA 6/2026"
+      "assets_note": "~$1.4B, NCUA 6/2026",
+      "fi_id": "ncua-24223",
+      "fi_name": "Usf Federal Credit Union",
+      "charter_type": "cu",
+      "fi_assets_usd": 1404267280,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t120",
@@ -1329,7 +2057,14 @@
       "added": "2026-10-30",
       "summary": "Four promotions tied to Montana expansion: Scott Bolster EVP & CFO, Colleen Murphy EVP & COO, Matt Venturini Chief Lending Officer, Josh Wilson Chief Marketing Officer.",
       "source_url": "https://www.cuinsight.com/press-release/whitefish-credit-union-announces-four-leadership-promotions-as-montana-expansion-continues/",
-      "assets_note": "~$2.1B, NCUA 6/2026"
+      "assets_note": "~$2.1B, NCUA 6/2026",
+      "fi_id": "ncua-61949",
+      "fi_name": "Whitefish Credit Union Association",
+      "charter_type": "cu",
+      "fi_assets_usd": 2059764754,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t121",
@@ -1341,7 +2076,14 @@
       "added": "2026-10-30",
       "summary": "Craig Roberts, formerly COO of Guaranty Bank & Trust, became President & CEO effective Oct 16, 2026, succeeding James M. Law.",
       "source_url": "https://www.mvnow.org/updates/alliance-bank-announces-craig-roberts-as-incoming-ceo",
-      "assets_note": "$1.39B, FDIC 6/30/2026"
+      "assets_note": "$1.39B, FDIC 6/30/2026",
+      "fi_id": "fdic-11569",
+      "fi_name": "Alliance Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1389330000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t122",
@@ -1353,7 +2095,14 @@
       "added": "2026-10-30",
       "summary": "Federal Register notice: Chime Financial applied to the Fed to become a bank holding company by acquiring Central Service Corporation and thereby Stride Bank, both of Enid, Oklahoma.",
       "source_url": "https://www.federalregister.gov/documents/2026/10/21/2026-21513/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
-      "assets_note": "Assets not in source (no FDIC check this run); Size scored 1"
+      "assets_note": "Assets not in source (no FDIC check this run); Size scored 1",
+      "fi_id": "fdic-4091",
+      "fi_name": "Stride Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 5417575000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company_out_of_state_segment2"
     },
     {
       "id": "t123",
@@ -1365,7 +2114,14 @@
       "added": "2026-10-30",
       "summary": "Fed H.2 lists approval on Oct 8 of United Bank & Trust, Marysville, KS, to merge with Bank of Commerce, Chanute, KS; the UBT Bancshares filing waiver was granted Sept 29.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261017/delactions.htm",
-      "assets_note": "Assets not in source (no FDIC check this run); Size scored 1"
+      "assets_note": "Assets not in source (no FDIC check this run); Size scored 1",
+      "fi_id": "fdic-17477",
+      "fi_name": "United Bank & Trust",
+      "charter_type": "bank",
+      "fi_assets_usd": 892914000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t124",
@@ -1377,7 +2133,14 @@
       "added": "2026-10-30",
       "summary": "City & County CU (Saint Paul, $1.1B) selected Mahalo Banking's Thoughtful Banking platform as its new digital banking provider. Digital vendor, filed as 'core' (nearest site type).",
       "source_url": "https://www.businesswire.com/news/home/20261020662038/en/City-County-Credit-Union-Selects-Mahalo-Banking-to-Modernize-Digital-Banking-Experience",
-      "assets_note": "$1.1B per release"
+      "assets_note": "$1.1B per release",
+      "fi_id": "ncua-60255",
+      "fi_name": "City & County",
+      "charter_type": "cu",
+      "fi_assets_usd": 1172542776,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t125",
@@ -1389,7 +2152,14 @@
       "added": "2026-10-30",
       "summary": "Emprise Bank announced a design partnership with Maximum to transform its core banking system on AI-native infrastructure; first traffic on the platform expected by end of 2026, broader migration in phases with existing systems running alongside. FinTech Futures reports the bank has used an FIS core since 2016.",
       "source_url": "https://www.businesswire.com/news/home/20261015654863/en/Emprise-Bank-Selects-Maximum-to-Power-Its-Next-Generation-of-Banking-Infrastructure",
-      "assets_note": "~$2.8B per FinTech Futures (secondary)"
+      "assets_note": "~$2.8B per FinTech Futures (secondary)",
+      "fi_id": "fdic-4789",
+      "fi_name": "Emprise Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2820619000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t126",
@@ -1401,7 +2171,14 @@
       "added": "2026-10-30",
       "summary": "Lumin Digital names Premier America Credit Union (Chatsworth) among its latest client go-lives on the Lumin digital banking platform. Go-live is done, so the digital window has mostly closed; digital banking vendor, filed as 'core' (nearest site type).",
       "source_url": "https://lumindigital.com/news/more-than-three-quarters-of-a-million-users-move-onto-lumin-digital-platform-in-latest-wave-of-launches/",
-      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)"
+      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)",
+      "fi_id": "ncua-68428",
+      "fi_name": "Premier America",
+      "charter_type": "cu",
+      "fi_assets_usd": 3319448016,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t127",
@@ -1413,7 +2190,14 @@
       "added": "2026-10-30",
       "summary": "CFO Michael Ray named interim President (not CEO) effective Nov 13 as Doug Stephens steps down; Ray stays CFO.",
       "source_url": "https://www.swoknews.com/community_news/city-national-bank-names-michael-ray-interim-president/article_08b75151-0f6b-582e-b7d9-75294df1724c.html",
-      "assets_note": "$446M, FDIC 6/30/2026"
+      "assets_note": "$446M, FDIC 6/30/2026",
+      "fi_id": "fdic-4132",
+      "fi_name": "The City National Bank and Trust Company of Lawton, Oklahoma",
+      "charter_type": "bank",
+      "fi_assets_usd": 446240000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t128",
@@ -1425,7 +2209,14 @@
       "added": "2026-10-30",
       "summary": "President & CEO Scott Zahnle retires Jan 29, 2027; COO Julie Willse succeeds him.",
       "source_url": "https://www.cuinsight.com/press-release/scott-zahnle-president-and-chief-executive-officer-announces-retirement/",
-      "assets_note": "$717M, NCUA 6/2026"
+      "assets_note": "$717M, NCUA 6/2026",
+      "fi_id": "ncua-64203",
+      "fi_name": "Greater Iowa",
+      "charter_type": "cu",
+      "fi_assets_usd": 715097483,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t129",
@@ -1437,7 +2228,14 @@
       "added": "2026-10-30",
       "summary": "CFO Richard Belstock retires Jan 1, 2027; SVP & Principal Accounting Officer Kelsey Cassinelli becomes EVP & CFO that day.",
       "source_url": "https://www.globenewswire.com/news-release/2026/10/22/3386456/0/en/plumas-bancorp-announces-chief-financial-officer-transition.html",
-      "assets_note": "$2.28B, FDIC 6/30/2026"
+      "assets_note": "$2.28B, FDIC 6/30/2026",
+      "fi_id": "fdic-23275",
+      "fi_name": "Plumas Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2277465000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t130",
@@ -1449,7 +2247,14 @@
       "added": "2026-10-30",
       "summary": "Sujata Yadav (ex-Eastern Bank Chief Product Officer) elected President of River Run Bancorp, MHC; she succeeds Lloyd L. Hamm Jr. as CEO effective Jul 1, 2027, when Hamm becomes Executive Chairman for two years.",
       "source_url": "https://www.riverrun.com/press-release/river-run-bancorp-welcomes-sujata-yadav-as-president",
-      "assets_note": "Newburyport Bank ~$1.6B, FDIC 6/30/2026"
+      "assets_note": "Newburyport Bank ~$1.6B, FDIC 6/30/2026",
+      "fi_id": "fdic-90251",
+      "fi_name": "Newburyport Five Cents Savings Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1573796000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t131",
@@ -1461,7 +2266,14 @@
       "added": "2026-10-30",
       "summary": "Lumin Digital names Freedom Credit Union (Philadelphia area) among its latest client go-lives on the Lumin digital banking platform. Go-live is done, so the digital window has mostly closed; digital banking vendor, filed as 'core' (nearest site type).",
       "source_url": "https://lumindigital.com/news/more-than-three-quarters-of-a-million-users-move-onto-lumin-digital-platform-in-latest-wave-of-launches/",
-      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)"
+      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)",
+      "fi_id": "ncua-60275",
+      "fi_name": "Freedom",
+      "charter_type": "cu",
+      "fi_assets_usd": 1499776160,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t132",
@@ -1473,7 +2285,14 @@
       "added": "2026-10-30",
       "summary": "Lumin Digital names Neighbors FCU (Baton Rouge) among its latest client go-lives on the Lumin digital banking platform. Go-live is done, so the digital window has mostly closed; digital banking vendor, filed as 'core' (nearest site type).",
       "source_url": "https://lumindigital.com/news/more-than-three-quarters-of-a-million-users-move-onto-lumin-digital-platform-in-latest-wave-of-launches/",
-      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)"
+      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)",
+      "fi_id": "ncua-9229",
+      "fi_name": "Neighbors",
+      "charter_type": "cu",
+      "fi_assets_usd": 1409039072,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t133",
@@ -1485,7 +2304,14 @@
       "added": "2026-10-30",
       "summary": "Lumin Digital names Point Breeze Credit Union (Hunt Valley) among its latest client go-lives on the Lumin digital banking platform. Go-live is done, so the digital window has mostly closed; digital banking vendor, filed as 'core' (nearest site type).",
       "source_url": "https://lumindigital.com/news/more-than-three-quarters-of-a-million-users-move-onto-lumin-digital-platform-in-latest-wave-of-launches/",
-      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)"
+      "assets_note": "NCUA 5300 call report 6/30/2026 (local copy)",
+      "fi_id": "ncua-66585",
+      "fi_name": "Point Breeze",
+      "charter_type": "cu",
+      "fi_assets_usd": 1062135947,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t134",
@@ -1497,7 +2323,14 @@
       "added": "2026-10-30",
       "summary": "Federal Register notice: Bonanza Valley Acquisitions, Inc. of Brooten, MN applied to become a bank holding company by acquiring Bonanza Valley State Bank, Brooten. Ownership change; link to a purchase is indirect.",
       "source_url": "https://www.federalregister.gov/documents/2026/10/22/2026-21626/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-10993",
+      "fi_name": "Bonanza Valley State Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 74766000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state_segment2"
     },
     {
       "id": "t135",
@@ -1509,7 +2342,14 @@
       "added": "2026-10-30",
       "summary": "President & CEO James Brown (CEO since 2008) plans to retire in spring 2027 and stays through the transition; the board is searching with Smith & Wilkinson.",
       "source_url": "https://www.thebankofbennington.com/news/the-bank-of-bennington-announces-planned-retirement-of-president-and-ceo-james-brown-in-spring-2027",
-      "assets_note": "$662M, FDIC 6/30/2026"
+      "assets_note": "$662M, FDIC 6/30/2026",
+      "fi_id": "fdic-30350",
+      "fi_name": "The Bank of Bennington",
+      "charter_type": "bank",
+      "fi_assets_usd": 661897000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t136",
@@ -1521,7 +2361,14 @@
       "added": "2026-11-09",
       "summary": "Columbia Banking System and Columbia Bank entered a transition letter with Torran Nixon: he steps down as Co-President of the Bank and SEVP of the Company as of July 1, 2027 (or another mutually agreed date) and moves to a senior advisor role through Dec 31, 2027.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/887343/000119312526434182/d20029d8k.htm",
-      "assets_note": "$65.37B, FDIC 6/30/2026 (CERT 17266; Columbia Bank, Roseburg OR)"
+      "assets_note": "$65.37B, FDIC 6/30/2026 (CERT 17266; Columbia Bank, Roseburg OR)",
+      "fi_id": "fdic-17266",
+      "fi_name": "Columbia Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 65367657000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t137",
@@ -1533,7 +2380,14 @@
       "added": "2026-11-09",
       "summary": "First EVP and COO Dana R. Stewart notified the bank he is resigning from all bank positions effective Oct 30, 2026; not the result of any disagreement. Distinct from the earlier Nestore CRO hire.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/879635/000087963526000060/mpb-20261023.htm",
-      "assets_note": "$7.04B, FDIC 6/30/2026 (CERT 9889)"
+      "assets_note": "$7.04B, FDIC 6/30/2026 (CERT 9889)",
+      "fi_id": "fdic-9889",
+      "fi_name": "Mid Penn Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 7038845000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t138",
@@ -1545,7 +2399,14 @@
       "added": "2026-11-09",
       "summary": "Scott Campagna named EVP and Chief Information Officer, succeeding Susan Hubble, who becomes Senior Executive Advisor then retires in April 2027.",
       "source_url": "https://www.businesswire.com/news/home/20261027261540/en/Peoples-Security-Bank-Trust-Welcomes-Scott-Campagna-as-Executive-Vice-President-Chief-Information-Officer",
-      "assets_note": "$5.43B, FDIC 6/30/2026 (CERT 7514)"
+      "assets_note": "$5.43B, FDIC 6/30/2026 (CERT 7514)",
+      "fi_id": "fdic-7514",
+      "fi_name": "Peoples Security Bank and Trust Company",
+      "charter_type": "bank",
+      "fi_assets_usd": 5432891000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t139",
@@ -1557,7 +2418,14 @@
       "added": "2026-11-09",
       "summary": "Pat Casey named EVP and Chief Information Officer of Heritage Bank and Heritage Financial, effective Nov 2, 2026.",
       "source_url": "https://www.prnewswire.com/news-releases/pat-casey-named-chief-information-officer-at-heritage-bank-302920100.html",
-      "assets_note": "$8.42B, FDIC 6/30/2026 (CERT 29012)"
+      "assets_note": "$8.42B, FDIC 6/30/2026 (CERT 29012)",
+      "fi_id": "fdic-29012",
+      "fi_name": "Heritage Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 8424258000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t140",
@@ -1569,7 +2437,14 @@
       "added": "2026-11-09",
       "summary": "Mike Schenck, former Westmark CU President/CEO, hired as SVP and Chief Lending Officer.",
       "source_url": "https://www.globenewswire.com/news-release/2026/10/27/3389183/0/en/mike-schenck-named-new-senior-vice-president-and-chief-lending-officer-at-topline-financial-credit-union.html",
-      "assets_note": "$1.12B, NCUA 6/2026 (#68731)"
+      "assets_note": "$1.12B, NCUA 6/2026 (#68731)",
+      "fi_id": "ncua-68731",
+      "fi_name": "Topline Financial",
+      "charter_type": "cu",
+      "fi_assets_usd": 1122983552,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t141",
@@ -1581,7 +2456,14 @@
       "added": "2026-11-09",
       "summary": "Amit Sahasrabudhe named U.S. Chief Operating Officer effective Dec 7, 2026; most recently SVP, Personal Banking & Investments at RBC (previously COO of RBC Wealth Management U.S.). Reports to Leo Salom; leads U.S. Transformation Office, Centralized Governance and Controls, Data/Analytics/AI, Core Operations/Collections/Recovery, and Financial Crimes and Prevention Operations.",
       "source_url": "https://stories.td.com/us/en/article/td-announces-appointment-of-amit-sahasrabudhe-as-u-s-chief-operating-officer",
-      "assets_note": "$342.8B, FDIC 6/30/2026 (CERT 18409)"
+      "assets_note": "$342.8B, FDIC 6/30/2026 (CERT 18409)",
+      "fi_id": "fdic-18409",
+      "fi_name": "TD Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 342803746000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t142",
@@ -1593,7 +2475,14 @@
       "added": "2026-11-09",
       "summary": "Kleber Santos becomes sole CEO of Consumer Banking and Lending; Saul Van Beurden focuses exclusively on leading AI across the company (they had been co-CEOs of CBL). Both still report to Charlie Scharf. Distinct from the earlier Powell CRO change.",
       "source_url": "https://newsroom.wf.com/news-releases/news-details/2026/Wells-Fargo-Announces-Kleber-Santos-to-Lead-Consumer-Banking-and-Lending-Saul-Van-Beurden-to-Lead-AI-for-the-Company/default.aspx",
-      "assets_note": "~$1.91T bank-level, FDIC 6/30/2026 (CERT 3511)"
+      "assets_note": "~$1.91T bank-level, FDIC 6/30/2026 (CERT 3511)",
+      "fi_id": "fdic-3511",
+      "fi_name": "Wells Fargo Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 1907928000000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t143",
@@ -1605,7 +2494,14 @@
       "added": "2026-11-09",
       "summary": "Lewis R. Renollet retired as President and CEO effective close of business Oct 26, 2026; Charles G. Brown III appointed President and CEO the same day. Renollet stays on both boards and remains employed as SEVP through Dec 31, 2026.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/2024899/000094337426000459/none-20261028.htm",
-      "assets_note": "$144.5M, FDIC 6/30/2026 (CERT 29578)"
+      "assets_note": "$144.5M, FDIC 6/30/2026 (CERT 29578)",
+      "fi_id": "fdic-29578",
+      "fi_name": "Monroe Federal Savings and Loan Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 144544000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t144",
@@ -1617,7 +2513,14 @@
       "added": "2026-11-09",
       "summary": "Shawn McGoff appointed EVP and Chief Banking Officer to lead commercial banking strategy, relationship development and specialty deposit businesses; most recently EVP and Head of Commercial Banking at Citywide Banks. No effective date stated.",
       "source_url": "https://www.fortisbankus.com/fortis-bank-appoints-cbo/",
-      "assets_note": "$1.35B, FDIC 6/30/2026 (CERT 34401)"
+      "assets_note": "$1.35B, FDIC 6/30/2026 (CERT 34401)",
+      "fi_id": "fdic-34401",
+      "fi_name": "Fortis Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1353120000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t145",
@@ -1629,7 +2532,14 @@
       "added": "2026-11-09",
       "summary": "Eric Wiggins joined as SVP and Chief Administrative Officer; most recently SVP and Senior Credit Officer at Coastal Carolina National Bank.",
       "source_url": "https://www.bankofgreene.com/bank-names-eric-wiggins-senior-vice-president-chief-administrative-officer/",
-      "assets_note": "$3.18B, FDIC 6/30/2026 (CERT 21591)"
+      "assets_note": "$3.18B, FDIC 6/30/2026 (CERT 21591)",
+      "fi_id": "fdic-21591",
+      "fi_name": "Bank of Greene",
+      "charter_type": "bank",
+      "fi_assets_usd": 3184349000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t146",
@@ -1641,7 +2551,14 @@
       "added": "2026-11-09",
       "summary": "Merger of equals: combined nearly $8B assets, 325,000+ members, 38 branches; operates under SELCO's Oregon charter and Springfield HQ; brand will be Numerica with Carla Cicero as President/CEO; Bob Newcomb leads SELCO through legal integration then retires. Needs regulator approval and Numerica member vote; legal integration expected by early 2028.",
       "source_url": "https://www.prnewswire.com/news-releases/numerica-credit-union-and-selco-community-credit-union-announce-merger-of-equals-302922066.html",
-      "assets_note": "Combined nearly $8B per release; Numerica $4.41B / SELCO $3.01B NCUA 6/2026"
+      "assets_note": "Combined nearly $8B per release; Numerica $4.41B / SELCO $3.01B NCUA 6/2026",
+      "fi_id": "ncua-66841",
+      "fi_name": "Numerica",
+      "charter_type": "cu",
+      "fi_assets_usd": 4321682065,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t147",
@@ -1653,7 +2570,14 @@
       "added": "2026-11-09",
       "summary": "Harborstone entered a purchase and assumption agreement to buy HUSTL, Vantage West's all-digital banking brand/division (assets, IP and deposit liabilities) — not a whole-CU merger. Close expected December 2026 pending approvals; hustlfinancial.com FAQs say transition expected Dec 1, 2026.",
       "source_url": "https://gowestassociation.org/2026/10/28/harborstone-credit-union-announces-agreement-to-acquire-hustl-from-vantage-west-credit-union/",
-      "assets_note": "Harborstone $3.13B, NCUA 6/2026 (#66399); Vantage West $3.46B (#68558)"
+      "assets_note": "Harborstone $3.13B, NCUA 6/2026 (#66399); Vantage West $3.46B (#68558)",
+      "fi_id": "ncua-66399",
+      "fi_name": "Harborstone",
+      "charter_type": "cu",
+      "fi_assets_usd": 3134126432,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t148",
@@ -1666,7 +2590,14 @@
       "summary": "UMB Financial (~$72.7B at 9/30/2026) agreed to acquire El Dorado Savings Bank (~$2.4B assets / $2.1B deposits / $0.5B loans as of 9/30/2026; 31 CA + 4 NV branches) for ~$506M cash-and-stock. Close into UMB Bank expected Q1 2027 pending regulators and El Dorado shareholders.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/101382/000119312526434196/umbf-ex99_1.htm",
       "assets_note": "UMB Financial ~$72.7B at 9/30/2026; El Dorado ~$2.4B; Size on larger (UMB). Pro forma ~$75B",
-      "assets_source": "UMB Financial Corp. 3Q26 investor presentation / Form 10-Q total assets $72,738,046 thousand as of 9/30/2026; El Dorado $2.4B from deal materials"
+      "assets_source": "UMB Financial Corp. 3Q26 investor presentation / Form 10-Q total assets $72,738,046 thousand as of 9/30/2026; El Dorado $2.4B from deal materials",
+      "fi_id": "fdic-8273",
+      "fi_name": "UMB Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 71898588000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t149",
@@ -1678,7 +2609,14 @@
       "added": "2026-11-09",
       "summary": "First Mid agreed to acquire Evergreen Bancshares / American Bank of Freedom (~$932M assets as of 9/30/2026, 10 banking centers in MO/IL/IN) for ~$70.7M stock-and-cash; bank merges into First Mid Bank & Trust; close expected Q1 2027, systems conversion Q2 2027. Combined ~$10.1B. Distinct from the earlier First Mid CEO change.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/700565/000117184326006958/exh_991.htm",
-      "assets_note": "First Mid ~$9.1B (live t014 FDIC); American Bank of Freedom ~$932M at 9/30/2026 per release; combined ~$10.1B (scored on combined)"
+      "assets_note": "First Mid ~$9.1B (live t014 FDIC); American Bank of Freedom ~$932M at 9/30/2026 per release; combined ~$10.1B (scored on combined)",
+      "fi_id": "fdic-3705",
+      "fi_name": "First Mid Bank & Trust, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 9142999000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t150",
@@ -1690,7 +2628,14 @@
       "added": "2026-11-09",
       "summary": "C-suite reorganization: Ryan Blake moves from COO of Company/Bank to newly established Chief Banking Officer of the Bank (retail, operations, marketing), remains EVP of the Bank; Eleni Willis appointed Chief Risk Officer.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1228454/000119312526437028/d180307d8k.htm",
-      "assets_note": "$3.12B, FDIC 6/30/2026 (CERT 35541)"
+      "assets_note": "$3.12B, FDIC 6/30/2026 (CERT 35541)",
+      "fi_id": "fdic-35541",
+      "fi_name": "BCB Community Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3117295000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t151",
@@ -1702,7 +2647,14 @@
       "added": "2026-11-09",
       "summary": "Jodi L. Richard resigned as Vice Chair and Chief Risk Officer effective immediately (notified Oct 23) to take a role at another public company; no disagreement. Troy W. Remington (EVP and Chief Credit Officer) is interim CRO while a successor is sought. Public announcement date is the Oct 29 8-K filing.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/36104/000119312526437071/d294448d8k.htm",
-      "assets_note": "$705.6B, FDIC 6/30/2026 (CERT 6548)"
+      "assets_note": "$705.6B, FDIC 6/30/2026 (CERT 6548)",
+      "fi_id": "fdic-6548",
+      "fi_name": "U.S. Bank National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 705554946000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t152",
@@ -1714,7 +2666,14 @@
       "added": "2026-11-09",
       "summary": "Stefan Chkautovich, EVP and CFO, resigning effective Nov 7, 2026; Matthew T. Funke (President and Chief Administrative Officer) appointed principal financial officer upon effectiveness.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/916907/000110465926120262/smbc-20261026x8k.htm",
-      "assets_note": "$5.19B, FDIC 6/30/2026 (CERT 28332)"
+      "assets_note": "$5.19B, FDIC 6/30/2026 (CERT 28332)",
+      "fi_id": "fdic-28332",
+      "fi_name": "Southern Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 5185949000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t153",
@@ -1726,7 +2685,14 @@
       "added": "2026-11-09",
       "summary": "Alycia Nichols (EVP of lending and operations) named next President and CEO effective July 1, 2027, succeeding Jeff Brehmer, who plans to retire after eight years.",
       "source_url": "https://www.mcul.org/newsroom/tlc-community-credit-union-names-alycia-nichols-president-and-ceo",
-      "assets_note": "$938.8M, NCUA 6/2026 (#60509)"
+      "assets_note": "$938.8M, NCUA 6/2026 (#60509)",
+      "fi_id": "ncua-60509",
+      "fi_name": "TLC Community",
+      "charter_type": "cu",
+      "fi_assets_usd": 950226511,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t154",
@@ -1738,7 +2704,14 @@
       "added": "2026-11-09",
       "summary": "EVP Eric S. Broome named next President and CEO, succeeding Dave Preter (nearly 18 years). Start date not stated in the public copy.",
       "source_url": "https://www.citybiz.co/article/927270/georgias-own-credit-union-names-eric-s-broome-as-next-president-and-ceo/",
-      "assets_note": "$4.22B, NCUA 6/2026 (#67390)"
+      "assets_note": "$4.22B, NCUA 6/2026 (#67390)",
+      "fi_id": "ncua-67390",
+      "fi_name": "Georgia's Own",
+      "charter_type": "cu",
+      "fi_assets_usd": 4217468869,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t155",
@@ -1750,7 +2723,14 @@
       "added": "2026-11-09",
       "summary": "Mindy Estok promoted to Chief Lending Officer (was SVP real estate lending); leads consumer, real estate and commercial lending and credit-risk strategy; joins the executive leadership team. Distinct from the earlier Keatts EVP/COO change.",
       "source_url": "https://www.chartway.com/post/chartway_credit_union_promotes_mindy_estok_to_chief_lending_officer.html",
-      "assets_note": "$3.23B, NCUA 6/2026 (#13242)"
+      "assets_note": "$3.23B, NCUA 6/2026 (#13242)",
+      "fi_id": "ncua-13242",
+      "fi_name": "Chartway",
+      "charter_type": "cu",
+      "fi_assets_usd": 3228466783,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t156",
@@ -1762,7 +2742,14 @@
       "added": "2026-11-09",
       "summary": "David Little named COO effective Oct 13, 2026; formerly EVP Consumer and Business Banking Operations at U.S. Bank. Greg Massey is Chairman/CEO.",
       "source_url": "https://www.ntxe-news.com/artman/publish/article_147324.shtml",
-      "assets_note": "$16.59B, FDIC 6/30/2026 (CERT 4239)"
+      "assets_note": "$16.59B, FDIC 6/30/2026 (CERT 4239)",
+      "fi_id": "fdic-4239",
+      "fi_name": "First United Bank and Trust Company",
+      "charter_type": "bank",
+      "fi_assets_usd": 16594244000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t157",
@@ -1774,7 +2761,14 @@
       "added": "2026-11-09",
       "summary": "TENCU (Nashville) selected Bankjoy for digital banking and will go live the same day as its Corelation KeyStone core conversion. Separate from the earlier Corelation KeyStone signing in the six-CU cohort.",
       "source_url": "https://www.bankjoy.com/press/ten-credit-union-selects-bankjoy-for-digital-banking-as-it-moves-to-corelation-keystone",
-      "assets_note": "'over $410M' / 24,800+ members per Bankjoy release"
+      "assets_note": "'over $410M' / 24,800+ members per Bankjoy release",
+      "fi_id": "ncua-66886",
+      "fi_name": "Ten",
+      "charter_type": "cu",
+      "fi_assets_usd": 391983291,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t158",
@@ -1786,7 +2780,14 @@
       "added": "2026-11-09",
       "summary": "Citizens Bank completed its merger with Texas National Bank (Jacksonville) effective Oct 26, 2026; combined 19 branches in East and Southeast Texas under the Citizens Bank name. Assets not stated in the source (FDIC API was down this run).",
       "source_url": "https://kilgorenewsherald.com/2026/10/23/citizens-bank-welcomes-texas-national-bank-customers-as-merger-brings-two-community-banks-together/",
-      "assets_note": "Assets not in source; Size scored 1 (FDIC API down)"
+      "assets_note": "Assets not in source; Size scored 1 (FDIC API down)",
+      "fi_id": "fdic-16817",
+      "fi_name": "Citizens Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 488811000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t159",
@@ -1798,7 +2799,14 @@
       "added": "2026-11-09",
       "summary": "Federal Register notice: Plains Acquisition Corporation (Humble, TX) applied to acquire Austin Colony, Inc. and thereby First National Bank of Lake Jackson; comments due Nov 27, 2026. Assets not stated.",
       "source_url": "https://www.federalregister.gov/documents/2026/10/28/2026-21970/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-17739",
+      "fi_name": "Plains State Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 828404000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t160",
@@ -1810,7 +2818,14 @@
       "added": "2026-11-09",
       "summary": "CT Department of Banking Bulletin 3269 (dated Oct 20, 2026; week ending Oct 16): application filed Oct 5, 2026 for GHA Federal Credit Union (Greenwich) to merge into Unity Financial CU (New Haven); proposed target date April 30, 2027. Combined-assets figure from HBJ is omitted.",
       "source_url": "https://portal.ct.gov/dob/bulletin/2026/bulletin-3269-october-16-2026",
-      "assets_note": "Assets omitted (HBJ-only figure left out); Size scored 1"
+      "assets_note": "Assets omitted (HBJ-only figure left out); Size scored 1",
+      "fi_id": "ncua-68745",
+      "fi_name": "Unity Financial",
+      "charter_type": "cu",
+      "fi_assets_usd": 63926293,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t161",
@@ -1822,7 +2837,14 @@
       "added": "2026-11-09",
       "summary": "Renasant agreed to acquire Commercial Holding Company for about $142M (0.8798 RNST shares plus ~$35.7M special cash dividend). Commercial Bank & Trust (~$1.1B assets at 9/30/26) merges into Renasant Bank; combined ~$28.6B; close expected Q1 2027 pending regulatory and Commercial shareholder approval. Distinct from the earlier Renasant CFO hire.",
       "source_url": "https://renasant.gcs-web.com/news-releases/news-release-details/renasant-corporation-acquire-commercial-holding-company/",
-      "assets_note": "Target ~$1.1B; combined ~$28.6B at 9/30/2026 per Renasant release (bank assets from the release; FDIC API down)"
+      "assets_note": "Target ~$1.1B; combined ~$28.6B at 9/30/2026 per Renasant release (bank assets from the release; FDIC API down)",
+      "fi_id": "fdic-12437",
+      "fi_name": "Renasant Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 26986725000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t162",
@@ -1834,7 +2856,14 @@
       "added": "2026-11-09",
       "summary": "Financial Plus (Flint, >$1.7B / 83K+ members) and Monroe Community (Monroe, >$410M / 32K members) announced intent to merge, pending regulatory and member approval; combined >$2B.",
       "source_url": "https://www.prnewswire.com/news-releases/financial-plus-credit-union-and-monroe-community-credit-union-announce-intent-to-merge-302919996.html",
-      "assets_note": "Combined >$2B per release"
+      "assets_note": "Combined >$2B per release",
+      "fi_id": "ncua-68646",
+      "fi_name": "Financial Plus",
+      "charter_type": "cu",
+      "fi_assets_usd": 1669995828,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t163",
@@ -1846,7 +2875,14 @@
       "added": "2026-11-09",
       "summary": "Connexus renewed and expanded its Alkami digital banking partnership for the second time; continues using the Alkami platform and SDK. Weak signal: renewal, vendor already locked in.",
       "source_url": "https://investors.alkami.com/2026-10-27-Connexus-Credit-Union-Renews-and-Expands-Longstanding-Partnership-with-Alkami-to-Advance-Digital-Banking-and-Grow-Member-Relationships",
-      "assets_note": "$4.1B / 420K members per release"
+      "assets_note": "$4.1B / 420K members per release",
+      "fi_id": "ncua-66538",
+      "fi_name": "Connexus",
+      "charter_type": "cu",
+      "fi_assets_usd": 4135662509,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t164",
@@ -1858,7 +2894,14 @@
       "added": "2026-11-09",
       "summary": "Red Rocks launched a new digital banking experience built on its September 2025 Alkami partnership (Digital Banking + Data & Marketing). Go-live is done, so the digital window has mostly closed. Assets not in the release.",
       "source_url": "https://redrocks.org/financial-education/digital-banking-launch",
-      "assets_note": "Assets not in release; Size scored 1"
+      "assets_note": "Assets not in release; Size scored 1",
+      "fi_id": "ncua-68560",
+      "fi_name": "Red Rocks",
+      "charter_type": "cu",
+      "fi_assets_usd": 343985153,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t165",
@@ -1870,7 +2913,14 @@
       "added": "2026-11-09",
       "summary": "First Community ($3.6B) agreed to acquire Main Street Financial Services (~$1.6B at 9/30/26) in an all-stock deal (~$243M aggregate, 0.6174 FCBC shares); combined ~$5.2B; close expected early Q2 2027.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/859070/000143774926033708/ex_1033014.htm",
-      "assets_note": "FCBC $3.6B / Main Street ~$1.6B; combined ~$5.2B at 9/30/26 per release"
+      "assets_note": "FCBC $3.6B / Main Street ~$1.6B; combined ~$5.2B at 9/30/26 per release",
+      "fi_id": "fdic-13012",
+      "fi_name": "First Community Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3607625000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t166",
@@ -1882,7 +2932,14 @@
       "added": "2026-11-09",
       "summary": "First Choice America Community FCU is upgrading its core computer system; conversion window begins Oct 30 (limits/outages) through early November (online banking down Oct 31). Vendor not named. Assets not stated.",
       "source_url": "https://firstchoiceamericacu.org/computer-system-conversion/",
-      "assets_note": "Assets not stated; Size scored 1; vendor unnamed"
+      "assets_note": "Assets not stated; Size scored 1; vendor unnamed",
+      "fi_id": "ncua-3264",
+      "fi_name": "First Choice America Community",
+      "charter_type": "cu",
+      "fi_assets_usd": 713875892,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t167",
@@ -1894,7 +2951,14 @@
       "added": "2026-11-09",
       "summary": "CASE Credit Union is upgrading its core banking system from close of business Friday Oct 30 through Monday Nov 2; branches expected to reopen Tuesday Nov 3. Vendor not named. Separate from the CASE/Team One merger (held).",
       "source_url": "https://www.casecu.org/updates/system-update-2026",
-      "assets_note": "Assets not stated; Size scored 1; vendor unnamed"
+      "assets_note": "Assets not stated; Size scored 1; vendor unnamed",
+      "fi_id": "ncua-61908",
+      "fi_name": "Case",
+      "charter_type": "cu",
+      "fi_assets_usd": 400104470,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t168",
@@ -1906,7 +2970,14 @@
       "added": "2026-11-09",
       "summary": "Texas Community Bancshares (Broadstreet Bank) agreed to buy Banc of San Jacinto County Bancshares (Bank of San Jacinto County, Coldspring) for $9.5M cash; target assets $41.951M at 6/30/2026; close expected Q1 2027 pending regs and SJCB shareholder approval. Acquirer assets not stated in the release.",
       "source_url": "https://www.prnewswire.com/news-releases/texas-community-bancshares-inc-and-the-banc-of-san-jacinto-county-bancshares-inc-the-parent-of-the-bank-of-san-jacinto-county-coldspring-texas-announce-merger-agreement-302924337.html",
-      "assets_note": "Target $41.951M at 6/30/2026 per release; acquirer assets not stated; Size scored 1 (FDIC API down)"
+      "assets_note": "Target $41.951M at 6/30/2026 per release; acquirer assets not stated; Size scored 1 (FDIC API down)",
+      "fi_id": "fdic-28868",
+      "fi_name": "Broadstreet Bank S S B",
+      "charter_type": "bank",
+      "fi_assets_usd": 442833000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t169",
@@ -1918,7 +2989,14 @@
       "added": "2026-11-09",
       "summary": "First Hawaiian and TriCo shareholders approved the acquisition; close expected later in 2026 subject to remaining customary closing conditions. Assets not stated in the shareholder-approval release (FDIC API down).",
       "source_url": "https://firsthawaiianinc.gcs-web.com/news-releases/news-release-details/first-hawaiian-inc-and-trico-bancshares-announce-shareholder",
-      "assets_note": "Assets not in the approval release; Size scored 1 (FDIC API down)"
+      "assets_note": "Assets not in the approval release; Size scored 1 (FDIC API down)",
+      "fi_id": "fdic-17985",
+      "fi_name": "First Hawaiian Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 23648513000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t170",
@@ -1930,7 +3008,14 @@
       "added": "2026-11-09",
       "summary": "Federal Reserve Board approved Bank of Nova Scotia's application to become a bank holding company by acquiring Maple Financial Holdings (Dallas) and thereby MapleMark Bank (Tulsa). Assets not in the Fed release.",
       "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261029a.htm",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-3182",
+      "fi_name": "MapleMark Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1007399000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t171",
@@ -1942,7 +3027,14 @@
       "added": "2026-11-09",
       "summary": "Fed H.2 (week ending Oct 24): approved Oct 22, 2026, Profinium Financial Holdings (Fairmont, MN) to acquire F&M Community Bank, N.A. (Preston, MN). Close date and assets not stated.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261024/delactions.htm",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-1905",
+      "fi_name": "Profinium, Inc.",
+      "charter_type": "bank",
+      "fi_assets_usd": 533111000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t172",
@@ -1954,7 +3046,14 @@
       "added": "2026-11-09",
       "summary": "Fed H.2: approved Oct 23, 2026, Journey Financial Group (Montgomery, TX) to become a bank holding company by acquiring Lone Star Bank (Houston). Close date and assets not stated.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261024/delactions.htm",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-58324",
+      "fi_name": "Lone Star Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 202282000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t173",
@@ -1966,7 +3065,14 @@
       "added": "2026-11-09",
       "summary": "Federal Register notice: C3 Holdings, Inc. (Random Lake, WI) applied to become a bank holding company by acquiring Northern Financial Corporation and Independence State Bank (both Independence, WI); comments due Dec 2, 2026. Assets not stated.",
       "source_url": "https://www.federalregister.gov/documents/2026/11/02/2026-22333/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-10741",
+      "fi_name": "Independence State Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 84207000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t174",
@@ -1978,7 +3084,14 @@
       "added": "2026-11-09",
       "summary": "Peoples Bancorp completed its acquisition of Citizens National Corporation at close of business Oct 30, 2026. Citizens (~$646M at 9/30/26) branches initially operate as a Peoples Bank division; system conversion after close of business Apr 19, 2027. Peoples $9.7B. Distinct from the Peoples/Capital Bancorp deal.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/318300/000031830026000244/pressreleaseannouncementof.htm",
-      "assets_note": "Peoples $9.7B; Citizens ~$646M at 9/30/26 per release (bank assets from the release; FDIC API down); combined ~$10.3B scored as Size 4"
+      "assets_note": "Peoples $9.7B; Citizens ~$646M at 9/30/26 per release (bank assets from the release; FDIC API down); combined ~$10.3B scored as Size 4",
+      "fi_id": "fdic-6544",
+      "fi_name": "Peoples Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 9530050000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t175",
@@ -1991,7 +3104,14 @@
       "summary": "Bank7 Corp. completed its merger with Century Financial Services Corporation effective Nov 1, 2026 (combined ~$3.3B). Century Bank (~$1.36B at 6/30/2026, Santa Fe, NM) continues as a Bank7 subsidiary with eight NM branches. Anne Kain (Century Bank's existing CFO) was named President of Century Bank. Holding-company close is done; subsidiary-bank merger still needs remaining regulatory steps.",
       "source_url": "https://www.prnewswire.com/news-releases/bank7-corp-announces-completion-of-merger-with-century-financial-services-corporation-anne-kain-named-president-of-century-bank-302923871.html",
       "assets_note": "Bank7+Century combined ~$3.3B per Bank7 deal announcement / investor presentation; Century alone ~$1.36B at 6/30/2026",
-      "assets_source": "Bank7 Corp. 9/17/2026 deal announcement and Bank7+Century investor presentation (~$3.3B combined); Century Bank $1.36B at 6/30/2026"
+      "assets_source": "Bank7 Corp. 9/17/2026 deal announcement and Bank7+Century investor presentation (~$3.3B combined); Century Bank $1.36B at 6/30/2026",
+      "fi_id": "fdic-4147",
+      "fi_name": "Bank 7",
+      "charter_type": "bank",
+      "fi_assets_usd": 1913316000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t176",
@@ -2003,7 +3123,14 @@
       "added": "2026-11-09",
       "summary": "nbkc bank agreed to assume LSBX's consumer BaaS programs and filed with the FDIC; close expected early 2027 subject to regulatory approval. Follows the Lincoln Bancorp / Equity Bancshares announcement. Assets not stated.",
       "source_url": "https://www.prnewswire.com/news-releases/nbkc-bank-announces-agreement-to-assume-consumer-baas-programs-of-lsbx-a-division-of-lincoln-savings-bank-302924452.html",
-      "assets_note": "Assets not in source; Size scored 1"
+      "assets_note": "Assets not in source; Size scored 1",
+      "fi_id": "fdic-35014",
+      "fi_name": "nbkc bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1241298000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_unique_out_of_state"
     },
     {
       "id": "t177",
@@ -2015,7 +3142,14 @@
       "added": "2026-11-09",
       "summary": "Greater Iowa Credit Union is moving to a new core banking system with a conversion weekend of Oct 29–Nov 2, 2026. Vendor not named. Separate from the CEO succession row (Zahnle/Willse).",
       "source_url": "https://www.gicu.org/webres/File/System%20Upgrade/2026_GICU_CoreBookletResourceGuide.pdf",
-      "assets_note": "$717M, NCUA 6/2026 (from prior verified exec row); vendor unnamed"
+      "assets_note": "$717M, NCUA 6/2026 (from prior verified exec row); vendor unnamed",
+      "fi_id": "ncua-64203",
+      "fi_name": "Greater Iowa",
+      "charter_type": "cu",
+      "fi_assets_usd": 715097483,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t178",
@@ -2027,7 +3161,14 @@
       "added": "2026-11-09",
       "summary": "Hobart Schools Employee CU accounts, legally merged into Credit Union 1 on Sept 30, 2026, convert onto Credit Union 1's core system on Oct 31, 2026. Vendor not named. Distinct from Credit Union 1 (Alaska).",
       "source_url": "https://www.creditunion1.org/about/mergers/hobart-schools/",
-      "assets_note": "Assets not stated; Size scored 1; vendor unnamed"
+      "assets_note": "Assets not stated; Size scored 1; vendor unnamed",
+      "fi_id": "ncua-68727",
+      "fi_name": "Credit Union 1",
+      "charter_type": "cu",
+      "fi_assets_usd": 2869898466,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t179",
@@ -2039,7 +3180,14 @@
       "added": "2026-11-09",
       "summary": "Scott W. Micklewright named Chief Operating Officer of Mid Penn Bank effective immediately (Nov 2, 2026), moving from First SEVP, President of Commercial and Consumer Banking and Chief Revenue Officer. Follows Dana R. Stewart's Oct 30 COO resignation (t137); same seat, new appointment.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/879635/000087963526000062/mpb-20261102.htm",
-      "assets_note": "~$7.0B per Verifier (11-03)"
+      "assets_note": "~$7.0B per Verifier (11-03)",
+      "fi_id": "fdic-9889",
+      "fi_name": "Mid Penn Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 7038845000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t180",
@@ -2051,7 +3199,14 @@
       "added": "2026-11-09",
       "summary": "CFO Paula J. Meiler will retire effective Apr 30, 2027; she stays CFO through that date. Board has started a search for her successor (internal and external candidates). Retirement is not the result of any disagreement.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/880417/000119312526442831/csbb-20261030.htm",
-      "assets_note": "~$1.3B per Verifier (11-03)"
+      "assets_note": "~$1.3B per Verifier (11-03)",
+      "fi_id": "fdic-9139",
+      "fi_name": "The Commercial and Savings Bank of Millersburg, Ohio",
+      "charter_type": "bank",
+      "fi_assets_usd": 1295187000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t181",
@@ -2063,7 +3218,14 @@
       "added": "2026-11-09",
       "summary": "Peyton Atchley (EVP & CFO) named next President and CEO effective May 1, 2027, succeeding Johnny Barrett, who retires Apr 30, 2027 after leading since 1998. Article cites assets of about $925M (Verifier ~$940M).",
       "source_url": "https://oxfordeagle.com/2026/11/02/fnb-oxford-bank-names-new-ceo-recognizes-outgoing-leader/",
-      "assets_note": "~$940M per Verifier (11-03); Oxford Eagle cites ~$925M"
+      "assets_note": "~$940M per Verifier (11-03); Oxford Eagle cites ~$925M",
+      "fi_id": "fdic-5005",
+      "fi_name": "FNB Oxford Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 939718000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t182",
@@ -2075,7 +3237,14 @@
       "added": "2026-11-09",
       "summary": "CEO/President/Chairman Kent Buer retires Jan 29, 2027 after 27 years. Curt Glaser (EVP & CLO) becomes CEO (keeps CLO); Andrew Manley becomes President (keeps CFO); Angie Eilrich (EVP & COO) becomes Chairwoman while remaining COO.",
       "source_url": "https://www.ksal.com/bank-leader-to-retire/",
-      "assets_note": "~$619M per Verifier (11-03)"
+      "assets_note": "~$619M per Verifier (11-03)",
+      "fi_id": "fdic-18431",
+      "fi_name": "First Bank Kansas",
+      "charter_type": "bank",
+      "fi_assets_usd": 618519000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t183",
@@ -2087,7 +3256,14 @@
       "added": "2026-11-13",
       "summary": "Katie Averill named Chief Risk and Compliance Officer, effective Nov 2, 2026.",
       "source_url": "https://www.cuinsight.com/press-release/vystar-credit-union-welcomes-katie-averill-as-chief-risk-and-compliance-officer/",
-      "assets_note": "~$14.3B per NCUA; source is VyStar's own release posted on CUInsight"
+      "assets_note": "~$14.3B per NCUA; source is VyStar's own release posted on CUInsight",
+      "fi_id": "ncua-68490",
+      "fi_name": "Vystar",
+      "charter_type": "cu",
+      "fi_assets_usd": 14273970203,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t184",
@@ -2099,7 +3275,14 @@
       "added": "2026-11-13",
       "summary": "President/CEO Carol J. Schumacher retires at the end of 2026 after more than 27 years; no successor named.",
       "source_url": "https://www.cuinsight.com/press-release/plus-credit-union-announces-retirement-of-longtime-ceo-carol-j-schumacher-after-more-than-27-years-of-service/",
-      "assets_note": "~$126M per NCUA; source is Plus CU's own release posted on CUInsight"
+      "assets_note": "~$126M per NCUA; source is Plus CU's own release posted on CUInsight",
+      "fi_id": "ncua-86756",
+      "fi_name": "Plus",
+      "charter_type": "cu",
+      "fi_assets_usd": 126061729,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t185",
@@ -2111,7 +3294,14 @@
       "added": "2026-11-13",
       "summary": "Christine Monteiro becomes President/CEO Jan 1, 2027, succeeding Barbara Mahoney, who retires Dec 31, 2026.",
       "source_url": "https://all-onecu.com/all-one-credit-union-announces-new-president-ceo/",
-      "assets_note": "~$881M per NCUA"
+      "assets_note": "~$881M per NCUA",
+      "fi_id": "ncua-66699",
+      "fi_name": "All One",
+      "charter_type": "cu",
+      "fi_assets_usd": 880800538,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t186",
@@ -2123,7 +3313,14 @@
       "added": "2026-11-13",
       "summary": "Sean Morrison promoted to EVP, Chief Strategy and People Officer; Jory Norton promoted to SVP, Chief Risk Officer (fintech and partnerships).",
       "source_url": "https://www.utahbusiness.com/people-on-the-move/2026/10/28/bank-utah-promotes-new-leaders-new-chief-strategy-people-officer-risk/",
-      "assets_note": "~$3.8B per FDIC; source is Utah Business (secondary)"
+      "assets_note": "~$3.8B per FDIC; source is Utah Business (secondary)",
+      "fi_id": "fdic-17159",
+      "fi_name": "Bank of Utah",
+      "charter_type": "bank",
+      "fi_assets_usd": 3785735000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t187",
@@ -2136,7 +3333,14 @@
       "summary": "First Capital / First Harrison Bank (~$1.29B at 6/30/2026) agreed to acquire First Bancorp of Indiana (First Federal Savings Bank, Evansville; ~$583M, 10 offices) in an all-stock deal of about $33.2M; First Federal merges into First Harrison; close expected 1H 2027. Combined ~$1.87B.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1070296/000110465926123087/tm2628974d1_ex99-1.htm",
       "assets_note": "First Capital ~$1.290B at 6/30/2026 (10-Q) + First Federal ~$583M ≈ ~$1.87B combined; Size on combined",
-      "assets_source": "First Capital Form 10-Q for quarter ended 6/30/2026 (total assets $1,290,041 thousand); target ~$583M from deal Ex. 99.1"
+      "assets_source": "First Capital Form 10-Q for quarter ended 6/30/2026 (total assets $1,290,041 thousand); target ~$583M from deal Ex. 99.1",
+      "fi_id": "fdic-31223",
+      "fi_name": "First Harrison Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1287594000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t188",
@@ -2149,7 +3353,14 @@
       "summary": "Atlanta Fed granted Southern National Corp. (Andalusia, AL) a waiver to acquire The Samson Banking Company and merge it into CCB Community Bank (Fed H.2). Close date not stated.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261031/delactions.htm",
       "assets_note": "CCB Community Bank ~$686M at 9/30/2026 (call report) + Samson ~$125M ≈ ~$811M combined; Size still 1",
-      "assets_source": "CCB Community Bank FFIEC call report Q3 2026 (~$685.9M) via BankRegReports; Samson ~$125M per Verifier"
+      "assets_source": "CCB Community Bank FFIEC call report Q3 2026 (~$685.9M) via BankRegReports; Samson ~$125M per Verifier",
+      "fi_id": "fdic-16595",
+      "fi_name": "CCB Community Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 661943000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t189",
@@ -2162,7 +3373,14 @@
       "summary": "Kansas City Fed approved Security Bancshares Corp. (Wewoka, OK) acquiring State Bank of Wynnewood (Fed H.2). Close date not stated.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261031/delactions.htm",
       "assets_note": "Security State Bank of Oklahoma ~$386.5M at 9/30/2026 (call report) + Wynnewood ~$111M ≈ ~$498M combined; Size still 1",
-      "assets_source": "Security State Bank of Oklahoma FFIEC call report Q3 2026 (~$386.5M) via BankRegReports; Wynnewood ~$111M per Verifier"
+      "assets_source": "Security State Bank of Oklahoma FFIEC call report Q3 2026 (~$386.5M) via BankRegReports; Wynnewood ~$111M per Verifier",
+      "fi_id": "fdic-8980",
+      "fi_name": "Security State Bank of Oklahoma",
+      "charter_type": "bank",
+      "fi_assets_usd": 388240000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t190",
@@ -2175,7 +3393,14 @@
       "summary": "St. Louis Fed granted Parkside Financial, Inc. (Clayton, MO; Parkside Financial Bank & Trust ~$1.22B at 9/30/2026) a waiver to merge with First American Bancorp; First American State Bank (Greenwood Village, CO, ~$277M) merges into Parkside Financial Bank & Trust (Fed H.2). Combined ~$1.4B per Parkside deal page. Close date not stated.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261031/delactions.htm",
       "assets_note": "Parkside deal page: combined ~$1.4B; Parkside Bank ~$1.22B at 9/30/2026 (call report); Size on combined",
-      "assets_source": "Parkside Financial, Inc. deal page (pfbt.com) ~$1.4B combined; Parkside Financial Bank & Trust call report Q3 2026 ~$1.22B via BankRegReports"
+      "assets_source": "Parkside Financial, Inc. deal page (pfbt.com) ~$1.4B combined; Parkside Financial Bank & Trust call report Q3 2026 ~$1.22B via BankRegReports",
+      "fi_id": "fdic-58796",
+      "fi_name": "Parkside Financial Bank & Trust",
+      "charter_type": "bank",
+      "fi_assets_usd": 1080613000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company_out_of_state"
     },
     {
       "id": "t191",
@@ -2187,7 +3412,14 @@
       "added": "2026-11-13",
       "summary": "Alexander E. C. Overstrom (currently EVP and Head of Retail Banking) becomes EVP and Chief Financial Officer effective Mar 1, 2027, succeeding Robert Q. Reilly, who becomes Executive Vice Chairman the same day.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/713676/000162828026071110/pnc-20261105.htm",
-      "assets_note": "PNC Bank ~$610B per Verifier (FDIC); Size scored 5"
+      "assets_note": "PNC Bank ~$610B per Verifier (FDIC); Size scored 5",
+      "fi_id": "fdic-6384",
+      "fi_name": "PNC Bank, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 609771726000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company_out_of_state"
     },
     {
       "id": "t192",
@@ -2199,7 +3431,14 @@
       "added": "2026-11-13",
       "summary": "Cliff Dennett (Chief Credit Officer) becomes President & CEO and a director effective Feb 1, 2027, succeeding Jeffrey D. Payne, who becomes Chairman; Susan Black becomes Vice Chairman. Distinct from Pinnacle Financial Partners / SouthStar (t096).",
       "source_url": "https://www.pinnacle.bank/pdf/news_files_A/PBank_Leadership_changes_110526.pdf",
-      "assets_note": "~$937M per Verifier; Gilroy CA community bank (OTCQB: PBNK), not Pinnacle Financial"
+      "assets_note": "~$937M per Verifier; Gilroy CA community bank (OTCQB: PBNK), not Pinnacle Financial",
+      "fi_id": "fdic-58297",
+      "fi_name": "Pinnacle Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 936970000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t193",
@@ -2211,7 +3450,14 @@
       "added": "2026-11-13",
       "summary": "Paul Elkins named Senior Vice President, Chief Information & Technology Officer; leads technology strategy, infrastructure and operations (ex-Rocket Mortgage / DP World AI Americas).",
       "source_url": "https://ir.fm.bank/news-releases/news-release-details/fm-bank-welcomes-paul-elkins-chief-information-technology",
-      "assets_note": "~$3.5B per Verifier"
+      "assets_note": "~$3.5B per Verifier",
+      "fi_id": "fdic-5969",
+      "fi_name": "The Farmers & Merchants State Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3490494000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t194",
@@ -2223,7 +3469,14 @@
       "added": "2026-11-13",
       "summary": "Scott Pittillo becomes President & CEO of Relyance Bank and chair of its board effective Jan 1, 2027. Chuck Morgan (current Relyance President & CEO) becomes Chairman & CEO of parent Jefferson Bancshares the same day.",
       "source_url": "https://www.rely.bank/community/our-community/relyance-news/2026/11/05/chuck-morgan-to-lead-jefferson-bancshares--scott-pittillo-named-next-ceo-of-relyance-bank-leadership-transition-takes-effect-january-1--2027",
-      "assets_note": "~$1.4B per Verifier (FDIC)"
+      "assets_note": "~$1.4B per Verifier (FDIC)",
+      "fi_id": "fdic-19371",
+      "fi_name": "Relyance Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1431912000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t195",
@@ -2235,7 +3488,14 @@
       "added": "2026-11-13",
       "summary": "CEO Jim Wookey announced plans to retire later in 2027; no successor named yet. Source is WESTconsin's own press release posted on CUInsight.",
       "source_url": "https://www.cuinsight.com/press-release/westconsin-credit-union-ceo-jim-wookey-announces-plans-for-retirement/",
-      "assets_note": "~$2.2B per Verifier (NCUA)"
+      "assets_note": "~$2.2B per Verifier (NCUA)",
+      "fi_id": "ncua-66742",
+      "fi_name": "Westconsin",
+      "charter_type": "cu",
+      "fi_assets_usd": 2245897626,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t196",
@@ -2248,7 +3508,14 @@
       "summary": "Colony completed its merger with First Reliance effective Nov 1, 2026, creating a ~$5B Southeast franchise; systems conversion planned for mid-2027.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/711669/000110465926120966/tm2628498d1_ex99-1.htm",
       "assets_note": "Combined ~$5B per Colony SEC Ex. 99.1; Colony Bank GA ~$3.61B at 6/30/2026 (FDIC, pre-close)",
-      "assets_source": "Colony SEC Ex. 99.1 (~$5B combined); FDIC Colony Bank ~$3.61B at 6/30/2026"
+      "assets_source": "Colony SEC Ex. 99.1 (~$5B combined); FDIC Colony Bank ~$3.61B at 6/30/2026",
+      "fi_id": "fdic-22257",
+      "fi_name": "Colony Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 3613411000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t197",
@@ -2261,7 +3528,14 @@
       "summary": "Isabella completed its acquisition of Grand River Commerce / Grand River Bank effective Nov 2, 2026; combined ~$2.7B assets / $2.0B loans / $2.3B deposits at 6/30/2026.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/842517/000084251726000238/isba_grcxmergerclosingxex9.htm",
       "assets_note": "Combined ~$2.7B at 6/30/2026 per SEC exhibit; FDIC Isabella ~$2.17B, Grand River ~$507M",
-      "assets_source": "Isabella SEC closing exhibit (~$2.7B combined at 6/30/2026); FDIC Isabella Bank MI ~$2.17B; Grand River Bank ~$507M"
+      "assets_source": "Isabella SEC closing exhibit (~$2.7B combined at 6/30/2026); FDIC Isabella Bank MI ~$2.17B; Grand River Bank ~$507M",
+      "fi_id": "fdic-1005",
+      "fi_name": "Isabella Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2170035000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t198",
@@ -2274,7 +3548,14 @@
       "summary": "Combined milestones: Fed H.2 BHCA §3 filing waiver granted Oct 26, 2026 for HBT to acquire Tri-County / First State Bank (Mendota), and Tri-County stockholders approved the merger Oct 29, 2026. Close still subject to remaining regulatory approval; expected early Q1 2027. Combined ~$8.3B per deal announcement.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/775215/000077521526000094/hbt-20261029.htm",
       "assets_note": "Combined ~$8.3B per HBT/Tri-County Aug 10, 2026 deal announcement (First State Bank ~$1.6B at 6/30/2026)",
-      "assets_source": "HBT/Tri-County joint deal announcement (~$8.3B combined); HBT Q3 2026 results (~$6.7B standalone); Fed H.2 week ending Oct 31 (waiver Granted Oct 26)"
+      "assets_source": "HBT/Tri-County joint deal announcement (~$8.3B combined); HBT Q3 2026 results (~$6.7B standalone); Fed H.2 week ending Oct 31 (waiver Granted Oct 26)",
+      "fi_id": "fdic-20369",
+      "fi_name": "Heartland Bank and Trust Company",
+      "charter_type": "bank",
+      "fi_assets_usd": 6721503000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t199",
@@ -2287,7 +3568,14 @@
       "summary": "Federal Register notice: Keweenaw Financial applied to merge with Range Financial and indirectly acquire Range Bank (Marquette); comments due Dec 4, 2026.",
       "source_url": "https://www.federalregister.gov/documents/2026/11/04/2026-22502/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
       "assets_note": "Superior National ~$1.04B + Range Bank ~$604M at 6/30/2026 (FDIC) ≈ ~$1.64B combined",
-      "assets_source": "FDIC 6/30/2026: Superior National Bank Hancock ~$1.04B; Range Bank Marquette ~$604M"
+      "assets_source": "FDIC 6/30/2026: Superior National Bank Hancock ~$1.04B; Range Bank Marquette ~$604M",
+      "fi_id": "fdic-5058",
+      "fi_name": "Superior National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1042146000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t200",
@@ -2300,7 +3588,14 @@
       "summary": "Federal Register notice: Brighton Capital applied to become a BHC by merging with Hazlehurst Investors and indirectly acquiring Bank of Hazlehurst; comments due Dec 3, 2026. Acquirer assets not stated.",
       "source_url": "https://www.federalregister.gov/documents/2026/11/03/2026-22398/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
       "assets_note": "Bank of Hazlehurst ~$134.2M at 6/30/2026 (FDIC); Brighton Capital assets not in FR notice; Size on target",
-      "assets_source": "FDIC CERT 149 Bank of Hazlehurst GA ~$134.2M at 6/30/2026"
+      "assets_source": "FDIC CERT 149 Bank of Hazlehurst GA ~$134.2M at 6/30/2026",
+      "fi_id": "fdic-149",
+      "fi_name": "Bank of Hazlehurst",
+      "charter_type": "bank",
+      "fi_assets_usd": 134175000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company_segment2"
     },
     {
       "id": "t201",
@@ -2313,7 +3608,14 @@
       "summary": "Credit Union 1's Indiana Lakes merger page shows the completion tracker at 100% and conversion complete; Indiana Lakes members use CU1 accounts/branches beginning Nov 2, 2026.",
       "source_url": "https://www.creditunion1.org/about/mergers/indiana-lakes/",
       "assets_note": "CU1 (IL) ~$2.87B at 6/30/2026 (NCUA); Indiana Lakes absorbed (~$27.5M prior)",
-      "assets_source": "NCUA 5300 Q2 2026 Credit Union 1 (charter 68727) ~$2.87B"
+      "assets_source": "NCUA 5300 Q2 2026 Credit Union 1 (charter 68727) ~$2.87B",
+      "fi_id": "ncua-68727",
+      "fi_name": "Credit Union 1",
+      "charter_type": "cu",
+      "fi_assets_usd": 2869898466,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t202",
@@ -2326,7 +3628,14 @@
       "summary": "Update to t096: Federal Register notice — Pinnacle Bancorp applied to merge with Southern Bancshares and indirectly acquire SouthStar Bank; comments due Dec 7, 2026. New Fed-application milestone vs the Oct 8 announcement.",
       "source_url": "https://www.federalregister.gov/documents/2026/11/05/2026-22599/formations-of-acquisitions-by-and-mergers-of-bank-holding-companies",
       "assets_note": "Pinnacle ~$20.2B (Oct 8 release); SouthStar ~$1.37B at 6/30/2026 (FDIC); Size on larger",
-      "assets_source": "Pinnacle Oct 8 release (~$20.2B); FDIC SouthStar Bank S.S.B. Moulton TX ~$1.37B at 6/30/2026"
+      "assets_source": "Pinnacle Oct 8 release (~$20.2B); FDIC SouthStar Bank S.S.B. Moulton TX ~$1.37B at 6/30/2026",
+      "fi_id": "fdic-10634",
+      "fi_name": "Pinnacle Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 9177122000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t203",
@@ -2339,7 +3648,14 @@
       "summary": "Update to t104: Finward shareholders approved the merger with First Financial Bancorp at a Nov 2, 2026 special meeting (3,016,827 for; 27,370 against). New milestone vs the Oct 9 Fed approvals.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/919864/000119312526445624/d139041d8k.htm",
       "assets_note": "First Financial Bank ~$22.4B (FDIC 6/30/2026, prior draft t032/t104); Size on larger",
-      "assets_source": "Prior verified First Financial Bank FDIC 6/30/2026 ~$22.4B (carried from t104/t032)"
+      "assets_source": "Prior verified First Financial Bank FDIC 6/30/2026 ~$22.4B (carried from t104/t032)",
+      "fi_id": "fdic-6600",
+      "fi_name": "First Financial Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 22351293000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t204",
@@ -2352,7 +3668,14 @@
       "summary": "GECU completed its acquisition of Bank of the Southwest effective Nov 1, 2026; operating as BOSW by GECU until full product/system integration expected June 2027; combined ~$4.9B / 449K+ members. Supersedes rejected-duplicate sc-261102-27 (prospective only).",
       "source_url": "https://www.gecu.com/bosw",
       "assets_note": "Combined ~$4.9B per GECU primary",
-      "assets_source": "GECU primary page https://www.gecu.com/bosw (~$4.9B combined)"
+      "assets_source": "GECU primary page https://www.gecu.com/bosw (~$4.9B combined)",
+      "fi_id": "ncua-24941",
+      "fi_name": "GECU",
+      "charter_type": "cu",
+      "fi_assets_usd": 4735159889,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t205",
@@ -2365,7 +3688,14 @@
       "summary": "MEMBERS1st (Marshalltown/Ames, IA; NCUA #62918) selected Mahalo Banking's Thoughtful Banking platform as its new digital banking provider while preparing to transition to Corelation KeyStone. State is Iowa, not Michigan (Mahalo BW dateline is HQ only).",
       "source_url": "https://www.mahalobanking.com/news/members1st-community-credit-union-partners-with-mahalo-banking-to-deliver-an-enhanced-digital-banking-experience",
       "assets_note": "~$311M mid-2026 per NCUA call-report mirrors (Verifier)",
-      "assets_source": "NCUA #62918 MEMBERS1ST COMMUNITY ~$311M mid-2026 (Verifier / call-report mirrors)"
+      "assets_source": "NCUA #62918 MEMBERS1ST COMMUNITY ~$311M mid-2026 (Verifier / call-report mirrors)",
+      "fi_id": "ncua-62918",
+      "fi_name": "Members1St Community",
+      "charter_type": "cu",
+      "fi_assets_usd": 311109658,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t206",
@@ -2378,7 +3708,14 @@
       "summary": "Texoma Community CU (Wichita Falls), already live on Alkami Digital Banking, is expanding to Alkami's full Digital Sales & Service Platform (MANTL Onboarding & Account Opening and Data & Marketing) — expansion, not a switch.",
       "source_url": "https://www.prnewswire.com/news-releases/texoma-community-credit-union-to-build-a-more-connected-member-experience-with-alkamis-digital-sales--service-platform-302927900.html",
       "assets_note": "Assets not in release; Size scored 1",
-      "assets_source": "Assets not disclosed in PR Newswire release"
+      "assets_source": "Assets not disclosed in PR Newswire release",
+      "fi_id": "ncua-61527",
+      "fi_name": "Texoma Community",
+      "charter_type": "cu",
+      "fi_assets_usd": 325489792,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t207",
@@ -2391,7 +3728,14 @@
       "summary": "First New Mexico Bank of Silver City ($147M) selected PhoenixWorx Phoenix core processing and MalauzAI NextGen digital banking platforms.",
       "source_url": "https://www.morningstar.com/news/business-wire/20261102156890/first-new-mexico-bank-of-silver-city-selects-phoenixworx-to-provide-modern-banking-experiences-to-retail-and-commercial-customers",
       "assets_note": "$147M per release; FDIC CERT 24865 ~$147.5M at 6/30/2026",
-      "assets_source": "Business Wire / release $147M; FDIC CERT 24865 Silver City NM ASSET $147.5M at 6/30/2026"
+      "assets_source": "Business Wire / release $147M; FDIC CERT 24865 Silver City NM ASSET $147.5M at 6/30/2026",
+      "fi_id": "fdic-24865",
+      "fi_name": "First New Mexico Bank of Silver City",
+      "charter_type": "bank",
+      "fi_assets_usd": 147466000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t208",
@@ -2404,7 +3748,14 @@
       "summary": "OppFi withdrew its OCC, Federal Reserve and FDIC applications for the proposed BNC acquisition; the April 28, 2026 merger agreement has not been terminated and remains in effect.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1818502/000181850226000094/oppfi-providesxupdatexon.htm",
       "assets_note": "BNC National Bank ~$1.08B at 9/30/2026; Size on bank target (OppFi is non-bank)",
-      "assets_source": "BNC National Bank Q3 2026 press release / call report ~$1.083B at 9/30/2026"
+      "assets_source": "BNC National Bank Q3 2026 press release / call report ~$1.083B at 9/30/2026",
+      "fi_id": "fdic-57197",
+      "fi_name": "BNC National Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1045071000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company_out_of_state_segment2"
     },
     {
       "id": "t209",
@@ -2417,7 +3768,14 @@
       "summary": "Update to t106: M&F shareholders approved the cash merger with Optus on Nov 4, 2026 (~73.62% of outstanding; ~98.64% of votes cast); closing still subject to regulatory approvals, targeted for Q4 2026.",
       "source_url": "https://www.mfbonline.com/mf-bancorp-shareholders-approve-merger-with-optus-financial-corporation/",
       "assets_note": "Combined ~$1.3B per prior verified materials (t106)",
-      "assets_source": "Prior verified combined ~$1.3B (Columbia Business Monthly / t106)"
+      "assets_source": "Prior verified combined ~$1.3B (Columbia Business Monthly / t106)",
+      "fi_id": "fdic-12266",
+      "fi_name": "Mechanics & Farmers Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 475992000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t210",
@@ -2430,7 +3788,14 @@
       "summary": "Ion Financial and The Cooperative Bank completed their merger effective Nov 1, 2026; TCB continues as a division of Ion Bank with ~$3.4B combined assets and four Greater Boston branches. Supersedes held sc-261102-29 (no dated close then).",
       "source_url": "https://ionbank.com/blog/news-events/the-cooperative-bank-and-ion-bank-announce-completion-of-merger-effective-november-1-2026/",
       "assets_note": "Combined ~$3.4B per Ion primary",
-      "assets_source": "Ion Bank primary completion post (~$3.4B combined)"
+      "assets_source": "Ion Bank primary completion post (~$3.4B combined)",
+      "fi_id": "fdic-18198",
+      "fi_name": "Ion Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2783038000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t211",
@@ -2443,7 +3808,14 @@
       "summary": "Fed H.2: Equity Bancshares received a BHCA §3 filing waiver Oct 22, 2026 to acquire Lincoln Bancorp / Lincoln Savings Bank, and Equity Bank was approved the same day to merge with Lincoln Savings Bank. Distinct from the nbkc/LSBX BaaS assumption (t176). Pro forma ~$9.1B; close targeted Q4 2026 per deal materials.",
       "source_url": "https://www.federalreserve.gov/releases/h2/20261031/delactions.htm",
       "assets_note": "Equity ~$7.7B at 6/30/2026; Lincoln ~$1.7B; pro forma ~$9.1B per Equity deal announcement",
-      "assets_source": "Equity Bancshares deal announcement / IR (~$7.7B Equity, ~$9.1B pro forma; Lincoln ~$1.7B at 6/30/2026)"
+      "assets_source": "Equity Bancshares deal announcement / IR (~$7.7B Equity, ~$9.1B pro forma; Lincoln ~$1.7B at 6/30/2026)",
+      "fi_id": "fdic-25858",
+      "fi_name": "Equity Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 7714314000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t212",
@@ -2456,7 +3828,14 @@
       "summary": "Ascent completed its operating systems integration with Goldenwest and is now Weber State Credit Union, a division of Goldenwest; members use Goldenwest accounts, app and Visa cards across UT/ID.",
       "source_url": "https://www.gwcu.org/about/news/ascent-credit-union-completes-systems-integration-with-goldenwest-becomes-weber-state-credit-union",
       "assets_note": "Goldenwest ~$4.33B at 6/30/2026 (NCUA; includes Ascent absorption)",
-      "assets_source": "NCUA 5300 Q2 2026 Goldenwest FCU (charter 24693) ~$4.33B"
+      "assets_source": "NCUA 5300 Q2 2026 Goldenwest FCU (charter 24693) ~$4.33B",
+      "fi_id": "ncua-24693",
+      "fi_name": "Goldenwest",
+      "charter_type": "cu",
+      "fi_assets_usd": 4332589730,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t213",
@@ -2469,7 +3848,14 @@
       "summary": "Gulf Coast FCU (Corpus Christi, TX; NCUA #4060) members approved merging into Credit Union 1 on Sept 29, 2026; legal merge Dec 31, 2026; core systems convert Jan 15, 2027.",
       "source_url": "https://www.creditunion1.org/about/mergers/gulf-coast/",
       "assets_note": "CU1 (IL) ~$2.87B at 6/30/2026 (NCUA); Size on larger",
-      "assets_source": "NCUA 5300 Q2 2026 Credit Union 1 (charter 68727) ~$2.87B"
+      "assets_source": "NCUA 5300 Q2 2026 Credit Union 1 (charter 68727) ~$2.87B",
+      "fi_id": "ncua-4060",
+      "fi_name": "Gulf Coast",
+      "charter_type": "cu",
+      "fi_assets_usd": 259789397,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t214",
@@ -2482,7 +3868,14 @@
       "summary": "Rhinebeck Bank named Jeff Nowicki chief digital banking officer to lead its Direct Banking and Partner Banking initiatives.",
       "source_url": "https://www.accessnewswire.com/newsroom/en/banking-and-financial-services/rhinebeck-bank-appoints-jeff-nowicki-as-chief-digital-banking-officer-to-advance-digital-1248944",
       "assets_note": "~$1.47B at 6/30/2026 per Verifier (FDIC)",
-      "assets_source": "FDIC 6/30/2026 per Verifier"
+      "assets_source": "FDIC 6/30/2026 per Verifier",
+      "fi_id": "fdic-16032",
+      "fi_name": "Rhinebeck Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 1469845000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t215",
@@ -2495,7 +3888,14 @@
       "summary": "IU Credit Union named COO Andy Allard president and CEO effective Jan 1, 2027, succeeding Bryan Price, who retires in April 2027.",
       "source_url": "https://www.idsnews.com/article/2026/11/iu-credit-union-111026",
       "assets_note": "~$2.1B at 6/30/2026 per Verifier (NCUA)",
-      "assets_source": "NCUA 6/30/2026 per Verifier"
+      "assets_source": "NCUA 6/30/2026 per Verifier",
+      "fi_id": "ncua-68577",
+      "fi_name": "Indiana University",
+      "charter_type": "cu",
+      "fi_assets_usd": 2092345712,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t216",
@@ -2508,7 +3908,14 @@
       "summary": "Farmers National Bank moved CIO Brian Jackson to chief operating officer and named Michael Oberhaus chief administrative and risk officer. Related to, but distinct from, live t024 (Myke Matuszak's COO employment ended Oct 15, 2026).",
       "source_url": "https://ir.farmersbankgroup.com/news-market-data/press-releases/news-details/2026/Farmers-National-Bank-Expands-Executive-Leadership-Brian-Jackson-Appointed-Chief-Operating-Officer-Michael-Oberhaus-Appointed-Chief-Administrative-and-Risk-Officer/default.aspx",
       "assets_note": "~$7.2B at 6/30/2026 per Verifier (FDIC); release also cites ~$7.1B banking assets / $7B after Middlefield close",
-      "assets_source": "FDIC 6/30/2026 per Verifier"
+      "assets_source": "FDIC 6/30/2026 per Verifier",
+      "fi_id": "fdic-6540",
+      "fi_name": "The Farmers National Bank of Canfield",
+      "charter_type": "bank",
+      "fi_assets_usd": 7159502000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     },
     {
       "id": "t217",
@@ -2521,7 +3928,14 @@
       "summary": "Hancock Whitney agreed to acquire Trustmark ($19.1B assets at 9/30/2026) in an all-stock deal valued at about $3.2B, creating a combined Gulf South franchise of approximately $58B. Close is expected late Q1 2027, pending regulatory and shareholder approvals, and Trustmark branches convert to the Hancock Whitney name in late 2027.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/750577/000119312526457037/hwc-ex99_1.htm",
       "assets_note": "Combined ~$58B and Trustmark $19.1B at 9/30/2026, both in Hancock Whitney SEC Ex. 99.1; Size on combined",
-      "assets_source": "Hancock Whitney SEC Exhibit 99.1 (~$58B combined; Trustmark $19.1B as of 9/30/2026)"
+      "assets_source": "Hancock Whitney SEC Exhibit 99.1 (~$58B combined; Trustmark $19.1B as of 9/30/2026)",
+      "fi_id": "fdic-12441",
+      "fi_name": "Hancock Whitney Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 36329257000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "holding_company"
     },
     {
       "id": "t218",
@@ -2533,7 +3947,14 @@
       "added": "2026-11-13",
       "summary": "A Nov 3, 2026 CUbroadcast post reports that CorePlus FCU and Scient FCU have completed their merger and now operate as Waypoint Federal Credit Union (Norwich, CT; about $673.5M assets). Timing caveat: the credit union's own site was already using the Waypoint name in September and October 2026, so the merger may have closed before Nov 3; no dated close notice from the credit union was found.",
       "source_url": "https://www.cubroadcast.com/2/post/2026/11/coreplus-and-scient-now-officially-waypoint-federal-credit-union.html",
-      "assets_note": "~$673.5M per CUbroadcast (trade post); NCUA confirms Waypoint FCU, Norwich CT (charter 1148)"
+      "assets_note": "~$673.5M per CUbroadcast (trade post); NCUA confirms Waypoint FCU, Norwich CT (charter 1148)",
+      "fi_id": "ncua-1148",
+      "fi_name": "Coreplus",
+      "charter_type": "cu",
+      "fi_assets_usd": 676465900,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t219",
@@ -2546,7 +3967,14 @@
       "summary": "Third Coast announced on Nov 9, 2026 that Laura Rau is Executive Vice President and Chief Risk Officer, leading the bank's enterprise risk management. Timing caveat: she joined in January 2026 and has held the bank's CRO role since January 2026 (per the company's April 2026 proxy), so this formalizes an existing appointment rather than a new hire.",
       "source_url": "https://www.prnewswire.com/news-releases/third-coast-bank-appoints-laura-rau-as-chief-risk-officer-302932990.html",
       "assets_note": "FDIC CERT 58716, Humble TX, ~$6.73B at 6/30/2026 (per Verifier)",
-      "assets_source": "https://www.sec.gov/Archives/edgar/data/1781730/000119312526159039/d46578ddef14a.htm (April 16, 2026 DEF 14A, CRO since Jan 2026); FDIC CERT 58716"
+      "assets_source": "https://www.sec.gov/Archives/edgar/data/1781730/000119312526159039/d46578ddef14a.htm (April 16, 2026 DEF 14A, CRO since Jan 2026); FDIC CERT 58716",
+      "fi_id": "fdic-58716",
+      "fi_name": "Third Coast Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 6728468000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     },
     {
       "id": "t220",
@@ -2559,7 +3987,14 @@
       "summary": "Penn State Federal Credit Union named David Restino chief financial officer; he was CFO of First United National Bank, and the seat opened when Rick Tabor became CEO earlier this year.",
       "source_url": "https://www.statecollege.com/articles/business/penn-state-federal-credit-union-names-david-restino-as-chief-financial-officer/",
       "assets_note": "~$274.4M at 6/30/2026 per Verifier (NCUA Form 5300, #12729)",
-      "assets_source": "NCUA 6/30/2026 per Verifier"
+      "assets_source": "NCUA 6/30/2026 per Verifier",
+      "fi_id": "ncua-12729",
+      "fi_name": "Penn State",
+      "charter_type": "cu",
+      "fi_assets_usd": 274444647,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     },
     {
       "id": "t221",
@@ -2572,7 +4007,14 @@
       "summary": "First Bankers Trust (Quincy, IL) named Melinda Boyer chief transformation officer, a new role leading process reengineering, automation and AI; she keeps oversight of HR.",
       "source_url": "https://muddyrivernews.com/communities/illinois/first-bankers-trust-company-n-a-names-melinda-boyer-chief-transformation-officer/20261114075300/",
       "assets_note": "~$1.224B at 6/30/2026 per Verifier (FDIC CERT 16501)",
-      "assets_source": "FDIC 6/30/2026 per Verifier"
+      "assets_source": "FDIC 6/30/2026 per Verifier",
+      "fi_id": "fdic-16501",
+      "fi_name": "First Bankers Trust Company, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 1223841000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
     }
   ]
 }

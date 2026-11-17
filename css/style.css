@@ -139,3 +139,5 @@ nav{display:flex;align-items:center;flex-shrink:0}
   nav a.nav-opt{display:none}
 }
 @media(max-width:350px){.logo .mark{display:none}}
+/* asset size on row cards (FDIC / NCUA call report): keep "$36.3B assets (2026Q2)" on one line */
+.meta .assets{white-space:nowrap}

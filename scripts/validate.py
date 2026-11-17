@@ -11,4 +11,26 @@ for r in d["rows"]:
     if "added" not in r: print("warning: missing added (run scripts/stamp_added.py)",r["id"])
     elif not re.match(r"\d{4}-\d{2}-\d{2}$",str(r["added"])): print("bad added",r["id"]);ok=False
 if not re.match(r"\d{4}-\d{2}-\d{2}$",str(d.get("updated",""))): print("bad top-level updated");ok=False
+# institution database + links written by scripts/build_fi_db.py and scripts/link_institutions.py
+import os
+inst={}
+if os.path.exists("data/institutions.json"):
+    db=json.load(open("data/institutions.json"));cols=db["columns"]
+    for x in db["rows"]:
+        x=dict(zip(cols,x))
+        if x["charter_type"] not in ("bank","cu") or not re.match(r"(fdic|ncua)-\d+$",x["id"]): print("bad institution",x["id"]);ok=False
+        if x["total_assets"]!="" and not re.match(r"\d{4}Q[1-4]$",x["assets_as_of"]): print("bad assets_as_of",x["id"]);ok=False
+        inst[x["id"]]=x
+    if len(inst)!=len(db["rows"]): print("duplicate institution ids");ok=False
+linked=0
+for r in d["rows"]:
+    if "fi_id" not in r:
+        if "charter_type" in r: print("charter_type without fi_id",r["id"]);ok=False
+        continue
+    linked+=1
+    if inst and r["fi_id"] not in inst: print("fi_id not in institutions.json",r["id"],r["fi_id"]);ok=False
+    if r.get("charter_type") not in ("bank","cu"): print("bad charter_type",r["id"]);ok=False
+    if r.get("fi_assets_usd") is not None and not isinstance(r["fi_assets_usd"],int): print("bad fi_assets_usd",r["id"]);ok=False
+    if r.get("fi_assets_usd") is not None and not re.match(r"\d{4}Q[1-4]$",str(r.get("fi_assets_as_of"))): print("bad fi_assets_as_of",r["id"]);ok=False
+print(f"{linked} rows linked to institutions.json ({len(inst)} institutions)")
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)
