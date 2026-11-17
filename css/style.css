@@ -41,3 +41,9 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem}
 .subscribe .note.small{margin:12px 0 0;font-size:.85rem}
 .subscribe-form{min-height:60px;max-width:560px}
 #subscribe{scroll-margin-top:72px}
+.hero .hero-line{color:var(--ink);font-size:1.15rem;font-weight:600;margin:0 0 12px}
+.hero .subscribe{margin:0 0 16px}
+.hero .board-updated{margin-top:8px;font-size:.9rem}
+.muted-inline{font-size:.8rem}
+nav a.follow-x{color:var(--brand)}
+.tag-new{display:inline-block;padding:1px 7px;border-radius:999px;background:#16a34a;color:#fff;font-weight:800;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle;margin-left:8px}

@@ -9,6 +9,10 @@
   function fmtDate(d){
     var p=d.split("-");return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
   }
+  // "New" = row went live on the board (r.added) within the last NEW_DAYS days
+  var NEW_DAYS=7,newCutoff=(function(){var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-NEW_DAYS);
+    return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)})();
+  function isNew(r){return !!r.added&&r.added>newCutoff}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   function render(){
     var t=$("f-type").value,s=$("f-state").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
@@ -21,7 +25,9 @@
     if(!rows.length){var li=el("li","empty","No triggers match these filters.");list.appendChild(li);return}
     rows.slice(0,shown).forEach(function(r){
       var li=el("li","card "+r.type);
-      li.appendChild(el("h3",null,r.institution));
+      var h=el("h3",null,r.institution);
+      if(isNew(r)){var tg=el("span","tag-new","New");tg.title="Added to the board "+fmtDate(r.added);h.appendChild(tg)}
+      li.appendChild(h);
       var m=el("div","meta");
       m.appendChild(el("span","badge "+r.type,TYPE_LABEL[r.type]||r.type));
       m.appendChild(el("span",null,r.state));
