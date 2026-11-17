@@ -11,3 +11,9 @@ Rows live in `data/triggers.json`. For each publish (weekdays):
 3. Run `python3 scripts/validate.py`.
 
 Each row's `date` is the event/announcement date; `added` is when it went on the board. See `scripts/refresh_notes.md` for sourcing rules.
+
+## Brand
+
+Colors, logo use, voice and X post rules: [`docs/brand-guide.md`](docs/brand-guide.md).
+
+The board's "Bank or CU" filter is derived from the institution name in `js/app.js` (`charter()`): "Credit Union", or an all-caps word ending in "CU" (CU, FCU, TDECU...), means credit union; everything else is a bank. Cross-charter deals where a credit union is named count as credit union.
