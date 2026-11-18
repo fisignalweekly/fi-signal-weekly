@@ -10,7 +10,7 @@ e = lambda s: html.escape(str(s), quote=True)
 
 # Feature flags: a name listed here renders only on showcase pages (data/showcase.txt). Move a feature to all
 # pages by removing it from this set. Empty = every shipped feature is on every page.
-SHOWCASE_ONLY = set()
+SHOWCASE_ONLY = {"benchmarks"}  # asset-chart benchmark overlays, CPI toggle, verdict, merger markers (Nov 18, 2026)
 
 
 def feature_on(name, is_showcase):
@@ -123,7 +123,7 @@ def header_trend(cr, q_as_of):
     return f'<p class="hdr-trend" title="Total assets, last 5 years of call reports">{spark_svg(a[-21:])}<span>{yo}</span></p>'
 
 
-def trend_section(cr, quarters, as_of, charter):
+def trend_section(cr, quarters, as_of, charter, bench=None):
     src = ("FDIC BankFind call reports" if charter == "bank" else "NCUA 5300 call reports")
     if all(v is None for v in cr["a"]):
         return (f'<section class="fin" aria-labelledby="fin-h"><h2 id="fin-h">Assets, deposits &amp; loans</h2>'
@@ -147,13 +147,17 @@ def trend_section(cr, quarters, as_of, charter):
                       f'<tbody>{"".join(rows)}</tbody></table>')
     # chart + embedded data start at the first quarter this institution reported (new charters get a short, readable chart)
     data = {"q0": quarters[fi0], **{k_: (cr.get(k_) or [])[fi0:] for k_, _, _ in METRICS}}
+    bhtml, bnote = "", ""
+    if bench:
+        data.update(bench["data"])
+        bhtml, bnote = bench["html"], bench["note"]
     y, q = as_of[:4], int(as_of[5])
     start = f' Figures on this page start {qname(quarters[fi0])}.' if fi0 else ""
     return (f'<section class="fin" aria-labelledby="fin-h"><h2 id="fin-h">Assets, deposits &amp; loans</h2>'
-            f'<div class="tabs" role="group" aria-label="Choose a measure">{"".join(tabs)}</div>'
+            f'<div class="tabs" role="group" aria-label="Choose a measure">{"".join(tabs)}</div>{bhtml}'
             f'<figure class="fin-chart"><div class="chart-wrap">{chart_svg(cr["a"][fi0:], quarters[fi0:])}<div class="tip" hidden></div></div>'
             f'<figcaption class="note">Quarterly, {qname(quarters[fi0])} to {qname(as_of)}. Tap or hover the chart for a quarter.</figcaption></figure>'
-            f'<div class="fin-tables">{"".join(tables)}</div>'
+            f'{bnote}<div class="fin-tables">{"".join(tables)}</div>'
             f'<p class="note">Source: {e(src)}, as of {qname(as_of)} ({QEND[q]}, {y}). QoQ = change from the prior quarter, YoY = change from the same quarter a year earlier.{start}</p>'
             f'<script type="application/json" class="fin-data">{json.dumps(data, separators=(",", ":"))}</script></section>')
 
@@ -221,3 +225,120 @@ def similar_section(x, similar, vendor, st_name, tier_label, fi_li):
              if vendor else f"Same state ({e(st_name)}) and asset tier ({e(tier_label)}); none of them share a digital banking platform we identified with this one, or it has none on file")
     return (f'<section class="similar" aria-labelledby="sim-h"><h2 id="sim-h">Similar institutions</h2>'
             f'<p class="note">{basis}. Closest in total assets first.</p><ul class="fi-list">{"".join(fi_li(y) for y in similar)}</ul></section>')
+
+
+# ---------------------------------------------------------------- asset-chart benchmarks (data from scripts/build_benchmarks.py)
+def _distinct(vals, fmt, lo=1, hi=3):
+    """Smallest decimals (lo..hi) at which values that differ also print differently."""
+    for d in range(lo, hi + 1):
+        out = [fmt(v, d) for v in vals]
+        if all(out[i] != out[j] for i in range(len(vals)) for j in range(i) if vals[i] != vals[j]):
+            return out
+    return [fmt(v, hi) for v in vals]
+
+
+def verdict_text(ratios, start_label, peer_label, ind_label, real=False, mult=None):
+    """ratios = [this FI, peer median or None, industry median]; each = assets now / assets at the chart start.
+
+    Multiples ("3.5x") when any ratio is 2 or more, else % change; decimals grow until different numbers print differently.
+    """
+    vals = [r for r in ratios if r is not None]
+    if (max(vals) >= 2) if mult is None else mult:
+        out = _distinct(vals, lambda v, d: f"{v:.{d}f}x")
+        lead = f"are {out[0]} their {start_label} level"
+    else:
+        def pc(v, d):
+            p = (v - 1) * 100
+            return f"{'+' if p > 0 else '−' if p < 0 else ''}{abs(p):.{d}f}%"
+        out = _distinct(vals, pc)
+        p0 = (vals[0] - 1) * 100
+        lead = (f"are up {out[0].lstrip('+')}" if p0 > 0 else f"are down {out[0].lstrip('−')}" if p0 < 0 else "are flat") + f" since {start_label}"
+    it = iter(out[1:])
+    cmp_ = []
+    if ratios[1] is not None:
+        cmp_.append(f"{next(it)} for the {peer_label} median")
+    cmp_.append(f"{next(it)} for the median {ind_label}")
+    s = f"Assets {lead}, vs {' and '.join(cmp_)}"
+    return ("Adjusted for inflation, a" + s[1:] if real else s) + "."
+
+
+def chart_events(hist, rows, quarters, fi0):
+    """Merger markers: FDIC history mergers / branch purchases and the board's merger signals, by chart quarter."""
+    qi = {q: i - fi0 for i, q in enumerate(quarters) if i >= fi0}
+    ev = {}
+    def add(d, t):
+        y, m = int(d[:4]), int(d[5:7])
+        j = qi.get(f"{y}Q{(m - 1) // 3 + 1}")
+        if j is not None:
+            ev.setdefault(j, []).append(f"{fmt_date(d)}: {t}")
+    for h in hist or []:
+        other = ws(h.get("other", ""))
+        if h["code"] in (810, 811) and other:
+            add(h["date"], f"merged in {other}" + (" (FDIC-assisted)" if h["code"] == 811 else ""))
+        elif h["code"] == 712 and other:
+            add(h["date"], f"bought branches from {other}")
+    for r in rows:
+        if r["type"] in ("merger", "cu_merger", "cu_acquires_bank"):
+            sm = ws(r["summary"])
+            add(r["date"], "merger signal: " + (sm if len(sm) <= 90 else sm[:88].rsplit(" ", 1)[0] + "…"))
+    return [[j, " · ".join(reversed(v))] for j, v in sorted(ev.items())]
+
+
+def bench_block(cr, quarters, charter, bm, peer, peer_n, tier_label, events):
+    """HTML (controls, verdict, legend, note) + chart data for the asset benchmarks. None if assets can't be indexed."""
+    a = cr["a"]
+    fi0 = first_idx(a)
+    if fi0 is None or a[-1] is None or not a[fi0]:
+        return None
+    ind = bm[charter]
+    med = ind["med"].get(quarters[fi0])
+    if not med or med[-1] is None:
+        return None
+    word = "bank" if charter == "bank" else "credit union"
+    words = word + "s"
+    sl = qname(quarters[fi0])
+    tot = ind["total"]
+    cpi = bm["cpi"]
+    ratios = [a[-1] / a[fi0], peer[-1] if peer else None, med[-1]]
+    v_nom = verdict_text(ratios, sl, "peer", word)
+    defl = cpi[fi0] / cpi[-1]
+    v_real = verdict_text([r * defl if r is not None else None for r in ratios], sl, "peer", word, real=True,
+                          mult=max(r for r in ratios if r is not None) >= 2)  # same unit as the plain line
+    ix = lambda xs: [None if v is None else round(v * 100, 1) for v in xs[fi0:]]
+    data = {"bm": {"im": ix(med), "it": [round(t / tot[fi0] * 100, 1) for t in tot[fi0:]],
+                   "cpi": [round(c, 3) for c in cpi[fi0:]],
+                   "n": {"fi": f"This {word}", "p": "Peer median", "im": f"Median {word}", "it": f"All {words}, total"}}, "ev": events}
+    if peer:
+        data["bm"]["p"] = ix(peer)
+    reg = "FDIC-insured" if charter == "bank" else "federally insured"
+    tl = tier_label[0].lower() + tier_label[1:] if tier_label.startswith("Under") else tier_label
+    legend = (f'<li><i class="k k-fi"></i>This {word}</li>'
+              + (f'<li><i class="k k-p"></i>Peer median ({peer_n:,} {e(tl)} {words})</li>' if peer else "")
+              + f'<li><i class="k k-im"></i>Median {word}</li><li><i class="k k-it"></i>All {words}, total</li>'
+              + ('<li><i class="k k-ev"></i>Merger</li>' if events else ""))
+    html_ = (f'<p class="verdict" data-nom="{e(v_nom)}" data-real="{e(v_real)}">{e(v_nom)}</p>'
+             f'<div class="bm-ctl" hidden><div class="seg" role="group" aria-label="Chart view">'
+             f'<button type="button" class="vw" data-v="usd" aria-pressed="true">Dollars</button>'
+             f'<button type="button" class="vw" data-v="idx" aria-pressed="false">vs peers</button></div>'
+             f'<label class="cpi-t"><input type="checkbox" class="cpi-in"> Adjust for inflation</label></div>'
+             f'<ul class="bm-legend" hidden>{legend}</ul>')
+    peer_txt = (f"Peer median: the middle of today&#39;s {e(tl)} {words} (the same tier as the peer rank below) "
+                f"that reported in {sl}, this one left out, each indexed to 100 there."
+                if peer else f"Too few {e(tl)} {words} reported in {sl} for a peer median, so there is no peer line.")
+    if events:
+        ev_txt = ('<p class="note bm-ev"><span class="k k-ev" aria-hidden="true"></span> marks a merger or branch purchase'
+                  + (" from FDIC history or" if charter == "bank" else "") + " from our merger signals (tap the chart for details). "
+                  "Acquisitions add the acquired institution&#39;s assets in the quarter the deal closes, so they can cause jumps "
+                  "that aren&#39;t organic growth.</p>")
+    else:
+        ev_txt = ('<p class="note bm-ev">Acquisitions add the acquired institution&#39;s assets in the quarter the deal closes, '
+                  "so they can cause jumps. " + (f"None on file in FDIC history or our signals for this bank since {sl}."
+                  if charter == "bank" else "We have no merger on file for this credit union in our signals.") + "</p>")
+    note = (ev_txt + f'<details class="bm-how"><summary>How the comparison works</summary><p class="note">“vs peers” indexes each line to 100 at {sl}. '
+            f'{peer_txt} Median {word}: the middle of all {reg} {words} that reported in both {sl} and that quarter. '
+            f'All {words}, total: the sum of every filer&#39;s assets each quarter, so it includes {words} that opened, merged or closed. '
+            f'Peer and median lines count only institutions that still file today, so they leave out ones that merged away or closed. Inflation uses the BLS CPI-U '
+            f'(all items, U.S. city average), averaged by quarter; the dollar view is in {qname(quarters[-1])} dollars. '
+            f'The line above compares assets in {qname(quarters[-1])} with {sl}. '
+            f'Source: {"FDIC BankFind" if charter == "bank" else "NCUA 5300"} call reports and BLS.</p></details>')
+    return {"data": data, "html": html_, "note": note}

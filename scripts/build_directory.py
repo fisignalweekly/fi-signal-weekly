@@ -9,6 +9,7 @@ Inputs (nothing else, no network):
   data/triggers.json      board rows; a row belongs to an institution through its fi_id (scripts/link_institutions.py)
   data/providers.csv      core and digital banking provider evidence per institution (data/README-providers.md)
   data/callreports.json   FDIC/NCUA call report history, offices, members, FDIC history events (scripts/fetch_callreports.py)
+  data/benchmarks.json    industry asset totals/medians and BLS CPI-U for the asset-chart benchmarks (scripts/build_benchmarks.py)
 
 Outputs:
   fi/index.html                     directory landing page with client-side search (js/fi-search.js)
@@ -33,6 +34,7 @@ OUT = "fi"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from trigger_types import TYPES as TYPE_LABEL, is_board_row  # one list of board types and labels
 import fi_sections as S
+import build_benchmarks as BB
 TIERS = [("lt500m", "Under $500M", 0, 5e8), ("500m-1b", "$500M–$1B", 5e8, 1e9), ("1b-10b", "$1B–$10B", 1e9, 1e10),
          ("10b-50b", "$10B–$50B", 1e10, 5e10), ("50b+", "$50B+", 5e10, float("inf")), ("na", "Assets not reported", None, None)]
 TIER_LIST_MAX = 1500   # tiers bigger than this list the largest TIER_TOP plus everything with signals, then link to search
@@ -289,6 +291,10 @@ def build(files):
     WINDOWS.update(load_windows())
     crj = json.load(open(os.path.join(ROOT, "data", "callreports.json")))
     CR, QS, AS_OF = crj["fi"], crj["quarters"], crj["as_of"]
+    bp = os.path.join(ROOT, "data", "benchmarks.json")  # scripts/build_benchmarks.py
+    BM = json.load(open(bp)) if os.path.exists(bp) else None
+    if BM and BM["quarters"] != QS:
+        raise ValueError("benchmarks.json quarters differ from callreports.json: run scripts/build_benchmarks.py")
     SHOWCASE = S.load_showcase(ROOT)  # showcase pages get SHOWCASE_ONLY features first (S.feature_on)
     social = {}
     sp = os.path.join(ROOT, "data", "social.csv")
@@ -339,6 +345,7 @@ def build(files):
         g.sort(key=by_assets)
     rank_st = {x["id"]: (i + 1, len(g)) for g in st_groups.values() for i, x in enumerate(g)}
     rank_tier = {x["id"]: (i + 1, len(g)) for g in tier_groups.values() for i, x in enumerate(g)}
+    PEERS = BB.Peers(CR, {k_: [x["id"] for x in g] for k_, g in tier_groups.items()})
     rank_gr = {}
     for (tk, ct), g in tier_groups.items():
         gg = sorted(((yoy(x), x) for x in g if yoy(x) is not None), key=lambda t: (-t[0], t[1]["name"]))
@@ -429,6 +436,14 @@ def build(files):
             peer.append(f'<span class="note">Call report assets, {S.qname(AS_OF)}. Rank 1 = largest or fastest growing.</span>')
         sim, sim_v = similar(x)
         showcase = x["id"] in SHOWCASE  # pass to S.feature_on(<flag>, showcase) when a new section is showcase-only
+        bench = None
+        if BM and S.feature_on("benchmarks", showcase) and cr.get("a") and S.first_idx(cr["a"]) is not None:
+            f0 = S.first_idx(cr["a"])
+            pser, pn = (PEERS.series(x["id"], (x["_tier"], x["charter_type"]), f0) if x["_tier"] != "na" else (None, 0))
+            if pser and pser[-1] is None:
+                pser = None
+            bench = S.bench_block(cr, QS, x["charter_type"], BM, pser, pn,
+                                  tier_name[x["_tier"]], S.chart_events(cr.get("hist"), rows, QS, f0))
         dl = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in facts)
         if rows:
             hist = (f'<h2>Signals <span class="count-pill">{len(rows)}</span></h2><ul class="sig-list">' + "".join(sig_li(r) for r in rows) + "</ul>")
@@ -442,7 +457,7 @@ def build(files):
                 f'<article class="fi-page"><h1>{e(x["name"])}</h1>'
                 f'<p class="fi-sub">{"Credit union" if x["charter_type"] == "cu" else "Bank"} · {e(x["city"])}, {e(x["state"])}' + (f" · {e(a)} in assets" if a else "") + "</p>"
                 + S.header_trend(cr, AS_OF) +
-                f'<dl class="facts">{dl}</dl>' + S.trend_section(cr, QS, AS_OF, x["charter_type"]) + S.peer_section(peer) +
+                f'<dl class="facts">{dl}</dl>' + S.trend_section(cr, QS, AS_OF, x["charter_type"], bench) + S.peer_section(peer) +
                 provider_block(x, prov, board_by_url) + S.exec_section(rows, TYPE_LABEL) +
                 S.history_section(cr.get("hist"), rows, CLASS_LABEL, x["charter_type"], TYPE_LABEL) + hist +
                 S.similar_section(x, sim, sim_v, st_name, tier_name[x["_tier"]], fi_li) +
