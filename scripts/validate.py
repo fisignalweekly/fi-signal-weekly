@@ -125,5 +125,8 @@ if os.path.exists("data/fi-pinned.txt"):
         ln=ln.strip()
         if ln and not ln.startswith("#") and not os.path.exists(ln): print("fi-pinned.txt: missing page",ln);ok=False
 print(f"{linked} rows linked to institutions.json ({len(inst)} institutions)")
+_bb=[r["id"] for r in d["rows"] if is_board_row(r) and (r["type"] in FI_ONLY_TYPES or r.get("fi_only"))]
+if _bb: print("branch_opening / fi_only rows on the board:",_bb);ok=False
+if 'value="branch_opening"' in open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"index.html")).read(): print("index.html: branch_opening must not be a board filter");ok=False
 print(f"{sum(1 for r in d['rows'] if is_board_row(r))} board rows, {sum(1 for r in d['rows'] if not is_board_row(r))} fi-only rows")
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)
