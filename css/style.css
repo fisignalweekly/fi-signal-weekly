@@ -263,3 +263,26 @@ label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
 @media(max-width:459px){nav a.nav-dir{padding:0 6px}}
 .sig-list .sig.cu_acquires_bank{border-left-color:var(--signal);background:linear-gradient(90deg,#EFFCEE,#fff 60%);box-shadow:0 0 0 1px #9BEF95}
 .sig-list .sig.cu_executive{border-left-color:var(--cu_executive)}.sig-list .sig.cu_merger{border-left-color:var(--cu_merger)}.sig-list .sig.cu_charter{border-left-color:var(--cu_charter)}
+
+/* /territory/ — mobile-first list of Eastern Time banks above $1.4B */
+.terr{max-width:800px;padding-bottom:40px}
+.terr .hero{padding:28px 0 8px}
+.terr .count{color:var(--muted);max-width:40rem;margin:0}
+.terr .rule{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:16px 0 20px}
+.terr .rule h2{margin:0 0 8px;font-size:1.05rem}
+.terr .rule p,.terr .rule li{margin:0 0 8px;font-size:.95rem}
+.terr .rule ul{margin:0;padding:0 0 0 1.15em}
+.terr .rule ul ul{margin:8px 0 0}
+.terr .rule code{display:inline-block;overflow-wrap:anywhere;font-size:.85em}
+.terr-jump{display:flex;flex-wrap:wrap;gap:6px 8px;margin:0 0 18px}
+.terr-jump a{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:36px;padding:4px 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:700}
+.terr-jump a:hover{border-color:var(--navy-700);color:var(--navy-700)}
+.terr-state{margin:0 0 22px}
+.terr h2.state{margin:0 0 8px;font-size:1.2rem;scroll-margin-top:8px}
+.terr h2.state span{color:var(--muted);font-weight:600;font-size:.9rem}
+.terr h3.city{margin:14px 0 0;padding:8px 0 6px;font-size:.95rem;color:var(--muted);font-weight:700;position:sticky;top:0;background:var(--bg);z-index:1}
+.terr .fi-list{margin:0}
+@media (max-width:430px){
+  .terr .rule{padding:12px 12px}
+  .terr h3.city{font-size:.9rem}
+}

@@ -1,10 +1,14 @@
 // FI directory search (/fi/). Loads the compact index fi/search.json once and filters it in the browser.
-// Filters live in the URL (?q=&state=&charter=&assets=&signals=1), the same plain-URL approach as the board.
+// Filters live in the URL (?q=&state=&charter=&assets=&signals=1&tz=et&assets_min=1400000000), the same plain-URL approach as the board.
 (function(){
   var $=function(id){return document.getElementById(id)};
   var q=$("fs-q"),st=$("fs-state"),ch=$("fs-charter"),as=$("fs-assets"),sg=$("fs-signals"),out=$("fs-results"),cnt=$("fs-count"),
       more=$("fs-more"),moreWrap=$("fs-more-wrap"),def=$("fs-default");
   if(!q||!out)return;
+  var params=new URLSearchParams(location.search);
+  var tz=(params.get("tz")||"").toLowerCase()==="et"?"et":"";
+  var aminStr=params.get("assets_min")||"";
+  var amin=/^\d{1,15}$/.test(aminStr)?+aminStr:0;
   var rows=null,loading=null,PAGE=50,shown=PAGE,timer,STNAME={};
   [].forEach.call(st.options,function(o){if(o.value)STNAME[o.value]=o.textContent.toLowerCase()});
   var TIERS={"lt500m":[0,500],"500m-1b":[500,1000],"1b-10b":[1000,10000],"10b-50b":[10000,50000],"50b+":[50000,Infinity]};
@@ -17,10 +21,10 @@
     });
     return loading;
   }
-  function active(){return !!(q.value.trim()||st.value||ch.value||as.value||sg.checked)}
+  function active(){return !!(q.value.trim()||st.value||ch.value||as.value||sg.checked||tz||amin)}
   function sync(){
     var p=[];if(q.value.trim())p.push("q="+encodeURIComponent(q.value.trim()));
-    if(st.value)p.push("state="+st.value);if(ch.value)p.push("charter="+ch.value);if(as.value)p.push("assets="+encodeURIComponent(as.value));if(sg.checked)p.push("signals=1");
+    if(st.value)p.push("state="+st.value);if(ch.value)p.push("charter="+ch.value);if(as.value)p.push("assets="+encodeURIComponent(as.value));if(sg.checked)p.push("signals=1");if(tz)p.push("tz="+tz);if(amin)p.push("assets_min="+amin);
     var u=location.pathname+(p.length?"?"+p.join("&"):"");
     if(u!==location.pathname+location.search&&history.replaceState)history.replaceState(null,"",u);
   }
@@ -32,6 +36,8 @@
       if(as.value==="na"&&r.m>=0)return false;
       if(t&&!(r.m>=t[0]&&r.m<t[1]))return false;
       if(sg.checked&&!r.n)return false;
+      if(tz&&!(window.FI_TERRITORY&&FI_TERRITORY.paths[(r.st.toLowerCase()+"/"+r.slug)]))return false;
+      if(amin&&!(r.m>=0&&r.m*1e6>=amin))return false;
       for(var i=0;i<toks.length;i++)if(r.hay.indexOf(toks[i])<0)return false;
       return true;
     });
