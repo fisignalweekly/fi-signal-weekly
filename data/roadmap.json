@@ -318,6 +318,19 @@
           "est": true
         }
       ]
+    },
+    {
+      "id": "mcp-server-live",
+      "name": "MCP server: live (partner preview)",
+      "description": "The read-only MCP server is live for a first partner preview: signal search, FI profiles, new signals since a date and tech stack, over published FI Signal data only, with per-partner API keys.",
+      "status": "Live",
+      "unlisted_only": true,
+      "showcase": null,
+      "full": {
+        "date": "2026-11-18",
+        "est": false,
+        "note": "partner preview"
+      }
     }
   ]
 }
