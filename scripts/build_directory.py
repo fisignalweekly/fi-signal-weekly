@@ -401,6 +401,9 @@ def build(files):
         if cr.get("est"):
             facts.append(("Established", e(cr["est"][:4]) + f' <span class="muted-inline">({"FDIC" if x["charter_type"] == "bank" else "NCUA"})</span>'))
         li_ = social.get(x["id"], {}).get("linkedin")
+        if not li_:
+            facts.append(("LinkedIn", 'Not yet identified <span class="muted-inline">(we only list a LinkedIn page that the '
+                                      f'{cw}&#39;s own website links to)</span>'))
         if li_:
             facts.append(("LinkedIn", f'<a href="{e(li_["url"])}" target="_blank" rel="nofollow noopener">{e(li_["url"].split("linkedin.com")[1])} ↗</a> '
                                       f'<span class="muted-inline">(linked from the {cw}&#39;s own website, checked {fmt_date(li_["checked"])})</span>'))

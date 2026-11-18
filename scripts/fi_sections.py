@@ -168,7 +168,8 @@ def peer_section(peer):
 def exec_section(rows, type_label):
     ex = [r for r in rows if r["type"] in ("executive", "cu_executive")][:5]
     if not ex:
-        return ""
+        return ('<section class="execs" aria-labelledby="ex-h"><h2 id="ex-h">Key executives</h2>'
+                '<p class="empty-note">No leadership moves in our verified signals yet. Executive changes appear here when we verify them from public sources.</p></section>')
     li = "".join(f'<li><span class="ex-date">{fmt_date(r["date"])}</span><p>{e(r["summary"])}</p>'
                  f'<p class="sig-links">' + (f'<a href="/#{e(r["id"])}">See the signal</a>' if r.get("fi_only") is not True and r.get("type") != "branch_opening" else "") + f'<a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>'
                  for r in ex)
