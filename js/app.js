@@ -40,6 +40,7 @@
   }
   // "New" = the row's publish date (r.added) is today's date in America/New_York (see js/newtag.js).
   // Computed at load; a tab left open past midnight ET does not have to refresh itself.
+  // Rows with backfill: true never show the tag, whatever their added value.
   function isNew(r){return FINew.isNew(r)}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   // Bank vs. credit union: the real charter (r.charter_type, from the FDIC / NCUA record linked by

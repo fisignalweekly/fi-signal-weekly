@@ -16,7 +16,12 @@ for r in d["rows"]:
     if not re.match(r"\d{4}-\d{2}-\d{2}$",r["date"]): print("bad date",r["id"]);ok=False
     if not r["source_url"].startswith("http"): print("bad url",r["id"]);ok=False
     # "added" = date the row went live on the board (drives the "New" tag, shown only that ET calendar day); set it with scripts/stamp_added.py
-    if "added" not in r: print("warning: missing added (run scripts/stamp_added.py)",r["id"])
+    # "backfill": true = historical site-only row; never gets a "New" tag; added should be the row's own date
+    if "backfill" in r and r["backfill"] is not True and r["backfill"] is not False:
+        print("bad backfill",r["id"]);ok=False
+    if "added" not in r:
+        if r.get("backfill") is True: print("warning: backfill row missing added (set added to the row's own date)",r["id"])
+        else: print("warning: missing added (run scripts/stamp_added.py)",r["id"])
     elif not re.match(r"\d{4}-\d{2}-\d{2}$",str(r["added"])): print("bad added",r["id"]);ok=False
 if not re.match(r"\d{4}-\d{2}-\d{2}$",str(d.get("updated",""))): print("bad top-level updated");ok=False
 # institution database + links written by scripts/build_fi_db.py and scripts/link_institutions.py
