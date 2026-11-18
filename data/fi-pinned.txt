@@ -1,0 +1,3 @@
+# Pages under fi/ that scripts/build_directory.py must leave as committed (not rewrite, not delete).
+# Used for the one-page v2 preview approved Nov 18, 2026. Remove the line when the full v2 build ships.
+fi/mt/glacier-bank/index.html
