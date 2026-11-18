@@ -1,0 +1,950 @@
+{
+  "id": "netteller-2027",
+  "notice_date": "2025-07-31",
+  "notice_title": "A Look Ahead: Retiring NetTeller in July 2027",
+  "notice_url": "https://banno.com/statements/2025-07-31-retiring-netteller-2027/",
+  "publisher": "Banno / Jack Henry",
+  "effective_date": "2027-07-01",
+  "scan": {
+    "label": "Login page scan, Nov 17, 2026",
+    "run_id": "20261117-175710",
+    "started": "2026-11-17T17:57:10",
+    "finished": "2026-11-17T19:19:38"
+  },
+  "groups": [
+    {
+      "id": "retail-no-banno",
+      "title": "NetTeller retail, no Banno host",
+      "intro": "These institutions had a www.netteller.com login host and no Banno login host in that scan. They may be affected.",
+      "fis": [
+        {
+          "id": "fdic-35",
+          "name": "AuburnBank",
+          "city": "Auburn",
+          "state": "AL",
+          "charter": "bank",
+          "path": "/fi/al/auburnbank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-2787",
+          "name": "Community Neighbor Bank",
+          "city": "Camden",
+          "state": "AL",
+          "charter": "bank",
+          "path": "/fi/al/community-neighbor-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-5602",
+          "name": "Union State Bank",
+          "city": "Pell City",
+          "state": "AL",
+          "charter": "bank",
+          "path": "/fi/al/union-state-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "unionstate.unifi-digitalbanking.com"
+          ]
+        },
+        {
+          "id": "fdic-17580",
+          "name": "FNBT BANK",
+          "city": "Fort Walton Beach",
+          "state": "FL",
+          "charter": "bank",
+          "path": "/fi/fl/fnbt-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "fnbt.unifi-digitalbanking.com"
+          ]
+        },
+        {
+          "id": "fdic-17193",
+          "name": "The Warrington Bank",
+          "city": "Pensacola",
+          "state": "FL",
+          "charter": "bank",
+          "path": "/fi/fl/the-warrington-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-68571",
+          "name": "Credit Union of Georgia",
+          "city": "Woodstock",
+          "state": "GA",
+          "charter": "cu",
+          "path": "/fi/ga/credit-union-of-georgia-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.cuofgaonline.org",
+            "www.netteller.com",
+            "cuofga.estatusconnect.com"
+          ]
+        },
+        {
+          "id": "fdic-33708",
+          "name": "International Bank of Chicago",
+          "city": "Chicago",
+          "state": "IL",
+          "charter": "bank",
+          "path": "/fi/il/international-bank-of-chicago/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-19899",
+          "name": "KS StateBank",
+          "city": "Manhattan",
+          "state": "KS",
+          "charter": "bank",
+          "path": "/fi/ks/ks-statebank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "smartpay.profitstars.com",
+            "dxonline-apps-s1-cloud.pscu.com",
+            "dxonline-apps-s2-cloud.pscu.com"
+          ]
+        },
+        {
+          "id": "fdic-13788",
+          "name": "Concordia Bank of Concordia, Missouri",
+          "city": "Concordia",
+          "state": "MO",
+          "charter": "bank",
+          "path": "/fi/mo/concordia-bank-of-concordia-missouri/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "concordia-bank.onlineaurora.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-29546",
+          "name": "Great Southern Bank",
+          "city": "Reeds Spring",
+          "state": "MO",
+          "charter": "bank",
+          "path": "/fi/mo/great-southern-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-17922",
+          "name": "Strasburg State Bank",
+          "city": "Strasburg",
+          "state": "ND",
+          "charter": "bank",
+          "path": "/fi/nd/strasburg-state-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-8604",
+          "name": "First State Bank",
+          "city": "Hordville",
+          "state": "NE",
+          "charter": "bank",
+          "path": "/fi/ne/first-state-bank-hordville/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "www.telepc.net"
+          ]
+        },
+        {
+          "id": "fdic-25749",
+          "name": "Eastbank, National Association",
+          "city": "New York",
+          "state": "NY",
+          "charter": "bank",
+          "path": "/fi/ny/eastbank-national-association/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-6990",
+          "name": "The Putnam County National Bank of Carmel",
+          "city": "Carmel",
+          "state": "NY",
+          "charter": "bank",
+          "path": "/fi/ny/the-putnam-county-national-bank-of-carmel/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-68707",
+          "name": "Cardinal Credit Union, Inc.",
+          "city": "Mentor",
+          "state": "OH",
+          "charter": "cu",
+          "path": "/fi/oh/cardinal-credit-union-inc-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "online.cardinalcu.com",
+            "www.curewards.com"
+          ]
+        },
+        {
+          "id": "fdic-25738",
+          "name": "Sovereign Bank",
+          "city": "Shawnee",
+          "state": "OK",
+          "charter": "bank",
+          "path": "/fi/ok/sovereign-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "web11.secureinternetbank.com",
+            "www.netteller.com",
+            "banksovereign.onlinebank.com"
+          ]
+        },
+        {
+          "id": "fdic-4091",
+          "name": "Stride Bank, National Association",
+          "city": "Enid",
+          "state": "OK",
+          "charter": "bank",
+          "path": "/fi/ok/stride-bank-national-association/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-7593",
+          "name": "First Citizens Community Bank",
+          "city": "Mansfield",
+          "state": "PA",
+          "charter": "bank",
+          "path": "/fi/pa/first-citizens-community-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "investor.broadridge.com",
+            "link.zixcentral.com"
+          ]
+        },
+        {
+          "id": "ncua-60",
+          "name": "Levo",
+          "city": "Sioux Falls",
+          "state": "SD",
+          "charter": "cu",
+          "path": "/fi/sd/levo-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "levocu.financialhost.org",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-33851",
+          "name": "The Bank of Milan",
+          "city": "Milan",
+          "state": "TN",
+          "charter": "bank",
+          "path": "/fi/tn/the-bank-of-milan/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "cm.netteller.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-22396",
+          "name": "Central National Bank",
+          "city": "Waco",
+          "state": "TX",
+          "charter": "bank",
+          "path": "/fi/tx/central-national-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.bankcentral.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-24347",
+          "name": "Lone Star National Bank",
+          "city": "Pharr",
+          "state": "TX",
+          "charter": "bank",
+          "path": "/fi/tx/lone-star-national-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "login.bdreporting.com",
+            "my.lonestarnationalbank.com"
+          ]
+        },
+        {
+          "id": "fdic-32941",
+          "name": "WestStar Bank",
+          "city": "El Paso",
+          "state": "TX",
+          "charter": "bank",
+          "path": "/fi/tx/weststar-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "netbanking.weststarbank.com",
+            "www.netteller.com",
+            "www.centrixsecure1.com",
+            "smartpay.profitstars.com",
+            "weststar.accessasc.com"
+          ]
+        },
+        {
+          "id": "fdic-11582",
+          "name": "Lee Bank and Trust Company",
+          "city": "Pennington Gap",
+          "state": "VA",
+          "charter": "bank",
+          "path": "/fi/va/lee-bank-and-trust-company/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "retail-and-banno",
+      "title": "NetTeller plus Banno, likely mid-move",
+      "intro": "These institutions had both a www.netteller.com login host and a Banno login host (or a login CNAME to a Banno host) in the same scan. That may indicate a move in progress. They may be affected.",
+      "fis": [
+        {
+          "id": "fdic-26530",
+          "name": "Denali State Bank",
+          "city": "Fairbanks",
+          "state": "AK",
+          "charter": "bank",
+          "path": "/fi/ak/denali-state-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.denalistatebank.com",
+            "www.myaccountaccess.com",
+            "www.netteller.com",
+            "app.smartsheet.com"
+          ]
+        },
+        {
+          "id": "fdic-2838",
+          "name": "AmeriFirst Bank",
+          "city": "Montgomery",
+          "state": "AL",
+          "charter": "bank",
+          "path": "/fi/al/amerifirst-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.amerifirstbank.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-57997",
+          "name": "Bryant Bank",
+          "city": "Tuscaloosa",
+          "state": "AL",
+          "charter": "bank",
+          "path": "/fi/al/bryant-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "digital.bryantbank.com",
+            "online.bryantbank.com",
+            "www.netteller.com",
+            "smartpay.profitstars.com",
+            "portal.fisglobal.com"
+          ]
+        },
+        {
+          "id": "fdic-22597",
+          "name": "Bank of the Sierra",
+          "city": "Porterville",
+          "state": "CA",
+          "charter": "bank",
+          "path": "/fi/ca/bank-of-the-sierra/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.bankofthesierra.com",
+            "www.myaccountaccess.com",
+            "bankofthesierra.loanwebcenter.com",
+            "treasury.jackhenry.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-1331",
+          "name": "Farmers & Merchants Bank of Central California",
+          "city": "Lodi",
+          "state": "CA",
+          "charter": "bank",
+          "path": "/fi/ca/farmers-and-merchants-bank-of-central-california/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "ezbanking.fmbonline.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-7557",
+          "name": "Glendale",
+          "city": "Glendale",
+          "state": "CA",
+          "charter": "cu",
+          "path": "/fi/ca/glendale-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.glendalefcu.org",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-5530",
+          "name": "Va Desert Pacific",
+          "city": "Long Beach",
+          "state": "CA",
+          "charter": "cu",
+          "path": "/fi/ca/va-desert-pacific-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.vadpfcu.org",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-16416",
+          "name": "Advantage Financial",
+          "city": "Washington",
+          "state": "DC",
+          "charter": "cu",
+          "path": "/fi/dc/advantage-financial-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "my.advfcu.org",
+            "dxonline.pscu.com",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-59181",
+          "name": "Gulf Atlantic Bank",
+          "city": "Key West",
+          "state": "FL",
+          "charter": "bank",
+          "path": "/fi/fl/gulf-atlantic-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.gulfatlanticbank.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-15496",
+          "name": "First State Bank of Blakely",
+          "city": "Blakely",
+          "state": "GA",
+          "charter": "bank",
+          "path": "/fi/ga/first-state-bank-of-blakely/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "my.fsbanks.com"
+          ]
+        },
+        {
+          "id": "fdic-27254",
+          "name": "Waycross Bank & Trust",
+          "city": "Waycross",
+          "state": "GA",
+          "charter": "bank",
+          "path": "/fi/ga/waycross-bank-and-trust/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.wbt.bank",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-1808",
+          "name": "Better Banks",
+          "city": "Peoria",
+          "state": "IL",
+          "charter": "bank",
+          "path": "/fi/il/better-banks/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.betterbanks.com",
+            "myaccountviewonline.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-14857",
+          "name": "State Street Bank and Trust Company",
+          "city": "Quincy",
+          "state": "IL",
+          "charter": "bank",
+          "path": "/fi/il/state-street-bank-and-trust-company/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "bank.statestreetbank.com",
+            "www.mystreetscape.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-13801",
+          "name": "Farmers and Merchants Bank",
+          "city": "Laotto",
+          "state": "IN",
+          "charter": "bank",
+          "path": "/fi/in/farmers-and-merchants-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "bank.fmfbank.com"
+          ]
+        },
+        {
+          "id": "fdic-1833",
+          "name": "State Bank",
+          "city": "Brownsburg",
+          "state": "IN",
+          "charter": "bank",
+          "path": "/fi/in/state-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "onlinebanking.statebank1910.bank",
+            "www.netteller.com",
+            "treasury.statebank1910.bank"
+          ]
+        },
+        {
+          "id": "fdic-292",
+          "name": "The Monticello Banking Company",
+          "city": "Monticello",
+          "state": "KY",
+          "charter": "bank",
+          "path": "/fi/ky/the-monticello-banking-company/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.mbcbank.com",
+            "www.netteller.com",
+            "smartpay.profitstars.com"
+          ]
+        },
+        {
+          "id": "ncua-13271",
+          "name": "Jefferson Parish Employees",
+          "city": "Harahan",
+          "state": "LA",
+          "charter": "cu",
+          "path": "/fi/la/jefferson-parish-employees-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "homebranch.jpefcu.org",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-8572",
+          "name": "Citizens Bank of Rogersville",
+          "city": "Rogersville",
+          "state": "MO",
+          "charter": "bank",
+          "path": "/fi/mo/citizens-bank-of-rogersville/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "my.cbofr.com"
+          ]
+        },
+        {
+          "id": "fdic-18841",
+          "name": "Phelps County Bank",
+          "city": "Rolla",
+          "state": "MO",
+          "charter": "bank",
+          "path": "/fi/mo/phelps-county-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "accounts.mypcb.com",
+            "www.raymondjames.com"
+          ]
+        },
+        {
+          "id": "fdic-8898",
+          "name": "St. Johns Bank and Trust Company",
+          "city": "Saint Louis",
+          "state": "MO",
+          "charter": "bank",
+          "path": "/fi/mo/st-johns-bank-and-trust-company/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.stjohnsbank.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-9388",
+          "name": "The Corner Stone Bank",
+          "city": "South West City",
+          "state": "MO",
+          "charter": "bank",
+          "path": "/fi/mo/the-corner-stone-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.thecornerstonebank.net",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-11035",
+          "name": "Peapack Private Bank & Trust",
+          "city": "Bedminster",
+          "state": "NJ",
+          "charter": "bank",
+          "path": "/fi/nj/peapack-private-bank-and-trust/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.peapackprivate.com",
+            "estatements.pa.printmailsystems.com",
+            "www.netteller.com",
+            "tm.peapackprivate.com",
+            "escrow.peapackprivate.com"
+          ]
+        },
+        {
+          "id": "fdic-4187",
+          "name": "McClain Bank",
+          "city": "Purcell",
+          "state": "OK",
+          "charter": "bank",
+          "path": "/fi/ok/mcclain-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.mcclainbank.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-20279",
+          "name": "The Community State Bank",
+          "city": "Poteau",
+          "state": "OK",
+          "charter": "bank",
+          "path": "/fi/ok/the-community-state-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.thecommunitysb.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-22354",
+          "name": "Commercial Bank",
+          "city": "Harrogate",
+          "state": "TN",
+          "charter": "bank",
+          "path": "/fi/tn/commercial-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.cbtn.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-8660",
+          "name": "Commercial Bank & Trust Co.",
+          "city": "Paris",
+          "state": "TN",
+          "charter": "bank",
+          "path": "/fi/tn/commercial-bank-and-trust-co/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.cbtcnet.com",
+            "cbtctrust.accessasc.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-11559",
+          "name": "First State Bank and Trust Company",
+          "city": "Carthage",
+          "state": "TX",
+          "charter": "bank",
+          "path": "/fi/tx/first-state-bank-and-trust-company/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.fsbcarthage.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-3206",
+          "name": "Texas Gulf Bank, National Association",
+          "city": "Houston",
+          "state": "TX",
+          "charter": "bank",
+          "path": "/fi/tx/texas-gulf-bank-national-association/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.texasgulfbank.com",
+            "app.trustreporter.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-6917",
+          "name": "First Bank",
+          "city": "Strasburg",
+          "state": "VA",
+          "charter": "bank",
+          "path": "/fi/va/first-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.fbvirginia.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-11111",
+          "name": "Freedom First",
+          "city": "Roanoke",
+          "state": "VA",
+          "charter": "cu",
+          "path": "/fi/va/freedom-first-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.freedomfirst.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-60059",
+          "name": "O Bee",
+          "city": "Lacey",
+          "state": "WA",
+          "charter": "cu",
+          "path": "/fi/wa/o-bee-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.obee.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-15092",
+          "name": "Richland County Bank",
+          "city": "Richland Center",
+          "state": "WI",
+          "charter": "bank",
+          "path": "/fi/wi/richland-county-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "mobile.richlandcountybank.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-17735",
+          "name": "City National Bank of West Virginia",
+          "city": "Charleston",
+          "state": "WV",
+          "charter": "bank",
+          "path": "/fi/wv/city-national-bank-of-west-virginia/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.bankatcity.com",
+            "www.myaccountaccess.com",
+            "support.mypaymentsinsider.com",
+            "login2.fisglobal.com",
+            "www.netteller.com"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cash-management",
+      "title": "NetTeller Cash Management",
+      "intro": "These institutions had a cm.netteller.com login host in that scan. They may be affected. A few also appear in a retail list above.",
+      "fis": [
+        {
+          "id": "fdic-1296",
+          "name": "Farmers Bank",
+          "city": "Greenwood",
+          "state": "AR",
+          "charter": "bank",
+          "path": "/fi/ar/farmers-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.gofarmersbank.com",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-16416",
+          "name": "Advantage Financial",
+          "city": "Washington",
+          "state": "DC",
+          "charter": "cu",
+          "path": "/fi/dc/advantage-financial-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "www.netteller.com",
+            "my.advfcu.org",
+            "dxonline.pscu.com",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-4619",
+          "name": "Exchange Bank & Trust",
+          "city": "Atchison",
+          "state": "KS",
+          "charter": "bank",
+          "path": "/fi/ks/exchange-bank-and-trust/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.ebt.bank",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-57603",
+          "name": "Falcon National Bank",
+          "city": "Foley",
+          "state": "MN",
+          "charter": "bank",
+          "path": "/fi/mn/falcon-national-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "falconbank.onlinebank.com",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-324",
+          "name": "Citizens Bank",
+          "city": "Columbia",
+          "state": "MS",
+          "charter": "bank",
+          "path": "/fi/ms/citizens-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.citizensbk.com",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "ncua-761",
+          "name": "Sky",
+          "city": "Livingston",
+          "state": "MT",
+          "charter": "cu",
+          "path": "/fi/mt/sky-cu/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "cm.netteller.com",
+            "skyfcu.financialhost.org"
+          ]
+        },
+        {
+          "id": "ncua-63545",
+          "name": "Telco Community Credit Union",
+          "city": "Candler",
+          "state": "NC",
+          "charter": "cu",
+          "path": "/fi/nc/telco-community-credit-union/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "telcocommunitycu.financialhost.org",
+            "telcoccu.secure.cusolutionsgroup.net",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-10250",
+          "name": "Peoples State Bank of Velva",
+          "city": "Velva",
+          "state": "ND",
+          "charter": "bank",
+          "path": "/fi/nd/peoples-state-bank-of-velva/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "my.psbvelva.com",
+            "cm.netteller.com",
+            "forecast.weather.gov"
+          ]
+        },
+        {
+          "id": "fdic-14029",
+          "name": "First Liberty Bank",
+          "city": "Oklahoma City",
+          "state": "OK",
+          "charter": "bank",
+          "path": "/fi/ok/first-liberty-bank/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "secure.myfirstliberty.com",
+            "myfirstlibertydirectcheck.msird.com",
+            "cm.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-33851",
+          "name": "The Bank of Milan",
+          "city": "Milan",
+          "state": "TN",
+          "charter": "bank",
+          "path": "/fi/tn/the-bank-of-milan/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "cm.netteller.com",
+            "www.netteller.com"
+          ]
+        },
+        {
+          "id": "fdic-4958",
+          "name": "The First National Bank of Oneida",
+          "city": "Oneida",
+          "state": "TN",
+          "charter": "bank",
+          "path": "/fi/tn/the-first-national-bank-of-oneida/",
+          "scan_label": "Login page scan, Nov 17, 2026",
+          "login_hosts": [
+            "bank.fnboneida.com",
+            "cm.netteller.com"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary_html": "<p>On July 31, 2025, Banno published a statement that Jack Henry will retire NetTeller Online Banking, NetTeller Small Business Cash Management, and NetTeller Commercial Cash Management on <time datetime=\"2027-07-01\">July 1, 2027</time>. On that date, the notice says, access to NetTeller front-end services will be turned off and existing NetTeller and NetTeller Cash Management contracts will not be renewed. <a href=\"https://banno.com/statements/2025-07-31-retiring-netteller-2027/\" rel=\"noopener\">Read the original notice</a>.</p><p>The institutions below showed a NetTeller login host on a <strong>login-page scan dated November 17, 2026</strong>. They may be affected. A NetTeller login is not evidence of which core system an institution uses, and this list does not identify anyone\u2019s core.</p>"
+}
