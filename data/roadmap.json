@@ -307,22 +307,6 @@
       "id": "mcp-server",
       "name": "MCP server",
       "description": "Read-only access to published FI Signal data (signal search, FI profiles, new signals since a date, tech stack) for AI tools, with per-user API keys. M&A and executive moves first.",
-      "status": "In progress",
-      "unlisted_only": true,
-      "showcase": null,
-      "full": null,
-      "milestones": [
-        {
-          "label": "Early partner access",
-          "date": "2026-11-19",
-          "est": true
-        }
-      ]
-    },
-    {
-      "id": "mcp-server-live",
-      "name": "MCP server: live (partner preview)",
-      "description": "The read-only MCP server is live for a first partner preview: signal search, FI profiles, new signals since a date and tech stack, over published FI Signal data only, with per-partner API keys.",
       "status": "Live",
       "unlisted_only": true,
       "showcase": null,
