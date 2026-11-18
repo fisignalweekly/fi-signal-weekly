@@ -384,10 +384,16 @@ def build(files):
         facts.append(("Regulator record", f'<a href="{e(rec)}" target="_blank" rel="noopener">{e(rec_label)} ↗</a>'))
         if x["holding_company"]:
             facts.append(("Holding company", e(x["holding_company"]) + ' <span class="muted-inline">(as FDIC lists it)</span>'))
+        else:  # parity with pages that have one: the row always renders, with a plain reason
+            facts.append(("Holding company", "Not applicable (credit union)" if x["charter_type"] == "cu" else "None listed by the FDIC"))
         if x["also_known_as"]:
             facts.append(("Also known as", e(", ".join(x["also_known_as"].split("|")))))
         if board_names:
             facts.append(("Named on the board as", e(", ".join(board_names))))
+        elif any(is_board_row(r) for r in rows):
+            facts.append(("Named on the board as", "Same as the legal name"))
+        else:
+            facts.append(("Named on the board as", "Not on the board yet"))
         cr = CR.get(x["id"], {"a": [None] * len(QS), "d": [None] * len(QS), "l": [None] * len(QS)})
         if x["charter_type"] == "bank" and cr.get("off") is not None:
             facts.append(("Offices", f'{cr["off"]:,} <span class="muted-inline">(FDIC, incl. main office)</span>'))
@@ -429,6 +435,9 @@ def build(files):
         else:
             hist = (f'<h2>Signals</h2><p class="empty-note">No signals on the board yet for {e(x["name"])}. New signals go up every weekday. '
                     f'<a href="/#subscribe">Get the Friday digest</a>.</p>')
+        if showcase and not any(r["type"] == "branch_opening" for r in rows):
+            hist += ('<p class="empty-note branch-none">Branch openings: none verified yet. We list a new branch here once the '
+                     'institution\'s own announcement or its regulator record confirms it.</p>')
         body = (crumbs([("Directory", "/fi/"), (st_name, f'/fi/{x["state"].lower()}/'), (x["name"], None)]) +
                 f'<article class="fi-page"><h1>{e(x["name"])}</h1>'
                 f'<p class="fi-sub">{"Credit union" if x["charter_type"] == "cu" else "Bank"} · {e(x["city"])}, {e(x["state"])}' + (f" · {e(a)} in assets" if a else "") + "</p>"
