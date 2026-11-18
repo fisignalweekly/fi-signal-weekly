@@ -1,13 +1,13 @@
 # Core and digital banking providers (`data/providers.csv`)
 
-Every institution page under `/fi/` shows two fields, **Core provider** and **Digital banking provider**. Each one has its own "Updated" date, the evidence source type and a link to the source. When we have no evidence, the page says **Not yet identified**. Nothing is guessed. Core is never inferred from the digital vendor (Banno does not mean a Jack Henry core) or from a website scan.
+Every institution page under `/fi/` shows four fields: **Digital banking (retail)**, **Digital banking (business)**, **Core provider** and **Bill pay provider**. Each one has its own "Updated" date, the evidence source type and a link to the source. When we have no evidence, the page says **Not yet identified**. Nothing is guessed. Core is never inferred from the digital vendor (Banno does not mean a Jack Henry core) or from a website scan.
 
 ## Columns
 
 | Column | Meaning |
 |---|---|
 | `fi_id` | `fdic-<CERT>` / `ncua-<charter>`, as in `institutions.csv` |
-| `field` | `core` or `digital` |
+| `field` | `digital` (retail), `digital_business`, `core` or `billpay`. Core and bill pay never come from a scan |
 | `value` | Vendor and platform as the source names it, e.g. `Corelation KeyStone`, `Jack Henry (Banno)` |
 | `status` | `current` (in use now) or `announced` (a verified, announced change or selection that hasn't gone live yet) |
 | `source_type` | `Login page scan`, `Vendor press release`, `FI announcement`, `Press release`, `Regulator filing` |
@@ -21,6 +21,8 @@ For each field: a verified `announced` row wins, shown as "Vendor (announced <da
 
 ## Where rows come from
 
+- **Business digital, `Login page scan`:** only when the homepage links more than one vendor and the business one sits only on business/treasury hostnames (`treasury.*`, `tm.*`, `cm.*`, `*business*`). Otherwise there's no business row.
+- **Bill pay:** verified announcements only. Bill pay links seen on websites are leads for the Scout/Verifier.
 - **Digital, `Login page scan`:** written only by `python3 scripts/import_watcher_providers.py`. It reads the website watcher's results (login hosts and DNS CNAME chains, hostname fingerprints only) and takes the latest scan per institution where the homepage loaded. When two vendors tie, both are listed. Re-run it after each weekly watcher run, then rebuild. All other rows are kept.
 - **Core and digital from announcements:** added by hand only from rows that passed the Verifier (board rows in `triggers.json`, or Verifier "Pass"/"Verified" rows), citing the original public publisher. Never from CRM or other non-public data.
 
