@@ -42,7 +42,7 @@
       "id": "fi-v2",
       "name": "FI page v2",
       "description": "A fuller institution page: asset trends, peer rank, branches and members, key executives, iBanknet, tech stack, merger and acquisition history, and similar institutions.",
-      "status": "Building",
+      "status": "Live",
       "showcase": {
         "date": "2026-11-18",
         "est": false,
@@ -51,7 +51,7 @@
       },
       "full": {
         "date": "2026-11-18",
-        "est": true
+        "est": false
       }
     },
     {
@@ -294,7 +294,7 @@
       "id": "branch-openings",
       "name": "Branch openings on institution pages",
       "description": "Branch openings listed on institution pages only, not on the board, starting on the showcase pages.",
-      "status": "Building",
+      "status": "Live",
       "showcase": {
         "date": "2026-11-18",
         "est": false,
