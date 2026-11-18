@@ -5201,6 +5201,86 @@
     },
     {
       "id": "t299",
+      "type": "branch_opening",
+      "fi_only": true,
+      "backfill": true,
+      "institution": "Glacier Bank",
+      "state": "MT",
+      "date": "2026-03-16",
+      "added": "2026-03-16",
+      "summary": "Altabank, a division of Glacier Bank, opened its first Heber Valley branch at 2 South Main Street in Heber City, Utah, on March 16, 2026 (FDIC open date and announcement date), with a grand opening event on April 8, 2026.",
+      "source_url": "https://www.altabank.com/altabank-expands-into-heber-valley-with-new-branch-location",
+      "assets_note": "FDIC CERT 30788",
+      "fi_id": "fdic-30788",
+      "fi_name": "Glacier Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 31577225000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
+    },
+    {
+      "id": "t300",
+      "type": "branch_opening",
+      "fi_only": true,
+      "backfill": true,
+      "institution": "Glacier Bank",
+      "state": "MT",
+      "date": "2026-04-06",
+      "added": "2026-04-06",
+      "summary": "Collegiate Peaks Bank, a division of Glacier Bank, opened its first full-service Fort Collins, Colorado, branch at 1130 Haxton Drive on April 6, 2026 (FDIC open date; the bank announced it the same day), replacing its Fort Collins loan production office. BizWest reported the opening April 13, 2026.",
+      "source_url": "https://bizwest.com/2026/04/13/collegiate-peaks-bank-plants-flag-in-fort-collins/",
+      "assets_note": "FDIC CERT 30788",
+      "fi_id": "fdic-30788",
+      "fi_name": "Glacier Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 31577225000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
+    },
+    {
+      "id": "t301",
+      "type": "branch_opening",
+      "fi_only": true,
+      "backfill": true,
+      "institution": "Kish Bank",
+      "state": "PA",
+      "date": "2026-07-27",
+      "added": "2026-07-27",
+      "summary": "Kish Bank opened its downtown State College, Pennsylvania, branch at 131 South Fraser Street on July 27, 2026 (FDIC open date), and announced it in a Nov. 12, 2026, press release inviting the public to a Nov. 19 open house.",
+      "source_url": "https://www.mykish.com/2026/11/12/kish-bank-celebrates-new-downtown-state-college-branch-with-community-open-house/",
+      "assets_note": "FDIC CERT 14969",
+      "fi_id": "fdic-14969",
+      "fi_name": "Kish Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 2084448000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
+    },
+    {
+      "id": "t302",
+      "type": "branch_opening",
+      "fi_only": true,
+      "backfill": true,
+      "institution": "BankUnited, National Association",
+      "state": "FL",
+      "date": "2026-07-13",
+      "added": "2026-07-13",
+      "summary": "BankUnited announced July 13, 2026, the opening of a new full-service branch on North Westshore Boulevard in Tampa's Westshore area (FDIC lists the office as established May 23, 2026).",
+      "source_url": "https://ir.bankunited.com/news-releases/news-release-details/bankunited-opens-new-tampa-westshore-branch-plans-st-petersburg",
+      "assets_note": "FDIC CERT 58979",
+      "fi_id": "fdic-58979",
+      "fi_name": "BankUnited, National Association",
+      "charter_type": "bank",
+      "fi_assets_usd": 34864976000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "id_in_note"
+    },
+    {
+      "id": "t303",
       "type": "executive",
       "institution": "Glacier Bancorp (Glacier Bank)",
       "state": "MT",
@@ -5220,7 +5300,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t300",
+      "id": "t304",
       "type": "executive",
       "institution": "UniBank for Savings",
       "state": "MA",
@@ -5240,7 +5320,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t301",
+      "id": "t305",
       "type": "core",
       "institution": "Glacier Bancorp (Glacier Bank)",
       "state": "MT",
@@ -5260,7 +5340,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t302",
+      "id": "t306",
       "type": "executive",
       "institution": "Kish Bank",
       "state": "PA",
@@ -5280,7 +5360,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t303",
+      "id": "t307",
       "type": "executive",
       "institution": "BankUnited, National Association",
       "state": "FL",
@@ -5300,7 +5380,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t304",
+      "id": "t308",
       "type": "executive",
       "institution": "Kish Bank",
       "state": "PA",
@@ -5320,7 +5400,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t305",
+      "id": "t309",
       "type": "executive",
       "institution": "Kish Bank",
       "state": "PA",
@@ -5340,7 +5420,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t306",
+      "id": "t310",
       "type": "executive",
       "institution": "Kish Bank",
       "state": "PA",
@@ -5360,7 +5440,7 @@
       "fi_match": "id_in_note"
     },
     {
-      "id": "t307",
+      "id": "t311",
       "type": "executive",
       "institution": "Kish Bank",
       "state": "PA",

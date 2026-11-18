@@ -1,0 +1,7 @@
+# Showcase pages: new /fi/ features ship here first (Kyle, Nov 18, 2026).
+# One fi_id per line. A feature listed in SHOWCASE_ONLY in scripts/fi_sections.py renders only on these pages.
+fdic-30788  # Glacier Bank (MT): permanent early-preview page
+ncua-62918  # MEMBERS1st Community CU (IA): credit union showcase
+fdic-14969  # Kish Bank (PA): showcase, added Nov 18, 2026
+fdic-90290  # UniBank for Savings (MA): showcase, added Nov 18, 2026
+fdic-58979  # BankUnited, N.A. (FL): showcase, added Nov 18, 2026

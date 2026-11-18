@@ -8,6 +8,7 @@ Inputs (nothing else, no network):
   data/institutions.json  every active FDIC bank and NCUA credit union (scripts/build_fi_db.py)
   data/triggers.json      board rows; a row belongs to an institution through its fi_id (scripts/link_institutions.py)
   data/providers.csv      core and digital banking provider evidence per institution (data/README-providers.md)
+  data/callreports.json   FDIC/NCUA call report history, offices, members, FDIC history events (scripts/fetch_callreports.py)
 
 Outputs:
   fi/index.html                     directory landing page with client-side search (js/fi-search.js)
@@ -23,14 +24,15 @@ sitemap.xml. Output has no timestamps and is sorted, so unchanged data gives byt
 fi/ that the build no longer produces (e.g. an institution that merged away) are deleted.
 Exit codes: 0 ok, 1 bad input, 3 (--check only) output is out of date.
 """
-import argparse, csv, hashlib, html, json, os, re, sys
+import argparse, csv, hashlib, html, json, math, os, re, sys
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://fisignalweekly.com"
 OUT = "fi"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from trigger_types import TYPES as TYPE_LABEL  # one list of board types and labels
+from trigger_types import TYPES as TYPE_LABEL, is_board_row  # one list of board types and labels
+import fi_sections as S
 TIERS = [("lt500m", "Under $500M", 0, 5e8), ("500m-1b", "$500M–$1B", 5e8, 1e9), ("1b-10b", "$1B–$10B", 1e9, 1e10),
          ("10b-50b", "$10B–$50B", 1e10, 5e10), ("50b+", "$50B+", 5e10, float("inf")), ("na", "Assets not reported", None, None)]
 TIER_LIST_MAX = 1500   # tiers bigger than this list the largest TIER_TOP plus everything with signals, then link to search
@@ -112,7 +114,7 @@ def record_link(x):
 
 def asset_hash():
     h = hashlib.sha1()
-    for p in ("css/style.css", "js/fi-search.js"):
+    for p in ("css/style.css", "css/fi-v2.css", "js/fi-search.js", "js/fi-chart.js"):
         with open(os.path.join(ROOT, p), "rb") as f:
             h.update(f.read())
     return h.hexdigest()[:10]
@@ -181,11 +183,13 @@ def sig_li(r, show_inst=False):
     inst = f'<span class="sig-inst">{e(r["institution"])}</span>' if show_inst else ""
     return (f'<li class="sig {e(r["type"])}"><div class="meta"><span class="badge {e(r["type"])}">{e(TYPE_LABEL.get(r["type"], r["type"]))}</span>'
             f'<span>{fmt_date(r["date"])}</span></div>{inst}<p>{e(r["summary"])}</p>'
-            f'<p class="sig-links"><a href="/#{e(r["id"])}">See on the board</a><a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>')
+            f'<p class="sig-links">' + (f'<a href="/#{e(r["id"])}">See on the board</a>' if is_board_row(r) else "") +
+            f'<a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>')
 
 
 # ---------------------------------------------------------------- providers (data/providers.csv)
-PROV_FIELDS = [("core", "Core provider"), ("digital", "Digital banking provider")]
+PROV_FIELDS = [("digital", "Digital banking (retail)"), ("digital_business", "Digital banking (business)"),
+               ("core", "Core provider"), ("billpay", "Bill pay provider")]
 
 
 def load_providers():
@@ -213,13 +217,30 @@ def resolve_provider(rows):
     return (cur[0], None) if cur else (None, None)
 
 
+def load_windows():
+    """data/contract_windows.csv: approved, clearly labelled renewal-window estimates. Only public_display=true rows render."""
+    out = {}
+    p = os.path.join(ROOT, "data", "contract_windows.csv")
+    if os.path.exists(p):
+        with open(p, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r["public_display"] == "true":
+                    out[(r["fi_id"], r["field"])] = r
+    return out
+
+
+WINDOWS = {}
+
+
 def provider_block(x, prov, board_by_url):
     items = []
     for field, label in PROV_FIELDS:
         shown, old = resolve_provider(prov.get(x["id"], {}).get(field, []))
         if not shown:
-            items.append(f'<div class="prov-item"><h3>{label}</h3><p class="prov-val prov-none">Not yet identified</p>'
-                         '<p class="prov-meta">No verified public source yet.</p></div>')
+            why = ("No separate business login identified." if field == "digital_business" else
+                   "No verified public source yet." if field in ("core", "billpay") else "No login platform identified yet.")
+            items.append(f'<div class="prov-item prov-empty"><h3>{label}</h3><p class="prov-val prov-none">Not yet identified</p>'
+                         f'<p class="prov-meta">{why}</p></div>')
             continue
         val = e(shown["value"])
         if shown["status"] == "announced":
@@ -235,15 +256,20 @@ def provider_block(x, prov, board_by_url):
             links.append(f'<a href="/#{e(sig)}">See the signal</a>')
         was = (f'<p class="prov-was">Before the change: {e(old["value"])} <span class="muted-inline">({e(old["source_type"].lower())}, '
                f'{fmt_date(old["last_updated"])})</span></p>') if old else ""
+        win = WINDOWS.get((x["id"], field))
+        if win:
+            links.append(f'<a href="{e(win["source_url"])}" target="_blank" rel="noopener nofollow">Go-live date source ↗</a>')
+        win_html = f'<p class="prov-est">{e(win["text"])}</p>' if win else ""
         cls = "prov-item prov-chg" if shown["status"] == "announced" else "prov-item"
         items.append(f'<div class="{cls}"><h3>{label}</h3><p class="prov-val">{val}</p>'
-                     f'<p class="prov-meta">Updated {fmt_date(shown["last_updated"])} · {e(shown["source_type"])}</p>{note_html}{was}'
+                     f'<p class="prov-meta">Updated {fmt_date(shown["last_updated"])} · {e(shown["source_type"])}</p>{note_html}{was}{win_html}'
                      + (f'<p class="prov-links">{"".join(links)}</p>' if links else "") + "</div>")
-    return ('<section class="prov" aria-labelledby="prov-h"><h2 id="prov-h">Technology providers</h2>'
+    return ('<section class="prov" aria-labelledby="prov-h"><h2 id="prov-h">Technology stack</h2>'
             f'<div class="prov-grid">{"".join(items)}</div>'
-            '<p class="note prov-how">Core comes only from verified public announcements. Digital banking comes from a scan of the '
-            'online banking login link on the institution&#39;s public website (hostname and DNS), or from a verified announcement. '
-            'Announced changes are shown in place of the current value. We never infer one from the other.</p></section>')
+            '<p class="note prov-how">Core and bill pay come only from verified public announcements. Digital banking comes from a scan of the '
+            'online banking login links on the institution&#39;s public website (hostname and DNS), or from a verified announcement; '
+            'a business platform is shown separately only when a verified announcement names it or its login sits on its own business or treasury hostname. '
+            'Announced changes are shown in place of the current value. We never infer one field from another.</p></section>')
 
 
 # ---------------------------------------------------------------- builders
@@ -260,6 +286,16 @@ def build(files):
     for k in sigs:
         sigs[k].sort(key=lambda r: (r["date"], r["id"]), reverse=True)
     prov = load_providers()
+    WINDOWS.update(load_windows())
+    crj = json.load(open(os.path.join(ROOT, "data", "callreports.json")))
+    CR, QS, AS_OF = crj["fi"], crj["quarters"], crj["as_of"]
+    SHOWCASE = S.load_showcase(ROOT)  # showcase pages get SHOWCASE_ONLY features first (S.feature_on)
+    social = {}
+    sp = os.path.join(ROOT, "data", "social.csv")
+    if os.path.exists(sp):
+        with open(sp, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                social.setdefault(r["fi_id"], {})[r["network"]] = r
     board_by_url = {(r["fi_id"], r["source_url"]): r["id"] for r in trig["rows"] if r.get("fi_id")}
 
     # slugs: name, then name-city, then name-city-<number>, unique within a state
@@ -285,9 +321,49 @@ def build(files):
                 used.add((st, s))
             x["_path"] = f"/fi/{st}/{s}/"
             x["_slug"] = s
-            x["_n"] = len(sigs.get(x["id"], []))
+            x["_n"] = sum(1 for r in sigs.get(x["id"], []) if is_board_row(r))  # board signals: drive indexing, sitemap, counts
             x["_tier"] = tier_of(x["total_assets"])
     by_assets = lambda x: (-(x["total_assets"] if x["total_assets"] != "" else -1), x["name"])
+    tier_name = dict((t[0], t[1]) for t in TIERS)
+
+    # peer ranks: by total assets among the same charter type in the state and in the asset tier; 1-year asset growth in the tier
+    def yoy(x):
+        a = CR.get(x["id"], {}).get("a") or []
+        return S.pct(a[-1], a[-5]) if len(a) >= 5 else None
+    st_groups, tier_groups = defaultdict(list), defaultdict(list)
+    for x in inst:
+        if x["total_assets"] != "":
+            st_groups[(x["state"], x["charter_type"])].append(x)
+            tier_groups[(x["_tier"], x["charter_type"])].append(x)
+    for g in list(st_groups.values()) + list(tier_groups.values()):
+        g.sort(key=by_assets)
+    rank_st = {x["id"]: (i + 1, len(g)) for g in st_groups.values() for i, x in enumerate(g)}
+    rank_tier = {x["id"]: (i + 1, len(g)) for g in tier_groups.values() for i, x in enumerate(g)}
+    rank_gr = {}
+    for (tk, ct), g in tier_groups.items():
+        gg = sorted(((yoy(x), x) for x in g if yoy(x) is not None), key=lambda t: (-t[0], t[1]["name"]))
+        for i, (p_, x) in enumerate(gg):
+            rank_gr[x["id"]] = (i + 1, len(gg), p_)
+
+    def scan_vendor(x):
+        rows_ = [r for r in prov.get(x["id"], {}).get("digital", []) if r["source_type"] == "Login page scan"]
+        return rows_[0]["value"] if rows_ else ""
+    sim_groups = defaultdict(list)
+    for x in inst:
+        if x["total_assets"] != "":
+            sim_groups[(x["state"], x["_tier"], scan_vendor(x))].append(x)
+
+    def similar(x):
+        if x["total_assets"] == "":
+            return [], ""
+        v = scan_vendor(x)
+        pool = [y for y in sim_groups[(x["state"], x["_tier"], v)] if y["id"] != x["id"]]
+        if not pool and v:  # nobody else on that platform here: fall back to state + tier, said plainly on the page
+            v = ""
+            pool = [y for k_, ys in sim_groups.items() if k_[:2] == (x["state"], x["_tier"]) for y in ys if y["id"] != x["id"]]
+        la = math.log(max(x["total_assets"], 1))
+        pool.sort(key=lambda y: (abs(math.log(max(y["total_assets"], 1)) - la), y["name"]))
+        return pool[:6], v
 
     # institution pages
     for x in inst:
@@ -308,20 +384,68 @@ def build(files):
         facts.append(("Regulator record", f'<a href="{e(rec)}" target="_blank" rel="noopener">{e(rec_label)} ↗</a>'))
         if x["holding_company"]:
             facts.append(("Holding company", e(x["holding_company"]) + ' <span class="muted-inline">(as FDIC lists it)</span>'))
+        else:  # parity with pages that have one: the row always renders, with a plain reason
+            facts.append(("Holding company", "Not applicable (credit union)" if x["charter_type"] == "cu" else "None listed by the FDIC"))
         if x["also_known_as"]:
             facts.append(("Also known as", e(", ".join(x["also_known_as"].split("|")))))
         if board_names:
             facts.append(("Named on the board as", e(", ".join(board_names))))
+        elif any(is_board_row(r) for r in rows):
+            facts.append(("Named on the board as", "Same as the legal name"))
+        else:
+            facts.append(("Named on the board as", "Not on the board yet"))
+        cr = CR.get(x["id"], {"a": [None] * len(QS), "d": [None] * len(QS), "l": [None] * len(QS)})
+        if x["charter_type"] == "bank" and cr.get("off") is not None:
+            facts.append(("Offices", f'{cr["off"]:,} <span class="muted-inline">(FDIC, incl. main office)</span>'))
+        elif cr.get("sites"):
+            b_, c_ = cr["sites"].get("Branch Office", 0), cr["sites"].get("Corporate Office", 0)
+            facts.append(("Offices", f'{b_ + c_:,} <span class="muted-inline">({b_:,} branch, {c_:,} corporate; NCUA)</span>'))
+        if cr.get("m") and cr["m"][-1] is not None:
+            m_ = cr["m"]
+            g_ = S.pct(m_[-1], m_[-5]) if len(m_) >= 5 else None
+            facts.append(("Members", f'{m_[-1]:,} <span class="muted-inline">(NCUA, {S.qname(AS_OF)}' + (f', {"+" if g_ > 0 else "−" if g_ < 0 else ""}{abs(g_):.1f}% in 1 yr' if g_ is not None else "") + ")</span>"))
+        if cr.get("est"):
+            facts.append(("Established", e(cr["est"][:4]) + f' <span class="muted-inline">({"FDIC" if x["charter_type"] == "bank" else "NCUA"})</span>'))
+        li_ = social.get(x["id"], {}).get("linkedin")
+        if not li_:
+            facts.append(("LinkedIn", 'Not yet identified <span class="muted-inline">(we only list a LinkedIn page that the '
+                                      f'{cw}&#39;s own website links to)</span>'))
+        if li_:
+            facts.append(("LinkedIn", f'<a href="{e(li_["url"])}" target="_blank" rel="nofollow noopener">{e(li_["url"].split("linkedin.com")[1])} ↗</a> '
+                                      f'<span class="muted-inline">(linked from the {cw}&#39;s own website, checked {fmt_date(li_["checked"])})</span>'))
+        if cr.get("rssd") and cr["rssd"] not in ("0", ""):
+            facts.append(("Call report summary", f'<a href="https://www.ibanknet.com/scripts/callreports/getbank.aspx?ibnid=usa_{e(cr["rssd"])}" target="_blank" rel="nofollow noopener">iBanknet ↗</a> <span class="muted-inline">(third-party site, RSSD {e(cr["rssd"])})</span>'))
+        peer = []
+        if x["id"] in rank_st:
+            r_, n_ = rank_st[x["id"]]
+            peer.append(f'<strong>#{r_:,}</strong> of {n_:,} {"credit unions" if x["charter_type"] == "cu" else "banks"} in {e(st_name)} by total assets')
+        if x["id"] in rank_tier:
+            r_, n_ = rank_tier[x["id"]]
+            peer.append(f'<strong>#{r_:,}</strong> of {n_:,} {"credit unions" if x["charter_type"] == "cu" else "banks"} with {e(tier_name[x["_tier"]])} in assets')
+        if x["id"] in rank_gr:
+            r_, n_, p_ = rank_gr[x["id"]]
+            peer.append(f'1-year asset growth {S.pct_html(p_)}: <strong>#{r_:,}</strong> of {n_:,} in that tier')
+        if peer:
+            peer.append(f'<span class="note">Call report assets, {S.qname(AS_OF)}. Rank 1 = largest or fastest growing.</span>')
+        sim, sim_v = similar(x)
+        showcase = x["id"] in SHOWCASE  # pass to S.feature_on(<flag>, showcase) when a new section is showcase-only
         dl = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in facts)
         if rows:
             hist = (f'<h2>Signals <span class="count-pill">{len(rows)}</span></h2><ul class="sig-list">' + "".join(sig_li(r) for r in rows) + "</ul>")
         else:
             hist = (f'<h2>Signals</h2><p class="empty-note">No signals on the board yet for {e(x["name"])}. New signals go up every weekday. '
                     f'<a href="/#subscribe">Get the Friday digest</a>.</p>')
+        if showcase and not any(r["type"] == "branch_opening" for r in rows):
+            hist += ('<p class="empty-note branch-none">Branch openings: none verified yet. We list a new branch here once the '
+                     'institution\'s own announcement or its regulator record confirms it.</p>')
         body = (crumbs([("Directory", "/fi/"), (st_name, f'/fi/{x["state"].lower()}/'), (x["name"], None)]) +
                 f'<article class="fi-page"><h1>{e(x["name"])}</h1>'
                 f'<p class="fi-sub">{"Credit union" if x["charter_type"] == "cu" else "Bank"} · {e(x["city"])}, {e(x["state"])}' + (f" · {e(a)} in assets" if a else "") + "</p>"
-                f'<dl class="facts">{dl}</dl>{provider_block(x, prov, board_by_url)}{hist}'
+                + S.header_trend(cr, AS_OF) +
+                f'<dl class="facts">{dl}</dl>' + S.trend_section(cr, QS, AS_OF, x["charter_type"]) + S.peer_section(peer) +
+                provider_block(x, prov, board_by_url) + S.exec_section(rows, TYPE_LABEL) +
+                S.history_section(cr.get("hist"), rows, CLASS_LABEL, x["charter_type"], TYPE_LABEL) + hist +
+                S.similar_section(x, sim, sim_v, st_name, tier_name[x["_tier"]], fi_li) +
                 f'<p class="more-links"><a href="/?state={e(x["state"])}">{e(st_name)} on the board</a><a href="/fi/{x["state"].lower()}/">All {e(st_name)} institutions</a><a href="/fi/assets/{e(x["_tier"])}/">{e(dict((t[0], t[1]) for t in TIERS)[x["_tier"]])}</a></p></article>')
         place = f'{x["city"]}, {x["state"]}'
         if rows:
@@ -333,7 +457,9 @@ def build(files):
             title = f'{x["name"]} ({place} {cw}) | FI Signal Weekly'
             desc = (f'{x["name"]} is a {place} {cw}' + (f" with {a} in assets ({x['assets_as_of']} call report)" if a else "") +
                     f'. Charter, website and {"NCUA" if x["charter_type"] == "cu" else "FDIC"} record.')
-        files[x["_path"].lstrip("/") + "index.html"] = page(title, desc, x["_path"], body, noindex=not rows)
+        files[x["_path"].lstrip("/") + "index.html"] = page(title, desc, x["_path"], body, noindex=not x["_n"],
+                                                            extra_head=f'\n<link rel="stylesheet" href="/css/fi-v2.css?v={V}">',
+                                                            scripts=f'<script src="/js/fi-chart.js?v={V}" defer></script>\n')
 
     # state pages
     by_state = defaultdict(list)

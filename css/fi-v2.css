@@ -9,7 +9,7 @@
 .fin-chart{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px 6px}
 .chart-wrap{position:relative;touch-action:pan-y}
 .chart{display:block;width:100%;max-width:680px;height:auto}
-.chart text{font-size:20px;fill:var(--muted)}
+.chart text{font-size:22px;fill:var(--muted)}
 .chart .gl{stroke:var(--line);stroke-width:1}
 .chart .ln{fill:none;stroke:var(--navy-700);stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 .chart .dot{fill:var(--signal-ink)}.chart .cur{stroke:var(--muted);stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
@@ -32,10 +32,15 @@
 .ex-date{display:block;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
 .src-tag{font-size:.8rem;color:var(--muted)}
 @media(min-width:760px){
-  .chart text{font-size:15px}
+  .chart text{font-size:12.5px}
   .fin-tables{max-width:620px}
+  .fin-chart{max-width:700px}
 }
 @media(max-width:759px){
   .peer-list li{padding:8px 0}
   .ex-list .sig-links a{display:inline-flex;align-items:center;min-height:44px}
 }
+.prov-est{font-size:.88rem;font-weight:600;color:var(--ink);background:#F0F4FA;border-radius:8px;padding:6px 8px;margin-top:6px!important}
+:root{--branch_opening:#475467}
+.badge.branch_opening{background:var(--branch_opening)}
+.sig-list .sig.branch_opening{border-left-color:var(--branch_opening)}
