@@ -286,3 +286,18 @@ label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
   .terr .rule{padding:12px 12px}
   .terr h3.city{font-size:.9rem}
 }
+
+/* /vendor-changes/ — feed of public vendor platform notices */
+.vc{max-width:800px;padding-bottom:40px}
+.vc .hero{padding:28px 0 8px}
+.vc .hero p{color:var(--muted);max-width:40rem}
+.vc-entry{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 16px 20px;margin:16px 0 28px}
+.vc-entry h2{margin:0 0 12px;font-size:1.2rem;line-height:1.3}
+.vc-meta{margin:0 0 6px;font-size:.88rem;color:var(--muted);font-weight:600}
+.vc-entry h3{margin:22px 0 6px;font-size:1.05rem}
+.vc-entry p{margin:0 0 10px}
+.vc-entry .fi-list{margin:8px 0 0}
+@media (max-width:430px){
+  .vc-entry{padding:14px 12px 16px}
+  .vc-entry h2{font-size:1.1rem}
+}
