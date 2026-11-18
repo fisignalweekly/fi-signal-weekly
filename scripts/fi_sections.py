@@ -170,7 +170,7 @@ def exec_section(rows, type_label):
     if not ex:
         return ""
     li = "".join(f'<li><span class="ex-date">{fmt_date(r["date"])}</span><p>{e(r["summary"])}</p>'
-                 f'<p class="sig-links"><a href="/#{e(r["id"])}">See the signal</a><a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>'
+                 f'<p class="sig-links">' + (f'<a href="/#{e(r["id"])}">See the signal</a>' if r.get("fi_only") is not True and r.get("type") != "branch_opening" else "") + f'<a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>'
                  for r in ex)
     return (f'<section class="execs" aria-labelledby="ex-h"><h2 id="ex-h">Key executives <span class="count-pill">{len(ex)}</span></h2>'
             f'<p class="note">Leadership moves from our verified signals, newest first.</p><ul class="ex-list">{li}</ul></section>')
@@ -200,7 +200,7 @@ def history_section(hist, rows, class_label, charter, type_label):
     for r in rows:
         if r["type"] in ("merger", "cu_merger", "cu_acquires_bank", "cu_charter"):
             items.append((r["date"], f'<li><span class="ex-date">{fmt_date(r["date"])}</span><p><span class="badge {e(r["type"])}">{e(type_label.get(r["type"], r["type"]))}</span> {e(r["summary"])}</p>'
-                                     f'<p class="sig-links"><a href="/#{e(r["id"])}">See the signal</a><a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>'))
+                                     f'<p class="sig-links">' + (f'<a href="/#{e(r["id"])}">See the signal</a>' if r.get("fi_only") is not True and r.get("type") != "branch_opening" else "") + f'<a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>'))
     items.sort(key=lambda x: x[0], reverse=True)
     note = ("FDIC institution history since 2016 plus merger and charter signals from the board."
             if charter == "bank" else "Credit union mergers and charter changes from our verified board signals.")

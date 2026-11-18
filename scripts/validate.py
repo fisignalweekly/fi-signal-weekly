@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 import json,sys,re,os
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
-from trigger_types import TYPES  # the one list of board types
+from trigger_types import TYPES, FI_ONLY_TYPES, is_board_row  # the one list of board types
 d=json.load(open("data/triggers.json"));ok=True
 # every board type needs its label, filter option and colors on the site
 _app,_idx,_css=(open(p).read() for p in ("js/app.js","index.html","css/style.css"))
+_fiv2=open("css/fi-v2.css").read() if os.path.exists("css/fi-v2.css") else ""
 for t,label in TYPES.items():
+    if t in FI_ONLY_TYPES:  # /fi/ pages only: needs a badge color, must NOT be a board filter option
+        if 'value="'+t+'"' in _idx: print("fi-only type must not be a board filter option in index.html:",t);ok=False
+        if ".badge."+t not in _css+_fiv2: print("fi-only type missing badge color in css:",t);ok=False
+        continue
     if not re.search(r"\b"+t+r':"'+re.escape(label)+'"',_app): print("type missing from js/app.js TYPE_LABEL:",t);ok=False
     if 'value="'+t+'"' not in _idx: print("type missing from #f-type in index.html:",t);ok=False
     if ".badge."+t not in _css or ".card."+t not in _css: print("type missing colors in css/style.css:",t);ok=False
@@ -13,6 +18,8 @@ for r in d["rows"]:
     for k in ("id","type","institution","state","date","summary","source_url"):
         if not r.get(k): print("missing",k,r.get("id"));ok=False
     if r["type"] not in TYPES: print("bad type",r["id"],r["type"]);ok=False
+    if "fi_only" in r and r["fi_only"] is not True and r["fi_only"] is not False: print("bad fi_only",r["id"]);ok=False
+    if r["type"] in FI_ONLY_TYPES and r.get("fi_only") is not True: print("branch_opening (fi-only type) rows need fi_only: true",r["id"]);ok=False
     if not re.match(r"\d{4}-\d{2}-\d{2}$",r["date"]): print("bad date",r["id"]);ok=False
     if not r["source_url"].startswith("http"): print("bad url",r["id"]);ok=False
     # "added" = date the row went live on the board (drives the "New" tag, shown only that ET calendar day); set it with scripts/stamp_added.py
@@ -96,6 +103,19 @@ if os.path.exists("data/social.csv"):
         if (r["fi_id"],r["network"]) in ids: print("social.csv: duplicate",r["fi_id"]);ok=False
         ids.add((r["fi_id"],r["network"]))
     print(f"social.csv: {len(soc)} LinkedIn links")
+if os.path.exists("data/contract_windows.csv"):
+    with open("data/contract_windows.csv",newline="",encoding="utf-8") as f:
+        rd=csv.DictReader(f);cw=list(rd)
+    if rd.fieldnames!=["fi_id","field","text","source_url","public_display","approved"]: print("contract_windows.csv: bad columns");ok=False
+    for r in cw:
+        t=r["text"]
+        if inst and r["fi_id"] not in inst: print("contract_windows.csv: unknown fi_id",r["fi_id"]);ok=False
+        if r["field"] not in ("core","digital","digital_business","billpay"): print("contract_windows.csv: bad field",r["fi_id"]);ok=False
+        if not t.startswith("Estimated renewal window:") or "estimate" not in t[25:].lower(): print("contract_windows.csv: text must say it is an estimate",r["fi_id"]);ok=False
+        if re.search(r"contract ends|renewal due",t,re.I): print("contract_windows.csv: banned wording",r["fi_id"]);ok=False
+        if r["public_display"] not in ("true","false"): print("contract_windows.csv: public_display must be true/false",r["fi_id"]);ok=False
+        if r["public_display"]=="true" and not re.match(r"\d{4}-\d{2}-\d{2}$",r["approved"]): print("contract_windows.csv: shown rows need an approval date",r["fi_id"]);ok=False
+        if not r["source_url"].startswith("http"): print("contract_windows.csv: bad source_url",r["fi_id"]);ok=False
 if os.path.exists("data/showcase.txt"):
     for ln in open("data/showcase.txt"):
         i=ln.split("#")[0].strip()
@@ -105,4 +125,5 @@ if os.path.exists("data/fi-pinned.txt"):
         ln=ln.strip()
         if ln and not ln.startswith("#") and not os.path.exists(ln): print("fi-pinned.txt: missing page",ln);ok=False
 print(f"{linked} rows linked to institutions.json ({len(inst)} institutions)")
+print(f"{sum(1 for r in d['rows'] if is_board_row(r))} board rows, {sum(1 for r in d['rows'] if not is_board_row(r))} fi-only rows")
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)

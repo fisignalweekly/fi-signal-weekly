@@ -31,7 +31,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://fisignalweekly.com"
 OUT = "fi"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from trigger_types import TYPES as TYPE_LABEL  # one list of board types and labels
+from trigger_types import TYPES as TYPE_LABEL, is_board_row  # one list of board types and labels
 import fi_sections as S
 TIERS = [("lt500m", "Under $500M", 0, 5e8), ("500m-1b", "$500M–$1B", 5e8, 1e9), ("1b-10b", "$1B–$10B", 1e9, 1e10),
          ("10b-50b", "$10B–$50B", 1e10, 5e10), ("50b+", "$50B+", 5e10, float("inf")), ("na", "Assets not reported", None, None)]
@@ -183,7 +183,8 @@ def sig_li(r, show_inst=False):
     inst = f'<span class="sig-inst">{e(r["institution"])}</span>' if show_inst else ""
     return (f'<li class="sig {e(r["type"])}"><div class="meta"><span class="badge {e(r["type"])}">{e(TYPE_LABEL.get(r["type"], r["type"]))}</span>'
             f'<span>{fmt_date(r["date"])}</span></div>{inst}<p>{e(r["summary"])}</p>'
-            f'<p class="sig-links"><a href="/#{e(r["id"])}">See on the board</a><a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>')
+            f'<p class="sig-links">' + (f'<a href="/#{e(r["id"])}">See on the board</a>' if is_board_row(r) else "") +
+            f'<a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>')
 
 
 # ---------------------------------------------------------------- providers (data/providers.csv)
@@ -216,6 +217,21 @@ def resolve_provider(rows):
     return (cur[0], None) if cur else (None, None)
 
 
+def load_windows():
+    """data/contract_windows.csv: approved, clearly labelled renewal-window estimates. Only public_display=true rows render."""
+    out = {}
+    p = os.path.join(ROOT, "data", "contract_windows.csv")
+    if os.path.exists(p):
+        with open(p, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r["public_display"] == "true":
+                    out[(r["fi_id"], r["field"])] = r
+    return out
+
+
+WINDOWS = {}
+
+
 def provider_block(x, prov, board_by_url):
     items = []
     for field, label in PROV_FIELDS:
@@ -240,9 +256,13 @@ def provider_block(x, prov, board_by_url):
             links.append(f'<a href="/#{e(sig)}">See the signal</a>')
         was = (f'<p class="prov-was">Before the change: {e(old["value"])} <span class="muted-inline">({e(old["source_type"].lower())}, '
                f'{fmt_date(old["last_updated"])})</span></p>') if old else ""
+        win = WINDOWS.get((x["id"], field))
+        if win:
+            links.append(f'<a href="{e(win["source_url"])}" target="_blank" rel="noopener nofollow">Go-live date source ↗</a>')
+        win_html = f'<p class="prov-est">{e(win["text"])}</p>' if win else ""
         cls = "prov-item prov-chg" if shown["status"] == "announced" else "prov-item"
         items.append(f'<div class="{cls}"><h3>{label}</h3><p class="prov-val">{val}</p>'
-                     f'<p class="prov-meta">Updated {fmt_date(shown["last_updated"])} · {e(shown["source_type"])}</p>{note_html}{was}'
+                     f'<p class="prov-meta">Updated {fmt_date(shown["last_updated"])} · {e(shown["source_type"])}</p>{note_html}{was}{win_html}'
                      + (f'<p class="prov-links">{"".join(links)}</p>' if links else "") + "</div>")
     return ('<section class="prov" aria-labelledby="prov-h"><h2 id="prov-h">Technology stack</h2>'
             f'<div class="prov-grid">{"".join(items)}</div>'
@@ -266,6 +286,7 @@ def build(files):
     for k in sigs:
         sigs[k].sort(key=lambda r: (r["date"], r["id"]), reverse=True)
     prov = load_providers()
+    WINDOWS.update(load_windows())
     crj = json.load(open(os.path.join(ROOT, "data", "callreports.json")))
     CR, QS, AS_OF = crj["fi"], crj["quarters"], crj["as_of"]
     SHOWCASE = S.load_showcase(ROOT)  # showcase pages get SHOWCASE_ONLY features first (S.feature_on)
@@ -300,7 +321,7 @@ def build(files):
                 used.add((st, s))
             x["_path"] = f"/fi/{st}/{s}/"
             x["_slug"] = s
-            x["_n"] = len(sigs.get(x["id"], []))
+            x["_n"] = sum(1 for r in sigs.get(x["id"], []) if is_board_row(r))  # board signals: drive indexing, sitemap, counts
             x["_tier"] = tier_of(x["total_assets"])
     by_assets = lambda x: (-(x["total_assets"] if x["total_assets"] != "" else -1), x["name"])
     tier_name = dict((t[0], t[1]) for t in TIERS)
@@ -424,7 +445,7 @@ def build(files):
             title = f'{x["name"]} ({place} {cw}) | FI Signal Weekly'
             desc = (f'{x["name"]} is a {place} {cw}' + (f" with {a} in assets ({x['assets_as_of']} call report)" if a else "") +
                     f'. Charter, website and {"NCUA" if x["charter_type"] == "cu" else "FDIC"} record.')
-        files[x["_path"].lstrip("/") + "index.html"] = page(title, desc, x["_path"], body, noindex=not rows,
+        files[x["_path"].lstrip("/") + "index.html"] = page(title, desc, x["_path"], body, noindex=not x["_n"],
                                                             extra_head=f'\n<link rel="stylesheet" href="/css/fi-v2.css?v={V}">',
                                                             scripts=f'<script src="/js/fi-chart.js?v={V}" defer></script>\n')
 

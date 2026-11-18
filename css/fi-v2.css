@@ -40,3 +40,7 @@
   .peer-list li{padding:8px 0}
   .ex-list .sig-links a{display:inline-flex;align-items:center;min-height:44px}
 }
+.prov-est{font-size:.88rem;font-weight:600;color:var(--ink);background:#F0F4FA;border-radius:8px;padding:6px 8px;margin-top:6px!important}
+:root{--branch_opening:#475467}
+.badge.branch_opening{background:var(--branch_opening)}
+.sig-list .sig.branch_opening{border-left-color:var(--branch_opening)}
