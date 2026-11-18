@@ -10,7 +10,7 @@ e = lambda s: html.escape(str(s), quote=True)
 
 # Feature flags: a name listed here renders only on showcase pages (data/showcase.txt). Move a feature to all
 # pages by removing it from this set. Empty = every shipped feature is on every page.
-SHOWCASE_ONLY = {"benchmarks"}  # asset-chart benchmark overlays, CPI toggle, verdict, merger markers (Nov 18, 2026)
+SHOWCASE_ONLY = set()  # benchmarks moved to all pages Nov 18, 2026 (Kyle)
 
 
 def feature_on(name, is_showcase):
