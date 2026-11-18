@@ -5164,6 +5164,40 @@
       "fi_assets_as_of": "2026Q2",
       "fi_assets_date": "2026-06-30",
       "fi_match": "name_state"
+    },
+    {
+      "id": "t297",
+      "type": "cu_executive",
+      "institution": "Chartway Credit Union",
+      "state": "VA",
+      "date": "2026-10-05",
+      "added": "2026-11-18",
+      "summary": "Chartway promoted Rob Keatts to executive vice president and chief operating officer; he keeps his role as president of Chartway Ventures and partners with President/CEO Brian Schools on operations and enterprise priorities.",
+      "source_url": "https://www.cuinsight.com/press-release/chartway-credit-union-promotes-rob-keatts-to-executive-vice-president-and-chief-operating-officer/",
+      "fi_id": "ncua-13242",
+      "fi_name": "Chartway",
+      "charter_type": "cu",
+      "fi_assets_usd": 3228466783,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
+    },
+    {
+      "id": "t298",
+      "type": "cu_executive",
+      "institution": "Sound Credit Union",
+      "state": "WA",
+      "date": "2026-08-04",
+      "added": "2026-11-18",
+      "summary": "Sound Credit Union (Tacoma) appointed Matthew Figueroa Executive Vice President and Chief Financial & Risk Officer, with nearly 14 years of credit union and financial services experience.",
+      "source_url": "https://www.cuinsight.com/press-release/matthew-figueroa-joins-sound-credit-union-as-executive-vice-president-chief-financial-risk-officer/",
+      "fi_id": "ncua-66331",
+      "fi_name": "Sound",
+      "charter_type": "cu",
+      "fi_assets_usd": 3403158551,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     }
   ]
 }
