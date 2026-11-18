@@ -336,6 +336,9 @@ def build(files):
             return [], ""
         v = scan_vendor(x)
         pool = [y for y in sim_groups[(x["state"], x["_tier"], v)] if y["id"] != x["id"]]
+        if not pool and v:  # nobody else on that platform here: fall back to state + tier, said plainly on the page
+            v = ""
+            pool = [y for k_, ys in sim_groups.items() if k_[:2] == (x["state"], x["_tier"]) for y in ys if y["id"] != x["id"]]
         la = math.log(max(x["total_assets"], 1))
         pool.sort(key=lambda y: (abs(math.log(max(y["total_assets"], 1)) - la), y["name"]))
         return pool[:6], v
