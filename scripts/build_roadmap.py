@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Build /roadmap/ from data/roadmap.json."""
+"""Build /roadmap/ and the unlisted bookmarkable copy from data/roadmap.json.
+
+Both pages are written from the same data on every run so they cannot drift apart.
+Items with "unlisted_only": true are included only on the unlisted page.
+The unlisted copy carries noindex,nofollow, is left out of sitemap.xml, and must
+not be linked from other pages (see scripts/validate.py). Do not add it to robots.txt.
+"""
 from __future__ import annotations
 import html, json
 from pathlib import Path
@@ -7,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = "20261118whatsnew"
 MONTHS = "January February March April May June July August September October November December".split()
+UNLISTED_PATH = "/r/le4idsoyeldffb/"
 
 def e(s): return html.escape(s or "", quote=True)
 def fmt_date(d):
@@ -67,30 +74,39 @@ def render_item(item):
     parts.append("</article>")
     return "\n".join(parts)
 
+def is_unlisted_only(item):
+    return item.get("unlisted_only") is True
+
 FOOTER = '''<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/territory/">Territory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/whats-new/">What's new</a> · <a href="/roadmap/">Roadmap</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>'''
 
-HEAD = '''<!doctype html>
+TITLE = "Roadmap"
+DESC = "What is live on FI Signal Weekly, what is being built, and what is queued, with estimated showcase and full dates."
+
+def page_head(path, cache, *, unlisted=False):
+    robots = '<meta name="robots" content="noindex,nofollow">\n' if unlisted else ""
+    # Unlisted copy: omit canonical and og:url so they never point at the public /roadmap/.
+    og_url = "" if unlisted else f'<meta property="og:url" content="https://fisignalweekly.com{path}">\n'
+    canonical = "" if unlisted else f'<link rel="canonical" href="https://fisignalweekly.com{path}">\n'
+    return f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} — FI Signal Weekly</title>
-<meta name="description" content="{desc}">
-<meta property="og:type" content="website">
+<title>{TITLE} — FI Signal Weekly</title>
+<meta name="description" content="{DESC}">
+{robots}<meta property="og:type" content="website">
 <meta property="og:site_name" content="FI Signal Weekly">
-<meta property="og:title" content="{title} — FI Signal Weekly">
-<meta property="og:description" content="{desc}">
-<meta property="og:url" content="https://fisignalweekly.com{path}">
-<meta property="og:image" content="https://fisignalweekly.com/img/og-image.png">
+<meta property="og:title" content="{TITLE} — FI Signal Weekly">
+<meta property="og:description" content="{DESC}">
+{og_url}<meta property="og:image" content="https://fisignalweekly.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="FI Signal Weekly: buying-window signals at US banks &amp; credit unions">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{title} — FI Signal Weekly">
-<meta name="twitter:description" content="{desc}">
+<meta name="twitter:title" content="{TITLE} — FI Signal Weekly">
+<meta name="twitter:description" content="{DESC}">
 <meta name="twitter:image" content="https://fisignalweekly.com/img/og-image.png">
 <meta name="twitter:image:alt" content="FI Signal Weekly: buying-window signals at US banks &amp; credit unions">
 <meta name="theme-color" content="#000F26">
-<link rel="canonical" href="https://fisignalweekly.com{path}">
-<link rel="icon" href="/favicon.ico" sizes="any">
+{canonical}<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/mark-192.png">
@@ -105,16 +121,12 @@ HEAD = '''<!doctype html>
 </div></header>
 '''
 
-def build():
-    data = json.loads((ROOT / "data/roadmap.json").read_text(encoding="utf-8"))
-    items = data["items"]
+def render_page(data, items, *, unlisted=False):
     updated = fmt_date(data["updated"])
     showcase_html = render_showcase(data)
     body = "\n".join(render_item(it) for it in items)
-    counts = {}
-    for it in items:
-        counts[it["status"]] = counts.get(it["status"], 0) + 1
-    page = HEAD.format(title="Roadmap", desc="What is live on FI Signal Weekly, what is being built, and what is queued, with estimated showcase and full dates.", path="/roadmap/", cache=CACHE)
+    path = UNLISTED_PATH if unlisted else "/roadmap/"
+    page = page_head(path, CACHE, unlisted=unlisted)
     page += f'''<main class="wrap rm">
   <header class="hero">
     <h1>Roadmap</h1>
@@ -127,10 +139,30 @@ def build():
 {FOOTER}
 </body></html>
 '''
-    out = ROOT / "roadmap/index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(page, encoding="utf-8")
-    print(f"wrote {out} ({len(items)} items; " + ", ".join(f"{n} {k}" for k,n in counts.items()) + ")")
+    return page
+
+def write_page(path: Path, page: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(page, encoding="utf-8")
+
+def count_statuses(items):
+    counts = {}
+    for it in items:
+        counts[it["status"]] = counts.get(it["status"], 0) + 1
+    return ", ".join(f"{n} {k}" for k, n in counts.items())
+
+def build():
+    data = json.loads((ROOT / "data/roadmap.json").read_text(encoding="utf-8"))
+    all_items = data["items"]
+    public_items = [it for it in all_items if not is_unlisted_only(it)]
+    public = render_page(data, public_items, unlisted=False)
+    unlisted = render_page(data, all_items, unlisted=True)
+    pub_out = ROOT / "roadmap/index.html"
+    unlist_out = ROOT / "r/le4idsoyeldffb/index.html"
+    write_page(pub_out, public)
+    write_page(unlist_out, unlisted)
+    print(f"wrote {pub_out} ({len(public_items)} items; {count_statuses(public_items)})")
+    print(f"wrote {unlist_out} ({len(all_items)} items; {count_statuses(all_items)})")
 
 if __name__ == "__main__":
     build()

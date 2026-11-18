@@ -150,4 +150,60 @@ try:
     else: print(f"sitemap.xml: lists {', '.join(STATIC_PAGES)}")
 except ImportError as ex:
     print("sitemap check: cannot import build_directory:",ex);ok=False
+# Unlisted bookmarkable roadmap: never in sitemap.xml, never linked from other HTML, never in STATIC_PAGES.
+# Items flagged unlisted_only in data/roadmap.json must not appear on /roadmap/ or /whats-new/.
+_ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_UNLISTED_PATH="/r/le4idsoyeldffb"
+try:
+    from build_directory import STATIC_PAGES as _SP_UNLISTED
+    if any(u.startswith("/r/") or _UNLISTED_PATH in u for u in _SP_UNLISTED):
+        print("STATIC_PAGES must not include unlisted /r/ paths");ok=False
+except ImportError:
+    pass
+_sm_u=os.path.join(_ROOT,"sitemap.xml")
+if os.path.exists(_sm_u) and _UNLISTED_PATH in open(_sm_u,encoding="utf-8").read():
+    print("sitemap.xml must not include the unlisted roadmap path");ok=False
+_self_u=os.path.abspath(os.path.join(_ROOT,"r","le4idsoyeldffb","index.html"))
+_leaks=[]
+for dirpath,dirnames,filenames in os.walk(_ROOT):
+    dirnames[:]=[x for x in dirnames if x!=".git"]
+    for fn in filenames:
+        if not fn.endswith(".html"):
+            continue
+        path=os.path.join(dirpath,fn)
+        if os.path.abspath(path)==_self_u:
+            continue
+        html=open(path,encoding="utf-8").read()
+        if _UNLISTED_PATH in html or "le4idsoyeldffb" in html:
+            _leaks.append(os.path.relpath(path,_ROOT))
+if _leaks:
+    print("unlisted roadmap path appears in other HTML pages:", ", ".join(_leaks));ok=False
+else:
+    print("unlisted roadmap: not in sitemap.xml, not linked from other HTML pages")
+_rm=os.path.join(_ROOT,"data","roadmap.json")
+if os.path.exists(_rm):
+    _rdata=json.load(open(_rm,encoding="utf-8"))
+    for it in _rdata.get("items") or []:
+        if "unlisted_only" in it and it.get("unlisted_only") is not True and it.get("unlisted_only") is not False:
+            print("bad unlisted_only",it.get("id"));ok=False
+    _only=[it for it in _rdata.get("items") or [] if it.get("unlisted_only") is True]
+    _pub_rm=os.path.join(_ROOT,"roadmap","index.html")
+    _wn=os.path.join(_ROOT,"whats-new","index.html")
+    _leaked_items=False
+    for it in _only:
+        for label,path in (("public /roadmap/",_pub_rm),("/whats-new/",_wn)):
+            if not os.path.exists(path):
+                continue
+            html=open(path,encoding="utf-8").read()
+            hits=[]
+            iid=it.get("id") or ""
+            name=it.get("name") or ""
+            if iid and (('id="%s"' % iid) in html or ("id='%s'" % iid) in html):
+                hits.append("id="+iid)
+            if name and name in html:
+                hits.append("name="+name)
+            if hits:
+                print("unlisted_only item must not appear in "+label+":", ", ".join(hits));ok=False;_leaked_items=True
+    if _only and not _leaked_items:
+        print("unlisted_only items: %d kept off /roadmap/ and /whats-new/" % len(_only))
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)
