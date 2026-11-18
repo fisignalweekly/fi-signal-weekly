@@ -9,6 +9,9 @@ not be linked from other pages (see scripts/validate.py). Do not add it to robot
 from __future__ import annotations
 import html, json
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from unlisted import is_unlisted, ROBOTS_META
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = "20261118whatsnew"
@@ -36,6 +39,7 @@ def when_html(label, spec):
     text = fmt_when(spec)
     if not text: return ""
     href = (spec or {}).get("href")
+    if is_unlisted(href): href = None  # never link unlisted pages
     name = (spec or {}).get("label")
     if href:
         link = f'<a href="{e(href)}">{e(name or text)}</a>'
@@ -48,7 +52,7 @@ def render_showcase(data):
     block = data.get("showcase_pages") or {}
     pages = block.get("pages") or []
     if not pages: return ""
-    links = [f'<a href="{e(pg["href"])}">{e(pg["name"])}</a>' for pg in pages]
+    links = [f'<a href="{e(pg["href"])}">{e(pg["name"])}</a>' if not is_unlisted(pg["href"]) else e(pg["name"]) for pg in pages]
     if len(links) == 1: joined = links[0]
     elif len(links) == 2: joined = f"{links[0]} and {links[1]}"
     else: joined = ", ".join(links[:-1]) + ", and " + links[-1]
@@ -77,13 +81,13 @@ def render_item(item):
 def is_unlisted_only(item):
     return item.get("unlisted_only") is True
 
-FOOTER = '''<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/territory/">Territory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/whats-new/">What's new</a> · <a href="/roadmap/">Roadmap</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>'''
+FOOTER = '''<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>'''
 
 TITLE = "Roadmap"
 DESC = "What is live on FI Signal Weekly, what is being built, and what is queued, with estimated showcase and full dates."
 
 def page_head(path, cache, *, unlisted=False):
-    robots = '<meta name="robots" content="noindex,nofollow">\n' if unlisted else ""
+    robots = ROBOTS_META + "\n"  # /roadmap/ and the /r/ copy are both unlisted
     # Unlisted copy: omit canonical and og:url so they never point at the public /roadmap/.
     og_url = "" if unlisted else f'<meta property="og:url" content="https://fisignalweekly.com{path}">\n'
     canonical = "" if unlisted else f'<link rel="canonical" href="https://fisignalweekly.com{path}">\n'
@@ -130,7 +134,7 @@ def render_page(data, items, *, unlisted=False):
     page += f'''<main class="wrap rm">
   <header class="hero">
     <h1>Roadmap</h1>
-    <p>{e(data["intro"])} See also <a href="/whats-new/">What's new</a>.</p>
+    <p>{e(data["intro"])}</p>
     <p class="rm-updated">Last updated {e(updated)}</p>
   </header>
   {showcase_html}

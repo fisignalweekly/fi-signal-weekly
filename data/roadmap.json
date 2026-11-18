@@ -75,7 +75,6 @@
       "full": {
         "date": "2026-11-18",
         "est": false,
-        "href": "/territory/",
         "label": "Territory view"
       }
     },
@@ -110,7 +109,6 @@
       "full": {
         "date": "2026-11-18",
         "est": false,
-        "href": "/whats-new/",
         "label": "What's new"
       }
     },
