@@ -89,6 +89,16 @@ if os.path.exists("data/callreports.json"):
         if "rssd" in v and not re.match(r"\d*$",v["rssd"]): print("callreports.json: bad rssd",i);ok=False
         for h in v.get("hist",[]):
             if not re.match(r"\d{4}-\d{2}-\d{2}$",h.get("date","")) or not isinstance(h.get("code"),int): print("callreports.json: bad history event",i);ok=False;break
+    if os.path.exists("data/benchmarks.json"):
+        bm=json.load(open("data/benchmarks.json"))
+        if bm["quarters"]!=qs: print("benchmarks.json: quarters differ from callreports.json (run scripts/build_benchmarks.py)");ok=False
+        if len(bm["cpi"])!=n or any(c is None or c<=0 for c in bm["cpi"]): print("benchmarks.json: bad CPI series");ok=False
+        for ct in ("bank","cu"):
+            b=bm[ct]
+            if len(b["total"])!=n or len(b["n"])!=n or any(t<=0 for t in b["total"]): print("benchmarks.json: bad totals",ct);ok=False
+            for s0,row in b["med"].items():
+                j=qs.index(s0) if s0 in qs else -1
+                if j<0 or len(row)!=n or abs(row[j]-1)>1e-9 or any(v is not None and v<=0 for v in row[j:]): print("benchmarks.json: bad median row",ct,s0);ok=False;break
     print(f"callreports.json: {len(cr['fi'])} institutions, {n} quarters {qs[0]}..{qs[-1]}, latest assets for {sum(1 for v in cr['fi'].values() if v['a'][-1] is not None)}")
 if os.path.exists("data/social.csv"):
     with open("data/social.csv",newline="",encoding="utf-8") as f:
