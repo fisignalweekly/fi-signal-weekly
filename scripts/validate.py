@@ -55,16 +55,18 @@ for r in d["rows"]:
 # provider evidence for /fi/ pages (data/providers.csv; see data/README-providers.md)
 import csv
 PROV_COLS=["fi_id","field","value","status","source_type","source_url","last_updated","note"]
-PROV_SOURCES={"Login page scan","Vendor press release","FI announcement","Press release","Regulator filing"}
+PROV_SOURCES={"App listing","Login page scan","Vendor press release","FI announcement","Press release","Regulator filing"}
 if os.path.exists("data/providers.csv"):
     with open("data/providers.csv",newline="",encoding="utf-8") as f:
         rd=csv.DictReader(f); prov=list(rd)
     if rd.fieldnames!=PROV_COLS: print("providers.csv columns must be",",".join(PROV_COLS));ok=False
-    seen=set();pc={"core":set(),"digital":set(),"digital_business":set(),"billpay":set()}
+    seen=set();pc={"core":set(),"digital":set(),"digital_business":set(),"mobile":set(),"billpay":set()}
     for i,r in enumerate(prov,2):
         tag=f"providers.csv line {i}"
         if inst and r["fi_id"] not in inst: print(tag,"fi_id not in institutions.json",r["fi_id"]);ok=False
-        if r["field"] not in ("core","digital","digital_business","billpay"): print(tag,"bad field",r["field"]);ok=False
+        if r["field"] not in ("core","digital","digital_business","mobile","billpay"): print(tag,"bad field",r["field"]);ok=False
+        if (r["source_type"]=="App listing")!=(r["field"]=="mobile"): print(tag,"an app listing fills only the mobile field, and mobile comes only from an app listing");ok=False
+        if r["source_type"]=="App listing" and not r["source_url"].startswith("https://play.google.com/store/apps/details?id="): print(tag,"app listing source_url must be the Google Play listing");ok=False
         if not r["value"].strip() or r["value"].strip().lower() in ("not yet identified","unknown","n/a"): print(tag,"empty value (leave the row out instead)");ok=False
         if r["status"] not in ("current","announced"): print(tag,"bad status",r["status"]);ok=False
         if r["source_type"] not in PROV_SOURCES: print(tag,"bad source_type",r["source_type"]);ok=False
@@ -76,7 +78,7 @@ if os.path.exists("data/providers.csv"):
         if k in seen: print(tag,"duplicate row");ok=False
         seen.add(k)
         if r["field"] in pc: pc[r["field"]].add(r["fi_id"])
-    print(f"providers.csv: {len(prov)} rows; institutions with digital (retail) {len(pc['digital'])}, digital (business) {len(pc['digital_business'])}, core {len(pc['core'])}, bill pay {len(pc['billpay'])}")
+    print(f"providers.csv: {len(prov)} rows; institutions with digital (retail) {len(pc['digital'])}, digital (business) {len(pc['digital_business'])}, mobile {len(pc['mobile'])}, core {len(pc['core'])}, bill pay {len(pc['billpay'])}")
 # call report history (scripts/fetch_callreports.py), social links, pinned pages
 if os.path.exists("data/callreports.json"):
     cr=json.load(open("data/callreports.json"));qs=cr["quarters"];n=len(qs)

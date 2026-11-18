@@ -2,6 +2,14 @@
   "entries": [
     {
       "date": "2026-11-18",
+      "id": "mobile-app-field",
+      "title": "Mobile app shown separately from online banking",
+      "body": "Institution pages now show the mobile app on its own row. It comes from the Google Play app ID linked on the institution's website, only when that ID names the platform vendor (443 institutions so far). An app ID never fills online banking, which still comes only from login page scans or verified announcements.",
+      "link_href": "/fi/ma/unibank-for-savings/",
+      "link_label": "UniBank for Savings"
+    },
+    {
+      "date": "2026-11-18",
       "id": "asset-benchmarks-all",
       "title": "Asset chart benchmarks on every institution page",
       "body": "Every institution page's asset chart now compares growth with peers of the same type and size and with the industry, with an inflation-adjusted toggle, a one-line summary, and markers for mergers and acquisitions. Where a comparison isn't possible, the page says why.",

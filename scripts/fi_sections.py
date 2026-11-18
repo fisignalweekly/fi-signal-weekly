@@ -221,8 +221,8 @@ def history_section(hist, rows, class_label, charter, type_label):
 def similar_section(x, similar, vendor, st_name, tier_label, fi_li):
     if not similar:
         return ""
-    basis = (f"Same state ({e(st_name)}), asset tier ({e(tier_label)}) and digital banking platform ({e(vendor)}, from our login page scan)"
-             if vendor else f"Same state ({e(st_name)}) and asset tier ({e(tier_label)}); none of them share a digital banking platform we identified with this one, or it has none on file")
+    basis = (f"Same state ({e(st_name)}), asset tier ({e(tier_label)}) and online banking platform ({e(vendor)}, from our login page scan)"
+             if vendor else f"Same state ({e(st_name)}) and asset tier ({e(tier_label)}); none of them share an online banking platform we identified with this one, or it has none on file")
     return (f'<section class="similar" aria-labelledby="sim-h"><h2 id="sim-h">Similar institutions</h2>'
             f'<p class="note">{basis}. Closest in total assets first.</p><ul class="fi-list">{"".join(fi_li(y) for y in similar)}</ul></section>')
 

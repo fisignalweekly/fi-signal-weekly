@@ -195,8 +195,8 @@ def sig_li(r, show_inst=False):
 
 
 # ---------------------------------------------------------------- providers (data/providers.csv)
-PROV_FIELDS = [("digital", "Digital banking (retail)"), ("digital_business", "Digital banking (business)"),
-               ("core", "Core provider"), ("billpay", "Bill pay provider")]
+PROV_FIELDS = [("digital", "Online banking (retail)"), ("digital_business", "Online banking (business)"),
+               ("mobile", "Mobile app"), ("core", "Core provider"), ("billpay", "Bill pay provider")]
 
 
 def load_providers():
@@ -245,11 +245,14 @@ def provider_block(x, prov, board_by_url):
         shown, old = resolve_provider(prov.get(x["id"], {}).get(field, []))
         if not shown:
             why = ("No separate business login identified." if field == "digital_business" else
+                   "No vendor-named app ID linked from the institution&#39;s website yet." if field == "mobile" else
                    "No verified public source yet." if field in ("core", "billpay") else "No login platform identified yet.")
             items.append(f'<div class="prov-item prov-empty"><h3>{label}</h3><p class="prov-val prov-none">Not yet identified</p>'
                          f'<p class="prov-meta">{why}</p></div>')
             continue
         val = e(shown["value"])
+        if shown["source_type"] == "App listing":
+            val += ", from app listing"
         if shown["status"] == "announced":
             val += f' <span class="prov-when">(announced {fmt_date(shown["last_updated"])})</span>'
         note = shown["note"].strip()
@@ -257,7 +260,7 @@ def provider_block(x, prov, board_by_url):
         links = []
         if shown["source_url"]:
             links.append(f'<a href="{e(shown["source_url"])}" target="_blank" rel="noopener nofollow">'
-                         f'{"Page scanned" if shown["source_type"] == "Login page scan" else "Source"} ↗</a>')
+                         f'{"Page scanned" if shown["source_type"] == "Login page scan" else "App listing" if shown["source_type"] == "App listing" else "Source"} ↗</a>')
         sig = board_by_url.get((x["id"], shown["source_url"]))
         if sig:
             links.append(f'<a href="/#{e(sig)}">See the signal</a>')
@@ -273,9 +276,11 @@ def provider_block(x, prov, board_by_url):
                      + (f'<p class="prov-links">{"".join(links)}</p>' if links else "") + "</div>")
     return ('<section class="prov" aria-labelledby="prov-h"><h2 id="prov-h">Technology stack</h2>'
             f'<div class="prov-grid">{"".join(items)}</div>'
-            '<p class="note prov-how">Core and bill pay come only from verified public announcements. Digital banking comes from a scan of the '
+            '<p class="note prov-how">Core and bill pay come only from verified public announcements. Online banking comes only from a scan of the '
             'online banking login links on the institution&#39;s public website (hostname and DNS), or from a verified announcement; '
             'a business platform is shown separately only when a verified announcement names it or its login sits on its own business or treasury hostname. '
+            'Mobile app is shown on its own: it comes from the app ID in a Google Play link on the institution&#39;s website, and only when that ID '
+            'names the platform vendor (for example com.jackhenry.&lt;bank&gt; for Jack Henry). An app ID never fills online banking. '
             'Announced changes are shown in place of the current value. We never infer one field from another.</p></section>')
 
 
@@ -576,7 +581,8 @@ def build(files):
                             "".join(f"  <url><loc>{e(SITE + u)}</loc></url>\n" for u in urls) + "</urlset>\n")
     files["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n"
     return {"institutions": len(inst), "core_filled": sum(1 for x in inst if resolve_provider(prov.get(x["id"], {}).get("core", []))[0]),
-            "digital_filled": sum(1 for x in inst if resolve_provider(prov.get(x["id"], {}).get("digital", []))[0]), "with_signals": sum(1 for x in inst if x["_n"]), "states": len(state_rows),
+            "digital_filled": sum(1 for x in inst if resolve_provider(prov.get(x["id"], {}).get("digital", []))[0]),
+            "mobile_filled": sum(1 for x in inst if resolve_provider(prov.get(x["id"], {}).get("mobile", []))[0]), "with_signals": sum(1 for x in inst if x["_n"]), "states": len(state_rows),
             "tiers": len(tier_counts), "signals_linked": sum(len(v) for v in sigs.values()), "sitemap_urls": len(urls)}
 
 
@@ -628,7 +634,7 @@ def main():
             os.rmdir(d)
     print(f"directory: {stats['institutions']:,} institution pages ({stats['with_signals']} with signals, indexed; the rest noindex), "
           f"{stats['states']} state pages, {stats['tiers']} asset-tier pages, {stats['signals_linked']} signals, "
-          f"{stats['sitemap_urls']} sitemap URLs, providers filled: core {stats['core_filled']:,}, digital {stats['digital_filled']:,}. {len(changed)} files written, {len(removed)} removed.")
+          f"{stats['sitemap_urls']} sitemap URLs, providers filled: core {stats['core_filled']:,}, digital {stats['digital_filled']:,}, mobile {stats['mobile_filled']:,}. {len(changed)} files written, {len(removed)} removed.")
     return 0
 
 
