@@ -10,7 +10,7 @@ e = lambda s: html.escape(str(s), quote=True)
 
 # Feature flags: a name listed here renders only on showcase pages (data/showcase.txt). Move a feature to all
 # pages by removing it from this set. Empty = every shipped feature is on every page.
-SHOWCASE_ONLY = set()  # benchmarks moved to all pages Nov 18, 2026 (Kyle)
+SHOWCASE_ONLY = {"strategic_priorities"}  # benchmarks moved to all pages Nov 18, 2026 (Kyle); strategic priorities showcase Nov 19, 2026
 
 
 def feature_on(name, is_showcase):
@@ -160,6 +160,46 @@ def trend_section(cr, quarters, as_of, charter, bench=None):
             f'{bnote}<div class="fin-tables">{"".join(tables)}</div>'
             f'<p class="note">Source: {e(src)}, as of {qname(as_of)} ({QEND[q]}, {y}). QoQ = change from the prior quarter, YoY = change from the same quarter a year earlier.{start}</p>'
             f'<script type="application/json" class="fin-data">{json.dumps(data, separators=(",", ":"))}</script></section>')
+
+
+THEME_LABEL = {"digital": "Digital", "payments": "Payments", "lending": "Lending", "deposits": "Deposits",
+               "efficiency": "Efficiency", "M&A": "M&amp;A"}
+
+
+def load_strategy(root):
+    """data/strategic_priorities.csv -> {fi_id: [row, ...]} in file order. Rows belong to the parent company and show on
+    every subsidiary page in fi_ids (pipe list) as 'Stated by <parent_name>'."""
+    import csv, os
+    p = os.path.join(root, "data", "strategic_priorities.csv")
+    out = {}
+    if not os.path.exists(p):
+        return out
+    with open(p, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            for fid in r["fi_ids"].split("|"):
+                if fid.strip():
+                    out.setdefault(fid.strip(), []).append(r)
+    return out
+
+
+def strategy_section(rows):
+    """Stated strategic priorities, quoted verbatim from the parent's public filings. No rows = no section."""
+    if not rows:
+        return ""
+    parents = sorted({(r["parent_name"], r["ticker"]) for r in rows})
+    by = ", ".join(f'{e(n)} ({e(t)})' if t else e(n) for n, t in parents)
+    li = "".join(
+        f'<li><span class="ex-date">{THEME_LABEL.get(r["theme"], e(r["theme"]))}</span>'
+        f'<p class="sp-label">{e(r["priority"])}</p>'
+        f'<blockquote class="sp-quote"><p>“{e(r["quote"])}”</p></blockquote>'
+        f'<p class="sp-src">Stated by {e(r["parent_name"])}' + (f' ({e(r["ticker"])})' if r["ticker"] else "") +
+        f' · {e(r["source_label"])}' + (f', {e(r["locator"])}' if r.get("locator") else "") +
+        f' · filed {fmt_date(r["source_date"])}</p>'
+        f'<p class="sig-links"><a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>'
+        for r in rows)
+    return (f'<section class="strat" aria-labelledby="sp-h"><h2 id="sp-h">Strategic priorities <span class="count-pill">{len(rows)}</span></h2>'
+            f'<p class="note">What {by} says it is focusing on, quoted word for word from its public filings. '
+            f'The short label above each quote is ours.</p><ul class="ex-list sp-list">{li}</ul></section>')
 
 
 def peer_section(peer):

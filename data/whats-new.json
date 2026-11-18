@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "date": "2026-11-19",
+      "id": "strategic-priorities-showcase",
+      "title": "Strategic priorities on select institution pages",
+      "body": "The Glacier Bank and BankUnited pages now list the strategic priorities their parent companies state in public filings: annual reports, investor presentations and earnings releases. Each one quotes the filing word for word, names the company that said it, and links to the original source with its filing date.",
+      "link_href": "/fi/mt/glacier-bank/",
+      "link_label": "Glacier Bank"
+    },
+    {
       "date": "2026-11-18",
       "id": "mobile-app-field",
       "title": "Mobile app shown separately from online banking",

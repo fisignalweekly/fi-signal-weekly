@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "intro": "What is live on FI Signal Weekly, what is being built, and what is queued. Dates marked est. are estimates and may move. Showcase means a first public example; full means the feature is on the site for the planned set of institutions.",
   "showcase_pages": {
     "note": "Five institution pages are showcases of what every page will look like once the backfill and updates are done. New features land there first:",
@@ -132,12 +132,11 @@
       "id": "strategic-priorities",
       "name": "Strategic priorities",
       "description": "Stated strategic priorities on institution pages, with sourced quotes from public filings and reports.",
-      "status": "Queued",
+      "status": "Live",
       "showcase": {
-        "date": "2026-11-20",
-        "est": true,
-        "label": "Glacier Bank",
-        "href": "/fi/mt/glacier-bank/"
+        "date": "2026-11-19",
+        "est": false,
+        "note": "on the Glacier Bank and BankUnited institution pages"
       },
       "full": null,
       "milestones": [
