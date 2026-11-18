@@ -10,7 +10,7 @@ e = lambda s: html.escape(str(s), quote=True)
 
 # Feature flags: a name listed here renders only on showcase pages (data/showcase.txt). Move a feature to all
 # pages by removing it from this set. Empty = every shipped feature is on every page.
-SHOWCASE_ONLY = {"benchmarks"}  # asset-chart benchmark overlays, CPI toggle, verdict, merger markers (Nov 18, 2026)
+SHOWCASE_ONLY = set()  # benchmarks moved to all pages Nov 18, 2026 (Kyle)
 
 
 def feature_on(name, is_showcase):
@@ -228,6 +228,7 @@ def similar_section(x, similar, vendor, st_name, tier_label, fi_li):
 
 
 # ---------------------------------------------------------------- asset-chart benchmarks (data from scripts/build_benchmarks.py)
+MIN_PEERS = 5  # same as scripts/build_benchmarks.py
 def _distinct(vals, fmt, lo=1, hi=3):
     """Smallest decimals (lo..hi) at which values that differ also print differently."""
     for d in range(lo, hi + 1):
@@ -288,14 +289,22 @@ def bench_block(cr, quarters, charter, bm, peer, peer_n, tier_label, events):
     """HTML (controls, verdict, legend, note) + chart data for the asset benchmarks. None if assets can't be indexed."""
     a = cr["a"]
     fi0 = first_idx(a)
-    if fi0 is None or a[-1] is None or not a[fi0]:
+    word = "bank" if charter == "bank" else "credit union"
+    words = word + "s"
+    if fi0 is None:
         return None
     ind = bm[charter]
     med = ind["med"].get(quarters[fi0])
-    if not med or med[-1] is None:
-        return None
-    word = "bank" if charter == "bank" else "credit union"
-    words = word + "s"
+    why = None
+    if a[-1] is None:
+        why = f"there is no {qname(quarters[-1])} call report on file for this {word}, so there is no current figure to compare"
+    elif not a[fi0]:
+        why = (f"this {word}&#39;s first call report on file ({qname(quarters[fi0])}) shows $0 in assets, "
+               "so its growth can&#39;t be indexed against peers")
+    elif not med or med[-1] is None:
+        why = f"there is no industry median for {qname(quarters[fi0])} to compare with"
+    if why:
+        return {"data": {}, "html": f'<p class="note bm-none">No peer comparison on this chart: {why}.</p>', "note": ""}
     sl = qname(quarters[fi0])
     tot = ind["total"]
     cpi = bm["cpi"]
@@ -321,7 +330,9 @@ def bench_block(cr, quarters, charter, bm, peer, peer_n, tier_label, events):
              f'<button type="button" class="vw" data-v="usd" aria-pressed="true">Dollars</button>'
              f'<button type="button" class="vw" data-v="idx" aria-pressed="false">vs peers</button></div>'
              f'<label class="cpi-t"><input type="checkbox" class="cpi-in"> Adjust for inflation</label></div>'
-             f'<ul class="bm-legend" hidden>{legend}</ul>')
+             f'<ul class="bm-legend" hidden>{legend}</ul>'
+             + ("" if peer else f'<p class="note bm-none">No peer median: fewer than {MIN_PEERS} other {e(tl)} {words} reported in {sl} '
+                                f'and today, so this compares with the median {word} and the industry total only.</p>'))
     peer_txt = (f"Peer median: the middle of today&#39;s {e(tl)} {words} (the same tier as the peer rank below) "
                 f"that reported in {sl}, this one left out, each indexed to 100 there."
                 if peer else f"Too few {e(tl)} {words} reported in {sl} for a peer median, so there is no peer line.")
