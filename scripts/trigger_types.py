@@ -15,6 +15,7 @@ use these strings (checked Nov 17, 2026):
     cumg-*  merger, acquisition         -> cu_merger          (CU merger)
     cucr-*  core                        -> core               (these two rows are core conversions, not charter changes)
     db-*    (any staging trigger_type)  -> digital_banking_change  (Phase 1 digital-banking; staging starts Nov 18, 2026)
+    branch_opening                     -> branch_opening (FI pages only; the published row gets "fi_only": true)
 A row already typed with a board type (e.g. cu_charter) keeps it. A db-* id always maps to digital_banking_change.
 """
 import sys
@@ -28,7 +29,17 @@ TYPES = {
     "cu_merger": "CU merger",
     "cu_charter": "CU charter change",
     "digital_banking_change": "Digital banking change",
+    "branch_opening": "Branch opening",
 }
+
+# Types that show ONLY on /fi/ institution pages, never on the main board, its filters, feeds, X posts or the digest
+# (approved Nov 18, 2026). Their rows must carry "fi_only": true. js/boardrows.js mirrors this.
+FI_ONLY_TYPES = {"branch_opening"}
+
+
+def is_board_row(r):
+    """True if a triggers.json row belongs on the main board (and X / newsletter selections)."""
+    return r.get("fi_only") is not True and r.get("type") not in FI_ONLY_TYPES
 
 # (staging id prefix, staging trigger_type) -> board type
 STAGING_MAP = {

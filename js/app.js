@@ -179,7 +179,7 @@
     }
   }
   function init(data){
-    all=data.rows;
+    all=FIBoard.boardRows(data.rows);  // fi_only / branch_opening rows stay on /fi/ pages only
     $("updated").textContent=fmtDate(data.updated);
     all.forEach(function(r){stateCounts[r.state]=(stateCounts[r.state]||0)+1});
     buildStateOpts();statePicker();

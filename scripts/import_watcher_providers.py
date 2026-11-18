@@ -10,18 +10,21 @@ the latest completed run whose homepage loaded (HTTP 200) and, if that scan matc
     field=digital, status=current, source_type=Login page scan, source_url=<homepage scanned>,
     last_updated=<date of that scan>, note=<the hostname evidence>
 
-If the latest good scan found no vendor, the FI gets no scan row (the page shows "Not yet identified").
+Retail vs business: when a homepage links several vendors and the business/treasury ones sit only on hostnames like\ntreasury.*, tm.*, cm.*, *business*, they become a digital_business row and the rest the retail digital row.\nIf the latest good scan found no vendor, the FI gets no scan row (the page shows "Not yet identified").
 When two vendors tie (for example a retail and a business login on different platforms) both are listed;
 nothing is picked between them. Every other row in providers.csv (announcements, hand-checked rows) is kept as is.
 Output is sorted, so re-running on the same data gives an identical file.
 """
-import argparse, collections, csv, json, os, sqlite3, sys
+import argparse, collections, csv, json, os, re, sqlite3, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV = os.path.join(ROOT, "data", "providers.csv")
 COLS = ["fi_id", "field", "value", "status", "source_type", "source_url", "last_updated", "note"]
 SCAN = "Login page scan"
 DEFAULT_DB = "/workspace/fi-signal/site-watcher/data/watcher.db"
+# Hostname labels that mean a business / treasury / cash-management login. A vendor counts as the business
+# platform only if EVERY login host it was seen on matches; it is retail only if none match. Anything mixed stays combined.
+BIZ_HOST = re.compile(r"(^|[.-])(business|biz|ebiz|treasury|commercial|cash|cashmgmt|corporate|tm|cm|bol|tmconnect)([.-]|$)|business|treasury|commercial", re.I)
 
 
 def evidence_text(ev):
@@ -49,26 +52,36 @@ def scan_rows(db):
         if not ev:
             continue
         tally = collections.Counter()
+        hosts = collections.defaultdict(set)
         for x in ev:
             tally[x["vendor"]] += 1 + x.get("weight", 0)
+            hosts[x["vendor"]].add(x["host"])
+        biz = {v for v, hs in hosts.items() if all(BIZ_HOST.search(h) for h in hs)}
+        ret = {v for v, hs in hosts.items() if not any(BIZ_HOST.search(h) for h in hs)}
+        base = {"fi_id": fi, "status": "current", "source_type": SCAN,
+                "source_url": d.get("final_url") or d.get("url_fetched") or "", "last_updated": (fetched or "")[:10]}
+        if len(tally) > 1 and biz and ret and biz | ret == set(tally):
+            # separable: retail vendors on ordinary login hosts, business vendors only on business/treasury hosts
+            for field, group in (("digital", ret), ("digital_business", biz)):
+                group = sorted(group)
+                if "Jack Henry" in group and any(v.startswith("Jack Henry (") for v in group):
+                    group.remove("Jack Henry")
+                proof = [evidence_text(next(x for x in ev if x["vendor"] == v)) for v in group]
+                out.append(dict(base, field=field, value=" + ".join(group), note="; ".join(proof)))
+            continue
         top = max(tally.values())
         tied = sorted(v for v, n in tally.items() if n == top)
         # a bare "Jack Henry" host (e.g. treasury) tied with a named Jack Henry product adds nothing
         if "Jack Henry" in tied and any(v.startswith("Jack Henry (") for v in tied):
             tied.remove("Jack Henry")
         others = sorted(v for v in tally if v not in tied and not (v == "Jack Henry" and any(t.startswith("Jack Henry") for t in tied)))
-        proof = []
-        for v in tied:
-            x = next(x for x in ev if x["vendor"] == v)
-            proof.append(evidence_text(x))
+        proof = [evidence_text(next(x for x in ev if x["vendor"] == v)) for v in tied]
         note = "; ".join(proof)
         if len(tied) > 1:
             note = "More than one login platform is linked from the homepage. " + note
         if others:
             note += "; also linked: " + ", ".join(others)
-        out.append({"fi_id": fi, "field": "digital", "value": " + ".join(tied), "status": "current",
-                    "source_type": SCAN, "source_url": d.get("final_url") or d.get("url_fetched") or "",
-                    "last_updated": (fetched or "")[:10], "note": note})
+        out.append(dict(base, field="digital", value=" + ".join(tied), note=note))
     return out
 
 
