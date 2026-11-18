@@ -139,4 +139,15 @@ _bb=[r["id"] for r in d["rows"] if is_board_row(r) and (r["type"] in FI_ONLY_TYP
 if _bb: print("branch_opening / fi_only rows on the board:",_bb);ok=False
 if 'value="branch_opening"' in open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"index.html")).read(): print("index.html: branch_opening must not be a board filter");ok=False
 print(f"{sum(1 for r in d['rows'] if is_board_row(r))} board rows, {sum(1 for r in d['rows'] if not is_board_row(r))} fi-only rows")
+# sitemap.xml must list the hand-built top-level pages (scripts/build_directory.py STATIC_PAGES)
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+try:
+    from build_directory import STATIC_PAGES, SITE
+    _sm=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"sitemap.xml")
+    sm=open(_sm,encoding="utf-8").read() if os.path.exists(_sm) else ""
+    miss=[u for u in ("/","/about.html","/fi/")+tuple(STATIC_PAGES) if f"<loc>{SITE}{u}</loc>" not in sm]
+    if miss: print("sitemap.xml: missing",", ".join(miss));ok=False
+    else: print(f"sitemap.xml: lists {', '.join(STATIC_PAGES)}")
+except ImportError as ex:
+    print("sitemap check: cannot import build_directory:",ex);ok=False
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)

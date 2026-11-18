@@ -37,6 +37,9 @@ import fi_sections as S
 import build_benchmarks as BB
 TIERS = [("lt500m", "Under $500M", 0, 5e8), ("500m-1b", "$500M–$1B", 5e8, 1e9), ("1b-10b", "$1B–$10B", 1e9, 1e10),
          ("10b-50b", "$10B–$50B", 1e10, 5e10), ("50b+", "$50B+", 5e10, float("inf")), ("na", "Assets not reported", None, None)]
+# Hand-built top-level pages (their own scripts write them); the sitemap this script writes always lists them.
+# scripts/validate.py fails if one is missing from sitemap.xml. Add a page here when it ships.
+STATIC_PAGES = ("/territory/", "/roadmap/", "/whats-new/")
 TIER_LIST_MAX = 1500   # tiers bigger than this list the largest TIER_TOP plus everything with signals, then link to search
 TIER_TOP = 300
 STATES = {"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California", "CO": "Colorado",
@@ -566,7 +569,7 @@ def build(files):
     files["fi/linked.json"] = json.dumps({x["id"]: x["_path"] for x in inst if x["_n"]}, ensure_ascii=False, indent=0, sort_keys=True) + "\n"
 
     # sitemap: board, about, directory indexes, and institution pages with signals only
-    urls = ["/", "/about.html", "/fi/"] + [f"/fi/{s.lower()}/" for s, *_ in sorted(state_rows)] + [f"/fi/assets/{k}/" for k, *_ in tier_counts] + sorted(x["_path"] for x in inst if x["_n"])
+    urls = ["/", "/about.html"] + list(STATIC_PAGES) + ["/fi/"] + [f"/fi/{s.lower()}/" for s, *_ in sorted(state_rows)] + [f"/fi/assets/{k}/" for k, *_ in tier_counts] + sorted(x["_path"] for x in inst if x["_n"])
     files["sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
                             "".join(f"  <url><loc>{e(SITE + u)}</loc></url>\n" for u in urls) + "</urlset>\n")
     files["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n"
