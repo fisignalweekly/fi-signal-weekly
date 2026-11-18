@@ -36,10 +36,10 @@ python3 scripts/read_candidates.py --n 40       # fetches each source_url, print
 
 ## 5. Update the data
 1. Edit `data/triggers.json`: add rows (next `id`), bump top-level `updated` to the publish date (the site shows it as "Board updated"; it is the date the board data last changed, not an event date).
-2. Fields: `type` (any board type in `scripts/trigger_types.py`), `institution`, `state` (2-letter), `assets_millions` (number or null), `date` (event/announcement date), `added` (publish date the row went live, `YYYY-MM-DD`), `summary` (one line), `source_url`, optional `assets_note`, `assets_source`.
-3. `python3 scripts/stamp_added.py` sets `added` = top-level `updated` on any new row that lacks it (never changes existing rows). The board shows a "New" tag only on the Eastern-time calendar day a row was published (`added`); it drops off at midnight ET. "Today" is computed in the browser in `America/New_York`, not the visitor's local zone or UTC.
+2. Fields: `type` (any board type in `scripts/trigger_types.py`), `institution`, `state` (2-letter), `assets_millions` (number or null), `date` (event/announcement date), `added` (publish date the row went live, `YYYY-MM-DD`), `summary` (one line), `source_url`, optional `assets_note`, `assets_source`. For a historical website-only row, set `"backfill": true` and set `added` to the row's own `date`. Backfill rows never get a "New" tag and are not posted to X.
+3. `python3 scripts/stamp_added.py` sets `added` = top-level `updated` on any new row that lacks it (never changes existing rows). On a backfill row that lacks `added`, it sets `added` to the row's own `date` instead of the publish day. The board shows a "New" tag only on the Eastern-time calendar day a row was published (`added`); it drops off at midnight ET and is never shown on backfill rows. "Today" is computed in the browser in `America/New_York`, not the visitor's local zone or UTC.
 4. `python3 scripts/link_institutions.py` links each row to its FDIC/NCUA record (`fi_id`, real `charter_type`, call-report assets); re-runnable, see `data/README-institutions.md`. Hard cases go in `data/institution_overrides.csv`.
-5. `python3 scripts/validate.py` (checks schema, warns on rows missing `added`), then `python3 -m http.server 8000` and eyeball filters.
+5. `python3 scripts/validate.py` (checks schema, warns on rows missing `added`, including backfill rows), then `python3 -m http.server 8000` and eyeball filters.
 6. Publish the site, then send the Friday digest from the newest rows (not automated yet).
 
 ## Automation ideas (later)

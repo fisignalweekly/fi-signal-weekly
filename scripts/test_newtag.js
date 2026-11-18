@@ -46,6 +46,20 @@ check("missing added is not New", function(){
   assert.strictEqual(isNew(null, midEvening), false);
 });
 
+check("backfill row is not New even when added is today", function(){
+  assert.strictEqual(isNew({added: today, backfill: true, date: "2026-03-10"}, midEvening), false);
+});
+check("backfill row with added equal to its own date is not New", function(){
+  assert.strictEqual(isNew({added: "2026-03-10", backfill: true, date: "2026-03-10"}, midEvening), false);
+});
+check("backfill: false still follows the added date", function(){
+  assert.strictEqual(isNew({added: today, backfill: false}, midEvening), true);
+  assert.strictEqual(isNew({added: yesterday, backfill: false}, midEvening), false);
+});
+check("missing backfill is unchanged (added today is New)", function(){
+  assert.strictEqual(isNew({added: today}, midEvening), true);
+});
+
 // Default path (no now arg) follows a stubbed Date, as the live check does.
 var RealDate = Date;
 var frozen = new Date("2026-11-18T00:01:00-05:00").getTime();
