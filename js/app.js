@@ -66,7 +66,7 @@
 
   // ---- Saved territory views: every filter lives in the query string (plain URLs, no accounts, no tracking) ----
   // ?type=merger&state=MI,OH&charter=cu&assets=1b-10b&from=2026-10-01&to=2026-11-30&q=core
-  // ?charter=bank&tz=et&assets_min=1400000000  (tz=et = Eastern Time HQ banks; see /territory/)
+  // ?charter=bank&tz=et&assets_min=1400000000  (tz=et = Eastern Time HQ banks)
   // Opening such a URL restores the filters. A #tNNN anchor still wins: it clears filters that hide its row.
   var PARAMS=[["type","f-type"],["state","f-state"],["charter","f-charter"],["assets","f-assets"],["from","f-from"],["to","f-to"],["q","f-q"],["tz","f-tz"],["assets_min","f-assets-min"]];
   function viewQuery(){

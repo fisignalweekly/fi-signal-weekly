@@ -4,6 +4,9 @@ from __future__ import annotations
 import html, json
 from collections import defaultdict
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from unlisted import is_unlisted, ROBOTS_META
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = "20261118whatsnew"
@@ -26,7 +29,10 @@ def build():
         for item in by_date[d]:
             sections.append(f'<article class="wn-entry" id="{e(item["id"])}">')
             sections.append(f'<h3>{e(item["title"])}</h3>')
-            sections.append(f'<p>{e(item["body"])} <a href="{e(item["link_href"])}">Example: {e(item["link_label"])}</a>.</p>')
+            if not item.get("link_href") or is_unlisted(item.get("link_href")):  # never link unlisted pages
+                sections.append(f'<p>{e(item["body"])}</p>')
+            else:
+                sections.append(f'<p>{e(item["body"])} <a href="{e(item["link_href"])}">Example: {e(item["link_label"])}</a>.</p>')
             sections.append("</article>")
         sections.append("</section>")
     cache = CACHE
@@ -35,6 +41,7 @@ def build():
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What's new — FI Signal Weekly</title>
 <meta name="description" content="Release notes for FI Signal Weekly: dated, plain-language notes about what changed on the site, each with an example page.">
+{ROBOTS_META}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FI Signal Weekly">
 <meta property="og:title" content="What's new — FI Signal Weekly">
@@ -71,7 +78,7 @@ def build():
   </header>
   {"".join(sections)}
 </main>
-<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/territory/">Territory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/whats-new/">What's new</a> · <a href="/roadmap/">Roadmap</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
+<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
 </body></html>
 '''
     out = ROOT / "whats-new/index.html"

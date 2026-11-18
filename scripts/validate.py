@@ -147,7 +147,7 @@ try:
     sm=open(_sm,encoding="utf-8").read() if os.path.exists(_sm) else ""
     miss=[u for u in ("/","/about.html","/fi/")+tuple(STATIC_PAGES) if f"<loc>{SITE}{u}</loc>" not in sm]
     if miss: print("sitemap.xml: missing",", ".join(miss));ok=False
-    else: print(f"sitemap.xml: lists {', '.join(STATIC_PAGES)}")
+    else: print(f"sitemap.xml: lists /, /about.html, /fi/{''.join(', '+u for u in STATIC_PAGES)}")
 except ImportError as ex:
     print("sitemap check: cannot import build_directory:",ex);ok=False
 # Unlisted bookmarkable roadmap: never in sitemap.xml, never linked from other HTML, never in STATIC_PAGES.
@@ -206,4 +206,58 @@ if os.path.exists(_rm):
                 print("unlisted_only item must not appear in "+label+":", ", ".join(hits));ok=False;_leaked_items=True
     if _only and not _leaked_items:
         print("unlisted_only items: %d kept off /roadmap/ and /whats-new/" % len(_only))
+# Unlisted pages (scripts/unlisted.py): live at their URLs, but noindex,nofollow, never in sitemap.xml,
+# STATIC_PAGES, llms/AI index files or feeds, never in robots.txt, and never linked or named as a URL from any other file.
+from unlisted import UNLISTED_PAGES, ROBOTS_META, is_unlisted
+_un_err=[]
+try:
+    from build_directory import STATIC_PAGES as _SP2
+    for u in _SP2:
+        if is_unlisted(u): _un_err.append("STATIC_PAGES lists unlisted page "+u)
+except ImportError:
+    pass
+_SKIP_DIRS={".git","scripts"}  # scripts/ holds the generators and this check, which must name the paths
+_TEXT_EXT=(".html",".htm",".xml",".txt",".js",".css",".json",".md",".rss",".atom",".webmanifest",".csv")
+_pages={p:os.path.join(_ROOT,p.strip("/"),"index.html") for p in UNLISTED_PAGES}
+_href_re=re.compile(r"""\b(?:href|action|data-href)\s*=\s*["']([^"']*)["']""",re.I)
+_href_hits=0
+for dirpath,dirnames,filenames in os.walk(_ROOT):
+    dirnames[:]=[x for x in dirnames if x not in _SKIP_DIRS]
+    for fn in filenames:
+        if not fn.lower().endswith(_TEXT_EXT): continue
+        path=os.path.join(dirpath,fn); rel=os.path.relpath(path,_ROOT)
+        try: txt=open(path,encoding="utf-8").read()
+        except UnicodeDecodeError: continue
+        if fn.lower().endswith(".css"): txt=re.sub(r"/\*.*?\*/","",txt,flags=re.S)  # section comments in CSS are not URLs
+        own=next((p for p,f in _pages.items() if os.path.abspath(f)==os.path.abspath(path)),None)
+        for p in UNLISTED_PAGES:
+            if p==own: continue  # a page may name itself (canonical / og:url)
+            if p in txt or p.rstrip("/").split("/")[-1]+"/" in txt and p.startswith("/r/"):
+                _un_err.append(f"{rel} names unlisted page {p}")
+        if fn.lower().endswith((".html",".htm")):
+            for h in _href_re.findall(txt):
+                if h.startswith(("http://","https://")) and "fisignalweekly.com" not in h: continue
+                if h.startswith(("#","mailto:","data:","javascript:")) or h.endswith((".js",".css",".png",".ico",".jpg",".svg",".json")) or "?" in h and h.split("?")[0].endswith((".js",".css")): continue
+                if not h.startswith(("/","http")):  # relative href: resolve against this file's directory
+                    h="/"+os.path.normpath(os.path.join(os.path.relpath(dirpath,_ROOT),h)).replace(os.sep,"/").lstrip("./")
+                    if h=="/.": h="/"
+                if is_unlisted(h) and not (own and is_unlisted(h) and h.split("fisignalweekly.com")[-1].rstrip("/")+"/"==own):
+                    _un_err.append(f"{rel} links unlisted page {h}");_href_hits+=1
+for fname in ("robots.txt","sitemap.xml","llms.txt","llms-full.txt","ai.txt"):
+    fp=os.path.join(_ROOT,fname)
+    if not os.path.exists(fp): continue
+    t=open(fp,encoding="utf-8").read()
+    for p in UNLISTED_PAGES:
+        if p in t or p.rstrip("/") in t: _un_err.append(f"{fname} names unlisted page {p}")
+for p,f in _pages.items():
+    if not os.path.exists(f): _un_err.append(f"unlisted page missing (must stay live): {p}"); continue
+    h=open(f,encoding="utf-8").read()
+    if ROBOTS_META not in h: _un_err.append(f"{p} missing {ROBOTS_META}")
+    for m in re.finditer(r'<(?:link rel="canonical" href|meta property="og:url" content)="([^"]*)"',h):
+        if not m.group(1).endswith(p): _un_err.append(f"{p} canonical/og:url points elsewhere: {m.group(1)}")
+if _un_err:
+    for x in _un_err: print("unlisted:",x)
+    ok=False
+else:
+    print(f"unlisted pages ({', '.join(UNLISTED_PAGES)}): noindex present, not in sitemap/robots/llms/feeds, 0 links from other files")
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)

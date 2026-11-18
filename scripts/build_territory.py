@@ -302,6 +302,7 @@ def write_html(listed, as_of):
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Eastern Time banks above $1.4 billion — FI Signal Weekly</title>
 <meta name="description" content="A territory test list of {n} US banks with total assets above $1.4 billion and an Eastern Time headquarters, grouped by HQ city.">
+<meta name="robots" content="noindex,nofollow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FI Signal Weekly">
 <meta property="og:title" content="Eastern Time banks above $1.4 billion — FI Signal Weekly">
@@ -362,7 +363,7 @@ def write_html(listed, as_of):
 
   {"".join(sections)}
 </main>
-<footer><div class="wrap">FI Signal Weekly · Institution data from FDIC BankFind and NCUA call reports; digital providers from public login-page scans. Verify before acting. Not affiliated with any regulator or vendor. · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/territory/">Territory</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
+<footer><div class="wrap">FI Signal Weekly · Institution data from FDIC BankFind and NCUA call reports; digital providers from public login-page scans. Verify before acting. Not affiliated with any regulator or vendor. · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
 </body></html>
 """
     (ROOT / "territory/index.html").write_text(page, encoding="utf-8")
