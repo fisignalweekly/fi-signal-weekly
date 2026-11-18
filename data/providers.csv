@@ -1683,6 +1683,7 @@ fdic-90227,digital,Q2,current,Login page scan,https://www.lowellfive.com/,2026-1
 fdic-90245,digital,Fiserv,current,Login page scan,https://www.monsonsavings.bank/,2026-11-17,login link goes to web1.secureinternetbank.com
 fdic-90250,digital,Jack Henry (Banno),current,Login page scan,https://www.institutionforsavings.com/,2026-11-17,login host my.ifs.bank points (DNS) to banno-online.jackhenry.bank
 fdic-90253,digital,Q2,current,Login page scan,https://www.mountainone.com/,2026-11-17,login host secure.mountainone.com points (DNS) to 51137.q2digitalbanking.com
+fdic-90290,mobile,Jack Henry (Banno),current,App listing,https://play.google.com/store/apps/details?id=com.jackhenry.unibank,2026-11-18,"Android app ID com.jackhenry.unibank (in Jack Henry's app namespace), linked from www.unibank.com. The website also carries Banno code."
 fdic-90291,digital,Fiserv,current,Login page scan,https://www.tsbdirect.bank/,2026-11-17,login link goes to web1.secureinternetbank.com
 fdic-90384,digital,Fiserv,current,Login page scan,https://bankoflandisburg.com/,2026-11-17,login link goes to web9.secureinternetbank.com
 fdic-91280,digital,Q2,current,Login page scan,https://www.bankoflittlerock.com/,2026-11-17,login host online.bankoflittlerock.com points (DNS) to 48156.gslb.onlineaccess1.com
@@ -2295,26 +2296,42 @@ ncua-66983,digital,Jack Henry (Banno),current,Login page scan,https://www.coopcu
 ncua-66998,digital,Jack Henry (Banno),current,Login page scan,https://www.bhccu.org/,2026-11-17,login host my.bhccu.org points (DNS) to banno-online.jackhenry.bank
 ncua-67012,digital,Jack Henry (Banno),current,Login page scan,https://www.1stccu.com/,2026-11-17,login host my.1stccu.com points (DNS) to banno-online.jackhenry.bank
 ncua-67183,digital,CU*Answers (It's Me 247),current,Login page scan,https://ripco.org/,2026-11-17,login link goes to www.itsme247.com
+ncua-67185,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.fcccu,2026-11-18,"Android app ID com.homecu.fcccu (in HomeCU's app namespace), linked from www.firstchoiceccu.org."
 ncua-67197,digital,HomeCU,current,Login page scan,https://www.jdecu.org/,2026-11-17,login link goes to my.homecu.net
+ncua-67197,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.jdecu,2026-11-18,"Android app ID com.homecu.jdecu (in HomeCU's app namespace), linked from www.jdecu.org."
 ncua-67290,digital,Q2,current,Login page scan,https://www.communityfirstfl.org/,2026-11-17,login host ebanking.communityfirstfl.org points (DNS) to 48219.gslb.onlineaccess1.com
+ncua-67290,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.commfirstfloridacu,2026-11-18,"Android app ID com.softek.ofxclmobile.commfirstfloridacu (in Softek's app namespace), linked from www.communityfirstfl.org."
 ncua-67309,digital,CU*Answers (It's Me 247),current,Login page scan,https://1streetcu.com/,2026-11-17,login link goes to www.itsme247.com
 ncua-67316,digital,Jack Henry (Banno),current,Login page scan,https://www.alivecu.coop/,2026-11-17,login host secure.alivecu.coop points (DNS) to banno-online.jackhenry.bank
+ncua-67318,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.pompano,2026-11-18,"Android app ID com.homecu.pompano (in HomeCU's app namespace), linked from www.pbecu.com."
 ncua-67319,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.prioritycu.org/,2026-11-17,login link goes to www.itsme247.com
 ncua-67332,digital,Bankjoy,current,Login page scan,https://suncu.org/,2026-11-17,login host online.suncu.org points (DNS) to suncu-web.bankjoy.com
+ncua-67332,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.suncu.mobile,2026-11-18,"Android app ID com.bankjoyapp.suncu.mobile (in Bankjoy's app namespace), linked from suncu.org."
 ncua-67334,digital,CU*Answers (It's Me 247),current,Login page scan,https://jacksoncounty1st.com/,2026-11-17,login link goes to beta.itsme247.com
 ncua-67348,digital,Q2,current,Login page scan,https://www.ucumiami.org/,2026-11-17,login host secure.myunicu.org points (DNS) to 5164.gslb-dyn.onlineaccess1.com
 ncua-67349,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.adventhealthcreditunion.org/,2026-11-17,login link goes to www.itsme247.com
 ncua-67352,digital,Alkami,current,Login page scan,https://www.jdcu.org/,2026-11-17,login host my.jdcu.org points (DNS) to my.jdcu.org.olbedge.net
+ncua-67364,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.postal,2026-11-18,"Android app ID com.homecu.postal (in HomeCU's app namespace), linked from www.savannahpostalcu.com."
 ncua-67382,digital,HomeCU,current,Login page scan,https://gpcu.net/,2026-11-17,login link goes to my.homecu.net
+ncua-67382,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.genptcu,2026-11-18,"Android app ID com.homecu.genptcu (in HomeCU's app namespace), linked from gpcu.net."
+ncua-67383,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.cuatlanta,2026-11-18,"Android app ID com.softek.ofxclmobile.cuatlanta (in Softek's app namespace), linked from www.cuatlanta.org."
 ncua-67390,digital,Alkami,current,Login page scan,https://www.georgiasown.org/,2026-11-17,login host online.georgiasown.org points (DNS) to online.georgiasown.org.olbedge.net
 ncua-67428,digital,Q2,current,Login page scan,https://www.pecutx.org/,2026-11-17,login host secure.pecutx.org points (DNS) to 51157.q2digitalbanking.com
+ncua-67434,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.communitysouthcu,2026-11-18,"Android app ID com.softek.ofxclmobile.communitysouthcu (in Softek's app namespace), linked from www.communitysouth.net."
+ncua-67440,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.angelina,2026-11-18,"Android app ID com.homecu.angelina (in HomeCU's app namespace), linked from www.actcu.net."
 ncua-67481,digital,Bankjoy,current,Login page scan,https://www.alltrustcu.org/,2026-11-17,login host online.alltrustcu.org points (DNS) to alltrust-web.bankjoy.com
+ncua-67481,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.alltrust,2026-11-18,"Android app ID com.bankjoyapp.alltrust (in Bankjoy's app namespace), linked from www.alltrustcu.org."
 ncua-67507,digital,Tyfone,current,Login page scan,https://prestigecu.org/,2026-11-17,login host digital.prestigecu.org points (DNS) to prestigecu-olb.prod.nfinia.net
+ncua-67507,mobile,Candescent (ex-NCR Digital Insight),current,App listing,https://play.google.com/store/apps/details?id=com.digitalinsight.cma.fiid01687,2026-11-18,"Android app ID com.digitalinsight.cma.fiid01687 (in Candescent's app namespace), linked from prestigecu.org."
 ncua-67532,digital,Jack Henry (Banno),current,Login page scan,https://fwccu.org/,2026-11-17,login host my.fwccu.org points (DNS) to banno-online.jackhenry.bank
+ncua-67535,mobile,Mahalo,current,App listing,https://play.google.com/store/apps/details?id=com.mahalo.androidmobile.dat,2026-11-18,"Android app ID com.mahalo.androidmobile.dat (in Mahalo's app namespace), linked from www.datcu.org."
 ncua-67576,digital,Bankjoy,current,Login page scan,https://www.coopteachers.com/,2026-11-17,login host online.coopteachers.com points (DNS) to coopteachers-web.bankjoy.com
+ncua-67576,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.cooperativeTeachers,2026-11-18,"Android app ID com.bankjoyapp.cooperativeTeachers (in Bankjoy's app namespace), linked from www.coopteachers.com."
+ncua-67599,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.allcomcu,2026-11-18,"Android app ID com.softek.ofxclmobile.allcomcu (in Softek's app namespace), linked from allcomcu.org."
 ncua-67605,digital,Fiserv,current,Login page scan,https://www.stannes.com/,2026-11-17,login link goes to web2.secureinternetbank.com
 ncua-67608,digital,HomeCU,current,Login page scan,https://www.upscu.org/,2026-11-17,login link goes to my.homecu.net
 ncua-67609,digital,Jack Henry (Banno),current,Login page scan,https://www.firstbasin.com/home,2026-11-17,login host olb.firstbasin.com points (DNS) to banno-online.jackhenry.bank
+ncua-67611,mobile,Candescent (ex-NCR Digital Insight),current,App listing,https://play.google.com/store/apps/details?id=com.digitalinsight.cma.fiid01675,2026-11-18,"Android app ID com.digitalinsight.cma.fiid01675 (in Candescent's app namespace), linked from www.edcu.com."
 ncua-67624,digital,HomeCU,current,Login page scan,https://www.ofecu.com/,2026-11-17,login link goes to my.homecu.net
 ncua-67648,digital,CU*Answers (It's Me 247),current,Login page scan,https://hoosierunitedcu.com/,2026-11-17,login link goes to www.itsme247.com
 ncua-67661,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.vatatcu.org/,2026-11-17,login link goes to itsme247.com
@@ -2323,6 +2340,8 @@ ncua-67701,digital,Jack Henry (Banno),current,Login page scan,https://greaterexp
 ncua-67739,digital,Jack Henry (Banno),current,Login page scan,https://www.mececu.com/,2026-11-17,login host my.mececu.com points (DNS) to banno-online.jackhenry.bank
 ncua-67747,digital,Jack Henry (Banno),current,Login page scan,https://www.mysccu.com/,2026-11-17,login host accounts.mysccu.com points (DNS) to banno-online.jackhenry.bank
 ncua-67748,digital,Jack Henry (Banno),current,Login page scan,https://www.heritagesouth.org/,2026-11-17,login host my.heritagesouth.org points (DNS) to banno-online.jackhenry.bank
+ncua-67757,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.ybcu,2026-11-18,"Android app ID com.homecu.ybcu (in HomeCU's app namespace), linked from www.yourbestcu.com."
+ncua-67761,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.EastTexasProfessionalCU,2026-11-18,"Android app ID com.softek.ofxclmobile.EastTexasProfessionalCU (in Softek's app namespace), linked from www.etpcu.org. The website also carries Banno code."
 ncua-67789,digital,HomeCU,current,Login page scan,https://www.ercu.org/,2026-11-17,login link goes to my.homecu.net
 ncua-67836,digital,Jack Henry (Banno),current,Login page scan,https://www.scucu.com/,2026-11-17,login host login.scucu.com points (DNS) to banno-online.jackhenry.bank
 ncua-67865,digital,Jack Henry (Banno),current,Login page scan,https://www.ccutx.org/,2026-11-17,login host my.ccutx.org points (DNS) to banno-online.jackhenry.bank
@@ -2330,26 +2349,44 @@ ncua-67874,digital,Jack Henry (Banno),current,Login page scan,https://championsf
 ncua-67890,digital,Fiserv,current,Login page scan,https://www.luso-american.com/,2026-11-17,login link goes to web2.secureinternetbank.com
 ncua-67911,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.primesourcecu.org/,2026-11-17,login link goes to itsme247.com
 ncua-67927,digital,Alkami,current,Login page scan,https://www.smartcu.org/,2026-11-17,login host online.smartcu.org points (DNS) to online.smartcu.org.olbedge.net
+ncua-67946,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.omcecu,2026-11-18,"Android app ID com.homecu.omcecu (in HomeCU's app namespace), linked from www.omcecu.com."
 ncua-67963,digital,HomeCU,current,Login page scan,https://www.ccpecu.com/,2026-11-17,login link goes to my.homecu.net
 ncua-67976,digital,HomeCU,current,Login page scan,https://www.appliancecu.com/,2026-11-17,login link goes to my.homecu.net
+ncua-67976,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.appliance,2026-11-18,"Android app ID com.homecu.appliance (in HomeCU's app namespace), linked from www.appliancecu.com."
+ncua-67979,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.mpdcu,2026-11-18,"Android app ID com.homecu.mpdcu (in HomeCU's app namespace), linked from mpdcu.org."
+ncua-68016,mobile,Share One,current,App listing,https://play.google.com/store/apps/details?id=com.shareone.coast2coastfcu,2026-11-18,"Android app ID com.shareone.coast2coastfcu (in Share One's app namespace), linked from www.transportfcu.com."
+ncua-68038,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.evergreencu,2026-11-18,"Android app ID com.softek.ofxclmobile.evergreencu (in Softek's app namespace), linked from www.egcu.org."
 ncua-68057,digital,Jack Henry (Banno),current,Login page scan,https://www.homefieldcu.com/,2026-11-17,login host my.homefieldcu.com points (DNS) to banno-online.jackhenry.bank
+ncua-68057,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.homefieldcu,2026-11-18,"Android app ID com.softek.ofxclmobile.homefieldcu (in Softek's app namespace), linked from www.homefieldcu.com."
+ncua-68061,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.solaritycu,2026-11-18,"Android app ID com.softek.ofxclmobile.solaritycu (in Softek's app namespace), linked from www.solaritycu.org."
 ncua-68062,digital,Q2,current,Login page scan,https://americaschristiancu.com/,2026-11-17,login host secure.americaschristiancu.com points (DNS) to 49184.gslb.onlineaccess1.com
 ncua-68101,digital,Bankjoy,current,Login page scan,https://www.tnecu.org/,2026-11-17,login link goes to tnecu.bankjoy.com
 ncua-68124,digital,HomeCU,current,Login page scan,https://cogcu.org/,2026-11-17,login link goes to my.homecu.net
 ncua-68137,digital,Jack Henry (Banno),current,Login page scan,https://www.massbaycu.org/,2026-11-17,login host my.massbaycu.org points (DNS) to online.banno-production.com
 ncua-68148,digital,Bankjoy,current,Login page scan,https://enbrightcu.com/,2026-11-17,login host onlinebanking.enbrightcu.com points (DNS) to enbrightcu.bankjoy.com
+ncua-68148,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.enbrightcu,2026-11-18,"Android app ID com.bankjoyapp.enbrightcu (in Bankjoy's app namespace), linked from enbrightcu.com."
 ncua-68171,digital,HomeCU,current,Login page scan,https://www.gatewaycreditunion.com/,2026-11-17,login link goes to my.homecu.net
+ncua-68173,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.hscu,2026-11-18,"Android app ID com.homecu.hscu (in HomeCU's app namespace), linked from www.hscu.net."
+ncua-68203,mobile,Alkami,current,App listing,https://play.google.com/store/apps/details?id=com.alkamitech.spokane,2026-11-18,"Android app ID com.alkamitech.spokane (in Alkami's app namespace), linked from stcu.org."
 ncua-68226,digital,Bankjoy,current,Login page scan,https://socu.org/,2026-11-17,login host banking.socu.org points (DNS) to socu-web.bankjoy.com
+ncua-68226,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.socu,2026-11-18,"Android app ID com.bankjoyapp.socu (in Bankjoy's app namespace), linked from socu.org."
 ncua-68227,digital,Jack Henry (Banno),current,Login page scan,https://www.weststar.org/,2026-11-17,login host eteller.weststar.org points (DNS) to online.banno-production.com
 ncua-68228,digital,Q2,current,Login page scan,https://www.gncu.org/,2026-11-17,login host secure.gncu.org points (DNS) to 51192.gslb-dyn.onlineaccess1.com
+ncua-68242,mobile,Mahalo,current,App listing,https://play.google.com/store/apps/details?id=com.mahalo.androidmobile.macu,2026-11-18,"Android app ID com.mahalo.androidmobile.macu (in Mahalo's app namespace), linked from www.macuonline.org."
 ncua-68251,digital,Q2,current,Login page scan,https://www.uhcu.org/,2026-11-17,login host online.uhcu.org points (DNS) to 4959.gslb.onlineaccess1.com
 ncua-68253,digital,Jack Henry (Banno),current,Login page scan,https://www.mountaincrestcu.com/,2026-11-17,login host my.mountaincrestcu.com points (DNS) to banno-online.jackhenry.bank
 ncua-68255,digital,CU*Answers (It's Me 247),current,Login page scan,https://progressionscu.org/,2026-11-17,login link goes to itsme247.com
 ncua-68274,digital,Jack Henry (Banno),current,Login page scan,https://www.hncu.org/,2026-11-17,login host onlinebanking.hncu.org points (DNS) to online.banno-production.com
+ncua-68274,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.horizonsnorthcu,2026-11-18,"Android app ID com.softek.ofxclmobile.horizonsnorthcu (in Softek's app namespace), linked from www.hncu.org."
+ncua-68283,mobile,Malauzai (Finastra),current,App listing,https://play.google.com/store/apps/details?id=com.malauzai.DH26358,2026-11-18,"Android app ID com.malauzai.DH26358 (in Malauzai's app namespace), linked from www.sccu.net."
+ncua-68284,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.avista,2026-11-18,"Android app ID com.homecu.avista (in HomeCU's app namespace), linked from www.avistacu.com."
 ncua-68286,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.tlcufinancial.org/,2026-11-17,login link goes to itsme247.com
+ncua-68293,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.snofallscu,2026-11-18,"Android app ID com.softek.ofxclmobile.snofallscu (in Softek's app namespace), linked from www.snofalls.com."
+ncua-68297,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.nbcu,2026-11-18,"Android app ID com.homecu.nbcu (in HomeCU's app namespace), linked from www.3hillcu.com."
 ncua-68301,digital,Q2,current,Login page scan,https://www.firstcommercecu.org/,2026-11-17,login host ibranchdigital.firstcommercecu.org points (DNS) to 50191.gslb-dyn.onlineaccess1.com
 ncua-68302,digital,Alkami,current,Login page scan,https://www.fivestarcu.com/,2026-11-17,login host online.fivestarcu.com points (DNS) to online.fivestarcu.com.olbedge.net
 ncua-68305,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.myrescu.org/,2026-11-17,login link goes to m.itsme247.com
+ncua-68324,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.sacovalleycu,2026-11-18,"Android app ID com.softek.ofxclmobile.sacovalleycu (in Softek's app namespace), linked from sacovalley.org."
 ncua-68328,digital,Bankjoy,current,Login page scan,https://loggerscu.com/,2026-11-17,login host online.loggerscu.com points (DNS) to loggerscu-web.bankjoy.com
 ncua-68353,digital,Alkami,current,Login page scan,https://www.westmark.org/,2026-11-17,login host my.westmark.org points (DNS) to my.westmark.org.olbedge.net
 ncua-68356,digital,Jack Henry (Banno),current,Login page scan,https://www.corazocu.com/,2026-11-17,login host online.corazocu.com points (DNS) to banno-online.jackhenry.bank
@@ -2366,6 +2403,7 @@ ncua-68447,digital,Jack Henry (Banno),current,Login page scan,https://www.educu.
 ncua-68448,digital,Q2,current,Login page scan,https://www.cefcu.com/,2026-11-17,login host banking.cefcu.com points (DNS) to 50157.gslb-dyn.onlineaccess1.com
 ncua-68449,digital,Bankjoy,current,Login page scan,https://lonestarcu.org/,2026-11-17,login host banking.lonestarcu.org points (DNS) to lonestar-web.bankjoy.com
 ncua-68459,digital,Alkami,current,Login page scan,https://www.usccreditunion.org/,2026-11-17,login host my.usccreditunion.org points (DNS) to my.usccreditunion.org.olbedge.net
+ncua-68460,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.lbsfcu,2026-11-18,"Android app ID com.softek.ofxclmobile.lbsfcu (in Softek's app namespace), linked from www.lbsfcu.org."
 ncua-68491,digital,Jack Henry (Banno),current,Login page scan,https://www.silveradocu.com/,2026-11-17,login host my.silveradocu.com points (DNS) to banno-online.jackhenry.bank
 ncua-68502,digital,Jack Henry (Banno),current,Login page scan,https://www.copperstatecu.org/,2026-11-17,login host my.copperstatecu.org points (DNS) to banno-online.jackhenry.bank
 ncua-68505,digital,Alkami,current,Login page scan,https://www.itcu.org/,2026-11-17,login host omb.itcu.org points (DNS) to omb.itcu.org.olbedge.net
@@ -2376,25 +2414,35 @@ ncua-68560,digital,Alkami,current,FI announcement,https://redrocks.org/financial
 ncua-68560,digital,Alkami,current,Login page scan,https://redrocks.org/,2026-11-17,login host member.redrocks.org points (DNS) to member.redrocks.org.olbedge.net
 ncua-68561,digital,Bankjoy,current,Login page scan,https://www.cuofohio.org/,2026-11-17,login host online.cuofohio.org points (DNS) to cuoo-web.bankjoy.com
 ncua-68562,digital,CU*Answers (It's Me 247),current,Login page scan,https://ms-cu.com/,2026-11-17,login link goes to www.itsme247.com
+ncua-68563,mobile,Candescent (ex-NCR Digital Insight),current,App listing,https://play.google.com/store/apps/details?id=com.digitalinsight.cma.fiid01696,2026-11-18,"Android app ID com.digitalinsight.cma.fiid01696 (in Candescent's app namespace), linked from www.downeastcu.com."
 ncua-68571,digital,Jack Henry (NetTeller),current,Login page scan,https://cuofga.org/,2026-11-17,login link goes to www.netteller.com
+ncua-68572,mobile,Mahalo,current,App listing,https://play.google.com/store/apps/details?id=com.mahalo.androidmobile.via,2026-11-18,"Android app ID com.mahalo.androidmobile.via (in Mahalo's app namespace), linked from www.viacu.org."
 ncua-68583,digital,Q2,current,Login page scan,https://www.avadiancu.com/,2026-11-17,login host secure.avadiancu.com points (DNS) to 51216.gslb-dyn.onlineaccess1.com
 ncua-68595,digital,Q2,current,Login page scan,https://www.alabamaone.org/,2026-11-17,login host secure.alabamaone.org points (DNS) to 49127.gslb-dyn.onlineaccess1.com
 ncua-68598,digital,Jack Henry (Banno),current,Login page scan,https://www.empeople.com/,2026-11-17,login host my.empeople.com points (DNS) to banno-online.jackhenry.bank
 ncua-68600,digital,Q2,current,Login page scan,https://www.midflorida.com/,2026-11-17,login host secure.midflorida.com points (DNS) to 51104.gslb-dyn.onlineaccess1.com
 ncua-68602,digital,Bankjoy,current,Login page scan,https://www.mygacu.com/,2026-11-17,login host online.mygacu.com points (DNS) to mygeorgia-web.bankjoy.com
+ncua-68602,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.mygeorgia,2026-11-18,"Android app ID com.bankjoyapp.mygeorgia (in Bankjoy's app namespace), linked from www.mygacu.com."
 ncua-68604,digital,Q2,current,Login page scan,https://www.mymagnifi.org/,2026-11-17,login host online.mymagnifi.org points (DNS) to 4937.gslb.onlineaccess1.com
+ncua-68604,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.centralminnesotacu,2026-11-18,"Android app ID com.softek.ofxclmobile.centralminnesotacu (in Softek's app namespace), linked from www.mymagnifi.org."
 ncua-68606,digital,Bankjoy,current,Login page scan,https://www.mobilitycu.com/,2026-11-17,login host online.mobilitycu.com points (DNS) to online-mobility.bankjoy.com
+ncua-68606,mobile,Bankjoy,current,App listing,https://play.google.com/store/apps/details?id=com.bankjoyapp.mobility,2026-11-18,"Android app ID com.bankjoyapp.mobility (in Bankjoy's app namespace), linked from www.mobilitycu.com."
 ncua-68607,digital,Jack Henry (Banno),current,Login page scan,https://gucu.org/,2026-11-17,login host secureolb.gucu.org points (DNS) to banno-online.jackhenry.bank
 ncua-68608,digital,Jack Henry (Banno),current,Login page scan,https://www.texell.org/,2026-11-17,login host secure.texell.org points (DNS) to banno-online.jackhenry.bank
+ncua-68609,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.OurCommunityCU,2026-11-18,"Android app ID com.softek.ofxclmobile.OurCommunityCU (in Softek's app namespace), linked from www.ourcu.com."
 ncua-68616,digital,Q2,current,Login page scan,https://myzing.com/,2026-11-17,login host digital.myzing.com points (DNS) to 49172.gslb.onlineaccess1.com
 ncua-68628,digital,Jack Henry (Banno),current,Login page scan,https://www.familysavingscu.com/,2026-11-17,login host ob.familysavingscu.com points (DNS) to banno-online.jackhenry.bank
 ncua-68632,digital,Jack Henry (Banno),current,Login page scan,https://www.lafcu.com/,2026-11-17,login host onlinebanking.lafcu.com points (DNS) to online.banno-production.com
 ncua-68641,digital,Jack Henry (Banno),current,Login page scan,https://www.ccfinancial.com/,2026-11-17,login host accounts.ccfinancial.com points (DNS) to online.banno-production.com
 ncua-68646,digital,Jack Henry (Banno),current,Login page scan,https://www.myfpcu.com/,2026-11-17,login host digital.myfpcu.com points (DNS) to online.banno-production.com
+ncua-68647,mobile,Candescent (ex-NCR Digital Insight),current,App listing,https://play.google.com/store/apps/details?id=com.digitalinsight.cma.fiid01635,2026-11-18,"Android app ID com.digitalinsight.cma.fiid01635 (in Candescent's app namespace), linked from www.parksidefcu.com."
 ncua-68651,digital,Q2,current,Login page scan,https://blazecu.com/,2026-11-17,login host digitalbanking.blazecu.com points (DNS) to 515001a.gslb.onlineaccess1.com
+ncua-68661,mobile,Malauzai (Finastra),current,App listing,https://play.google.com/store/apps/details?id=com.malauzai.DH23031,2026-11-18,"Android app ID com.malauzai.DH23031 (in Malauzai's app namespace), linked from www.membersheritage.org."
 ncua-68662,digital,Jack Henry (Banno),current,Login page scan,https://www.finexcu.org/,2026-11-17,login host accounts.finexcu.org points (DNS) to banno-online.jackhenry.bank
 ncua-68663,digital,Tyfone,current,Login page scan,https://www.ithinkfi.org/,2026-11-17,login host digitalbanking.ithinkfi.org points (DNS) to ithinkfcu-olb.prod.nfinia.net
+ncua-68665,mobile,Mahalo,current,App listing,https://play.google.com/store/apps/details?id=com.mahalo.androidmobile.superior,2026-11-18,"Android app ID com.mahalo.androidmobile.superior (in Mahalo's app namespace), linked from www.superiorcu.com."
 ncua-68666,digital,Jack Henry (Banno),current,Login page scan,https://www.transcendcu.com/,2026-11-17,login host my.transcendcu.com points (DNS) to banno-online.jackhenry.bank
+ncua-68672,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.cranefcu,2026-11-18,"Android app ID com.softek.ofxclmobile.cranefcu (in Softek's app namespace), linked from www.cranecu.org."
 ncua-68675,digital,HomeCU,current,Login page scan,https://www.jafaricu.com/,2026-11-17,login link goes to my.homecu.net
 ncua-68678,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.kccu4u.org/,2026-11-17,login link goes to beta.itsme247.com
 ncua-68681,digital,Q2,current,Login page scan,https://www.goamplify.com/,2026-11-17,login host secure.onlinegoamplify.com points (DNS) to 49175.gslb.onlineaccess1.com
@@ -2403,15 +2451,21 @@ ncua-68691,digital,Jack Henry (Banno),current,Login page scan,https://www.trufic
 ncua-68694,digital,Q2,current,Login page scan,https://www.gogulfwinds.com/,2026-11-17,login host online.gogulfwinds.com points (DNS) to 50222.gslb-dyn.onlineaccess1.com
 ncua-68700,digital,Alkami,current,Login page scan,https://www.p1fcu.org/,2026-11-17,login host digital.p1fcu.org points (DNS) to digital.p1fcu.org.olbedge.net
 ncua-68701,digital,Jack Henry (Banno),current,Login page scan,https://myaucu.org/,2026-11-17,login host online.myaucu.org points (DNS) to banno-online.jackhenry.bank
+ncua-68703,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.catholicfcu,2026-11-18,"Android app ID com.softek.ofxclmobile.catholicfcu (in Softek's app namespace), linked from www.joltcu.com."
 ncua-68706,digital,Alkami,current,Login page scan,https://www.orlandocreditunion.org/,2026-11-17,login host my.orlandocreditunion.org points (DNS) to my.orlandocreditunion.org.olbedge.net
 ncua-68707,digital,Jack Henry (NetTeller),current,Login page scan,https://www.cardinalcu.com/,2026-11-17,login link goes to www.netteller.com
 ncua-68713,digital,Alkami,current,Login page scan,https://www.desertfinancial.com/,2026-11-17,login host olb.desertfinancial.com points (DNS) to olb.desertfinancial.com.olbedge.net
 ncua-68714,digital,Bankjoy,current,Login page scan,https://www.marshlandcu.com/,2026-11-17,login host online.marshlandcu.com points (DNS) to marsh-web.bankjoy.com
+ncua-68718,mobile,Malauzai (Finastra),current,App listing,https://play.google.com/store/apps/details?id=com.malauzai.CPFCU,2026-11-18,"Android app ID com.malauzai.CPFCU (in Malauzai's app namespace), linked from www.trueccu.com."
 ncua-68719,digital,Jack Henry (Banno),current,Login page scan,https://www.pccu.com/,2026-11-17,login host my.pccu.com points (DNS) to banno-online.jackhenry.bank
+ncua-68719,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.perfectcirclecu,2026-11-18,"Android app ID com.softek.ofxclmobile.perfectcirclecu (in Softek's app namespace), linked from www.pccu.com."
 ncua-68720,digital,Jack Henry (Banno),current,Login page scan,https://www.panhandlecu.org/,2026-11-17,login host pcuanywhere.panhandlecu.org points (DNS) to banno-online.jackhenry.bank
 ncua-68722,digital,Jack Henry (Banno),current,Login page scan,https://trustonefinancial.org/,2026-11-17,login host online.trustonefinancial.org points (DNS) to online.banno-production.com
+ncua-68732,mobile,Softek,current,App listing,https://play.google.com/store/apps/details?id=com.softek.ofxclmobile.innovationsfcu,2026-11-18,"Android app ID com.softek.ofxclmobile.innovationsfcu (in Softek's app namespace), linked from www.innovationsfcu.org."
+ncua-68735,mobile,Candescent (ex-NCR Digital Insight),current,App listing,https://play.google.com/store/apps/details?id=com.digitalinsight.cma.fiid01723,2026-11-18,"Android app ID com.digitalinsight.cma.fiid01723 (in Candescent's app namespace), linked from bankwithrave.com."
 ncua-68743,digital,CU*Answers (It's Me 247),current,Login page scan,https://limestonefcu.com/,2026-11-17,login link goes to www.itsme247.com
 ncua-81402,digital,Jack Henry (Banno),current,Login page scan,https://www.membersalliance.org/,2026-11-17,login host my.membersalliance.org points (DNS) to online.banno-production.com
+ncua-86063,mobile,Share One,current,App listing,https://play.google.com/store/apps/details?id=com.shareone.postcitycu,2026-11-18,"Android app ID com.shareone.postcitycu (in Share One's app namespace), linked from www.postcitycu.org."
 ncua-86752,digital,Q2,current,Login page scan,https://www.createcu.org/,2026-11-17,login host secure.createcu.com points (DNS) to 520801a.gslb.onlineaccess1.com
 ncua-86756,digital,Jack Henry (Banno),current,Login page scan,https://pluscu.org/,2026-11-17,login host mypluslive.pluscu.org points (DNS) to banno-online.jackhenry.bank
 ncua-95008,digital,CU*Answers (It's Me 247),current,Login page scan,https://commstar.org/,2026-11-17,login link goes to www.itsme247.com
@@ -2419,11 +2473,15 @@ ncua-95042,digital,HomeCU,current,Login page scan,https://www.bacu.org/,2026-11-
 ncua-95052,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.southbaycu.com/,2026-11-17,login link goes to www.itsme247.com
 ncua-95073,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.midcitiescu.org/,2026-11-17,login link goes to itsme247.com
 ncua-95802,digital,Jack Henry (Banno),current,Login page scan,https://trupartnercu.org/,2026-11-17,login host my.trupartnercu.org points (DNS) to banno-online.jackhenry.bank
+ncua-96719,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.grohio,2026-11-18,"Android app ID com.homecu.grohio (in HomeCU's app namespace), linked from www.grohiocu.com."
 ncua-96723,digital,Jack Henry (Banno),current,Login page scan,https://www.ffcommunity.com/,2026-11-17,login host my.ffcommunity.com points (DNS) to banno-online.jackhenry.bank
 ncua-96755,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.myusacu.com/,2026-11-17,login link goes to www.itsme247.com
 ncua-97066,digital,HomeCU,current,Login page scan,https://www.stjoevalleycu.com/,2026-11-17,login link goes to my.homecu.net
+ncua-97066,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.stjoe,2026-11-18,"Android app ID com.homecu.stjoe (in HomeCU's app namespace), linked from www.stjoevalleycu.com."
 ncua-97069,digital,Alkami,current,Login page scan,https://sffirecu.org/,2026-11-17,login host olb.sffirecu.org points (DNS) to olb.sffirecu.org.olbedge.net
+ncua-97073,mobile,HomeCU,current,App listing,https://play.google.com/store/apps/details?id=com.homecu.nfcu,2026-11-18,"Android app ID com.homecu.nfcu (in HomeCU's app namespace), linked from www.mynccu.org."
 ncua-97084,digital,Alkami,current,Login page scan,https://www.dupagecu.com/,2026-11-17,login host digital.dupagecu.com points (DNS) to digital.dupagecu.com.olbedge.net
 ncua-97089,digital,Jack Henry (Banno),current,Login page scan,https://www.mctcu.org/,2026-11-17,login host my.mctcu.org points (DNS) to banno-online.jackhenry.bank
+ncua-97098,mobile,iParse,current,App listing,https://play.google.com/store/apps/details?id=com.iparse.eastex,2026-11-18,"Android app ID com.iparse.eastex (in iParse's app namespace), linked from eastexcu.org."
 ncua-97105,digital,CU*Answers (It's Me 247),current,Login page scan,https://www.treadwellcu.com/,2026-11-17,login link goes to obc.itsme247.com
 ncua-97106,digital,Jack Henry (Banno),current,Login page scan,https://www.genfed.com/,2026-11-17,login host digital.genfed.com points (DNS) to banno-online.jackhenry.bank
