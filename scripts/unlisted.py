@@ -4,7 +4,7 @@ Each must carry <meta name="robots" content="noindex,nofollow">, stay out of sit
 llms/AI index files and feeds, and never be linked (href or URL) from any other page.
 Do not add robots.txt Disallow lines naming them. scripts/validate.py enforces all of this.
 """
-UNLISTED_PAGES = ("/whats-new/", "/roadmap/", "/territory/", "/r/le4idsoyeldffb/")
+UNLISTED_PAGES = ("/whats-new/", "/roadmap/", "/territory/", "/r/le4idsoyeldffb/", "/mcp/")
 ROBOTS_META = '<meta name="robots" content="noindex,nofollow">'
 
 def is_unlisted(href):
