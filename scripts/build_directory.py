@@ -39,6 +39,7 @@ TIERS = [("lt500m", "Under $500M", 0, 5e8), ("500m-1b", "$500M–$1B", 5e8, 1e9)
          ("10b-50b", "$10B–$50B", 1e10, 5e10), ("50b+", "$50B+", 5e10, float("inf")), ("na", "Assets not reported", None, None)]
 # Hand-built top-level pages (their own scripts write them); the sitemap this script writes always lists them.
 # scripts/validate.py fails if one is missing from sitemap.xml. Add a page here when it ships.
+# Never add unlisted /r/ paths here: they must stay out of sitemap.xml.
 STATIC_PAGES = ("/territory/", "/roadmap/", "/whats-new/")
 TIER_LIST_MAX = 1500   # tiers bigger than this list the largest TIER_TOP plus everything with signals, then link to search
 TIER_TOP = 300
