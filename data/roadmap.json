@@ -1,0 +1,307 @@
+{
+  "updated": "2026-11-18",
+  "intro": "What is live on FI Signal Weekly, what is being built, and what is queued. Dates marked est. are estimates and may move. Showcase means a first public example; full means the feature is on the site for the planned set of institutions.",
+  "showcase_pages": {
+    "note": "Five institution pages are showcases of what every page will look like once the backfill and updates are done. New features land there first:",
+    "pages": [
+      {
+        "name": "Glacier Bank",
+        "href": "/fi/mt/glacier-bank/"
+      },
+      {
+        "name": "MEMBERS1st Community CU",
+        "href": "/fi/ia/members1st-community-cu/"
+      },
+      {
+        "name": "Kish Bank",
+        "href": "/fi/pa/kish-bank/"
+      },
+      {
+        "name": "UniBank for Savings",
+        "href": "/fi/ma/unibank-for-savings/"
+      },
+      {
+        "name": "BankUnited",
+        "href": "/fi/fl/bankunited-national-association/"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "providers",
+      "name": "Provider fields on every FI page",
+      "description": "Each institution page has a Technology providers section. Digital banking comes from a login-page scan or a verified announcement. Core is listed only when we have a verified public source.",
+      "status": "Live",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-18",
+        "est": false
+      }
+    },
+    {
+      "id": "fi-v2",
+      "name": "FI page v2",
+      "description": "A fuller institution page: asset trends, peer rank, branches and members, key executives, iBanknet, tech stack, merger and acquisition history, and similar institutions.",
+      "status": "Live",
+      "showcase": {
+        "date": "2026-11-18",
+        "est": false,
+        "label": "Glacier Bank",
+        "href": "/fi/mt/glacier-bank/"
+      },
+      "full": {
+        "date": "2026-11-18",
+        "est": false
+      }
+    },
+    {
+      "id": "linkedin-business",
+      "name": "LinkedIn links and business digital banking",
+      "description": "Institution pages will add the company's public LinkedIn page, when the institution publishes one, and the business digital banking provider when a public login-page scan or verified announcement supports it.",
+      "status": "Building",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-18",
+        "est": true,
+        "note": "evening"
+      }
+    },
+    {
+      "id": "territory",
+      "name": "Territory view",
+      "description": "A list of U.S. banks with assets strictly above $1.4 billion and an Eastern Time headquarters, grouped by HQ city, plus the same filter on the board and in the directory.",
+      "status": "Live",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-18",
+        "est": false,
+        "href": "/territory/",
+        "label": "Territory view"
+      }
+    },
+    {
+      "id": "vendor-netteller",
+      "name": "Vendor change feed, Jack Henry NetTeller retirement",
+      "description": "A feed of public vendor platform notices. The first entry is Jack Henry's planned retirement of NetTeller Online Banking and Cash Management on July 1, 2027, with institutions that may be affected based on a login-page scan.",
+      "status": "Building",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-18",
+        "est": true,
+        "href": "/vendor-changes/",
+        "label": "Vendor platform changes"
+      }
+    },
+    {
+      "id": "vendor-fiserv",
+      "name": "Vendor change feed, Fiserv",
+      "description": "A later vendor-change entry covering Fiserv platform changes, once a public notice and scan evidence are in hand.",
+      "status": "Blocked",
+      "blocked": "Waiting on public evidence.",
+      "showcase": null,
+      "full": null
+    },
+    {
+      "id": "whats-new-roadmap",
+      "name": "Release notes and roadmap",
+      "description": "A What's new page with dated, plain-language release notes, and this public roadmap.",
+      "status": "Live",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-18",
+        "est": false,
+        "href": "/whats-new/",
+        "label": "What's new"
+      }
+    },
+    {
+      "id": "asset-benchmarks",
+      "name": "Asset chart benchmarks",
+      "description": "Peer and industry overlays on asset charts, an inflation-adjusted toggle, and markers for mergers and acquisitions.",
+      "status": "Building",
+      "showcase": {
+        "date": "2026-11-18",
+        "est": false,
+        "note": "on showcase institution pages"
+      },
+      "full": {
+        "date": "2026-11-18",
+        "est": true,
+        "note": "evening"
+      }
+    },
+    {
+      "id": "strategic-priorities",
+      "name": "Strategic priorities",
+      "description": "Stated strategic priorities on institution pages, with sourced quotes from public filings and reports.",
+      "status": "Queued",
+      "showcase": {
+        "date": "2026-11-20",
+        "est": true,
+        "label": "Glacier Bank",
+        "href": "/fi/mt/glacier-bank/"
+      },
+      "full": null,
+      "milestones": [
+        {
+          "label": "Top 10 banks",
+          "date": "2026-11-23",
+          "est": true
+        },
+        {
+          "label": "Top 25 banks",
+          "date": "2026-11-28",
+          "est": true
+        },
+        {
+          "label": "Next 25 banks",
+          "date": "2026-12-02",
+          "est": true
+        },
+        {
+          "label": "Top 100 banks",
+          "date": "2026-12-09",
+          "est": true
+        },
+        {
+          "label": "All public banks and top credit unions",
+          "date": "2026-12-23",
+          "est": true
+        }
+      ]
+    },
+    {
+      "id": "backfill-2026",
+      "name": "2026 signal history backfill",
+      "description": "Adding January through November 2026 buying-window signals to the board and institution pages, from public sources already in use.",
+      "status": "Queued",
+      "showcase": null,
+      "full": null,
+      "milestones": [
+        {
+          "label": "Starts",
+          "date": "2026-11-24",
+          "est": true
+        },
+        {
+          "label": "Complete",
+          "date": "2026-12-22",
+          "est": true
+        }
+      ]
+    },
+    {
+      "id": "expanded-news",
+      "name": "Expanded news sources",
+      "description": "A wider set of public news sources for buying-window signals, still limited to sources we can cite and fact-check.",
+      "status": "Queued",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-20",
+        "est": true
+      }
+    },
+    {
+      "id": "weekly-scans",
+      "name": "Weekly website scans",
+      "description": "A weekly login-page scan of institution websites to keep digital banking providers current and to catch public platform changes.",
+      "status": "Live",
+      "cadence": "Weekly",
+      "showcase": null,
+      "full": null
+    },
+    {
+      "id": "call-reports-q3",
+      "name": "Quarterly call report refresh (Q3 2026 data)",
+      "description": "Updating institution asset sizes from the FDIC and NCUA Q3 2026 call reports when that official data is published.",
+      "status": "Queued",
+      "showcase": null,
+      "full": {
+        "label": "As soon as FDIC and NCUA post Q3 2026 data, early December",
+        "est": true
+      }
+    },
+    {
+      "id": "help-page-vendors",
+      "name": "Help-page vendor detection",
+      "description": "Checking public help, FAQ, and support pages for vendor names, as a lead only, alongside the login-page scan used for digital banking.",
+      "status": "Queued",
+      "showcase": {
+        "date": "2026-11-20",
+        "est": true
+      },
+      "full": {
+        "date": "2026-11-23",
+        "est": true
+      }
+    },
+    {
+      "id": "contract-windows",
+      "name": "Estimated digital banking contract windows",
+      "description": "Estimated windows when a digital banking contract may come up for renewal or replacement, labeled as estimates and tied to public evidence.",
+      "status": "Queued",
+      "showcase": {
+        "date": "2026-11-23",
+        "est": true
+      },
+      "full": {
+        "date": "2026-11-25",
+        "est": true,
+        "note": "announcement-dated"
+      },
+      "milestones": [
+        {
+          "label": "App-store-dated expansion",
+          "date": "2026-12-01",
+          "est": true
+        }
+      ]
+    },
+    {
+      "id": "hiring-counts",
+      "name": "Tech and digital hiring counts",
+      "description": "Counts of public technology and digital job postings at institutions, as a research aid, not a claim about anyone's vendor or core.",
+      "status": "Queued",
+      "showcase": {
+        "date": "2026-11-24",
+        "est": true
+      },
+      "full": {
+        "date": "2026-11-30",
+        "est": true
+      }
+    },
+    {
+      "id": "careers-hiring",
+      "name": "Hiring activity from bank and credit union careers pages",
+      "description": "A view of hiring activity drawn from public careers pages at banks and credit unions.",
+      "status": "In progress",
+      "showcase": null,
+      "full": null,
+      "milestones": [
+        {
+          "label": "Build starts",
+          "date": "2026-11-19",
+          "est": true
+        },
+        {
+          "label": "Showcase",
+          "date": "2026-11-24",
+          "est": true
+        }
+      ]
+    },
+    {
+      "id": "branch-openings",
+      "name": "Branch openings on institution pages",
+      "description": "Branch openings listed on institution pages only, not on the board, starting on the showcase pages.",
+      "status": "Live",
+      "showcase": {
+        "date": "2026-11-18",
+        "est": false,
+        "note": "on showcase institution pages"
+      },
+      "full": null
+    }
+  ]
+}
