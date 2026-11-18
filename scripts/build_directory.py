@@ -446,11 +446,18 @@ def main():
     except (OSError, KeyError, ValueError) as ex:
         print("error:", ex, file=sys.stderr)
         return 1
+    # data/fi-pinned.txt: committed pages the build must not rewrite or delete (one-page previews)
+    pinned = set()
+    pp = os.path.join(ROOT, "data", "fi-pinned.txt")
+    if os.path.exists(pp):
+        pinned = {ln.strip() for ln in open(pp, encoding="utf-8") if ln.strip() and not ln.startswith("#")}
+    for rel in pinned:
+        files.pop(rel, None)
     existing = set()
     for d, _, fs in os.walk(os.path.join(ROOT, OUT)):
         for f in fs:
             existing.add(os.path.relpath(os.path.join(d, f), ROOT))
-    changed, removed = [], sorted(existing - set(files))
+    changed, removed = [], sorted(existing - set(files) - pinned)
     for rel, content in files.items():
         p = os.path.join(ROOT, rel)
         try:
