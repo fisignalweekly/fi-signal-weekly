@@ -96,6 +96,10 @@ if os.path.exists("data/social.csv"):
         if (r["fi_id"],r["network"]) in ids: print("social.csv: duplicate",r["fi_id"]);ok=False
         ids.add((r["fi_id"],r["network"]))
     print(f"social.csv: {len(soc)} LinkedIn links")
+if os.path.exists("data/showcase.txt"):
+    for ln in open("data/showcase.txt"):
+        i=ln.split("#")[0].strip()
+        if i and inst and i not in inst: print("showcase.txt: unknown fi_id",i);ok=False
 if os.path.exists("data/fi-pinned.txt"):
     for ln in open("data/fi-pinned.txt"):
         ln=ln.strip()

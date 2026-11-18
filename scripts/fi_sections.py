@@ -7,6 +7,22 @@ estimates anything; missing data renders as a plain "not reported" / "Not yet id
 import html, json, math, re
 
 e = lambda s: html.escape(str(s), quote=True)
+
+# Feature flags: a name listed here renders only on showcase pages (data/showcase.txt). Move a feature to all
+# pages by removing it from this set. Empty = every shipped feature is on every page.
+SHOWCASE_ONLY = set()
+
+
+def feature_on(name, is_showcase):
+    return is_showcase or name not in SHOWCASE_ONLY
+
+
+def load_showcase(root):
+    import os
+    p = os.path.join(root, "data", "showcase.txt")
+    if not os.path.exists(p):
+        return set()
+    return {ln.split("#")[0].strip() for ln in open(p, encoding="utf-8") if ln.split("#")[0].strip()}
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 METRICS = [("a", "Assets", "Total assets"), ("d", "Deposits", "Deposits"), ("l", "Loans", "Loans and leases")]
 QEND = {1: "March 31", 2: "June 30", 3: "September 30", 4: "December 31"}

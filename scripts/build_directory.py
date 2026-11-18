@@ -268,6 +268,7 @@ def build(files):
     prov = load_providers()
     crj = json.load(open(os.path.join(ROOT, "data", "callreports.json")))
     CR, QS, AS_OF = crj["fi"], crj["quarters"], crj["as_of"]
+    SHOWCASE = S.load_showcase(ROOT)  # showcase pages get SHOWCASE_ONLY features first (S.feature_on)
     social = {}
     sp = os.path.join(ROOT, "data", "social.csv")
     if os.path.exists(sp):
@@ -397,6 +398,7 @@ def build(files):
         if peer:
             peer.append(f'<span class="note">Call report assets, {S.qname(AS_OF)}. Rank 1 = largest or fastest growing.</span>')
         sim, sim_v = similar(x)
+        showcase = x["id"] in SHOWCASE  # pass to S.feature_on(<flag>, showcase) when a new section is showcase-only
         dl = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in facts)
         if rows:
             hist = (f'<h2>Signals <span class="count-pill">{len(rows)}</span></h2><ul class="sig-list">' + "".join(sig_li(r) for r in rows) + "</ul>")
