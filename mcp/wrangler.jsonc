@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fi-signal-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  // KV holds hashed API keys only. KV_NAMESPACE_ID is replaced with the real namespace id at deploy time (not committed).
+  "kv_namespaces": [{ "binding": "KEYS", "id": "KV_NAMESPACE_ID" }],
+  "ratelimits": [{ "name": "RATE_LIMITER", "namespace_id": "4201", "simple": { "limit": 60, "period": 60 } }],
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+  "vars": { "ALLOWED_HOSTNAMES": "" }
+}

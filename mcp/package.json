@@ -1,0 +1,33 @@
+{
+  "name": "fi-signal-mcp",
+  "version": "1.0.0",
+  "description": "Read-only MCP server over FI Signal Weekly published data",
+  "scripts": {
+    "build:data": "python3 scripts/build_bundle.py",
+    "build:data:main": "python3 scripts/build_bundle.py --ref origin/main",
+    "dev": "npm run build:data && wrangler dev --local",
+    "test": "npm run build:data && python3 test/test_bundle.py && vitest run && tsc -p .",
+    "e2e": "node test/e2e.mjs",
+    "deploy": "npm run build:data && wrangler deploy",
+    "keys": "node scripts/keys.mjs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261118.1",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1",
+    "wrangler": "^4.164.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "agents": "^0.33.0",
+    "zod": "^4.6.7"
+  },
+  "allowScripts": {
+    "workerd@1.20261117.1": true,
+    "esbuild@0.28.2": true
+  },
+  "private": true
+}

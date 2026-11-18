@@ -1,0 +1,6 @@
+node_modules/
+.wrangler/
+.seed/
+src/generated/
+.dev.vars
+wrangler.deploy.jsonc
