@@ -4,7 +4,7 @@
       "date": "2026-11-18",
       "id": "mobile-app-field",
       "title": "Mobile app shown separately from online banking",
-      "body": "Institution pages now show the mobile app on its own row. It comes from the Google Play app ID linked on the institution's website, only when that ID names the platform vendor (443 institutions so far). An app ID never fills online banking, which still comes only from login page scans or verified announcements.",
+      "body": "Institution pages now show the mobile app on its own row. It comes from the Google Play app ID linked on the institution's website, only when that ID sits in a platform vendor's own namespace or in one whose owner a public source confirms (1,264 institutions so far). An app ID never fills online banking, which still comes only from login page scans or verified announcements.",
       "link_href": "/fi/ma/unibank-for-savings/",
       "link_label": "UniBank for Savings"
     },

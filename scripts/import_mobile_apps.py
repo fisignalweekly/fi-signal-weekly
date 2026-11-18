@@ -6,8 +6,9 @@
 Input: the mobile app pass (outside this repo), which reads each FI's own public homepage and at most one linked
 mobile-banking page (robots.txt obeyed) and records the Google Play app IDs linked there. No app store is crawled.
 
-A row is written only when the app ID itself sits in a platform vendor's namespace (VENDOR_PREFIX below), e.g.
-com.jackhenry.<bank>. FI-branded IDs (com.<bank>.mobile) name no vendor and give no row. Card-control, mortgage and
+A row is written only when the app ID itself sits in a platform vendor's namespace, e.g. com.jackhenry.<bank>:
+either a namespace that spells the vendor's own name (VENDOR_PREFIX below) or a namespace whose owner a public source
+confirms (data/app_id_prefixes.csv, one row per prefix with its source URLs and check date). FI-branded IDs (com.<bank>.mobile) name no vendor and give no row. Card-control, mortgage and
 similar side apps are ignored. Banno code seen on the FI's site is mentioned in the note as supporting detail only.
 An app ID is evidence for the MOBILE APP ONLY: it never writes digital / digital_business (online banking) or core.
 Every other row in providers.csv is kept as is. Output is sorted, so re-running on the same data gives the same file.
@@ -20,8 +21,8 @@ COLS = ["fi_id", "field", "value", "status", "source_type", "source_url", "last_
 SRC = "App listing"
 DEFAULT_SCAN = "/workspace/fi-signal/mobile-scan/results.jsonl"
 # Only namespaces that spell out the platform vendor's own name.
-# The label matches the vendor names used for login page scans. IDs in unclear namespaces (e.g. com.ifs.*, com.fis.*,
-# com.cmcflex.*) are NOT mapped until a public source ties the namespace to a vendor.
+# The label matches the vendor names used for login page scans. Other namespaces are mapped only through
+# data/app_id_prefixes.csv, after a public source confirms who owns them. Anything else stays unmapped.
 VENDOR_PREFIX = [
     (r"com\.jackhenry\.", "Jack Henry"),
     (r"com\.homecu\.", "HomeCU"),
@@ -40,14 +41,38 @@ VENDOR_PREFIX = [
     (r"com\.q2e\.", "Q2"),
     (r"com\.fiserv\.", "Fiserv"),
 ]
+PREFIX_CSV = os.path.join(ROOT, "data", "app_id_prefixes.csv")
+# Apps inside a mapped namespace that are not the FI's mobile banking app (card controls etc.).
+SIDE_APP_IDS = {"com.fis.mobile.android"}   # FIS SecurLOCK Equip, a card-control app
 SIDE_APP = re.compile(r"card|valet|ondot|mortgage|zelle|wallet|reward|loan|insur|invest|wealth|bizcard|mrdc", re.I)
 PLAY = "https://play.google.com/store/apps/details?id="
 
 
+def load_prefixes(path=PREFIX_CSV):
+    """[(prefix, vendor, namespace wording)] from data/app_id_prefixes.csv; each row carries its public source URL."""
+    out = []
+    if os.path.exists(path):
+        with open(path, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if not r["source_url"].startswith("https://"):
+                    sys.exit(f"app_id_prefixes.csv: {r['prefix']} has no source URL")
+                out.append((r["prefix"], r["vendor"], r["namespace"]))
+    return out
+
+
+PREFIXES = load_prefixes()
+
+
 def vendor_of(app_id):
+    """(vendor, namespace wording for the note) or None."""
+    if app_id in SIDE_APP_IDS:
+        return None
     for pat, v in VENDOR_PREFIX:
         if re.match(pat, app_id, re.I):
-            return v
+            return v, f"{v.split(' (')[0]}'s app namespace"
+    for pre, v, ns in PREFIXES:
+        if app_id.lower().startswith(pre.lower()):
+            return v, ns
     return None
 
 
@@ -57,20 +82,20 @@ def mobile_rows(path):
         r = json.loads(line)
         pages = r.get("pages") or []
         banno = any(p.get("banno") for p in pages)
-        found = collections.OrderedDict()   # vendor -> (app_id, page host)
+        found = collections.OrderedDict()   # vendor -> (app_id, page host, namespace wording)
         for p in pages:
             for a in p.get("play", []):
-                v = vendor_of(a)
-                if v and not SIDE_APP.search(a.split(".", 2)[-1]) and v not in found:
-                    found[v] = (a, urllib.parse.urlparse(p["url"]).netloc)
+                m = vendor_of(a)
+                if m and not SIDE_APP.search(a.split(".", 2)[-1]) and m[0] not in found:
+                    found[m[0]] = (a, urllib.parse.urlparse(p["url"]).netloc, m[1])
         if not found:
             continue
         vals, notes = [], []
-        for v, (a, url) in found.items():
+        for v, (a, url, ns) in found.items():
             if v == "Jack Henry" and banno:
                 v = "Jack Henry (Banno)"
             vals.append(v)
-            notes.append(f"Android app ID {a} (in {v.split(' (')[0]}'s app namespace), linked from {url}")
+            notes.append(f"Android app ID {a} (in {ns}), linked from {url}")
         note = "; ".join(notes)
         if banno:
             note += ". The website also carries Banno code"
