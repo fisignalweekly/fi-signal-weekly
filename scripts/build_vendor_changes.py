@@ -53,22 +53,12 @@ def render_entry(d: dict) -> str:
     )
     parts.append(f"<h2>{title}</h2>")
     parts.append("</header>")
-    # Body is written to stay close to the public notice without implying a core.
-    parts.append(
-        "<p>On July 31, 2025, Banno published a statement that Jack Henry will retire "
-        "NetTeller Online Banking, NetTeller Small Business Cash Management, and "
-        "NetTeller Commercial Cash Management on "
-        f'<time datetime="{e(effective)}">{e(fmt_long(effective))}</time>. '
-        "On that date, the notice says, access to NetTeller front-end services will be "
-        "turned off and existing NetTeller and NetTeller Cash Management contracts will "
-        f'not be renewed. <a href="{url}" rel="noopener">Read the original notice</a>.</p>'
-    )
-    parts.append(
-        "<p>The institutions below showed a NetTeller login host on a "
-        "<strong>login-page scan dated November 17, 2026</strong>. They may be affected. "
-        "A NetTeller login is not evidence of which core system an institution uses, "
-        "and this list does not identify anyone’s core.</p>"
-    )
+    # Entry body comes from the JSON so later notices are not hardcoded here.
+    if d.get("summary_html"):
+        parts.append(d["summary_html"])
+    elif d.get("summary"):
+        parts.append("<p>" + e(d["summary"]) + f' <a href="{url}" rel="noopener">Read the original notice</a>.</p>')
+
     for g in d.get("groups") or []:
         fis = g.get("fis") or []
         parts.append(f'<section id="{e(d["id"])}-{e(g["id"])}">')
