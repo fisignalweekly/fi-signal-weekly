@@ -49,13 +49,16 @@
   // everything else => bank. Cross-charter deals (a credit union buying a bank) count as credit union,
   // because the credit union is named in the row.
   function charter(r){if(r.charter_type==="bank"||r.charter_type==="cu")return r.charter_type;return /credit union/i.test(r.institution)||/\b[A-Z]*CU\b/.test(r.institution)?"cu":"bank"}
-  var FILTERS=["f-type","f-state","f-charter","f-assets","f-from","f-to","f-q"];
+  var FILTERS=["f-type","f-state","f-charter","f-assets","f-from","f-to","f-q","f-tz","f-assets-min"];
   function selStates(){var v=$("f-state").value;return v?v.split(","):[]}
   function filtered(){
     var t=$("f-type").value,s=selStates(),c=$("f-charter").value,sz=$("f-assets").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
+    var tz=$("f-tz").value,amin=parseInt($("f-assets-min").value,10);
     return all.filter(function(r){
       return (!t||r.type===t)&&(!s.length||s.indexOf(r.state)>-1)&&(!c||charter(r)===c)&&inTier(r,sz)&&(!from||r.date>=from)&&(!to||r.date<=to)&&
-        (!q||(r.institution+" "+r.summary).toLowerCase().indexOf(q)>-1);
+        (!q||(r.institution+" "+r.summary).toLowerCase().indexOf(q)>-1)&&
+        (!tz||(window.FI_TERRITORY&&r.fi_id&&FI_TERRITORY.ids[r.fi_id]))&&
+        (!amin||(assetsUsd(r)!=null&&assetsUsd(r)>=amin));
     }).sort(function(a,b){return a.date<b.date?1:-1});
   }
   // Row links never carry the current view: /#t217 always shows that row.
@@ -63,8 +66,9 @@
 
   // ---- Saved territory views: every filter lives in the query string (plain URLs, no accounts, no tracking) ----
   // ?type=merger&state=MI,OH&charter=cu&assets=1b-10b&from=2026-10-01&to=2026-11-30&q=core
+  // ?charter=bank&tz=et&assets_min=1400000000  (tz=et = Eastern Time HQ banks; see /territory/)
   // Opening such a URL restores the filters. A #tNNN anchor still wins: it clears filters that hide its row.
-  var PARAMS=[["type","f-type"],["state","f-state"],["charter","f-charter"],["assets","f-assets"],["from","f-from"],["to","f-to"],["q","f-q"]];
+  var PARAMS=[["type","f-type"],["state","f-state"],["charter","f-charter"],["assets","f-assets"],["from","f-from"],["to","f-to"],["q","f-q"],["tz","f-tz"],["assets_min","f-assets-min"]];
   function viewQuery(){
     return PARAMS.map(function(p){var v=$(p[1]).value.trim();return v?p[0]+"="+encodeURIComponent(v).replace(/%2C/g,","):""}).filter(Boolean).join("&");
   }
@@ -82,6 +86,10 @@
     ["from","to"].forEach(function(k){var v=get(k);$("f-"+k).value=/^\d{4}-\d{2}-\d{2}$/.test(v)?v:""});
     $("f-q").value=get("q").slice(0,100);
     setStates(get("state").toUpperCase().split(/[\s,]+/).filter(function(x){return USPS.indexOf(x)>-1}));
+    var tz=get("tz").toLowerCase();
+    $("f-tz").value=tz==="et"?"et":"";
+    var amin=get("assets_min");
+    $("f-assets-min").value=/^\d{1,15}$/.test(amin)?amin:"";
   }
   function clearFilters(){FILTERS.forEach(function(id){$(id).value=""});setStates([])}
 

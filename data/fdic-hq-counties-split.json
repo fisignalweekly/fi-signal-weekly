@@ -1,0 +1,2804 @@
+[
+{
+"cert": "18930",
+"county": "Palm Beach",
+"city": "Belle Glade",
+"state": "FL"
+},
+{
+"cert": "58030",
+"county": "Palm Beach",
+"city": "Boca Raton",
+"state": "FL"
+},
+{
+"cert": "58113",
+"county": "Pinellas",
+"city": "Clearwater",
+"state": "FL"
+},
+{
+"cert": "59265",
+"county": "Pinellas",
+"city": "Clearwater",
+"state": "FL"
+},
+{
+"cert": "59377",
+"county": "Pinellas",
+"city": "Clearwater",
+"state": "FL"
+},
+{
+"cert": "9620",
+"county": "Hendry",
+"city": "Clewiston",
+"state": "FL"
+},
+{
+"cert": "21265",
+"county": "Miami-Dade",
+"city": "Coral Gables",
+"state": "FL"
+},
+{
+"cert": "22953",
+"county": "Miami-Dade",
+"city": "Coral Gables",
+"state": "FL"
+},
+{
+"cert": "26442",
+"county": "Miami-Dade",
+"city": "Coral Gables",
+"state": "FL"
+},
+{
+"cert": "59354",
+"county": "Miami-Dade",
+"city": "Coral Gables",
+"state": "FL"
+},
+{
+"cert": "26829",
+"county": "Pasco",
+"city": "Dade City",
+"state": "FL"
+},
+{
+"cert": "58537",
+"county": "Pasco",
+"city": "Dade City",
+"state": "FL"
+},
+{
+"cert": "33026",
+"county": "Volusia",
+"city": "Deland",
+"state": "FL"
+},
+{
+"cert": "57598",
+"county": "Volusia",
+"city": "Deland",
+"state": "FL"
+},
+{
+"cert": "57369",
+"county": "Miami-Dade",
+"city": "Doral",
+"state": "FL"
+},
+{
+"cert": "35430",
+"county": "Broward",
+"city": "Fort Lauderdale",
+"state": "FL"
+},
+{
+"cert": "59278",
+"county": "Broward",
+"city": "Fort Lauderdale",
+"state": "FL"
+},
+{
+"cert": "59306",
+"county": "Broward",
+"city": "Fort Lauderdale",
+"state": "FL"
+},
+{
+"cert": "34489",
+"county": "Lee",
+"city": "Fort Myers",
+"state": "FL"
+},
+{
+"cert": "59281",
+"county": "Lee",
+"city": "Fort Myers",
+"state": "FL"
+},
+{
+"cert": "17580",
+"county": "Okaloosa",
+"city": "Fort Walton Beach",
+"state": "FL"
+},
+{
+"cert": "5673",
+"county": "Polk",
+"city": "Frostproof",
+"state": "FL"
+},
+{
+"cert": "21692",
+"county": "Jackson",
+"city": "Graceville",
+"state": "FL"
+},
+{
+"cert": "33565",
+"county": "Broward",
+"city": "Hallandale",
+"state": "FL"
+},
+{
+"cert": "33959",
+"county": "Broward",
+"city": "Hollywood",
+"state": "FL"
+},
+{
+"cert": "5676",
+"county": "Citrus",
+"city": "Inverness",
+"state": "FL"
+},
+{
+"cert": "26323",
+"county": "Duval",
+"city": "Jacksonville",
+"state": "FL"
+},
+{
+"cert": "34775",
+"county": "Duval",
+"city": "Jacksonville",
+"state": "FL"
+},
+{
+"cert": "17509",
+"county": "Monroe",
+"city": "Key West",
+"state": "FL"
+},
+{
+"cert": "59181",
+"county": "Monroe",
+"city": "Key West",
+"state": "FL"
+},
+{
+"cert": "31313",
+"county": "Columbia",
+"city": "Lake City",
+"state": "FL"
+},
+{
+"cert": "58479",
+"county": "Polk",
+"city": "Lakeland",
+"state": "FL"
+},
+{
+"cert": "35056",
+"county": "Madison",
+"city": "Madison",
+"state": "FL"
+},
+{
+"cert": "31390",
+"county": "Orange",
+"city": "Maitland",
+"state": "FL"
+},
+{
+"cert": "58644",
+"county": "Orange",
+"city": "Maitland",
+"state": "FL"
+},
+{
+"cert": "16396",
+"county": "Lafayette",
+"city": "Mayo",
+"state": "FL"
+},
+{
+"cert": "35506",
+"county": "Brevard",
+"city": "Melbourne",
+"state": "FL"
+},
+{
+"cert": "35212",
+"county": "Brevard",
+"city": "Merritt Island",
+"state": "FL"
+},
+{
+"cert": "18734",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "20026",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "20234",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "24156",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "24823",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "25258",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "26299",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "26725",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "31823",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "32718",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "34643",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "57083",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "57815",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "8018",
+"county": "Miami-Dade",
+"city": "Miami",
+"state": "FL"
+},
+{
+"cert": "58979",
+"county": "Miami-Dade",
+"city": "Miami Lakes",
+"state": "FL"
+},
+{
+"cert": "3579",
+"county": "Lake",
+"city": "Mount Dora",
+"state": "FL"
+},
+{
+"cert": "26687",
+"county": "Okaloosa",
+"city": "Niceville",
+"state": "FL"
+},
+{
+"cert": "59358",
+"county": "Marion",
+"city": "Ocala",
+"state": "FL"
+},
+{
+"cert": "34908",
+"county": "Orange",
+"city": "Orlando",
+"state": "FL"
+},
+{
+"cert": "58029",
+"county": "Orange",
+"city": "Orlando",
+"state": "FL"
+},
+{
+"cert": "57931",
+"county": "Palm Beach",
+"city": "Palm Beach Gardens",
+"state": "FL"
+},
+{
+"cert": "58692",
+"county": "Flagler",
+"city": "Palm Coast",
+"state": "FL"
+},
+{
+"cert": "17193",
+"county": "Escambia",
+"city": "Pensacola",
+"state": "FL"
+},
+{
+"cert": "21284",
+"county": "Escambia",
+"city": "Pensacola",
+"state": "FL"
+},
+{
+"cert": "33893",
+"county": "Pinellas",
+"city": "Saint Petersburg",
+"state": "FL"
+},
+{
+"cert": "34997",
+"county": "Pinellas",
+"city": "Saint Petersburg",
+"state": "FL"
+},
+{
+"cert": "59257",
+"county": "Pinellas",
+"city": "Saint Petersburg",
+"state": "FL"
+},
+{
+"cert": "57425",
+"county": "Lee",
+"city": "Sanibel",
+"state": "FL"
+},
+{
+"cert": "59140",
+"county": "Sarasota",
+"city": "Sarasota",
+"state": "FL"
+},
+{
+"cert": "17734",
+"county": "Bradford",
+"city": "Starke",
+"state": "FL"
+},
+{
+"cert": "131",
+"county": "Martin",
+"city": "Stuart",
+"state": "FL"
+},
+{
+"cert": "9622",
+"county": "Leon",
+"city": "Tallahassee",
+"state": "FL"
+},
+{
+"cert": "21031",
+"county": "Hillsborough",
+"city": "Tampa",
+"state": "FL"
+},
+{
+"cert": "34535",
+"county": "Hillsborough",
+"city": "Tampa",
+"state": "FL"
+},
+{
+"cert": "35558",
+"county": "Hillsborough",
+"city": "Tampa",
+"state": "FL"
+},
+{
+"cert": "57470",
+"county": "Hillsborough",
+"city": "Tampa",
+"state": "FL"
+},
+{
+"cert": "58377",
+"county": "Hillsborough",
+"city": "Tampa",
+"state": "FL"
+},
+{
+"cert": "15465",
+"county": "Lake",
+"city": "Umatilla",
+"state": "FL"
+},
+{
+"cert": "18136",
+"county": "Hardee",
+"city": "Wauchula",
+"state": "FL"
+},
+{
+"cert": "8021",
+"county": "Hardee",
+"city": "Wauchula",
+"state": "FL"
+},
+{
+"cert": "33555",
+"county": "Polk",
+"city": "Winter Haven",
+"state": "FL"
+},
+{
+"cert": "57429",
+"county": "Orange",
+"city": "Winter Park",
+"state": "FL"
+},
+{
+"cert": "59381",
+"county": "Orange",
+"city": "Winter Park",
+"state": "FL"
+},
+{
+"cert": "28769",
+"county": "Steuben",
+"city": "Angola",
+"state": "IN"
+},
+{
+"cert": "14883",
+"county": "Noble",
+"city": "Avilla",
+"state": "IN"
+},
+{
+"cert": "8035",
+"county": "Franklin",
+"city": "Bath",
+"state": "IN"
+},
+{
+"cert": "29024",
+"county": "Lawrence",
+"city": "Bedford",
+"state": "IN"
+},
+{
+"cert": "9288",
+"county": "Adams",
+"city": "Berne",
+"state": "IN"
+},
+{
+"cert": "28478",
+"county": "Greene",
+"city": "Bloomfield",
+"state": "IN"
+},
+{
+"cert": "13113",
+"county": "Warrick",
+"city": "Boonville",
+"state": "IN"
+},
+{
+"cert": "30128",
+"county": "Warrick",
+"city": "Boonville",
+"state": "IN"
+},
+{
+"cert": "1843",
+"county": "Benton",
+"city": "Boswell",
+"state": "IN"
+},
+{
+"cert": "4318",
+"county": "Clay",
+"city": "Brazil",
+"state": "IN"
+},
+{
+"cert": "8067",
+"county": "Newton",
+"city": "Brook",
+"state": "IN"
+},
+{
+"cert": "4319",
+"county": "Franklin",
+"city": "Brookville",
+"state": "IN"
+},
+{
+"cert": "13111",
+"county": "Hendricks",
+"city": "Brownsburg",
+"state": "IN"
+},
+{
+"cert": "1833",
+"county": "Hendricks",
+"city": "Brownsburg",
+"state": "IN"
+},
+{
+"cert": "5779",
+"county": "Jackson",
+"city": "Brownstown",
+"state": "IN"
+},
+{
+"cert": "8056",
+"county": "Hamilton",
+"city": "Carmel",
+"state": "IN"
+},
+{
+"cert": "4324",
+"county": "Putnam",
+"city": "Cloverdale",
+"state": "IN"
+},
+{
+"cert": "29933",
+"county": "Fayette",
+"city": "Connersville",
+"state": "IN"
+},
+{
+"cert": "12839",
+"county": "Miami",
+"city": "Converse",
+"state": "IN"
+},
+{
+"cert": "31223",
+"county": "Harrison",
+"city": "Corydon",
+"state": "IN"
+},
+{
+"cert": "5768",
+"county": "Fountain",
+"city": "Covington",
+"state": "IN"
+},
+{
+"cert": "15566",
+"county": "Montgomery",
+"city": "Crawfordsville",
+"state": "IN"
+},
+{
+"cert": "15883",
+"county": "Jasper",
+"city": "Demotte",
+"state": "IN"
+},
+{
+"cert": "14113",
+"county": "Monroe",
+"city": "Ellettsville",
+"state": "IN"
+},
+{
+"cert": "29056",
+"county": "Vanderburgh",
+"city": "Evansville",
+"state": "IN"
+},
+{
+"cert": "29566",
+"county": "Vanderburgh",
+"city": "Evansville",
+"state": "IN"
+},
+{
+"cert": "3832",
+"county": "Vanderburgh",
+"city": "Evansville",
+"state": "IN"
+},
+{
+"cert": "1829",
+"county": "Grant",
+"city": "Fairmount",
+"state": "IN"
+},
+{
+"cert": "34607",
+"county": "Hamilton",
+"city": "Fishers",
+"state": "IN"
+},
+{
+"cert": "27235",
+"county": "Allen",
+"city": "Fort Wayne",
+"state": "IN"
+},
+{
+"cert": "1821",
+"county": "Benton",
+"city": "Fowler",
+"state": "IN"
+},
+{
+"cert": "197",
+"county": "Pulaski",
+"city": "Francesville",
+"state": "IN"
+},
+{
+"cert": "28533",
+"county": "Clinton",
+"city": "Frankfort",
+"state": "IN"
+},
+{
+"cert": "27742",
+"county": "Johnson",
+"city": "Franklin",
+"state": "IN"
+},
+{
+"cert": "4419",
+"county": "Orange",
+"city": "French Lick",
+"state": "IN"
+},
+{
+"cert": "13130",
+"county": "Ripley",
+"city": "Friendship",
+"state": "IN"
+},
+{
+"cert": "8074",
+"county": "Dekalb",
+"city": "Garrett",
+"state": "IN"
+},
+{
+"cert": "57109",
+"county": "Elkhart",
+"city": "Goshen",
+"state": "IN"
+},
+{
+"cert": "15632",
+"county": "Hancock",
+"city": "Greenfield",
+"state": "IN"
+},
+{
+"cert": "30058",
+"county": "Decatur",
+"city": "Greensburg",
+"state": "IN"
+},
+{
+"cert": "35221",
+"county": "Dubois",
+"city": "Huntingburg",
+"state": "IN"
+},
+{
+"cert": "1847",
+"county": "Huntington",
+"city": "Huntington",
+"state": "IN"
+},
+{
+"cert": "29690",
+"county": "Huntington",
+"city": "Huntington",
+"state": "IN"
+},
+{
+"cert": "33860",
+"county": "Marion",
+"city": "Indianapolis",
+"state": "IN"
+},
+{
+"cert": "59365",
+"county": "Marion",
+"city": "Indianapolis",
+"state": "IN"
+},
+{
+"cert": "17393",
+"county": "Dubois",
+"city": "Jasper",
+"state": "IN"
+},
+{
+"cert": "16757",
+"county": "Noble",
+"city": "Kendallville",
+"state": "IN"
+},
+{
+"cert": "13843",
+"county": "Newton",
+"city": "Kentland",
+"state": "IN"
+},
+{
+"cert": "57511",
+"county": "Howard",
+"city": "Kokomo",
+"state": "IN"
+},
+{
+"cert": "14578",
+"county": "Lagrange",
+"city": "Lagrange",
+"state": "IN"
+},
+{
+"cert": "13801",
+"county": "Dekalb",
+"city": "Laotto",
+"state": "IN"
+},
+{
+"cert": "28894",
+"county": "Cass",
+"city": "Logansport",
+"state": "IN"
+},
+{
+"cert": "29907",
+"county": "Cass",
+"city": "Logansport",
+"state": "IN"
+},
+{
+"cert": "4398",
+"county": "Warrick",
+"city": "Lynnville",
+"state": "IN"
+},
+{
+"cert": "29881",
+"county": "Morgan",
+"city": "Martinsville",
+"state": "IN"
+},
+{
+"cert": "4360",
+"county": "Laporte",
+"city": "Michigan City",
+"state": "IN"
+},
+{
+"cert": "8745",
+"county": "Elkhart",
+"city": "Middlebury",
+"state": "IN"
+},
+{
+"cert": "4364",
+"county": "Pulaski",
+"city": "Monterey",
+"state": "IN"
+},
+{
+"cert": "30065",
+"county": "White",
+"city": "Monticello",
+"state": "IN"
+},
+{
+"cert": "9647",
+"county": "Morgan",
+"city": "Mooresville",
+"state": "IN"
+},
+{
+"cert": "4365",
+"county": "Delaware",
+"city": "Muncie",
+"state": "IN"
+},
+{
+"cert": "29523",
+"county": "Lake",
+"city": "Munster",
+"state": "IN"
+},
+{
+"cert": "10101",
+"county": "Ripley",
+"city": "Napoleon",
+"state": "IN"
+},
+{
+"cert": "13107",
+"county": "Henry",
+"city": "New Castle",
+"state": "IN"
+},
+{
+"cert": "13305",
+"county": "Clark",
+"city": "New Washington",
+"state": "IN"
+},
+{
+"cert": "8063",
+"county": "Hendricks",
+"city": "North Salem",
+"state": "IN"
+},
+{
+"cert": "12836",
+"county": "Porter",
+"city": "Porter",
+"state": "IN"
+},
+{
+"cert": "1849",
+"county": "Wayne",
+"city": "Richmond",
+"state": "IN"
+},
+{
+"cert": "210",
+"county": "Putnam",
+"city": "Roachdale",
+"state": "IN"
+},
+{
+"cert": "31516",
+"county": "Fulton",
+"city": "Rochester",
+"state": "IN"
+},
+{
+"cert": "1839",
+"county": "Cass",
+"city": "Royal Center",
+"state": "IN"
+},
+{
+"cert": "29878",
+"county": "Lake",
+"city": "Saint John",
+"state": "IN"
+},
+{
+"cert": "5786",
+"county": "Spencer",
+"city": "Santa Claus",
+"state": "IN"
+},
+{
+"cert": "29910",
+"county": "Scott",
+"city": "Scottsburg",
+"state": "IN"
+},
+{
+"cert": "13109",
+"county": "Jackson",
+"city": "Seymour",
+"state": "IN"
+},
+{
+"cert": "9087",
+"county": "St. Joseph",
+"city": "South Bend",
+"state": "IN"
+},
+{
+"cert": "13112",
+"county": "Owen",
+"city": "Spencer",
+"state": "IN"
+},
+{
+"cert": "15687",
+"county": "Grant",
+"city": "Swayzee",
+"state": "IN"
+},
+{
+"cert": "17736",
+"county": "Vigo",
+"city": "Terre Haute",
+"state": "IN"
+},
+{
+"cert": "4382",
+"county": "Vigo",
+"city": "Terre Haute",
+"state": "IN"
+},
+{
+"cert": "14225",
+"county": "Boone",
+"city": "Thorntown",
+"state": "IN"
+},
+{
+"cert": "15532",
+"county": "Fountain",
+"city": "Veedersburg",
+"state": "IN"
+},
+{
+"cert": "29839",
+"county": "Wabash",
+"city": "Wabash",
+"state": "IN"
+},
+{
+"cert": "13102",
+"county": "Kosciusko",
+"city": "Warsaw",
+"state": "IN"
+},
+{
+"cert": "29710",
+"county": "Daviess",
+"city": "Washington",
+"state": "IN"
+},
+{
+"cert": "12854",
+"county": "Lake",
+"city": "Whiting",
+"state": "IN"
+},
+{
+"cert": "16201",
+"county": "White",
+"city": "Wolcott",
+"state": "IN"
+},
+{
+"cert": "16852",
+"county": "Carlisle",
+"city": "Arlington",
+"state": "KY"
+},
+{
+"cert": "284",
+"county": "Logan",
+"city": "Auburn",
+"state": "KY"
+},
+{
+"cert": "15703",
+"county": "Nelson",
+"city": "Bardstown",
+"state": "KY"
+},
+{
+"cert": "17040",
+"county": "Nelson",
+"city": "Bardstown",
+"state": "KY"
+},
+{
+"cert": "11355",
+"county": "Trimble",
+"city": "Bedford",
+"state": "KY"
+},
+{
+"cert": "287",
+"county": "Marshall",
+"city": "Benton",
+"state": "KY"
+},
+{
+"cert": "5838",
+"county": "Owsley",
+"city": "Booneville",
+"state": "KY"
+},
+{
+"cert": "35568",
+"county": "Warren",
+"city": "Bowling Green",
+"state": "KY"
+},
+{
+"cert": "25173",
+"county": "Meade",
+"city": "Brandenburg",
+"state": "KY"
+},
+{
+"cert": "2682",
+"county": "Bracken",
+"city": "Brooksville",
+"state": "KY"
+},
+{
+"cert": "296",
+"county": "Edmonson",
+"city": "Brownsville",
+"state": "KY"
+},
+{
+"cert": "2733",
+"county": "Larue",
+"city": "Buffalo",
+"state": "KY"
+},
+{
+"cert": "35442",
+"county": "Cumberland",
+"city": "Burkesville",
+"state": "KY"
+},
+{
+"cert": "33119",
+"county": "Boone",
+"city": "Burlington",
+"state": "KY"
+},
+{
+"cert": "20239",
+"county": "Trigg",
+"city": "Cadiz",
+"state": "KY"
+},
+{
+"cert": "15249",
+"county": "Henry",
+"city": "Campbellsburg",
+"state": "KY"
+},
+{
+"cert": "15590",
+"county": "Taylor",
+"city": "Campbellsville",
+"state": "KY"
+},
+{
+"cert": "15675",
+"county": "Taylor",
+"city": "Campbellsville",
+"state": "KY"
+},
+{
+"cert": "288",
+"county": "Wolfe",
+"city": "Campton",
+"state": "KY"
+},
+{
+"cert": "2735",
+"county": "Carroll",
+"city": "Carrollton",
+"state": "KY"
+},
+{
+"cert": "29774",
+"county": "Carroll",
+"city": "Carrollton",
+"state": "KY"
+},
+{
+"cert": "267",
+"county": "Boyd",
+"city": "Catlettsburg",
+"state": "KY"
+},
+{
+"cert": "8774",
+"county": "Hardin",
+"city": "Cecilia",
+"state": "KY"
+},
+{
+"cert": "13167",
+"county": "Grayson",
+"city": "Clarkson",
+"state": "KY"
+},
+{
+"cert": "14735",
+"county": "Hickman",
+"city": "Clinton",
+"state": "KY"
+},
+{
+"cert": "304",
+"county": "Hickman",
+"city": "Clinton",
+"state": "KY"
+},
+{
+"cert": "57867",
+"county": "Adair",
+"city": "Columbia",
+"state": "KY"
+},
+{
+"cert": "8775",
+"county": "Adair",
+"city": "Columbia",
+"state": "KY"
+},
+{
+"cert": "35455",
+"county": "Whitley",
+"city": "Corbin",
+"state": "KY"
+},
+{
+"cert": "27841",
+"county": "Kenton",
+"city": "Covington",
+"state": "KY"
+},
+{
+"cert": "2740",
+"county": "Boyle",
+"city": "Danville",
+"state": "KY"
+},
+{
+"cert": "8120",
+"county": "Hardin",
+"city": "Elizabethtown",
+"state": "KY"
+},
+{
+"cert": "12162",
+"county": "Todd",
+"city": "Elkton",
+"state": "KY"
+},
+{
+"cert": "16970",
+"county": "Fleming",
+"city": "Flemingsburg",
+"state": "KY"
+},
+{
+"cert": "27219",
+"county": "Franklin",
+"city": "Frankfort",
+"state": "KY"
+},
+{
+"cert": "29937",
+"county": "Franklin",
+"city": "Frankfort",
+"state": "KY"
+},
+{
+"cert": "17937",
+"county": "Simpson",
+"city": "Franklin",
+"state": "KY"
+},
+{
+"cert": "9669",
+"county": "Caldwell",
+"city": "Fredonia",
+"state": "KY"
+},
+{
+"cert": "5854",
+"county": "Barren",
+"city": "Glasgow",
+"state": "KY"
+},
+{
+"cert": "9678",
+"county": "Barren",
+"city": "Glasgow",
+"state": "KY"
+},
+{
+"cert": "10137",
+"county": "Carter",
+"city": "Grayson",
+"state": "KY"
+},
+{
+"cert": "2695",
+"county": "Carter",
+"city": "Grayson",
+"state": "KY"
+},
+{
+"cert": "8126",
+"county": "Ohio",
+"city": "Hartford",
+"state": "KY"
+},
+{
+"cert": "31197",
+"county": "Perry",
+"city": "Hazard",
+"state": "KY"
+},
+{
+"cert": "57869",
+"county": "Perry",
+"city": "Hazard",
+"state": "KY"
+},
+{
+"cert": "8117",
+"county": "Perry",
+"city": "Hazard",
+"state": "KY"
+},
+{
+"cert": "9306",
+"county": "Fulton",
+"city": "Hickman",
+"state": "KY"
+},
+{
+"cert": "289",
+"county": "Knott",
+"city": "Hindman",
+"state": "KY"
+},
+{
+"cert": "2750",
+"county": "Larue",
+"city": "Hodgenville",
+"state": "KY"
+},
+{
+"cert": "34254",
+"county": "Christian",
+"city": "Hopkinsville",
+"state": "KY"
+},
+{
+"cert": "9309",
+"county": "Christian",
+"city": "Hopkinsville",
+"state": "KY"
+},
+{
+"cert": "281",
+"county": "Leslie",
+"city": "Hyden",
+"state": "KY"
+},
+{
+"cert": "12149",
+"county": "Breckinridge",
+"city": "Irvington",
+"state": "KY"
+},
+{
+"cert": "18620",
+"county": "Breathitt",
+"city": "Jackson",
+"state": "KY"
+},
+{
+"cert": "8118",
+"county": "Russell",
+"city": "Jamestown",
+"state": "KY"
+},
+{
+"cert": "2700",
+"county": "Garrard",
+"city": "Lancaster",
+"state": "KY"
+},
+{
+"cert": "35450",
+"county": "Anderson",
+"city": "Lawrenceburg",
+"state": "KY"
+},
+{
+"cert": "1562",
+"county": "Marion",
+"city": "Lebanon",
+"state": "KY"
+},
+{
+"cert": "2753",
+"county": "Marion",
+"city": "Lebanon",
+"state": "KY"
+},
+{
+"cert": "2754",
+"county": "Marion",
+"city": "Lebanon",
+"state": "KY"
+},
+{
+"cert": "297",
+"county": "Logan",
+"city": "Lewisburg",
+"state": "KY"
+},
+{
+"cert": "15815",
+"county": "Fayette",
+"city": "Lexington",
+"state": "KY"
+},
+{
+"cert": "21161",
+"county": "Fayette",
+"city": "Lexington",
+"state": "KY"
+},
+{
+"cert": "32912",
+"county": "Fayette",
+"city": "Lexington",
+"state": "KY"
+},
+{
+"cert": "57415",
+"county": "Fayette",
+"city": "Lexington",
+"state": "KY"
+},
+{
+"cert": "58164",
+"county": "Fayette",
+"city": "Lexington",
+"state": "KY"
+},
+{
+"cert": "15708",
+"county": "Casey",
+"city": "Liberty",
+"state": "KY"
+},
+{
+"cert": "2691",
+"county": "Laurel",
+"city": "London",
+"state": "KY"
+},
+{
+"cert": "23627",
+"county": "Jefferson",
+"city": "Louisville",
+"state": "KY"
+},
+{
+"cert": "258",
+"county": "Jefferson",
+"city": "Louisville",
+"state": "KY"
+},
+{
+"cert": "26703",
+"county": "Jefferson",
+"city": "Louisville",
+"state": "KY"
+},
+{
+"cert": "58049",
+"county": "Jefferson",
+"city": "Louisville",
+"state": "KY"
+},
+{
+"cert": "31723",
+"county": "Kenton",
+"city": "Ludlow",
+"state": "KY"
+},
+{
+"cert": "34150",
+"county": "Hopkins",
+"city": "Madisonville",
+"state": "KY"
+},
+{
+"cert": "2708",
+"county": "Clay",
+"city": "Manchester",
+"state": "KY"
+},
+{
+"cert": "12869",
+"county": "Crittenden",
+"city": "Marion",
+"state": "KY"
+},
+{
+"cert": "16603",
+"county": "Crittenden",
+"city": "Marion",
+"state": "KY"
+},
+{
+"cert": "21247",
+"county": "Graves",
+"city": "Mayfield",
+"state": "KY"
+},
+{
+"cert": "2759",
+"county": "Graves",
+"city": "Mayfield",
+"state": "KY"
+},
+{
+"cert": "8121",
+"county": "Mason",
+"city": "Maysville",
+"state": "KY"
+},
+{
+"cert": "9315",
+"county": "Mason",
+"city": "Maysville",
+"state": "KY"
+},
+{
+"cert": "291",
+"county": "Jackson",
+"city": "Mc Kee",
+"state": "KY"
+},
+{
+"cert": "31236",
+"county": "Bell",
+"city": "Middlesboro",
+"state": "KY"
+},
+{
+"cert": "12163",
+"county": "Trimble",
+"city": "Milton",
+"state": "KY"
+},
+{
+"cert": "292",
+"county": "Wayne",
+"city": "Monticello",
+"state": "KY"
+},
+{
+"cert": "10520",
+"county": "Rowan",
+"city": "Morehead",
+"state": "KY"
+},
+{
+"cert": "31409",
+"county": "Rowan",
+"city": "Morehead",
+"state": "KY"
+},
+{
+"cert": "57301",
+"county": "Union",
+"city": "Morganfield",
+"state": "KY"
+},
+{
+"cert": "275",
+"county": "Butler",
+"city": "Morgantown",
+"state": "KY"
+},
+{
+"cert": "2711",
+"county": "Montgomery",
+"city": "Mount Sterling",
+"state": "KY"
+},
+{
+"cert": "262",
+"county": "Rockcastle",
+"city": "Mount Vernon",
+"state": "KY"
+},
+{
+"cert": "5847",
+"county": "Bullitt",
+"city": "Mount Washington",
+"state": "KY"
+},
+{
+"cert": "10145",
+"county": "Hart",
+"city": "Munfordville",
+"state": "KY"
+},
+{
+"cert": "35161",
+"county": "Calloway",
+"city": "Murray",
+"state": "KY"
+},
+{
+"cert": "14894",
+"county": "Jessamine",
+"city": "Nicholasville",
+"state": "KY"
+},
+{
+"cert": "59379",
+"county": "Daviess",
+"city": "Owensboro",
+"state": "KY"
+},
+{
+"cert": "8136",
+"county": "Daviess",
+"city": "Owensboro",
+"state": "KY"
+},
+{
+"cert": "9672",
+"county": "Bath",
+"city": "Owingsville",
+"state": "KY"
+},
+{
+"cert": "16664",
+"county": "Mccracken",
+"city": "Paducah",
+"state": "KY"
+},
+{
+"cert": "31090",
+"county": "Bourbon",
+"city": "Paris",
+"state": "KY"
+},
+{
+"cert": "22355",
+"county": "Pike",
+"city": "Pikeville",
+"state": "KY"
+},
+{
+"cert": "2720",
+"county": "Pike",
+"city": "Pikeville",
+"state": "KY"
+},
+{
+"cert": "2765",
+"county": "Caldwell",
+"city": "Princeton",
+"state": "KY"
+},
+{
+"cert": "12166",
+"county": "Hardin",
+"city": "Radcliff",
+"state": "KY"
+},
+{
+"cert": "20872",
+"county": "Madison",
+"city": "Richmond",
+"state": "KY"
+},
+{
+"cert": "8122",
+"county": "Greenup",
+"city": "Russell",
+"state": "KY"
+},
+{
+"cert": "2767",
+"county": "Russell",
+"city": "Russell Springs",
+"state": "KY"
+},
+{
+"cert": "8762",
+"county": "Mclean",
+"city": "Sacramento",
+"state": "KY"
+},
+{
+"cert": "2723",
+"county": "Magoffin",
+"city": "Salyersville",
+"state": "KY"
+},
+{
+"cert": "11358",
+"county": "Pulaski",
+"city": "Somerset",
+"state": "KY"
+},
+{
+"cert": "2725",
+"county": "Pulaski",
+"city": "Somerset",
+"state": "KY"
+},
+{
+"cert": "2738",
+"county": "Pulaski",
+"city": "Somerset",
+"state": "KY"
+},
+{
+"cert": "8772",
+"county": "Washington",
+"city": "Springfield",
+"state": "KY"
+},
+{
+"cert": "9313",
+"county": "Lincoln",
+"city": "Stanford",
+"state": "KY"
+},
+{
+"cert": "1566",
+"county": "Spencer",
+"city": "Taylorsville",
+"state": "KY"
+},
+{
+"cert": "21219",
+"county": "Morgan",
+"city": "West Liberty",
+"state": "KY"
+},
+{
+"cert": "9310",
+"county": "Morgan",
+"city": "West Liberty",
+"state": "KY"
+},
+{
+"cert": "303",
+"county": "Mccreary",
+"city": "Whitley City",
+"state": "KY"
+},
+{
+"cert": "8785",
+"county": "Clark",
+"city": "Winchester",
+"state": "KY"
+},
+{
+"cert": "28667",
+"county": "Calhoun",
+"city": "Albion",
+"state": "MI"
+},
+{
+"cert": "17622",
+"county": "Antrim",
+"city": "Alden",
+"state": "MI"
+},
+{
+"cert": "14587",
+"county": "Washtenaw",
+"city": "Ann Arbor",
+"state": "MI"
+},
+{
+"cert": "34120",
+"county": "Washtenaw",
+"city": "Ann Arbor",
+"state": "MI"
+},
+{
+"cert": "57097",
+"county": "Huron",
+"city": "Bad Axe",
+"state": "MI"
+},
+{
+"cert": "8172",
+"county": "Lake",
+"city": "Baldwin",
+"state": "MI"
+},
+{
+"cert": "15585",
+"county": "Huron",
+"city": "Bay Port",
+"state": "MI"
+},
+{
+"cert": "59305",
+"county": "Oakland",
+"city": "Birmingham",
+"state": "MI"
+},
+{
+"cert": "976",
+"county": "Lenawee",
+"city": "Blissfield",
+"state": "MI"
+},
+{
+"cert": "59138",
+"county": "Oakland",
+"city": "Bloomfield Township",
+"state": "MI"
+},
+{
+"cert": "1008",
+"county": "Jackson",
+"city": "Brooklyn",
+"state": "MI"
+},
+{
+"cert": "977",
+"county": "Sanilac",
+"city": "Brown City",
+"state": "MI"
+},
+{
+"cert": "33926",
+"county": "Charlevoix",
+"city": "Charlevoix",
+"state": "MI"
+},
+{
+"cert": "29846",
+"county": "Eaton",
+"city": "Charlotte",
+"state": "MI"
+},
+{
+"cert": "5018",
+"county": "Cheboygan",
+"city": "Cheboygan",
+"state": "MI"
+},
+{
+"cert": "14009",
+"county": "Washtenaw",
+"city": "Chelsea",
+"state": "MI"
+},
+{
+"cert": "5015",
+"county": "Branch",
+"city": "Coldwater",
+"state": "MI"
+},
+{
+"cert": "5019",
+"county": "Branch",
+"city": "Coldwater",
+"state": "MI"
+},
+{
+"cert": "982",
+"county": "Sanilac",
+"city": "Croswell",
+"state": "MI"
+},
+{
+"cert": "21761",
+"county": "Wayne",
+"city": "Dearborn",
+"state": "MI"
+},
+{
+"cert": "29874",
+"county": "Wayne",
+"city": "Dearborn",
+"state": "MI"
+},
+{
+"cert": "12893",
+"county": "Van Buren",
+"city": "Decatur",
+"state": "MI"
+},
+{
+"cert": "20179",
+"county": "Wayne",
+"city": "Detroit",
+"state": "MI"
+},
+{
+"cert": "17438",
+"county": "Ingham",
+"city": "East Lansing",
+"state": "MI"
+},
+{
+"cert": "11810",
+"county": "Iosco",
+"city": "East Tawas",
+"state": "MI"
+},
+{
+"cert": "15032",
+"county": "Macomb",
+"city": "Eastpointe",
+"state": "MI"
+},
+{
+"cert": "1090",
+"county": "Delta",
+"city": "Escanaba",
+"state": "MI"
+},
+{
+"cert": "8162",
+"county": "Benzie",
+"city": "Frankfort",
+"state": "MI"
+},
+{
+"cert": "1092",
+"county": "Delta",
+"city": "Gladstone",
+"state": "MI"
+},
+{
+"cert": "14276",
+"county": "Delta",
+"city": "Gladstone",
+"state": "MI"
+},
+{
+"cert": "11807",
+"county": "Kent",
+"city": "Grand Rapids",
+"state": "MI"
+},
+{
+"cert": "14722",
+"county": "Kent",
+"city": "Grand Rapids",
+"state": "MI"
+},
+{
+"cert": "27811",
+"county": "Kent",
+"city": "Grand Rapids",
+"state": "MI"
+},
+{
+"cert": "34598",
+"county": "Kent",
+"city": "Grand Rapids",
+"state": "MI"
+},
+{
+"cert": "34953",
+"county": "Kent",
+"city": "Grand Rapids",
+"state": "MI"
+},
+{
+"cert": "5058",
+"county": "Houghton",
+"city": "Hancock",
+"state": "MI"
+},
+{
+"cert": "13179",
+"county": "Emmet",
+"city": "Harbor Springs",
+"state": "MI"
+},
+{
+"cert": "11407",
+"county": "Barry",
+"city": "Hastings",
+"state": "MI"
+},
+{
+"cert": "14073",
+"county": "Hillsdale",
+"city": "Hillsdale",
+"state": "MI"
+},
+{
+"cert": "34618",
+"county": "Ottawa",
+"city": "Holland",
+"state": "MI"
+},
+{
+"cert": "8165",
+"county": "Benzie",
+"city": "Honor",
+"state": "MI"
+},
+{
+"cert": "22308",
+"county": "Ottawa",
+"city": "Hudsonville",
+"state": "MI"
+},
+{
+"cert": "5062",
+"county": "Dickinson",
+"city": "Iron Mountain",
+"state": "MI"
+},
+{
+"cert": "10928",
+"county": "Iron",
+"city": "Iron River",
+"state": "MI"
+},
+{
+"cert": "18584",
+"county": "Gratiot",
+"city": "Ithaca",
+"state": "MI"
+},
+{
+"cert": "58259",
+"county": "Kalamazoo",
+"city": "Kalamazoo",
+"state": "MI"
+},
+{
+"cert": "24199",
+"county": "Ingham",
+"city": "Lansing",
+"state": "MI"
+},
+{
+"cert": "14929",
+"county": "Mason",
+"city": "Ludington",
+"state": "MI"
+},
+{
+"cert": "13249",
+"county": "Schoolcraft",
+"city": "Manistique",
+"state": "MI"
+},
+{
+"cert": "999",
+"county": "Cass",
+"city": "Marcellus",
+"state": "MI"
+},
+{
+"cert": "5072",
+"county": "Marquette",
+"city": "Marquette",
+"state": "MI"
+},
+{
+"cert": "5033",
+"county": "Ingham",
+"city": "Mason",
+"state": "MI"
+},
+{
+"cert": "12899",
+"county": "Tuscola",
+"city": "Mayville",
+"state": "MI"
+},
+{
+"cert": "57990",
+"county": "Oakland",
+"city": "Milford",
+"state": "MI"
+},
+{
+"cert": "1005",
+"county": "Isabella",
+"city": "Mount Pleasant",
+"state": "MI"
+},
+{
+"cert": "15165",
+"county": "Alger",
+"city": "Munising",
+"state": "MI"
+},
+{
+"cert": "13784",
+"county": "Dickinson",
+"city": "Norway",
+"state": "MI"
+},
+{
+"cert": "9719",
+"county": "Oakland",
+"city": "Oxford",
+"state": "MI"
+},
+{
+"cert": "14513",
+"county": "Huron",
+"city": "Pigeon",
+"state": "MI"
+},
+{
+"cert": "14999",
+"county": "Huron",
+"city": "Port Austin",
+"state": "MI"
+},
+{
+"cert": "23126",
+"county": "Presque Isle",
+"city": "Rogers City",
+"state": "MI"
+},
+{
+"cert": "8183",
+"county": "Oakland",
+"city": "Royal Oak",
+"state": "MI"
+},
+{
+"cert": "57626",
+"county": "Saginaw",
+"city": "Saginaw",
+"state": "MI"
+},
+{
+"cert": "1095",
+"county": "Chippewa",
+"city": "Sault Sainte Marie",
+"state": "MI"
+},
+{
+"cert": "5892",
+"county": "Kalamazoo",
+"city": "Schoolcraft",
+"state": "MI"
+},
+{
+"cert": "10157",
+"county": "Oceana",
+"city": "Shelby",
+"state": "MI"
+},
+{
+"cert": "17232",
+"county": "Montcalm",
+"city": "Sidney",
+"state": "MI"
+},
+{
+"cert": "1014",
+"county": "Kent",
+"city": "Sparta",
+"state": "MI"
+},
+{
+"cert": "5074",
+"county": "Mackinac",
+"city": "St. Ignace",
+"state": "MI"
+},
+{
+"cert": "28593",
+"county": "St. Joseph",
+"city": "Sturgis",
+"state": "MI"
+},
+{
+"cert": "5076",
+"county": "Gogebic",
+"city": "Wakefield",
+"state": "MI"
+},
+{
+"cert": "23123",
+"county": "Shelby",
+"city": "Bartlett",
+"state": "TN"
+},
+{
+"cert": "1468",
+"county": "Crockett",
+"city": "Bells",
+"state": "TN"
+},
+{
+"cert": "21342",
+"county": "Williamson",
+"city": "Brentwood",
+"state": "TN"
+},
+{
+"cert": "9189",
+"county": "Tipton",
+"city": "Brighton",
+"state": "TN"
+},
+{
+"cert": "22020",
+"county": "Haywood",
+"city": "Brownsville",
+"state": "TN"
+},
+{
+"cert": "22756",
+"county": "Pickett",
+"city": "Byrdstown",
+"state": "TN"
+},
+{
+"cert": "9176",
+"county": "Benton",
+"city": "Camden",
+"state": "TN"
+},
+{
+"cert": "893",
+"county": "Smith",
+"city": "Carthage",
+"state": "TN"
+},
+{
+"cert": "10307",
+"county": "Hamilton",
+"city": "Chattanooga",
+"state": "TN"
+},
+{
+"cert": "35138",
+"county": "Hamilton",
+"city": "Chattanooga",
+"state": "TN"
+},
+{
+"cert": "59206",
+"county": "Hamilton",
+"city": "Chattanooga",
+"state": "TN"
+},
+{
+"cert": "34936",
+"county": "Montgomery",
+"city": "Clarksville",
+"state": "TN"
+},
+{
+"cert": "9489",
+"county": "Wayne",
+"city": "Clifton",
+"state": "TN"
+},
+{
+"cert": "29177",
+"county": "Shelby",
+"city": "Collierville",
+"state": "TN"
+},
+{
+"cert": "1487",
+"county": "Maury",
+"city": "Columbia",
+"state": "TN"
+},
+{
+"cert": "58220",
+"county": "Maury",
+"city": "Columbia",
+"state": "TN"
+},
+{
+"cert": "58079",
+"county": "Putnam",
+"city": "Cookeville",
+"state": "TN"
+},
+{
+"cert": "8432",
+"county": "Putnam",
+"city": "Cookeville",
+"state": "TN"
+},
+{
+"cert": "31232",
+"county": "Cumberland",
+"city": "Crossville",
+"state": "TN"
+},
+{
+"cert": "6101",
+"county": "Decatur",
+"city": "Decaturville",
+"state": "TN"
+},
+{
+"cert": "17327",
+"county": "Dickson",
+"city": "Dickson",
+"state": "TN"
+},
+{
+"cert": "29782",
+"county": "Dickson",
+"city": "Dickson",
+"state": "TN"
+},
+{
+"cert": "35417",
+"county": "Dickson",
+"city": "Dickson",
+"state": "TN"
+},
+{
+"cert": "1705",
+"county": "Sequatchie",
+"city": "Dunlap",
+"state": "TN"
+},
+{
+"cert": "20818",
+"county": "Sequatchie",
+"city": "Dunlap",
+"state": "TN"
+},
+{
+"cert": "14851",
+"county": "Carter",
+"city": "Elizabethton",
+"state": "TN"
+},
+{
+"cert": "29904",
+"county": "Carter",
+"city": "Elizabethton",
+"state": "TN"
+},
+{
+"cert": "57092",
+"county": "Houston",
+"city": "Erin",
+"state": "TN"
+},
+{
+"cert": "57348",
+"county": "Knox",
+"city": "Farragut",
+"state": "TN"
+},
+{
+"cert": "57396",
+"county": "Lincoln",
+"city": "Fayetteville",
+"state": "TN"
+},
+{
+"cert": "1484",
+"county": "Giles",
+"city": "Frankewing",
+"state": "TN"
+},
+{
+"cert": "6100",
+"county": "Williamson",
+"city": "Franklin",
+"state": "TN"
+},
+{
+"cert": "2379",
+"county": "Weakley",
+"city": "Gleason",
+"state": "TN"
+},
+{
+"cert": "22015",
+"county": "Greene",
+"city": "Greeneville",
+"state": "TN"
+},
+{
+"cert": "31198",
+"county": "Greene",
+"city": "Greeneville",
+"state": "TN"
+},
+{
+"cert": "57656",
+"county": "Greene",
+"city": "Greeneville",
+"state": "TN"
+},
+{
+"cert": "15255",
+"county": "Weakley",
+"city": "Greenfield",
+"state": "TN"
+},
+{
+"cert": "10315",
+"county": "Lauderdale",
+"city": "Halls",
+"state": "TN"
+},
+{
+"cert": "22835",
+"county": "Lauderdale",
+"city": "Halls",
+"state": "TN"
+},
+{
+"cert": "22354",
+"county": "Claiborne",
+"city": "Harrogate",
+"state": "TN"
+},
+{
+"cert": "2380",
+"county": "Carroll",
+"city": "Huntingdon",
+"state": "TN"
+},
+{
+"cert": "6088",
+"county": "Fentress",
+"city": "Jamestown",
+"state": "TN"
+},
+{
+"cert": "20100",
+"county": "Marion",
+"city": "Jasper",
+"state": "TN"
+},
+{
+"cert": "21874",
+"county": "Jefferson",
+"city": "Jefferson City",
+"state": "TN"
+},
+{
+"cert": "21573",
+"county": "Sullivan",
+"city": "Kingsport",
+"state": "TN"
+},
+{
+"cert": "1693",
+"county": "Knox",
+"city": "Knoxville",
+"state": "TN"
+},
+{
+"cert": "29683",
+"county": "Knox",
+"city": "Knoxville",
+"state": "TN"
+},
+{
+"cert": "4945",
+"county": "Campbell",
+"city": "La Follette",
+"state": "TN"
+},
+{
+"cert": "1711",
+"county": "Macon",
+"city": "Lafayette",
+"state": "TN"
+},
+{
+"cert": "6091",
+"county": "Macon",
+"city": "Lafayette",
+"state": "TN"
+},
+{
+"cert": "29186",
+"county": "Lawrence",
+"city": "Lawrenceburg",
+"state": "TN"
+},
+{
+"cert": "26962",
+"county": "Wilson",
+"city": "Lebanon",
+"state": "TN"
+},
+{
+"cert": "58208",
+"county": "Wilson",
+"city": "Lebanon",
+"state": "TN"
+},
+{
+"cert": "57465",
+"county": "Marshall",
+"city": "Lewisburg",
+"state": "TN"
+},
+{
+"cert": "31272",
+"county": "Henderson",
+"city": "Lexington",
+"state": "TN"
+},
+{
+"cert": "19502",
+"county": "Overton",
+"city": "Livingston",
+"state": "TN"
+},
+{
+"cert": "9179",
+"county": "Overton",
+"city": "Livingston",
+"state": "TN"
+},
+{
+"cert": "1713",
+"county": "Perry",
+"city": "Lobelville",
+"state": "TN"
+},
+{
+"cert": "31694",
+"county": "Monroe",
+"city": "Madisonville",
+"state": "TN"
+},
+{
+"cert": "34517",
+"county": "Monroe",
+"city": "Madisonville",
+"state": "TN"
+},
+{
+"cert": "1475",
+"county": "Coffee",
+"city": "Manchester",
+"state": "TN"
+},
+{
+"cert": "22090",
+"county": "Coffee",
+"city": "Manchester",
+"state": "TN"
+},
+{
+"cert": "21227",
+"county": "Blount",
+"city": "Maryville",
+"state": "TN"
+},
+{
+"cert": "13955",
+"county": "Carroll",
+"city": "Mc Kenzie",
+"state": "TN"
+},
+{
+"cert": "31146",
+"county": "Warren",
+"city": "Mcminnville",
+"state": "TN"
+},
+{
+"cert": "4952",
+"county": "Warren",
+"city": "Mcminnville",
+"state": "TN"
+},
+{
+"cert": "57632",
+"county": "Warren",
+"city": "Mcminnville",
+"state": "TN"
+},
+{
+"cert": "15205",
+"county": "Shelby",
+"city": "Memphis",
+"state": "TN"
+},
+{
+"cert": "31840",
+"county": "Shelby",
+"city": "Memphis",
+"state": "TN"
+},
+{
+"cert": "34728",
+"county": "Shelby",
+"city": "Memphis",
+"state": "TN"
+},
+{
+"cert": "4977",
+"county": "Shelby",
+"city": "Memphis",
+"state": "TN"
+},
+{
+"cert": "57874",
+"county": "Shelby",
+"city": "Memphis",
+"state": "TN"
+},
+{
+"cert": "33851",
+"county": "Gibson",
+"city": "Milan",
+"state": "TN"
+},
+{
+"cert": "57416",
+"county": "Shelby",
+"city": "Millington",
+"state": "TN"
+},
+{
+"cert": "34847",
+"county": "Wilson",
+"city": "Mount Juliet",
+"state": "TN"
+},
+{
+"cert": "13775",
+"county": "Johnson",
+"city": "Mountain City",
+"state": "TN"
+},
+{
+"cert": "10319",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "22451",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "35521",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "35583",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "57825",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "59112",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "8663",
+"county": "Davidson",
+"city": "Nashville",
+"state": "TN"
+},
+{
+"cert": "2391",
+"county": "Dyer",
+"city": "Newbern",
+"state": "TN"
+},
+{
+"cert": "29089",
+"county": "Cocke",
+"city": "Newport",
+"state": "TN"
+},
+{
+"cert": "34023",
+"county": "Anderson",
+"city": "Oak Ridge",
+"state": "TN"
+},
+{
+"cert": "4958",
+"county": "Scott",
+"city": "Oneida",
+"state": "TN"
+},
+{
+"cert": "8660",
+"county": "Henry",
+"city": "Paris",
+"state": "TN"
+},
+{
+"cert": "9172",
+"county": "Henry",
+"city": "Paris",
+"state": "TN"
+},
+{
+"cert": "8661",
+"county": "Decatur",
+"city": "Parsons",
+"state": "TN"
+},
+{
+"cert": "20720",
+"county": "Sevier",
+"city": "Pigeon Forge",
+"state": "TN"
+},
+{
+"cert": "58463",
+"county": "Sevier",
+"city": "Pigeon Forge",
+"state": "TN"
+},
+{
+"cert": "4960",
+"county": "Bledsoe",
+"city": "Pikeville",
+"state": "TN"
+},
+{
+"cert": "10308",
+"county": "Fayette",
+"city": "Piperton",
+"state": "TN"
+},
+{
+"cert": "1696",
+"county": "Sumner",
+"city": "Portland",
+"state": "TN"
+},
+{
+"cert": "15572",
+"county": "Giles",
+"city": "Pulaski",
+"state": "TN"
+},
+{
+"cert": "9499",
+"county": "Hawkins",
+"city": "Rogersville",
+"state": "TN"
+},
+{
+"cert": "10317",
+"county": "Grainger",
+"city": "Rutledge",
+"state": "TN"
+},
+{
+"cert": "6110",
+"county": "Hardin",
+"city": "Sardis",
+"state": "TN"
+},
+{
+"cert": "20993",
+"county": "Hardin",
+"city": "Savannah",
+"state": "TN"
+},
+{
+"cert": "31545",
+"county": "Hardin",
+"city": "Savannah",
+"state": "TN"
+},
+{
+"cert": "9196",
+"county": "Mcnairy",
+"city": "Selmer",
+"state": "TN"
+},
+{
+"cert": "20954",
+"county": "Sevier",
+"city": "Sevierville",
+"state": "TN"
+},
+{
+"cert": "27211",
+"county": "Bedford",
+"city": "Shelbyville",
+"state": "TN"
+},
+{
+"cert": "1700",
+"county": "Claiborne",
+"city": "Tazewell",
+"state": "TN"
+},
+{
+"cert": "8439",
+"county": "Carroll",
+"city": "Trezevant",
+"state": "TN"
+},
+{
+"cert": "58201",
+"county": "Coffee",
+"city": "Tullahoma",
+"state": "TN"
+},
+{
+"cert": "9168",
+"county": "Wayne",
+"city": "Waynesboro",
+"state": "TN"
+},
+{
+"cert": "33739",
+"county": "Franklin",
+"city": "Winchester",
+"state": "TN"
+}
+]

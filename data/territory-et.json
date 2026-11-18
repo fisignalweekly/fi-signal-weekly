@@ -1,0 +1,3332 @@
+{
+  "rule": "Banks only, Eastern Time by headquarters city, assets strictly above $1.4 billion.",
+  "assets_min": 1400000000,
+  "assets_as_of": {
+    "2026Q2": 339
+  },
+  "et_bank_count": 1267,
+  "listed_count": 339,
+  "listed": [
+    {
+      "id": "fdic-18190",
+      "name": "Union Savings Bank",
+      "city": "Danbury",
+      "state": "CT",
+      "assets": 3303137000,
+      "path": "/fi/ct/union-savings-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-15912",
+      "name": "Ives Bank",
+      "city": "Danbury",
+      "state": "CT",
+      "assets": 1733499000,
+      "path": "/fi/ct/ives-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18238",
+      "name": "Chelsea Groton Bank",
+      "city": "Groton",
+      "state": "CT",
+      "assets": 1752542000,
+      "path": "/fi/ct/chelsea-groton-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18194",
+      "name": "Ascend Bank",
+      "city": "Guilford",
+      "state": "CT",
+      "assets": 1494910000,
+      "path": "/fi/ct/ascend-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-17943",
+      "name": "Liberty Bank",
+      "city": "Middletown",
+      "state": "CT",
+      "assets": 9379852000,
+      "path": "/fi/ct/liberty-bank/",
+      "digital": [
+        "Alkami"
+      ]
+    },
+    {
+      "id": "fdic-18198",
+      "name": "Ion Bank",
+      "city": "Naugatuck",
+      "state": "CT",
+      "assets": 2783038000,
+      "path": "/fi/ct/ion-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57368",
+      "name": "Bankwell Bank",
+      "city": "New Canaan",
+      "state": "CT",
+      "assets": 3466328000,
+      "path": "/fi/ct/bankwell-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-18199",
+      "name": "Newtown Savings Bank",
+      "city": "Newtown",
+      "state": "CT",
+      "assets": 1871941000,
+      "path": "/fi/ct/newtown-savings-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-18213",
+      "name": "Fairfield County Bank",
+      "city": "Ridgefield",
+      "state": "CT",
+      "assets": 1919913000,
+      "path": "/fi/ct/fairfield-county-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18204",
+      "name": "First County Bank",
+      "city": "Stamford",
+      "state": "CT",
+      "assets": 2422335000,
+      "path": "/fi/ct/first-county-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18258",
+      "name": "Thomaston Savings Bank",
+      "city": "Thomaston",
+      "state": "CT",
+      "assets": 1934794000,
+      "path": "/fi/ct/thomaston-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34352",
+      "name": "City First Bank, National Association",
+      "city": "Washington",
+      "state": "DC",
+      "assets": 1562007000,
+      "path": "/fi/dc/city-first-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6384",
+      "name": "PNC Bank, National Association",
+      "city": "Wilmington",
+      "state": "DE",
+      "assets": 609771726000,
+      "path": "/fi/de/pnc-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18409",
+      "name": "TD Bank, National Association",
+      "city": "Wilmington",
+      "state": "DE",
+      "assets": 342803746000,
+      "path": "/fi/de/td-bank-national-association/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-29950",
+      "name": "Santander Bank, N.A.",
+      "city": "Wilmington",
+      "state": "DE",
+      "assets": 103964782000,
+      "path": "/fi/de/santander-bank-n-a/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57203",
+      "name": "Barclays Bank Delaware",
+      "city": "Wilmington",
+      "state": "DE",
+      "assets": 43454000000,
+      "path": "/fi/de/barclays-bank-delaware/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33947",
+      "name": "TD Bank USA, National Association",
+      "city": "Wilmington",
+      "state": "DE",
+      "assets": 32125899000,
+      "path": "/fi/de/td-bank-usa-national-association/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-17838",
+      "name": "Wilmington Savings Fund Society, FSB",
+      "city": "Wilmington",
+      "state": "DE",
+      "assets": 22565353000,
+      "path": "/fi/de/wilmington-savings-fund-society-fsb/",
+      "digital": []
+    },
+    {
+      "id": "fdic-22953",
+      "name": "Amerant Bank, National Association",
+      "city": "Coral Gables",
+      "state": "FL",
+      "assets": 10274427000,
+      "path": "/fi/fl/amerant-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-21265",
+      "name": "Bradesco Bank",
+      "city": "Coral Gables",
+      "state": "FL",
+      "assets": 6098846000,
+      "path": "/fi/fl/bradesco-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57369",
+      "name": "U. S. Century Bank",
+      "city": "Doral",
+      "state": "FL",
+      "assets": 3015990000,
+      "path": "/fi/fl/u-s-century-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-5673",
+      "name": "Citizens Bank and Trust",
+      "city": "Frostproof",
+      "state": "FL",
+      "assets": 1480129000,
+      "path": "/fi/fl/citizens-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-34775",
+      "name": "EverBank, National Association",
+      "city": "Jacksonville",
+      "state": "FL",
+      "assets": 46690554000,
+      "path": "/fi/fl/everbank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-31313",
+      "name": "First Federal Bank",
+      "city": "Lake City",
+      "state": "FL",
+      "assets": 4485958000,
+      "path": "/fi/fl/first-federal-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-20234",
+      "name": "City National Bank of Florida",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 29112337000,
+      "path": "/fi/fl/city-national-bank-of-florida/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-24156",
+      "name": "Ocean Bank",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 7625472000,
+      "path": "/fi/fl/ocean-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-57815",
+      "name": "Banesco USA",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 5980882000,
+      "path": "/fi/fl/banesco-usa/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-57083",
+      "name": "Emigrant Bank",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 5679354000,
+      "path": "/fi/fl/emigrant-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26725",
+      "name": "Banco do Brasil Americas",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 3472123000,
+      "path": "/fi/fl/banco-do-brasil-americas/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18734",
+      "name": "Newtek Bank, National Association",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 2473353000,
+      "path": "/fi/fl/newtek-bank-national-association/",
+      "digital": [
+        "Apiture"
+      ]
+    },
+    {
+      "id": "fdic-25258",
+      "name": "Pibank, National Association",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 2373337000,
+      "path": "/fi/fl/pibank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-24823",
+      "name": "International Finance Bank",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 1617291000,
+      "path": "/fi/fl/international-finance-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-26299",
+      "name": "Pacific National Bank",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 1610170000,
+      "path": "/fi/fl/pacific-national-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-8018",
+      "name": "Grove Bank & Trust",
+      "city": "Miami",
+      "state": "FL",
+      "assets": 1414037000,
+      "path": "/fi/fl/grove-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-58979",
+      "name": "BankUnited, National Association",
+      "city": "Miami Lakes",
+      "state": "FL",
+      "assets": 34864976000,
+      "path": "/fi/fl/bankunited-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34908",
+      "name": "Cogent Bank",
+      "city": "Orlando",
+      "state": "FL",
+      "assets": 2454078000,
+      "path": "/fi/fl/cogent-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33893",
+      "name": "Raymond James Bank",
+      "city": "Saint Petersburg",
+      "state": "FL",
+      "assets": 45602712000,
+      "path": "/fi/fl/raymond-james-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-59257",
+      "name": "Climate First Bank",
+      "city": "Saint Petersburg",
+      "state": "FL",
+      "assets": 1941915000,
+      "path": "/fi/fl/climate-first-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-131",
+      "name": "Seacoast National Bank",
+      "city": "Stuart",
+      "state": "FL",
+      "assets": 21335888000,
+      "path": "/fi/fl/seacoast-national-bank/",
+      "digital": [
+        "FIS + Q2"
+      ]
+    },
+    {
+      "id": "fdic-9622",
+      "name": "Capital City Bank",
+      "city": "Tallahassee",
+      "state": "FL",
+      "assets": 4447362000,
+      "path": "/fi/fl/capital-city-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-21031",
+      "name": "The Bank of Tampa",
+      "city": "Tampa",
+      "state": "FL",
+      "assets": 3024333000,
+      "path": "/fi/fl/the-bank-of-tampa/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-8021",
+      "name": "Crews Bank & Trust",
+      "city": "Wauchula",
+      "state": "FL",
+      "assets": 2333967000,
+      "path": "/fi/fl/crews-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-33555",
+      "name": "SouthState Bank, National Association",
+      "city": "Winter Haven",
+      "state": "FL",
+      "assets": 68794317000,
+      "path": "/fi/fl/southstate-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-20504",
+      "name": "Ameris Bank",
+      "city": "Atlanta",
+      "state": "GA",
+      "assets": 28419119000,
+      "path": "/fi/ga/ameris-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26342",
+      "name": "RBC Bank, (Georgia) National Association",
+      "city": "Atlanta",
+      "state": "GA",
+      "assets": 9594495000,
+      "path": "/fi/ga/rbc-bank-georgia-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57071",
+      "name": "Georgia Banking Company",
+      "city": "Atlanta",
+      "state": "GA",
+      "assets": 3258872000,
+      "path": "/fi/ga/georgia-banking-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-5694",
+      "name": "PrimeSouth Bank",
+      "city": "Blackshear",
+      "state": "GA",
+      "assets": 1601685000,
+      "path": "/fi/ga/primesouth-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58181",
+      "name": "Metro City Bank",
+      "city": "Doraville",
+      "state": "GA",
+      "assets": 4465591000,
+      "path": "/fi/ga/metro-city-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-14065",
+      "name": "Vallant Bank",
+      "city": "Elberton",
+      "state": "GA",
+      "assets": 3985347000,
+      "path": "/fi/ga/vallant-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-22257",
+      "name": "Colony Bank",
+      "city": "Fitzgerald",
+      "state": "GA",
+      "assets": 3613411000,
+      "path": "/fi/ga/colony-bank/",
+      "digital": [
+        "Alkami"
+      ]
+    },
+    {
+      "id": "fdic-16418",
+      "name": "BankSouth",
+      "city": "Greensboro",
+      "state": "GA",
+      "assets": 1589684000,
+      "path": "/fi/ga/banksouth/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-2138",
+      "name": "Queensborough National Bank & Trust Company",
+      "city": "Louisville",
+      "state": "GA",
+      "assets": 2280085000,
+      "path": "/fi/ga/queensborough-national-bank-and-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34068",
+      "name": "Thomasville National Bank",
+      "city": "Thomasville",
+      "state": "GA",
+      "assets": 2181324000,
+      "path": "/fi/ga/thomasville-national-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-172",
+      "name": "United Bank",
+      "city": "Zebulon",
+      "state": "GA",
+      "assets": 2159044000,
+      "path": "/fi/ga/united-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-8056",
+      "name": "Merchants Bank of Indiana",
+      "city": "Carmel",
+      "state": "IN",
+      "assets": 21170764000,
+      "path": "/fi/in/merchants-bank-of-indiana/",
+      "digital": [
+        "Apiture"
+      ]
+    },
+    {
+      "id": "fdic-12839",
+      "name": "First Farmers Bank & Trust Co.",
+      "city": "Converse",
+      "state": "IN",
+      "assets": 3495725000,
+      "path": "/fi/in/first-farmers-bank-and-trust-co/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34607",
+      "name": "First Internet Bank of Indiana",
+      "city": "Fishers",
+      "state": "IN",
+      "assets": 5526397000,
+      "path": "/fi/in/first-internet-bank-of-indiana/",
+      "digital": []
+    },
+    {
+      "id": "fdic-27235",
+      "name": "STAR Financial Bank",
+      "city": "Fort Wayne",
+      "state": "IN",
+      "assets": 3230682000,
+      "path": "/fi/in/star-financial-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-28533",
+      "name": "First Bank Midwest",
+      "city": "Frankfort",
+      "state": "IN",
+      "assets": 1546784000,
+      "path": "/fi/in/first-bank-midwest/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-33860",
+      "name": "The National Bank of Indianapolis",
+      "city": "Indianapolis",
+      "state": "IN",
+      "assets": 3037564000,
+      "path": "/fi/in/the-national-bank-of-indianapolis/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-17393",
+      "name": "German American Bank",
+      "city": "Jasper",
+      "state": "IN",
+      "assets": 8426559000,
+      "path": "/fi/in/german-american-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-4365",
+      "name": "First Merchants Bank",
+      "city": "Muncie",
+      "state": "IN",
+      "assets": 21320482000,
+      "path": "/fi/in/first-merchants-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-9087",
+      "name": "1st Source Bank",
+      "city": "South Bend",
+      "state": "IN",
+      "assets": 9259143000,
+      "path": "/fi/in/1st-source-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-4382",
+      "name": "First Financial Bank, National Association",
+      "city": "Terre Haute",
+      "state": "IN",
+      "assets": 6171777000,
+      "path": "/fi/in/first-financial-bank-national-association/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-13102",
+      "name": "Lake City Bank",
+      "city": "Warsaw",
+      "state": "IN",
+      "assets": 7237115000,
+      "path": "/fi/in/lake-city-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-33119",
+      "name": "Heritage Bank, Inc.",
+      "city": "Burlington",
+      "state": "KY",
+      "assets": 1993366000,
+      "path": "/fi/ky/heritage-bank-inc/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-8774",
+      "name": "The Cecilian Bank",
+      "city": "Cecilia",
+      "state": "KY",
+      "assets": 1591839000,
+      "path": "/fi/ky/the-cecilian-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-15815",
+      "name": "Central Bank & Trust Co.",
+      "city": "Lexington",
+      "state": "KY",
+      "assets": 4011565000,
+      "path": "/fi/ky/central-bank-and-trust-co/",
+      "digital": []
+    },
+    {
+      "id": "fdic-32912",
+      "name": "Whitaker Bank",
+      "city": "Lexington",
+      "state": "KY",
+      "assets": 1926362000,
+      "path": "/fi/ky/whitaker-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-57415",
+      "name": "Forcht Bank, National Association",
+      "city": "Lexington",
+      "state": "KY",
+      "assets": 1645945000,
+      "path": "/fi/ky/forcht-bank-national-association/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-258",
+      "name": "Stock Yards Bank & Trust Company",
+      "city": "Louisville",
+      "state": "KY",
+      "assets": 10360306000,
+      "path": "/fi/ky/stock-yards-bank-and-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23627",
+      "name": "Republic Bank & Trust Company",
+      "city": "Louisville",
+      "state": "KY",
+      "assets": 7054835000,
+      "path": "/fi/ky/republic-bank-and-trust-company/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-2711",
+      "name": "Traditional Bank, Inc.",
+      "city": "Mount Sterling",
+      "state": "KY",
+      "assets": 2440347000,
+      "path": "/fi/ky/traditional-bank-inc/",
+      "digital": []
+    },
+    {
+      "id": "fdic-2720",
+      "name": "Community Trust Bank, Inc.",
+      "city": "Pikeville",
+      "state": "KY",
+      "assets": 6947398000,
+      "path": "/fi/ky/community-trust-bank-inc/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-57134",
+      "name": "Leader Bank, National Association",
+      "city": "Arlington",
+      "state": "MA",
+      "assets": 5284723000,
+      "path": "/fi/ma/leader-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-14",
+      "name": "State Street Bank and Trust Company",
+      "city": "Boston",
+      "state": "MA",
+      "assets": 412620000000,
+      "path": "/fi/ma/state-street-bank-and-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-32773",
+      "name": "Eastern Bank",
+      "city": "Boston",
+      "state": "MA",
+      "assets": 31129348000,
+      "path": "/fi/ma/eastern-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17798",
+      "name": "Beacon Bank and Trust",
+      "city": "Boston",
+      "state": "MA",
+      "assets": 22201546000,
+      "path": "/fi/ma/beacon-bank-and-trust/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17870",
+      "name": "Cambridge Savings Bank",
+      "city": "Cambridge",
+      "state": "MA",
+      "assets": 6980671000,
+      "path": "/fi/ma/cambridge-savings-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-90173",
+      "name": "East Cambridge Savings Bank",
+      "city": "Cambridge",
+      "state": "MA",
+      "assets": 1664735000,
+      "path": "/fi/ma/east-cambridge-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23620",
+      "name": "Dedham Institution for Savings",
+      "city": "Dedham",
+      "state": "MA",
+      "assets": 2600580000,
+      "path": "/fi/ma/dedham-institution-for-savings/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90188",
+      "name": "TruNorth Bank",
+      "city": "Easthampton",
+      "state": "MA",
+      "assets": 2015070000,
+      "path": "/fi/ma/trunorth-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26444",
+      "name": "Everett Co-operative Bank",
+      "city": "Everett",
+      "state": "MA",
+      "assets": 1671230000,
+      "path": "/fi/ma/everett-co-operative-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23286",
+      "name": "Fall River Five Cents Savings Bank",
+      "city": "Fall River",
+      "state": "MA",
+      "assets": 1856605000,
+      "path": "/fi/ma/fall-river-five-cents-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23293",
+      "name": "Florence Bank",
+      "city": "Florence",
+      "state": "MA",
+      "assets": 2014204000,
+      "path": "/fi/ma/florence-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90206",
+      "name": "Greenfield Savings Bank",
+      "city": "Greenfield",
+      "state": "MA",
+      "assets": 1522592000,
+      "path": "/fi/ma/greenfield-savings-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-90211",
+      "name": "Hingham Institution for Savings",
+      "city": "Hingham",
+      "state": "MA",
+      "assets": 4556545000,
+      "path": "/fi/ma/hingham-institution-for-savings/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-90213",
+      "name": "PeoplesBank",
+      "city": "Holyoke",
+      "state": "MA",
+      "assets": 4622834000,
+      "path": "/fi/ma/peoplesbank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-90215",
+      "name": "Avidia Bank",
+      "city": "Hudson",
+      "state": "MA",
+      "assets": 2770996000,
+      "path": "/fi/ma/avidia-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23287",
+      "name": "The Cape Cod Five Cents Savings Bank",
+      "city": "Hyannis",
+      "state": "MA",
+      "assets": 5619396000,
+      "path": "/fi/ma/the-cape-cod-five-cents-savings-bank/",
+      "digital": [
+        "FIS + Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-90235",
+      "name": "Main Street Bank",
+      "city": "Marlborough",
+      "state": "MA",
+      "assets": 1665454000,
+      "path": "/fi/ma/main-street-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90183",
+      "name": "Middlesex Savings Bank",
+      "city": "Natick",
+      "state": "MA",
+      "assets": 6148813000,
+      "path": "/fi/ma/middlesex-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26483",
+      "name": "Needham Bank",
+      "city": "Needham",
+      "state": "MA",
+      "assets": 7416433000,
+      "path": "/fi/ma/needham-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90250",
+      "name": "Institution for Savings in Newburyport and Its Vicinity",
+      "city": "Newburyport",
+      "state": "MA",
+      "assets": 5564409000,
+      "path": "/fi/ma/institution-for-savings-in-newburyport-and-its-vicinity/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-90251",
+      "name": "Newburyport Five Cents Savings Bank",
+      "city": "Newburyport",
+      "state": "MA",
+      "assets": 1573796000,
+      "path": "/fi/ma/newburyport-five-cents-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26336",
+      "name": "The Village Bank",
+      "city": "Newton",
+      "state": "MA",
+      "assets": 2068136000,
+      "path": "/fi/ma/the-village-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90169",
+      "name": "Bluestone Bank",
+      "city": "Raynham",
+      "state": "MA",
+      "assets": 1621698000,
+      "path": "/fi/ma/bluestone-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-9712",
+      "name": "Rockland Trust Company",
+      "city": "Rockland",
+      "state": "MA",
+      "assets": 24968842000,
+      "path": "/fi/ma/rockland-trust-company/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-23296",
+      "name": "Salem Five Cents Savings Bank",
+      "city": "Salem",
+      "state": "MA",
+      "assets": 8820482000,
+      "path": "/fi/ma/salem-five-cents-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90259",
+      "name": "North Easton Savings Bank",
+      "city": "South Easton",
+      "state": "MA",
+      "assets": 1844765000,
+      "path": "/fi/ma/north-easton-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90303",
+      "name": "South Shore Bank",
+      "city": "South Weymouth",
+      "state": "MA",
+      "assets": 2523127000,
+      "path": "/fi/ma/south-shore-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90282",
+      "name": "Cornerstone Bank",
+      "city": "Spencer",
+      "state": "MA",
+      "assets": 2574340000,
+      "path": "/fi/ma/cornerstone-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90196",
+      "name": "BayCoast Bank",
+      "city": "Swansea",
+      "state": "MA",
+      "assets": 2863572000,
+      "path": "/fi/ma/baycoast-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23622",
+      "name": "Bristol County Savings Bank",
+      "city": "Taunton",
+      "state": "MA",
+      "assets": 3259107000,
+      "path": "/fi/ma/bristol-county-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90227",
+      "name": "The Lowell Five Cent Savings Bank",
+      "city": "Tewksbury",
+      "state": "MA",
+      "assets": 1900746000,
+      "path": "/fi/ma/the-lowell-five-cent-savings-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-23992",
+      "name": "Country Bank for Savings",
+      "city": "Ware",
+      "state": "MA",
+      "assets": 2236949000,
+      "path": "/fi/ma/country-bank-for-savings/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23298",
+      "name": "Watertown Savings Bank",
+      "city": "Watertown",
+      "state": "MA",
+      "assets": 1439099000,
+      "path": "/fi/ma/watertown-savings-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-90300",
+      "name": "Westfield Bank",
+      "city": "Westfield",
+      "state": "MA",
+      "assets": 2727921000,
+      "path": "/fi/ma/westfield-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-90290",
+      "name": "UniBank for Savings",
+      "city": "Whitinsville",
+      "state": "MA",
+      "assets": 3109431000,
+      "path": "/fi/ma/unibank-for-savings/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18266",
+      "name": "Northern Bank & Trust Company",
+      "city": "Woburn",
+      "state": "MA",
+      "assets": 3384849000,
+      "path": "/fi/ma/northern-bank-and-trust-company/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-26517",
+      "name": "Cape & Coast Bank",
+      "city": "Yarmouth Port",
+      "state": "MA",
+      "assets": 1676041000,
+      "path": "/fi/ma/cape-and-coast-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34742",
+      "name": "EagleBank",
+      "city": "Bethesda",
+      "state": "MD",
+      "assets": 9618012000,
+      "path": "/fi/md/eaglebank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-4832",
+      "name": "Shore United Bank, National Association",
+      "city": "Easton",
+      "state": "MD",
+      "assets": 6148263000,
+      "path": "/fi/md/shore-united-bank-national-association/",
+      "digital": [
+        "Apiture"
+      ]
+    },
+    {
+      "id": "fdic-34294",
+      "name": "CFG Bank",
+      "city": "Lutherville",
+      "state": "MD",
+      "assets": 6121189000,
+      "path": "/fi/md/cfg-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-4857",
+      "name": "First United Bank & Trust",
+      "city": "Oakland",
+      "state": "MD",
+      "assets": 2054956000,
+      "path": "/fi/md/first-united-bank-and-trust/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57614",
+      "name": "Forbright Bank",
+      "city": "Potomac",
+      "state": "MD",
+      "assets": 8480361000,
+      "path": "/fi/md/forbright-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-35278",
+      "name": "Capital Bank, National Association",
+      "city": "Rockville",
+      "state": "MD",
+      "assets": 3837265000,
+      "path": "/fi/md/capital-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17897",
+      "name": "Kennebec Savings Bank",
+      "city": "Augusta",
+      "state": "ME",
+      "assets": 1871320000,
+      "path": "/fi/me/kennebec-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18408",
+      "name": "Bangor Savings Bank",
+      "city": "Bangor",
+      "state": "ME",
+      "assets": 7739717000,
+      "path": "/fi/me/bangor-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-11971",
+      "name": "Bar Harbor Bank & Trust",
+      "city": "Bar Harbor",
+      "state": "ME",
+      "assets": 4734427000,
+      "path": "/fi/me/bar-harbor-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-17749",
+      "name": "Bath Savings Institution",
+      "city": "Bath",
+      "state": "ME",
+      "assets": 1503065000,
+      "path": "/fi/me/bath-savings-institution/",
+      "digital": []
+    },
+    {
+      "id": "fdic-4255",
+      "name": "The Camden National Bank",
+      "city": "Camden",
+      "state": "ME",
+      "assets": 6940603000,
+      "path": "/fi/me/the-camden-national-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-4256",
+      "name": "First National Bank",
+      "city": "Damariscotta",
+      "state": "ME",
+      "assets": 3180486000,
+      "path": "/fi/me/first-national-bank/",
+      "digital": [
+        "FIS + Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-13063",
+      "name": "Kennebunk Savings Bank",
+      "city": "Kennebunk",
+      "state": "ME",
+      "assets": 2172557000,
+      "path": "/fi/me/kennebunk-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17751",
+      "name": "Androscoggin Savings Bank",
+      "city": "Lewiston",
+      "state": "ME",
+      "assets": 1764177000,
+      "path": "/fi/me/androscoggin-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-19531",
+      "name": "Machias Savings Bank",
+      "city": "Machias",
+      "state": "ME",
+      "assets": 2671397000,
+      "path": "/fi/me/machias-savings-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-17658",
+      "name": "Norway Savings Bank",
+      "city": "Norway",
+      "state": "ME",
+      "assets": 2155525000,
+      "path": "/fi/me/norway-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-19690",
+      "name": "Northeast Bank",
+      "city": "Portland",
+      "state": "ME",
+      "assets": 5227725000,
+      "path": "/fi/me/northeast-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-17741",
+      "name": "Maine Community Bank",
+      "city": "Portland",
+      "state": "ME",
+      "assets": 2983602000,
+      "path": "/fi/me/maine-community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17743",
+      "name": "Saco & Biddeford Savings Institution",
+      "city": "Saco",
+      "state": "ME",
+      "assets": 1471276000,
+      "path": "/fi/me/saco-and-biddeford-savings-institution/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-34120",
+      "name": "Bank of Ann Arbor",
+      "city": "Ann Arbor",
+      "state": "MI",
+      "assets": 3496950000,
+      "path": "/fi/mi/bank-of-ann-arbor/",
+      "digital": []
+    },
+    {
+      "id": "fdic-5019",
+      "name": "Southern Michigan Bank & Trust",
+      "city": "Coldwater",
+      "state": "MI",
+      "assets": 1681505000,
+      "path": "/fi/mi/southern-michigan-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-17438",
+      "name": "First National Bank of America",
+      "city": "East Lansing",
+      "state": "MI",
+      "assets": 6818824000,
+      "path": "/fi/mi/first-national-bank-of-america/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34953",
+      "name": "Northpointe Bank",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "assets": 7529347000,
+      "path": "/fi/mi/northpointe-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34598",
+      "name": "Mercantile Bank",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "assets": 6240347000,
+      "path": "/fi/mi/mercantile-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-27811",
+      "name": "Independent Bank",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "assets": 5656124000,
+      "path": "/fi/mi/independent-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34618",
+      "name": "Macatawa Bank, National Association",
+      "city": "Holland",
+      "state": "MI",
+      "assets": 3689079000,
+      "path": "/fi/mi/macatawa-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-5033",
+      "name": "The Dart Bank",
+      "city": "Mason",
+      "state": "MI",
+      "assets": 1472234000,
+      "path": "/fi/mi/the-dart-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-1005",
+      "name": "Isabella Bank",
+      "city": "Mount Pleasant",
+      "state": "MI",
+      "assets": 2170035000,
+      "path": "/fi/mi/isabella-bank/",
+      "digital": [
+        "FIS + Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-1014",
+      "name": "ChoiceOne Bank",
+      "city": "Sparta",
+      "state": "MI",
+      "assets": 4453559000,
+      "path": "/fi/mi/choiceone-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-27677",
+      "name": "HomeTrust Bank",
+      "city": "Asheville",
+      "state": "NC",
+      "assets": 4437045000,
+      "path": "/fi/nc/hometrust-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-3510",
+      "name": "Bank of America, National Association",
+      "city": "Charlotte",
+      "state": "NC",
+      "assets": 2654645000000,
+      "path": "/fi/nc/bank-of-america-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-9846",
+      "name": "Truist Bank",
+      "city": "Charlotte",
+      "state": "NC",
+      "assets": 548346000000,
+      "path": "/fi/nc/truist-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-11507",
+      "name": "The Fidelity Bank",
+      "city": "Fuquay Varina",
+      "state": "NC",
+      "assets": 4662244000,
+      "path": "/fi/nc/the-fidelity-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-15359",
+      "name": "Southern Bank and Trust Company",
+      "city": "Mount Olive",
+      "state": "NC",
+      "assets": 5304325000,
+      "path": "/fi/nc/southern-bank-and-trust-company/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-5956",
+      "name": "Peoples Bank",
+      "city": "Newton",
+      "state": "NC",
+      "assets": 1764418000,
+      "path": "/fi/nc/peoples-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-11063",
+      "name": "First-Citizens Bank & Trust Company",
+      "city": "Raleigh",
+      "state": "NC",
+      "assets": 236317000000,
+      "path": "/fi/nc/first-citizens-bank-and-trust-company/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-35519",
+      "name": "North State Bank",
+      "city": "Raleigh",
+      "state": "NC",
+      "assets": 1461914000,
+      "path": "/fi/nc/north-state-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-35530",
+      "name": "First Carolina Bank",
+      "city": "Rocky Mount",
+      "state": "NC",
+      "assets": 3405879000,
+      "path": "/fi/nc/first-carolina-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-58239",
+      "name": "Providence Bank",
+      "city": "Rocky Mount",
+      "state": "NC",
+      "assets": 1514517000,
+      "path": "/fi/nc/providence-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-15019",
+      "name": "First Bank",
+      "city": "Southern Pines",
+      "state": "NC",
+      "assets": 13032205000,
+      "path": "/fi/nc/first-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-58665",
+      "name": "Live Oak Banking Company",
+      "city": "Wilmington",
+      "state": "NC",
+      "assets": 15959938000,
+      "path": "/fi/nc/live-oak-banking-company/",
+      "digital": [
+        "Apiture"
+      ]
+    },
+    {
+      "id": "fdic-17960",
+      "name": "Merrimack County Savings Bank",
+      "city": "Concord",
+      "state": "NH",
+      "assets": 1407191000,
+      "path": "/fi/nh/merrimack-county-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18012",
+      "name": "Bank of New Hampshire",
+      "city": "Laconia",
+      "state": "NH",
+      "assets": 2803647000,
+      "path": "/fi/nh/bank-of-new-hampshire/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18013",
+      "name": "Mascoma Bank",
+      "city": "Lebanon",
+      "state": "NH",
+      "assets": 3034815000,
+      "path": "/fi/nh/mascoma-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17180",
+      "name": "Meredith Village Savings Bank",
+      "city": "Meredith",
+      "state": "NH",
+      "assets": 1644910000,
+      "path": "/fi/nh/meredith-village-savings-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-24540",
+      "name": "Bank of New England",
+      "city": "Salem",
+      "state": "NH",
+      "assets": 1819911000,
+      "path": "/fi/nh/bank-of-new-england/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-35541",
+      "name": "BCB Community Bank",
+      "city": "Bayonne",
+      "state": "NJ",
+      "assets": 3117295000,
+      "path": "/fi/nj/bcb-community-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-11035",
+      "name": "Peapack Private Bank & Trust",
+      "city": "Bedminster",
+      "state": "NJ",
+      "assets": 7963962000,
+      "path": "/fi/nj/peapack-private-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno) + Jack Henry (NetTeller)"
+      ]
+    },
+    {
+      "id": "fdic-33503",
+      "name": "Unity Bank",
+      "city": "Clinton",
+      "state": "NJ",
+      "assets": 3184193000,
+      "path": "/fi/nj/unity-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-12013",
+      "name": "Union County Savings Bank",
+      "city": "Elizabeth",
+      "state": "NJ",
+      "assets": 1478885000,
+      "path": "/fi/nj/union-county-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-30076",
+      "name": "Spencer Savings Bank, SLA",
+      "city": "Elmwood Park",
+      "state": "NJ",
+      "assets": 4036255000,
+      "path": "/fi/nj/spencer-savings-bank-sla/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57919",
+      "name": "ConnectOne Bank",
+      "city": "Englewood Cliffs",
+      "state": "NJ",
+      "assets": 14402382000,
+      "path": "/fi/nj/connectone-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-28834",
+      "name": "Columbia Bank",
+      "city": "Fair Lawn",
+      "state": "NJ",
+      "assets": 12166315000,
+      "path": "/fi/nj/columbia-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-58410",
+      "name": "Cross River Bank",
+      "city": "Fort Lee",
+      "state": "NJ",
+      "assets": 8527799000,
+      "path": "/fi/nj/cross-river-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58481",
+      "name": "First Bank",
+      "city": "Hamilton",
+      "state": "NJ",
+      "assets": 4087406000,
+      "path": "/fi/nj/first-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-27054",
+      "name": "Sumitomo Mitsui Trust Bank (U.S.A.) Limited",
+      "city": "Hoboken",
+      "state": "NJ",
+      "assets": 3918801000,
+      "path": "/fi/nj/sumitomo-mitsui-trust-bank-u-s-a-limited/",
+      "digital": []
+    },
+    {
+      "id": "fdic-12010",
+      "name": "Provident Bank",
+      "city": "Jersey City",
+      "state": "NJ",
+      "assets": 25650552000,
+      "path": "/fi/nj/provident-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-28765",
+      "name": "Kearny Bank",
+      "city": "Kearny",
+      "state": "NJ",
+      "assets": 7665322000,
+      "path": "/fi/nj/kearny-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-58054",
+      "name": "First Commerce Bank",
+      "city": "Lakewood",
+      "state": "NJ",
+      "assets": 1964972000,
+      "path": "/fi/nj/first-commerce-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-30470",
+      "name": "Manasquan Bank",
+      "city": "Manasquan",
+      "state": "NJ",
+      "assets": 3586933000,
+      "path": "/fi/nj/manasquan-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6423",
+      "name": "Amboy Bank",
+      "city": "Old Bridge",
+      "state": "NJ",
+      "assets": 3122546000,
+      "path": "/fi/nj/amboy-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-9396",
+      "name": "Valley National Bank",
+      "city": "Passaic",
+      "state": "NJ",
+      "assets": 66227555000,
+      "path": "/fi/nj/valley-national-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58513",
+      "name": "The Bank of Princeton",
+      "city": "Princeton",
+      "state": "NJ",
+      "assets": 2250271000,
+      "path": "/fi/nj/the-bank-of-princeton/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-34888",
+      "name": "Parke Bank",
+      "city": "Sewell",
+      "state": "NJ",
+      "assets": 2302646000,
+      "path": "/fi/nj/parke-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-28359",
+      "name": "OceanFirst Bank, National Association",
+      "city": "Toms River",
+      "state": "NJ",
+      "assets": 23172826000,
+      "path": "/fi/nj/oceanfirst-bank-national-association/",
+      "digital": [
+        "FIS + Q2"
+      ]
+    },
+    {
+      "id": "fdic-20015",
+      "name": "Bessemer Trust Company",
+      "city": "Woodbridge",
+      "state": "NJ",
+      "assets": 2362517000,
+      "path": "/fi/nj/bessemer-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-20741",
+      "name": "Pioneer Bank, National Association",
+      "city": "Albany",
+      "state": "NY",
+      "assets": 2340761000,
+      "path": "/fi/ny/pioneer-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58424",
+      "name": "Alma Bank",
+      "city": "Astoria",
+      "state": "NY",
+      "assets": 1597811000,
+      "path": "/fi/ny/alma-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-31189",
+      "name": "Ponce Bank, National Association",
+      "city": "Bronx",
+      "state": "NY",
+      "assets": 3485007000,
+      "path": "/fi/ny/ponce-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-588",
+      "name": "Manufacturers and Traders Trust Company",
+      "city": "Buffalo",
+      "state": "NY",
+      "assets": 218788000000,
+      "path": "/fi/ny/manufacturers-and-traders-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6985",
+      "name": "The Canandaigua National Bank and Trust Company",
+      "city": "Canandaigua",
+      "state": "NY",
+      "assets": 5405882000,
+      "path": "/fi/ny/the-canandaigua-national-bank-and-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6989",
+      "name": "Community Bank, National Association",
+      "city": "Canton",
+      "state": "NY",
+      "assets": 17447957000,
+      "path": "/fi/ny/community-bank-national-association/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-21591",
+      "name": "Bank of Greene",
+      "city": "Catskill",
+      "state": "NY",
+      "assets": 3184349000,
+      "path": "/fi/ny/bank-of-greene/",
+      "digital": []
+    },
+    {
+      "id": "fdic-597",
+      "name": "Chemung Canal Trust Company, National Association",
+      "city": "Elmira",
+      "state": "NY",
+      "assets": 2818102000,
+      "path": "/fi/ny/chemung-canal-trust-company-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58675",
+      "name": "Hanover Community Bank",
+      "city": "Garden City Park",
+      "state": "NY",
+      "assets": 2334897000,
+      "path": "/fi/ny/hanover-community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7074",
+      "name": "Arrow Bank National Association",
+      "city": "Glens Falls",
+      "state": "NY",
+      "assets": 4456940000,
+      "path": "/fi/ny/arrow-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-31945",
+      "name": "TrustCo Bank",
+      "city": "Glenville",
+      "state": "NY",
+      "assets": 6523938000,
+      "path": "/fi/ny/trustco-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6976",
+      "name": "Dime Commercial Bank",
+      "city": "Hauppauge",
+      "state": "NY",
+      "assets": 15033530000,
+      "path": "/fi/ny/dime-commercial-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-32541",
+      "name": "Flagstar Bank, National Association",
+      "city": "Hicksville",
+      "state": "NY",
+      "assets": 87714456000,
+      "path": "/fi/ny/flagstar-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-609",
+      "name": "Tompkins Bank & Trust",
+      "city": "Ithaca",
+      "state": "NY",
+      "assets": 8790772000,
+      "path": "/fi/ny/tompkins-bank-and-trust/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-58140",
+      "name": "Esquire Bank, National Association",
+      "city": "Jericho",
+      "state": "NY",
+      "assets": 2494969000,
+      "path": "/fi/ny/esquire-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7151",
+      "name": "The Lyons National Bank",
+      "city": "Lyons",
+      "state": "NY",
+      "assets": 2134066000,
+      "path": "/fi/ny/the-lyons-national-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-30303",
+      "name": "Maspeth Federal Savings and Loan Association",
+      "city": "Maspeth",
+      "state": "NY",
+      "assets": 2211470000,
+      "path": "/fi/ny/maspeth-federal-savings-and-loan-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-12944",
+      "name": "Orange Bank & Trust Company",
+      "city": "Middletown",
+      "state": "NY",
+      "assets": 2792253000,
+      "path": "/fi/ny/orange-bank-and-trust-company/",
+      "digital": [
+        "FIS + Q2"
+      ]
+    },
+    {
+      "id": "fdic-33124",
+      "name": "Goldman Sachs Bank USA",
+      "city": "New York",
+      "state": "NY",
+      "assets": 758788000000,
+      "path": "/fi/ny/goldman-sachs-bank-usa/",
+      "digital": []
+    },
+    {
+      "id": "fdic-639",
+      "name": "The Bank of New York Mellon",
+      "city": "New York",
+      "state": "NY",
+      "assets": 425115000000,
+      "path": "/fi/ny/the-bank-of-new-york-mellon/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33653",
+      "name": "Bank of China",
+      "city": "New York",
+      "state": "NY",
+      "assets": 48520695000,
+      "path": "/fi/ny/bank-of-china-new-york/",
+      "digital": []
+    },
+    {
+      "id": "fdic-623",
+      "name": "Deutsche Bank Trust Company Americas",
+      "city": "New York",
+      "state": "NY",
+      "assets": 40535000000,
+      "path": "/fi/ny/deutsche-bank-trust-company-americas/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33682",
+      "name": "State Bank of India",
+      "city": "New York",
+      "state": "NY",
+      "assets": 22507930000,
+      "path": "/fi/ny/state-bank-of-india/",
+      "digital": []
+    },
+    {
+      "id": "fdic-16068",
+      "name": "Apple Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 19887242000,
+      "path": "/fi/ny/apple-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33681",
+      "name": "Bank of Baroda",
+      "city": "New York",
+      "state": "NY",
+      "assets": 16237538000,
+      "path": "/fi/ny/bank-of-baroda/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26876",
+      "name": "Safra National Bank of New York",
+      "city": "New York",
+      "state": "NY",
+      "assets": 15692063000,
+      "path": "/fi/ny/safra-national-bank-of-new-york/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34967",
+      "name": "Popular Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 15032815000,
+      "path": "/fi/ny/popular-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-19977",
+      "name": "Israel Discount Bank of New York",
+      "city": "New York",
+      "state": "NY",
+      "assets": 14393999000,
+      "path": "/fi/ny/israel-discount-bank-of-new-york/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33686",
+      "name": "Bank Hapoalim B.M.",
+      "city": "New York",
+      "state": "NY",
+      "assets": 11040725000,
+      "path": "/fi/ny/bank-hapoalim-b-m/",
+      "digital": []
+    },
+    {
+      "id": "fdic-622",
+      "name": "Amalgamated Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 9409107000,
+      "path": "/fi/ny/amalgamated-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-34699",
+      "name": "Metropolitan Commercial Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 8857429000,
+      "path": "/fi/ny/metropolitan-commercial-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33648",
+      "name": "Bank of India",
+      "city": "New York",
+      "state": "NY",
+      "assets": 7415358000,
+      "path": "/fi/ny/bank-of-india/",
+      "digital": []
+    },
+    {
+      "id": "fdic-21868",
+      "name": "Bessemer Trust Company, National Association",
+      "city": "New York",
+      "state": "NY",
+      "assets": 4162383000,
+      "path": "/fi/ny/bessemer-trust-company-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-24920",
+      "name": "Woori America Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 4116181000,
+      "path": "/fi/ny/woori-america-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33646",
+      "name": "The Bank of East Asia Ltd.",
+      "city": "New York",
+      "state": "NY",
+      "assets": 3660680000,
+      "path": "/fi/ny/the-bank-of-east-asia-ltd-new-york-33646/",
+      "digital": []
+    },
+    {
+      "id": "fdic-24387",
+      "name": "Industrial and Commercial Bank of China USA, National Association",
+      "city": "New York",
+      "state": "NY",
+      "assets": 2859720000,
+      "path": "/fi/ny/industrial-and-commercial-bank-of-china-usa-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-25093",
+      "name": "Habib American Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 2837908000,
+      "path": "/fi/ny/habib-american-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-24516",
+      "name": "Interaudi Bank",
+      "city": "New York",
+      "state": "NY",
+      "assets": 2677078000,
+      "path": "/fi/ny/interaudi-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-33188",
+      "name": "Shinhan Bank America",
+      "city": "New York",
+      "state": "NY",
+      "assets": 2234648000,
+      "path": "/fi/ny/shinhan-bank-america/",
+      "digital": []
+    },
+    {
+      "id": "fdic-21843",
+      "name": "Mizuho Bank (USA)",
+      "city": "New York",
+      "state": "NY",
+      "assets": 2137445000,
+      "path": "/fi/ny/mizuho-bank-usa/",
+      "digital": []
+    },
+    {
+      "id": "fdic-59113",
+      "name": "Grasshopper Bank, N.A.",
+      "city": "New York",
+      "state": "NY",
+      "assets": 1603727000,
+      "path": "/fi/ny/grasshopper-bank-n-a/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7230",
+      "name": "NBT Bank, National Association",
+      "city": "Norwich",
+      "state": "NY",
+      "assets": 16091731000,
+      "path": "/fi/ny/nbt-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57497",
+      "name": "Pathfinder Bank",
+      "city": "Oswego",
+      "state": "NY",
+      "assets": 1485888000,
+      "path": "/fi/ny/pathfinder-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34221",
+      "name": "Morgan Stanley Private Bank, National Association",
+      "city": "Purchase",
+      "state": "NY",
+      "assets": 250425000000,
+      "path": "/fi/ny/morgan-stanley-private-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-16032",
+      "name": "Rhinebeck Bank",
+      "city": "Rhinebeck",
+      "state": "NY",
+      "assets": 1469845000,
+      "path": "/fi/ny/rhinebeck-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-16026",
+      "name": "Ridgewood Savings Bank",
+      "city": "Ridgewood",
+      "state": "NY",
+      "assets": 7548632000,
+      "path": "/fi/ny/ridgewood-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-659",
+      "name": "Five Star Bank",
+      "city": "Rochester",
+      "state": "NY",
+      "assets": 6294915000,
+      "path": "/fi/ny/five-star-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-660",
+      "name": "The Adirondack Trust Company",
+      "city": "Saratoga Springs",
+      "state": "NY",
+      "assets": 1701861000,
+      "path": "/fi/ny/the-adirondack-trust-company/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-13397",
+      "name": "Bank of Utica",
+      "city": "Utica",
+      "state": "NY",
+      "assets": 1508615000,
+      "path": "/fi/ny/bank-of-utica/",
+      "digital": []
+    },
+    {
+      "id": "fdic-29147",
+      "name": "NorthEast Community Bank",
+      "city": "White Plains",
+      "state": "NY",
+      "assets": 2111015000,
+      "path": "/fi/ny/northeast-community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-5969",
+      "name": "The Farmers & Merchants State Bank",
+      "city": "Archbold",
+      "state": "OH",
+      "assets": 3490494000,
+      "path": "/fi/oh/the-farmers-and-merchants-state-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-5962",
+      "name": "Sutton Bank",
+      "city": "Attica",
+      "state": "OH",
+      "assets": 1740659000,
+      "path": "/fi/oh/sutton-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-6540",
+      "name": "The Farmers National Bank of Canfield",
+      "city": "Canfield",
+      "state": "OH",
+      "assets": 7159502000,
+      "path": "/fi/oh/the-farmers-national-bank-of-canfield/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-6548",
+      "name": "U.S. Bank National Association",
+      "city": "Cincinnati",
+      "state": "OH",
+      "assets": 705554946000,
+      "path": "/fi/oh/u-s-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6672",
+      "name": "Fifth Third Bank, National Association",
+      "city": "Cincinnati",
+      "state": "OH",
+      "assets": 299177000000,
+      "path": "/fi/oh/fifth-third-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6600",
+      "name": "First Financial Bank",
+      "city": "Cincinnati",
+      "state": "OH",
+      "assets": 22351293000,
+      "path": "/fi/oh/first-financial-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-32296",
+      "name": "Union Savings Bank",
+      "city": "Cincinnati",
+      "state": "OH",
+      "assets": 4019642000,
+      "path": "/fi/oh/union-savings-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-17534",
+      "name": "KeyBank National Association",
+      "city": "Cleveland",
+      "state": "OH",
+      "assets": 188555486000,
+      "path": "/fi/oh/keybank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-30012",
+      "name": "Third Federal Savings and Loan Association of Cleveland",
+      "city": "Cleveland",
+      "state": "OH",
+      "assets": 18062658000,
+      "path": "/fi/oh/third-federal-savings-and-loan-association-of-cleveland/",
+      "digital": []
+    },
+    {
+      "id": "fdic-628",
+      "name": "JPMorgan Chase Bank, National Association",
+      "city": "Columbus",
+      "state": "OH",
+      "assets": 4091315000000,
+      "path": "/fi/oh/jpmorgan-chase-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6560",
+      "name": "The Huntington National Bank",
+      "city": "Columbus",
+      "state": "OH",
+      "assets": 283073605000,
+      "path": "/fi/oh/the-huntington-national-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-59378",
+      "name": "Erebor Bank, N.A.",
+      "city": "Columbus",
+      "state": "OH",
+      "assets": 4664972000,
+      "path": "/fi/oh/erebor-bank-n-a/",
+      "digital": []
+    },
+    {
+      "id": "fdic-28263",
+      "name": "CFBank, National Association",
+      "city": "Columbus",
+      "state": "OH",
+      "assets": 2167338000,
+      "path": "/fi/oh/cfbank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-12969",
+      "name": "The Union Bank Company",
+      "city": "Columbus Grove",
+      "state": "OH",
+      "assets": 1443930000,
+      "path": "/fi/oh/the-union-bank-company/",
+      "digital": [
+        "Candescent (ex-NCR Digital Insight)"
+      ]
+    },
+    {
+      "id": "fdic-13339",
+      "name": "The State Bank and Trust Company",
+      "city": "Defiance",
+      "state": "OH",
+      "assets": 1612519000,
+      "path": "/fi/oh/the-state-bank-and-trust-company/",
+      "digital": []
+    },
+    {
+      "id": "fdic-13341",
+      "name": "The Croghan Colonial Bank",
+      "city": "Fremont",
+      "state": "OH",
+      "assets": 1414784000,
+      "path": "/fi/oh/the-croghan-colonial-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-384",
+      "name": "The Ohio Valley Bank Company",
+      "city": "Gallipolis",
+      "state": "OH",
+      "assets": 1646225000,
+      "path": "/fi/oh/the-ohio-valley-bank-company/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-32612",
+      "name": "NATIONAL COOPERATIVE BANK, N.A.",
+      "city": "Hillsboro",
+      "state": "OH",
+      "assets": 4329072000,
+      "path": "/fi/oh/national-cooperative-bank-n-a/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-29488",
+      "name": "First Federal Savings and Loan Association of Lakewood",
+      "city": "Lakewood",
+      "state": "OH",
+      "assets": 2942482000,
+      "path": "/fi/oh/first-federal-savings-and-loan-association-of-lakewood/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-6623",
+      "name": "LCNB National Bank",
+      "city": "Lebanon",
+      "state": "OH",
+      "assets": 2219306000,
+      "path": "/fi/oh/lcnb-national-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-6544",
+      "name": "Peoples Bank",
+      "city": "Marietta",
+      "state": "OH",
+      "assets": 9530050000,
+      "path": "/fi/oh/peoples-bank/",
+      "digital": [
+        "FIS + Q2"
+      ]
+    },
+    {
+      "id": "fdic-6636",
+      "name": "THE VINTON COUNTY NATIONAL BANK",
+      "city": "Mcarthur",
+      "state": "OH",
+      "assets": 1588792000,
+      "path": "/fi/oh/the-vinton-county-national-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-6653",
+      "name": "The Park National Bank",
+      "city": "Newark",
+      "state": "OH",
+      "assets": 12608562000,
+      "path": "/fi/oh/the-park-national-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-12982",
+      "name": "Civista Bank",
+      "city": "Sandusky",
+      "state": "OH",
+      "assets": 4286454000,
+      "path": "/fi/oh/civista-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58433",
+      "name": "Waterford Bank, N.A.",
+      "city": "Toledo",
+      "state": "OH",
+      "assets": 1771847000,
+      "path": "/fi/oh/waterford-bank-n-a/",
+      "digital": []
+    },
+    {
+      "id": "fdic-29847",
+      "name": "Main Street Bank Corp.",
+      "city": "Wooster",
+      "state": "OH",
+      "assets": 1553716000,
+      "path": "/fi/oh/main-street-bank-corp/",
+      "digital": []
+    },
+    {
+      "id": "fdic-14969",
+      "name": "Kish Bank",
+      "city": "Belleville",
+      "state": "PA",
+      "assets": 2084448000,
+      "path": "/fi/pa/kish-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7404",
+      "name": "First Keystone Community Bank",
+      "city": "Berwick",
+      "state": "PA",
+      "assets": 1572543000,
+      "path": "/fi/pa/first-keystone-community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57228",
+      "name": "Embassy Bank for the Lehigh Valley",
+      "city": "Bethlehem",
+      "state": "PA",
+      "assets": 1860416000,
+      "path": "/fi/pa/embassy-bank-for-the-lehigh-valley/",
+      "digital": []
+    },
+    {
+      "id": "fdic-59074",
+      "name": "Bank of Bird-in-Hand",
+      "city": "Bird In Hand",
+      "state": "PA",
+      "assets": 1907569000,
+      "path": "/fi/pa/bank-of-bird-in-hand/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-686",
+      "name": "Journey Bank",
+      "city": "Bloomsburg",
+      "state": "PA",
+      "assets": 1669098000,
+      "path": "/fi/pa/journey-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7848",
+      "name": "Community Bank",
+      "city": "Carmichaels",
+      "state": "PA",
+      "assets": 1656420000,
+      "path": "/fi/pa/community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-8405",
+      "name": "Farmers and Merchants Trust Company of Chambersburg",
+      "city": "Chambersburg",
+      "state": "PA",
+      "assets": 2336081000,
+      "path": "/fi/pa/farmers-and-merchants-trust-company-of-chambersburg/",
+      "digital": []
+    },
+    {
+      "id": "fdic-13876",
+      "name": "CNB Bank",
+      "city": "Clearfield",
+      "state": "PA",
+      "assets": 8414627000,
+      "path": "/fi/pa/cnb-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-26647",
+      "name": "Firstrust Savings Bank",
+      "city": "Conshohocken",
+      "state": "PA",
+      "assets": 5622445000,
+      "path": "/fi/pa/firstrust-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-30401",
+      "name": "Penn Community Bank",
+      "city": "Doylestown",
+      "state": "PA",
+      "assets": 3069584000,
+      "path": "/fi/pa/penn-community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7514",
+      "name": "Peoples Security Bank and Trust Company",
+      "city": "Dunmore",
+      "state": "PA",
+      "assets": 5432891000,
+      "path": "/fi/pa/peoples-security-bank-and-trust-company/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-11868",
+      "name": "The Fidelity Deposit and Discount Bank",
+      "city": "Dunmore",
+      "state": "PA",
+      "assets": 2971307000,
+      "path": "/fi/pa/the-fidelity-deposit-and-discount-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7493",
+      "name": "The Ephrata National Bank",
+      "city": "Ephrata",
+      "state": "PA",
+      "assets": 2389971000,
+      "path": "/fi/pa/the-ephrata-national-bank/",
+      "digital": [
+        "Apiture"
+      ]
+    },
+    {
+      "id": "fdic-30544",
+      "name": "Marquette Savings Bank",
+      "city": "Erie",
+      "state": "PA",
+      "assets": 1442022000,
+      "path": "/fi/pa/marquette-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7506",
+      "name": "ACNB Bank",
+      "city": "Gettysburg",
+      "state": "PA",
+      "assets": 3303705000,
+      "path": "/fi/pa/acnb-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7888",
+      "name": "First National Bank of Pennsylvania",
+      "city": "Greenville",
+      "state": "PA",
+      "assets": 50801922000,
+      "path": "/fi/pa/first-national-bank-of-pennsylvania/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-713",
+      "name": "Orrstown Bank",
+      "city": "Harrisburg",
+      "state": "PA",
+      "assets": 5611609000,
+      "path": "/fi/pa/orrstown-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-698",
+      "name": "Wayne Bank",
+      "city": "Honesdale",
+      "state": "PA",
+      "assets": 2905992000,
+      "path": "/fi/pa/wayne-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7468",
+      "name": "First Commonwealth Bank",
+      "city": "Indiana",
+      "state": "PA",
+      "assets": 12175009000,
+      "path": "/fi/pa/first-commonwealth-bank/",
+      "digital": [
+        "FIS + Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-11124",
+      "name": "S&T Bank",
+      "city": "Indiana",
+      "state": "PA",
+      "assets": 9935678000,
+      "path": "/fi/pa/s-and-t-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-8426",
+      "name": "1st Summit Bank",
+      "city": "Johnstown",
+      "state": "PA",
+      "assets": 1520450000,
+      "path": "/fi/pa/1st-summit-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-7542",
+      "name": "Ameriserv Financial Bank",
+      "city": "Johnstown",
+      "state": "PA",
+      "assets": 1458453000,
+      "path": "/fi/pa/ameriserv-financial-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7900",
+      "name": "NEXTIER BANK, NATIONAL ASSOCIATION",
+      "city": "Kittanning",
+      "state": "PA",
+      "assets": 2928192000,
+      "path": "/fi/pa/nextier-bank-national-association/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-7551",
+      "name": "Fulton Bank, National Association",
+      "city": "Lancaster",
+      "state": "PA",
+      "assets": 32561169000,
+      "path": "/fi/pa/fulton-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34444",
+      "name": "Customers Bank",
+      "city": "Malvern",
+      "state": "PA",
+      "assets": 26503549000,
+      "path": "/fi/pa/customers-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7593",
+      "name": "First Citizens Community Bank",
+      "city": "Mansfield",
+      "state": "PA",
+      "assets": 3187334000,
+      "path": "/fi/pa/first-citizens-community-bank/",
+      "digital": [
+        "Jack Henry (NetTeller)"
+      ]
+    },
+    {
+      "id": "fdic-9889",
+      "name": "Mid Penn Bank",
+      "city": "Millersburg",
+      "state": "PA",
+      "assets": 7038845000,
+      "path": "/fi/pa/mid-penn-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7946",
+      "name": "BNY Mellon, National Association",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "assets": 30616000000,
+      "path": "/fi/pa/bny-mellon-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58457",
+      "name": "TriState Capital Bank",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "assets": 24258271000,
+      "path": "/fi/pa/tristate-capital-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-32245",
+      "name": "Dollar Bank, Federal Savings Bank",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "assets": 12696318000,
+      "path": "/fi/pa/dollar-bank-federal-savings-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-7714",
+      "name": "QNB Bank",
+      "city": "Quakertown",
+      "state": "PA",
+      "assets": 2374999000,
+      "path": "/fi/pa/qnb-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-11112",
+      "name": "Somerset Trust Company",
+      "city": "Somerset",
+      "state": "PA",
+      "assets": 2467590000,
+      "path": "/fi/pa/somerset-trust-company/",
+      "digital": [
+        "Alkami"
+      ]
+    },
+    {
+      "id": "fdic-7759",
+      "name": "Univest  Bank and Trust Co.",
+      "city": "Souderton",
+      "state": "PA",
+      "assets": 8168987000,
+      "path": "/fi/pa/univest-bank-and-trust-co/",
+      "digital": []
+    },
+    {
+      "id": "fdic-28178",
+      "name": "Northwest Bank",
+      "city": "Warren",
+      "state": "PA",
+      "assets": 17206047000,
+      "path": "/fi/pa/northwest-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-29520",
+      "name": "Washington Financial Bank",
+      "city": "Washington",
+      "state": "PA",
+      "assets": 1435217000,
+      "path": "/fi/pa/washington-financial-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57777",
+      "name": "Meridian Bank",
+      "city": "Wayne",
+      "state": "PA",
+      "assets": 2591552000,
+      "path": "/fi/pa/meridian-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-7799",
+      "name": "Citizens & Northern Bank",
+      "city": "Wellsboro",
+      "state": "PA",
+      "assets": 3143130000,
+      "path": "/fi/pa/citizens-and-northern-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-18129",
+      "name": "BankNewport",
+      "city": "Middletown",
+      "state": "RI",
+      "assets": 3067450000,
+      "path": "/fi/ri/banknewport/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57957",
+      "name": "Citizens Bank, National Association",
+      "city": "Providence",
+      "state": "RI",
+      "assets": 232517438000,
+      "path": "/fi/ri/citizens-bank-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-17764",
+      "name": "Centreville Bank",
+      "city": "West Warwick",
+      "state": "RI",
+      "assets": 3152569000,
+      "path": "/fi/ri/centreville-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-23623",
+      "name": "The Washington Trust Company, of Westerly",
+      "city": "Westerly",
+      "state": "RI",
+      "assets": 6551001000,
+      "path": "/fi/ri/the-washington-trust-company-of-westerly/",
+      "digital": [
+        "Alkami"
+      ]
+    },
+    {
+      "id": "fdic-31100",
+      "name": "Security Federal Bank",
+      "city": "Aiken",
+      "state": "SC",
+      "assets": 1539653000,
+      "path": "/fi/sc/security-federal-bank/",
+      "digital": [
+        "FIS + Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-2102",
+      "name": "The Conway National Bank",
+      "city": "Conway",
+      "state": "SC",
+      "assets": 1997130000,
+      "path": "/fi/sc/the-conway-national-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-16889",
+      "name": "United Community Bank",
+      "city": "Greenville",
+      "state": "SC",
+      "assets": 28987812000,
+      "path": "/fi/sc/united-community-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-35295",
+      "name": "Southern First Bank",
+      "city": "Greenville",
+      "state": "SC",
+      "assets": 4703075000,
+      "path": "/fi/sc/southern-first-bank/",
+      "digital": [
+        "Candescent (ex-NCR Digital Insight)"
+      ]
+    },
+    {
+      "id": "fdic-57756",
+      "name": "Coastal States Bank",
+      "city": "Hilton Head Island",
+      "state": "SC",
+      "assets": 2418168000,
+      "path": "/fi/sc/coastal-states-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-34047",
+      "name": "First Community Bank",
+      "city": "Lexington",
+      "state": "SC",
+      "assets": 2380900000,
+      "path": "/fi/sc/first-community-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-9923",
+      "name": "Anderson Brothers Bank",
+      "city": "Mullins",
+      "state": "SC",
+      "assets": 2380274000,
+      "path": "/fi/sc/anderson-brothers-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-58689",
+      "name": "South Atlantic Bank",
+      "city": "Myrtle Beach",
+      "state": "SC",
+      "assets": 1979313000,
+      "path": "/fi/sc/south-atlantic-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-16389",
+      "name": "Bank of Travelers Rest",
+      "city": "Travelers Rest",
+      "state": "SC",
+      "assets": 1602110000,
+      "path": "/fi/sc/bank-of-travelers-rest/",
+      "digital": []
+    },
+    {
+      "id": "fdic-10307",
+      "name": "Builtwell Bank",
+      "city": "Chattanooga",
+      "state": "TN",
+      "assets": 2284013000,
+      "path": "/fi/tn/builtwell-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-14851",
+      "name": "Citizens Bank",
+      "city": "Elizabethton",
+      "state": "TN",
+      "assets": 1423669000,
+      "path": "/fi/tn/citizens-bank-elizabethton/",
+      "digital": [
+        "Alkami"
+      ]
+    },
+    {
+      "id": "fdic-57348",
+      "name": "SouthEast Bank",
+      "city": "Farragut",
+      "state": "TN",
+      "assets": 3583462000,
+      "path": "/fi/tn/southeast-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-22354",
+      "name": "Commercial Bank",
+      "city": "Harrogate",
+      "state": "TN",
+      "assets": 2355536000,
+      "path": "/fi/tn/commercial-bank/",
+      "digital": [
+        "Jack Henry (Banno) + Jack Henry (NetTeller)"
+      ]
+    },
+    {
+      "id": "fdic-21573",
+      "name": "Bank of Tennessee",
+      "city": "Kingsport",
+      "state": "TN",
+      "assets": 2250406000,
+      "path": "/fi/tn/bank-of-tennessee/",
+      "digital": [
+        "FIS + Q2"
+      ]
+    },
+    {
+      "id": "fdic-29683",
+      "name": "Home Federal Bank of Tennessee",
+      "city": "Knoxville",
+      "state": "TN",
+      "assets": 2725901000,
+      "path": "/fi/tn/home-federal-bank-of-tennessee/",
+      "digital": [
+        "Apiture"
+      ]
+    },
+    {
+      "id": "fdic-58463",
+      "name": "SmartBank",
+      "city": "Pigeon Forge",
+      "state": "TN",
+      "assets": 6107436000,
+      "path": "/fi/tn/smartbank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-20954",
+      "name": "Citizens National Bank",
+      "city": "Sevierville",
+      "state": "TN",
+      "assets": 1958426000,
+      "path": "/fi/tn/citizens-national-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-11578",
+      "name": "Burke & Herbert Bank & Trust Company",
+      "city": "Alexandria",
+      "state": "VA",
+      "assets": 10984290000,
+      "path": "/fi/va/burke-and-herbert-bank-and-trust-company/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-6123",
+      "name": "Bank Of Clarke",
+      "city": "Berryville",
+      "state": "VA",
+      "assets": 1847024000,
+      "path": "/fi/va/bank-of-clarke/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6821",
+      "name": "The National Bank of Blacksburg",
+      "city": "Blacksburg",
+      "state": "VA",
+      "assets": 1832140000,
+      "path": "/fi/va/the-national-bank-of-blacksburg/",
+      "digital": [
+        "FIS + Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-13012",
+      "name": "First Community Bank",
+      "city": "Bluefield",
+      "state": "VA",
+      "assets": 3607625000,
+      "path": "/fi/va/first-community-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-58504",
+      "name": "Old Dominion National Bank",
+      "city": "Charlottesville",
+      "state": "VA",
+      "assets": 1795397000,
+      "path": "/fi/va/old-dominion-national-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-34755",
+      "name": "Virginia National Bank",
+      "city": "Charlottesville",
+      "state": "VA",
+      "assets": 1636058000,
+      "path": "/fi/va/virginia-national-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-22858",
+      "name": "United Bank",
+      "city": "Fairfax",
+      "state": "VA",
+      "assets": 33638881000,
+      "path": "/fi/va/united-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58696",
+      "name": "FVCbank",
+      "city": "Fairfax",
+      "state": "VA",
+      "assets": 2362694000,
+      "path": "/fi/va/fvcbank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-57742",
+      "name": "MainStreet Bank",
+      "city": "Fairfax",
+      "state": "VA",
+      "assets": 2238825000,
+      "path": "/fi/va/mainstreet-bank/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-20484",
+      "name": "Benchmark Community Bank",
+      "city": "Kenbridge",
+      "state": "VA",
+      "assets": 1413774000,
+      "path": "/fi/va/benchmark-community-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6862",
+      "name": "Chesapeake Bank",
+      "city": "Kilmarnock",
+      "state": "VA",
+      "assets": 1724973000,
+      "path": "/fi/va/chesapeake-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-22918",
+      "name": "The First Bank and Trust Company",
+      "city": "Lebanon",
+      "state": "VA",
+      "assets": 4275801000,
+      "path": "/fi/va/the-first-bank-and-trust-company/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-58596",
+      "name": "Carter Bank & Trust",
+      "city": "Martinsville",
+      "state": "VA",
+      "assets": 4797064000,
+      "path": "/fi/va/carter-bank-and-trust/",
+      "digital": []
+    },
+    {
+      "id": "fdic-35274",
+      "name": "Blue Ridge Bank,  National Association",
+      "city": "Martinsville",
+      "state": "VA",
+      "assets": 2310031000,
+      "path": "/fi/va/blue-ridge-bank-national-association/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-4297",
+      "name": "Capital One, National Association",
+      "city": "Mclean",
+      "state": "VA",
+      "assets": 662157000000,
+      "path": "/fi/va/capital-one-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58595",
+      "name": "Chain Bridge Bank, National Association",
+      "city": "Mclean",
+      "state": "VA",
+      "assets": 2192216000,
+      "path": "/fi/va/chain-bridge-bank-national-association/",
+      "digital": [
+        "Jack Henry (Banno)"
+      ]
+    },
+    {
+      "id": "fdic-35095",
+      "name": "TowneBank",
+      "city": "Portsmouth",
+      "state": "VA",
+      "assets": 22616959000,
+      "path": "/fi/va/townebank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-58243",
+      "name": "John Marshall Bank",
+      "city": "Reston",
+      "state": "VA",
+      "assets": 2398504000,
+      "path": "/fi/va/john-marshall-bank/",
+      "digital": [
+        "FIS"
+      ]
+    },
+    {
+      "id": "fdic-34589",
+      "name": "Atlantic Union Bank",
+      "city": "Richmond City",
+      "state": "VA",
+      "assets": 38020862000,
+      "path": "/fi/va/atlantic-union-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-6917",
+      "name": "First Bank",
+      "city": "Strasburg",
+      "state": "VA",
+      "assets": 2073688000,
+      "path": "/fi/va/first-bank/",
+      "digital": [
+        "Jack Henry (Banno) + Jack Henry (NetTeller)"
+      ]
+    },
+    {
+      "id": "fdic-57968",
+      "name": "Primis Bank",
+      "city": "Tappahannock",
+      "state": "VA",
+      "assets": 4336833000,
+      "path": "/fi/va/primis-bank/",
+      "digital": [
+        "Bankjoy"
+      ]
+    },
+    {
+      "id": "fdic-57890",
+      "name": "HSBC Bank USA, National Association",
+      "city": "Tysons",
+      "state": "VA",
+      "assets": 173101278000,
+      "path": "/fi/va/hsbc-bank-usa-national-association/",
+      "digital": []
+    },
+    {
+      "id": "fdic-10363",
+      "name": "Citizens and Farmers Bank",
+      "city": "West Point",
+      "state": "VA",
+      "assets": 2787917000,
+      "path": "/fi/va/citizens-and-farmers-bank/",
+      "digital": [
+        "Fiserv"
+      ]
+    },
+    {
+      "id": "fdic-14158",
+      "name": "Union Bank",
+      "city": "Morrisville",
+      "state": "VT",
+      "assets": 1558133000,
+      "path": "/fi/vt/union-bank/",
+      "digital": []
+    },
+    {
+      "id": "fdic-14140",
+      "name": "Northfield Savings Bank",
+      "city": "Northfield",
+      "state": "VT",
+      "assets": 1576574000,
+      "path": "/fi/vt/northfield-savings-bank/",
+      "digital": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "fdic-17735",
+      "name": "City National Bank of West Virginia",
+      "city": "Charleston",
+      "state": "WV",
+      "assets": 6756219000,
+      "path": "/fi/wv/city-national-bank-of-west-virginia/",
+      "digital": [
+        "FIS + Jack Henry (Banno) + Jack Henry (NetTeller)"
+      ]
+    },
+    {
+      "id": "fdic-34603",
+      "name": "MVB Bank, Inc",
+      "city": "Fairmont",
+      "state": "WV",
+      "assets": 3497075000,
+      "path": "/fi/wv/mvb-bank-inc/",
+      "digital": []
+    },
+    {
+      "id": "fdic-803",
+      "name": "WesBanco Bank, Inc.",
+      "city": "Wheeling",
+      "state": "WV",
+      "assets": 27745993000,
+      "path": "/fi/wv/wesbanco-bank-inc/",
+      "digital": [
+        "FIS"
+      ]
+    }
+  ]
+}
