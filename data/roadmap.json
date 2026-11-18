@@ -118,10 +118,11 @@
       "id": "asset-benchmarks",
       "name": "Asset chart benchmarks",
       "description": "Peer and industry overlays on asset charts, an inflation-adjusted toggle, and markers for mergers and acquisitions.",
-      "status": "Queued",
+      "status": "Building",
       "showcase": {
         "date": "2026-11-18",
-        "est": true
+        "est": false,
+        "note": "on showcase institution pages"
       },
       "full": {
         "date": "2026-11-18",

@@ -2,6 +2,14 @@
   "entries": [
     {
       "date": "2026-11-18",
+      "id": "asset-benchmarks",
+      "title": "Asset chart benchmarks on showcase pages",
+      "body": "Asset charts on the showcase institution pages now include peer and industry overlays, an inflation-adjusted toggle, and markers for mergers and acquisitions.",
+      "link_href": "/fi/mt/glacier-bank/",
+      "link_label": "Glacier Bank"
+    },
+    {
+      "date": "2026-11-18",
       "id": "fi-v2",
       "title": "Institution pages, version 2",
       "body": "A fuller institution page layout is now on all institution pages.",
