@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP server for partners — FI Signal Weekly</title>
+<meta name="description" content="Connect AI tools to FI Signal Weekly's published bank and credit union signals with a read-only remote MCP server and a partner API key.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FI Signal Weekly">
+<meta property="og:title" content="MCP server for partners — FI Signal Weekly">
+<meta property="og:description" content="Connect AI tools to FI Signal Weekly's published bank and credit union signals with a read-only remote MCP server and a partner API key.">
+<meta property="og:image" content="https://fisignalweekly.com/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FI Signal Weekly: buying-window signals at US banks &amp; credit unions">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MCP server for partners — FI Signal Weekly">
+<meta name="twitter:description" content="Connect AI tools to FI Signal Weekly's published bank and credit union signals with a read-only remote MCP server and a partner API key.">
+<meta name="twitter:image" content="https://fisignalweekly.com/img/og-image.png">
+<meta name="twitter:image:alt" content="FI Signal Weekly: buying-window signals at US banks &amp; credit unions">
+<meta name="theme-color" content="#000F26">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/mark-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<meta name="twitter:site" content="@FISignalWeekly">
+<meta name="twitter:creator" content="@FISignalWeekly">
+<link rel="stylesheet" href="/css/style.css?v=20261118whatsnew">
+<style>
+.mcp pre{background:var(--navy-900);color:#E6EEF8;border-radius:10px;padding:12px 14px;overflow-x:auto;font-size:.82rem;line-height:1.45;margin:10px 0 16px;-webkit-overflow-scrolling:touch}
+.mcp code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em}
+.mcp :not(pre)>code{background:#E6ECF5;border-radius:4px;padding:1px 5px;overflow-wrap:anywhere}
+.mcp .endpoint{display:block;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--signal);border-radius:10px;padding:12px 14px;font-weight:700;overflow-wrap:anywhere;font-size:.95rem}
+.mcp .tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0 16px}
+.mcp table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--card)}
+.mcp th,.mcp td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+.mcp th{background:#EEF3F9;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+.mcp .tool{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy-700);border-radius:10px;padding:14px 16px;margin:16px 0}
+.mcp .tool h3{margin:0 0 6px;font-size:1.05rem;overflow-wrap:anywhere}
+.mcp .toc{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:12px 0 0}
+.mcp .toc a{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);text-decoration:none;font-size:.85rem;font-weight:600}
+.mcp h2{scroll-margin-top:12px}
+@media(max-width:480px){.mcp h1{font-size:1.6rem}.mcp pre{font-size:.76rem;padding:10px 12px}.mcp .tool{padding:12px}}
+</style>
+</head><body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="/"><img class="mark" src="/img/mark-64.png" width="32" height="32" alt="">FI Signal <span>Weekly</span></a>
+  <nav><a href="/#board">Board</a><a class="nav-dir" href="/fi/">Directory</a><a class="nav-opt" href="/about.html">About</a><a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener" aria-label="Follow @FISignalWeekly on X"><svg class="x-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="fx-text">Follow @FISignalWeekly</span></a></nav>
+</div></header>
+<main class="wrap prose mcp">
+  <h1>MCP server for partners</h1>
+  <p>Connect your AI assistant or integration to FI Signal Weekly. The MCP server gives read-only access to the same published data as the site: the signal board (mergers and acquisitions, executive moves, core conversions, charter and digital banking changes), the institution directory, call-report assets and the tech stack evidence on each institution page. Every signal links to its public source.</p>
+  <ul class="toc">
+    <li><a href="#endpoint">Endpoint</a></li><li><a href="#key">Get a key</a></li><li><a href="#connect">Connect</a></li>
+    <li><a href="#types">Signal types</a></li><li><a href="#tools">Tools</a></li><li><a href="#notes">Notes</a></li>
+  </ul>
+
+  <h2 id="endpoint">Endpoint</h2>
+  <code class="endpoint">https://fi-signal-mcp.fisignal.workers.dev/mcp</code>
+  <ul>
+    <li>Transport: MCP Streamable HTTP (stateless, JSON responses). No session handling needed.</li>
+    <li>Auth: <code>Authorization: Bearer &lt;your API key&gt;</code> on every request.</li>
+    <li>Read-only. All tools are safe to call repeatedly.</li>
+    <li>Errors: <code>401</code> missing, invalid or revoked key; <code>429</code> rate limit (60 requests a minute per key; retry after 60 seconds).</li>
+  </ul>
+
+  <h2 id="key">Get an API key</h2>
+  <p>Keys are issued per partner during the preview. Email <a href="mailto:fisignal@mail.grokbot.com?subject=MCP%20API%20key">fisignal@mail.grokbot.com</a> with the subject “MCP API key” and a line on how you plan to use the data.</p>
+  <p>Your key starts with <code>fisw_</code>. Treat it like a password: keep it in a secret store and never commit it or paste it into shared documents. If a key leaks, email us and we’ll revoke it and send a new one.</p>
+
+  <h2 id="connect">Connect as a remote MCP server</h2>
+  <p>Clients that support remote MCP servers take a URL and headers:</p>
+<pre><code>{
+  "mcpServers": {
+    "fi-signal-weekly": {
+      "url": "https://fi-signal-mcp.fisignal.workers.dev/mcp",
+      "headers": { "Authorization": "Bearer ${FISW_API_KEY}" }
+    }
+  }
+}</code></pre>
+  <p>A client that only runs local (stdio) servers can bridge with <code>mcp-remote</code>:</p>
+<pre><code>{
+  "mcpServers": {
+    "fi-signal-weekly": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote",
+               "https://fi-signal-mcp.fisignal.workers.dev/mcp",
+               "--header", "Authorization:Bearer ${FISW_API_KEY}"],
+      "env": { "FISW_API_KEY": "fisw_..." }
+    }
+  }
+}</code></pre>
+  <p>From code, with the official MCP TypeScript SDK:</p>
+<pre><code>import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
+
+const client = new Client({ name: "my-app", version: "1.0.0" });
+await client.connect(new StreamableHTTPClientTransport(
+  new URL("https://fi-signal-mcp.fisignal.workers.dev/mcp"),
+  { requestInit: { headers: { Authorization: `Bearer ${process.env.FISW_API_KEY}` } } }));
+
+const res = await client.callTool({
+  name: "search_signals",
+  arguments: { types: ["m_and_a"], limit: 5 } });
+console.log(JSON.parse(res.content[0].text));</code></pre>
+  <p>Or raw JSON-RPC with curl:</p>
+<pre><code>curl -s https://fi-signal-mcp.fisignal.workers.dev/mcp \
+  -H "Authorization: Bearer $FISW_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call",
+       "params":{"name":"search_signals",
+                 "arguments":{"types":["executive"],"states":["PA"],"limit":3}}}'</code></pre>
+  <p>Each tool returns one text content block containing JSON.</p>
+
+  <h2 id="types">Signal types</h2>
+  <p>In priority order. Pass a type or a group (<code>m_and_a</code>, <code>executive</code>) in <code>types</code>.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Type</th><th>Label</th><th>Group</th></tr></thead>
+    <tbody>
+      <tr><td><code>merger</code></td><td>Pending merger</td><td>m_and_a</td></tr>
+      <tr><td><code>cu_merger</code></td><td>CU merger</td><td>m_and_a</td></tr>
+      <tr><td><code>cu_acquires_bank</code></td><td>CU buys bank</td><td>m_and_a</td></tr>
+      <tr><td><code>executive</code></td><td>New executive</td><td>executive</td></tr>
+      <tr><td><code>cu_executive</code></td><td>CU exec move</td><td>executive</td></tr>
+      <tr><td><code>core</code></td><td>Core renewal / conversion</td><td>other</td></tr>
+      <tr><td><code>cu_charter</code></td><td>CU charter change</td><td>other</td></tr>
+      <tr><td><code>digital_banking_change</code></td><td>Digital banking change</td><td>other</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="tools">Tools</h2>
+
+  <section class="tool" id="search_signals">
+    <h3><code>search_signals</code></h3>
+    <p>Search published signals, newest event first (or <code>"sort": "added_desc"</code> for newest published). Paginate with <code>next_cursor</code>.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Argument</th><th>Type</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><code>query</code></td><td>string</td><td>All words must appear in the institution name, summary or type label</td></tr>
+        <tr><td><code>types</code></td><td>string[]</td><td>Types or groups, e.g. <code>["m_and_a","executive"]</code></td></tr>
+        <tr><td><code>states</code></td><td>string[]</td><td>Two-letter codes</td></tr>
+        <tr><td><code>min_assets_usd</code>, <code>max_assets_usd</code></td><td>number</td><td>Institution total assets in USD</td></tr>
+        <tr><td><code>event_date_from</code>, <code>event_date_to</code></td><td>YYYY-MM-DD</td><td>When the event happened</td></tr>
+        <tr><td><code>added_from</code>, <code>added_to</code></td><td>YYYY-MM-DD</td><td>When it was published on the board</td></tr>
+        <tr><td><code>fi_id</code></td><td>string</td><td>One institution (<code>fdic-&lt;CERT&gt;</code> or <code>ncua-&lt;charter&gt;</code>)</td></tr>
+        <tr><td><code>limit</code></td><td>1–100</td><td>Default 25</td></tr>
+        <tr><td><code>cursor</code></td><td>string</td><td><code>next_cursor</code> from the previous page</td></tr>
+      </tbody>
+    </table></div>
+    <p>Example: M&amp;A at institutions over $500M in three states.</p>
+<pre><code>{"name": "search_signals",
+ "arguments": {"types": ["m_and_a"], "states": ["PA","OH","MI"],
+               "min_assets_usd": 500000000, "limit": 5}}</code></pre>
+    <p>Returns <code>{ total, count, next_cursor, signals }</code>. Each signal:</p>
+<pre><code>{ "id": "t199", "type": "merger", "type_label": "Pending merger",
+  "type_group": "m_and_a", "institution": "…", "state": "MI",
+  "event_date": "2026-11-04", "added": "2026-11-13",
+  "summary": "…", "source_url": "https://…",
+  "fi_id": "fdic-…", "fi_name": "…", "charter_type": "bank",
+  "assets_usd": 1234567000, "assets_basis": "call_report",
+  "assets_as_of": "2026Q2",
+  "fi_page_url": "https://fisignalweekly.com/fi/mi/…/",
+  "board_url": "https://fisignalweekly.com/#t199" }</code></pre>
+    <p class="note"><code>assets_basis</code> is <code>call_report</code> (FDIC or NCUA) or <code>reported_approx</code> (the approximate figure in the announcement).</p>
+  </section>
+
+  <section class="tool" id="get_fi_profile">
+    <h3><code>get_fi_profile</code></h3>
+    <p>One bank or credit union. Look up by <code>fi_id</code>, by <code>slug</code> (the path or full URL of its page under <code>https://fisignalweekly.com/fi/</code>) or by <code>name</code> with an optional <code>state</code>. An ambiguous name returns <code>{ "ambiguous": true, "candidates": [...] }</code>.</p>
+<pre><code>{"name": "get_fi_profile", "arguments": {"fi_id": "fdic-14969"}}</code></pre>
+    <p>Returns directory details (name, charter, city, state, website, holding company, page URL), <code>financials</code> (latest total assets, deposits and loans, a nine-quarter asset trend, 1- and 2-year asset growth, members or offices, and regulator history such as mergers and name changes), <code>peer_benchmarks</code> (industry median and aggregate asset growth for all banks or all credit unions), <code>tech_stack</code> (as in <code>get_tech_stack</code>) and the institution’s published <code>signals</code>.</p>
+  </section>
+
+  <section class="tool" id="list_new_signals_since">
+    <h3><code>list_new_signals_since</code></h3>
+    <p>For syncing into a CRM or another system. Returns signals published on or after <code>since</code>, oldest first, in a stable order.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Argument</th><th>Type</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><code>since</code></td><td>YYYY-MM-DD</td><td>Publish date, inclusive</td></tr>
+        <tr><td><code>types</code></td><td>string[]</td><td>Optional</td></tr>
+        <tr><td><code>limit</code></td><td>1–200</td><td>Default 100</td></tr>
+        <tr><td><code>cursor</code></td><td>string</td><td><code>next_cursor</code> from the previous call</td></tr>
+      </tbody>
+    </table></div>
+<pre><code>{"name": "list_new_signals_since",
+ "arguments": {"since": "2026-11-01", "limit": 100}}</code></pre>
+    <p>Returns <code>{ since, count, has_more, next_cursor, data_updated, signals }</code>. Keep calling with <code>next_cursor</code> while <code>has_more</code> is true. Save the last <code>next_cursor</code> and pass it with the same <code>since</code> on your next sync to get only newer rows. Dedupe on <code>id</code>. Polling once or twice a day is plenty.</p>
+  </section>
+
+  <section class="tool" id="get_tech_stack">
+    <h3><code>get_tech_stack</code></h3>
+    <p>Technology providers for up to 100 institutions per call.</p>
+<pre><code>{"name": "get_tech_stack",
+ "arguments": {"fi_ids": ["fdic-30788", "ncua-62918"]}}</code></pre>
+    <p>Each institution has four fields: <code>digital</code> (retail digital banking), <code>digital_business</code>, <code>core</code> and <code>billpay</code>. Each field returns <code>value</code>, <code>status</code> (<code>current</code> or <code>announced</code>), <code>evidence_type</code> (Login page scan, Vendor press release, FI announcement, Press release or Regulator filing), <code>source_url</code>, <code>last_updated</code> and <code>note</code>, plus <code>replaces</code> when an announced change replaces the current vendor and <code>evidence</code> with every row behind the field.</p>
+    <p><code>identified: false</code> means there is no public evidence yet. Core and bill pay come only from public announcements and are never inferred from the digital banking vendor.</p>
+  </section>
+
+  <h2 id="notes">Notes</h2>
+  <ul>
+    <li>Only data published on fisignalweekly.com, refreshed as the site updates. <code>data_updated</code> in responses shows the data date.</li>
+    <li>Every signal links its public source. This is a research aid, not advice; verify before acting.</li>
+    <li>Questions or feedback: <a href="mailto:fisignal@mail.grokbot.com?subject=MCP%20server">fisignal@mail.grokbot.com</a>.</li>
+  </ul>
+</main>
+<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
+</body></html>
