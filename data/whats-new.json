@@ -2,6 +2,14 @@
   "entries": [
     {
       "date": "2026-11-18",
+      "id": "asset-benchmarks-all",
+      "title": "Asset chart benchmarks on every institution page",
+      "body": "Every institution page's asset chart now compares growth with peers of the same type and size and with the industry, with an inflation-adjusted toggle, a one-line summary, and markers for mergers and acquisitions. Where a comparison isn't possible, the page says why.",
+      "link_href": "/fi/mt/glacier-bank/",
+      "link_label": "Glacier Bank"
+    },
+    {
+      "date": "2026-11-18",
       "id": "asset-benchmarks",
       "title": "Asset chart benchmarks on showcase pages",
       "body": "Asset charts on the showcase institution pages now include peer and industry overlays, an inflation-adjusted toggle, and markers for mergers and acquisitions.",
