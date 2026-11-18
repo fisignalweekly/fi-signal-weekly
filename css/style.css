@@ -230,13 +230,25 @@ label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
 #fs-more-wrap{margin:12px 0 0}
 .card h3 .fi-link{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:3px}
 .card h3 .fi-link:hover{color:var(--brand);text-decoration-color:currentColor}
+.prov-grid{display:grid;gap:10px}
+.prov-item{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--navy-700);border-radius:10px;padding:12px 14px;min-width:0}
+.prov-item.prov-chg{border-left-color:var(--signal-ink)}
+.prov-item h3{margin:0 0 4px;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.prov-item p{margin:0 0 4px;overflow-wrap:anywhere}
+.prov-val{font-weight:800;font-size:1.05rem;color:var(--navy-900)}
+.prov-val.prov-none{font-weight:600;color:var(--muted)}
+.prov-when{font-weight:700;color:var(--signal-ink);white-space:nowrap}
+.prov-meta,.prov-note,.prov-was{font-size:.88rem;color:var(--muted)}
+.prov-links{display:flex;flex-wrap:wrap;gap:4px 18px;font-weight:600;font-size:.9rem;margin-top:6px!important}
+.prov-how{font-size:.85rem;color:var(--muted);margin:8px 0 0}
+@media(min-width:760px){.prov-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:759px){
   .crumbs{margin:12px 0 4px;font-size:.92rem}
   .crumbs a{display:inline-flex;align-items:center;min-height:44px}
   .facts{padding:2px 14px}
   .facts>div{grid-template-columns:1fr;gap:2px;padding:10px 0}
   .sig-links a,.more-links a{display:inline-flex;align-items:center;min-height:44px}
-  .facts dd a,.empty-note a{display:inline-flex;align-items:center;min-height:44px}
+  .facts dd a,.empty-note a,.prov-links a{display:inline-flex;align-items:center;min-height:44px}
   .facts>div{padding:6px 0}
   .more-links{gap:0 18px}
   .fi-list a{padding:10px 14px;min-height:52px}

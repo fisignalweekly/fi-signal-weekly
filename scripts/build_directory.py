@@ -7,6 +7,7 @@
 Inputs (nothing else, no network):
   data/institutions.json  every active FDIC bank and NCUA credit union (scripts/build_fi_db.py)
   data/triggers.json      board rows; a row belongs to an institution through its fi_id (scripts/link_institutions.py)
+  data/providers.csv      core and digital banking provider evidence per institution (data/README-providers.md)
 
 Outputs:
   fi/index.html                     directory landing page with client-side search (js/fi-search.js)
@@ -22,7 +23,7 @@ sitemap.xml. Output has no timestamps and is sorted, so unchanged data gives byt
 fi/ that the build no longer produces (e.g. an institution that merged away) are deleted.
 Exit codes: 0 ok, 1 bad input, 3 (--check only) output is out of date.
 """
-import argparse, hashlib, html, json, os, re, sys
+import argparse, csv, hashlib, html, json, os, re, sys
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -183,6 +184,68 @@ def sig_li(r, show_inst=False):
             f'<p class="sig-links"><a href="/#{e(r["id"])}">See on the board</a><a href="{e(r["source_url"])}" target="_blank" rel="noopener noreferrer">Source ↗</a></p></li>')
 
 
+# ---------------------------------------------------------------- providers (data/providers.csv)
+PROV_FIELDS = [("core", "Core provider"), ("digital", "Digital banking provider")]
+
+
+def load_providers():
+    """fi_id -> field -> list of rows. See data/README-providers.md."""
+    out = defaultdict(lambda: defaultdict(list))
+    p = os.path.join(ROOT, "data", "providers.csv")
+    if not os.path.exists(p):
+        return out
+    with open(p, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            out[r["fi_id"]][r["field"]].append(r)
+    return out
+
+
+def resolve_provider(rows):
+    """(shown row, earlier current row it replaces or None). A verified announced change wins over the current
+    value unless a later current row already shows the new value (the change has happened)."""
+    cur = sorted((r for r in rows if r["status"] == "current"), key=lambda r: (r["last_updated"], r["source_type"] != "Login page scan"), reverse=True)
+    ann = sorted((r for r in rows if r["status"] == "announced"), key=lambda r: r["last_updated"], reverse=True)
+    if ann:
+        a = ann[0]
+        if not any(c["value"] == a["value"] and c["last_updated"] >= a["last_updated"] for c in cur):
+            old = next((c for c in cur if c["value"] != a["value"]), None)
+            return a, old
+    return (cur[0], None) if cur else (None, None)
+
+
+def provider_block(x, prov, board_by_url):
+    items = []
+    for field, label in PROV_FIELDS:
+        shown, old = resolve_provider(prov.get(x["id"], {}).get(field, []))
+        if not shown:
+            items.append(f'<div class="prov-item"><h3>{label}</h3><p class="prov-val prov-none">Not yet identified</p>'
+                         '<p class="prov-meta">No verified public source yet.</p></div>')
+            continue
+        val = e(shown["value"])
+        if shown["status"] == "announced":
+            val += f' <span class="prov-when">(announced {fmt_date(shown["last_updated"])})</span>'
+        note = shown["note"].strip()
+        note_html = f'<p class="prov-note">{e(note[:1].upper() + note[1:])}</p>' if note else ""
+        links = []
+        if shown["source_url"]:
+            links.append(f'<a href="{e(shown["source_url"])}" target="_blank" rel="noopener nofollow">'
+                         f'{"Page scanned" if shown["source_type"] == "Login page scan" else "Source"} ↗</a>')
+        sig = board_by_url.get((x["id"], shown["source_url"]))
+        if sig:
+            links.append(f'<a href="/#{e(sig)}">See the signal</a>')
+        was = (f'<p class="prov-was">Before the change: {e(old["value"])} <span class="muted-inline">({e(old["source_type"].lower())}, '
+               f'{fmt_date(old["last_updated"])})</span></p>') if old else ""
+        cls = "prov-item prov-chg" if shown["status"] == "announced" else "prov-item"
+        items.append(f'<div class="{cls}"><h3>{label}</h3><p class="prov-val">{val}</p>'
+                     f'<p class="prov-meta">Updated {fmt_date(shown["last_updated"])} · {e(shown["source_type"])}</p>{note_html}{was}'
+                     + (f'<p class="prov-links">{"".join(links)}</p>' if links else "") + "</div>")
+    return ('<section class="prov" aria-labelledby="prov-h"><h2 id="prov-h">Technology providers</h2>'
+            f'<div class="prov-grid">{"".join(items)}</div>'
+            '<p class="note prov-how">Core comes only from verified public announcements. Digital banking comes from a scan of the '
+            'online banking login link on the institution&#39;s public website (hostname and DNS), or from a verified announcement. '
+            'Announced changes are shown in place of the current value. We never infer one from the other.</p></section>')
+
+
 # ---------------------------------------------------------------- builders
 def build(files):
     db = json.load(open(os.path.join(ROOT, "data", "institutions.json")))
@@ -196,6 +259,8 @@ def build(files):
             sigs[r["fi_id"]].append(r)
     for k in sigs:
         sigs[k].sort(key=lambda r: (r["date"], r["id"]), reverse=True)
+    prov = load_providers()
+    board_by_url = {(r["fi_id"], r["source_url"]): r["id"] for r in trig["rows"] if r.get("fi_id")}
 
     # slugs: name, then name-city, then name-city-<number>, unique within a state
     groups = defaultdict(list)
@@ -256,7 +321,7 @@ def build(files):
         body = (crumbs([("Directory", "/fi/"), (st_name, f'/fi/{x["state"].lower()}/'), (x["name"], None)]) +
                 f'<article class="fi-page"><h1>{e(x["name"])}</h1>'
                 f'<p class="fi-sub">{"Credit union" if x["charter_type"] == "cu" else "Bank"} · {e(x["city"])}, {e(x["state"])}' + (f" · {e(a)} in assets" if a else "") + "</p>"
-                f'<dl class="facts">{dl}</dl>{hist}'
+                f'<dl class="facts">{dl}</dl>{provider_block(x, prov, board_by_url)}{hist}'
                 f'<p class="more-links"><a href="/?state={e(x["state"])}">{e(st_name)} on the board</a><a href="/fi/{x["state"].lower()}/">All {e(st_name)} institutions</a><a href="/fi/assets/{e(x["_tier"])}/">{e(dict((t[0], t[1]) for t in TIERS)[x["_tier"]])}</a></p></article>')
         place = f'{x["city"]}, {x["state"]}'
         if rows:
@@ -364,7 +429,8 @@ def build(files):
     files["sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
                             "".join(f"  <url><loc>{e(SITE + u)}</loc></url>\n" for u in urls) + "</urlset>\n")
     files["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n"
-    return {"institutions": len(inst), "with_signals": sum(1 for x in inst if x["_n"]), "states": len(state_rows),
+    return {"institutions": len(inst), "core_filled": sum(1 for x in inst if resolve_provider(prov.get(x["id"], {}).get("core", []))[0]),
+            "digital_filled": sum(1 for x in inst if resolve_provider(prov.get(x["id"], {}).get("digital", []))[0]), "with_signals": sum(1 for x in inst if x["_n"]), "states": len(state_rows),
             "tiers": len(tier_counts), "signals_linked": sum(len(v) for v in sigs.values()), "sitemap_urls": len(urls)}
 
 
@@ -409,7 +475,7 @@ def main():
             os.rmdir(d)
     print(f"directory: {stats['institutions']:,} institution pages ({stats['with_signals']} with signals, indexed; the rest noindex), "
           f"{stats['states']} state pages, {stats['tiers']} asset-tier pages, {stats['signals_linked']} signals, "
-          f"{stats['sitemap_urls']} sitemap URLs. {len(changed)} files written, {len(removed)} removed.")
+          f"{stats['sitemap_urls']} sitemap URLs, providers filled: core {stats['core_filled']:,}, digital {stats['digital_filled']:,}. {len(changed)} files written, {len(removed)} removed.")
     return 0
 
 

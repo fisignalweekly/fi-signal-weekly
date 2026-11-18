@@ -45,5 +45,30 @@ for r in d["rows"]:
     if r.get("charter_type") not in ("bank","cu"): print("bad charter_type",r["id"]);ok=False
     if r.get("fi_assets_usd") is not None and not isinstance(r["fi_assets_usd"],int): print("bad fi_assets_usd",r["id"]);ok=False
     if r.get("fi_assets_usd") is not None and not re.match(r"\d{4}Q[1-4]$",str(r.get("fi_assets_as_of"))): print("bad fi_assets_as_of",r["id"]);ok=False
+# provider evidence for /fi/ pages (data/providers.csv; see data/README-providers.md)
+import csv
+PROV_COLS=["fi_id","field","value","status","source_type","source_url","last_updated","note"]
+PROV_SOURCES={"Login page scan","Vendor press release","FI announcement","Press release","Regulator filing"}
+if os.path.exists("data/providers.csv"):
+    with open("data/providers.csv",newline="",encoding="utf-8") as f:
+        rd=csv.DictReader(f); prov=list(rd)
+    if rd.fieldnames!=PROV_COLS: print("providers.csv columns must be",",".join(PROV_COLS));ok=False
+    seen=set();pc={"core":set(),"digital":set()}
+    for i,r in enumerate(prov,2):
+        tag=f"providers.csv line {i}"
+        if inst and r["fi_id"] not in inst: print(tag,"fi_id not in institutions.json",r["fi_id"]);ok=False
+        if r["field"] not in ("core","digital"): print(tag,"bad field",r["field"]);ok=False
+        if not r["value"].strip() or r["value"].strip().lower() in ("not yet identified","unknown","n/a"): print(tag,"empty value (leave the row out instead)");ok=False
+        if r["status"] not in ("current","announced"): print(tag,"bad status",r["status"]);ok=False
+        if r["source_type"] not in PROV_SOURCES: print(tag,"bad source_type",r["source_type"]);ok=False
+        if not r["source_url"].startswith("http"): print(tag,"bad source_url");ok=False
+        if not re.match(r"\d{4}-\d{2}-\d{2}$",r["last_updated"]): print(tag,"bad last_updated");ok=False
+        if r["field"]=="core" and r["source_type"]=="Login page scan": print(tag,"core can't come from a login page scan (leads only)");ok=False
+        if r["status"]=="announced" and r["source_type"]=="Login page scan": print(tag,"a login page scan can't announce a change");ok=False
+        k=(r["fi_id"],r["field"],r["value"],r["status"],r["source_url"])
+        if k in seen: print(tag,"duplicate row");ok=False
+        seen.add(k)
+        if r["field"] in pc: pc[r["field"]].add(r["fi_id"])
+    print(f"providers.csv: {len(prov)} rows, core for {len(pc['core'])} institutions, digital for {len(pc['digital'])}")
 print(f"{linked} rows linked to institutions.json ({len(inst)} institutions)")
 print(len(d["rows"]),"rows","OK" if ok else "ERRORS");sys.exit(0 if ok else 1)
