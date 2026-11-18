@@ -1629,6 +1629,8 @@ fdic-58796,digital_business,Jack Henry,current,Login page scan,https://www.pfbt.
 fdic-58806,digital,Fiserv,current,Login page scan,https://www.genubank.com/,2026-11-17,login link goes to web17.secureinternetbank.com
 fdic-58859,digital,Fiserv,current,Login page scan,https://www.cornerstonebankva.com/,2026-11-17,login link goes to web13.secureinternetbank.com
 fdic-58935,digital,Q2,current,Login page scan,https://www.r.bank/,2026-11-17,login host onlinebanking.rbanktexas.com points (DNS) to 50187.gslb-dyn.onlineaccess1.com
+fdic-58979,digital,Backbase (Engagement Banking platform),current,Vendor press release,https://www.backbase.com/press/bankunited-launches-engaging-digital-experience-to-all-of-its-retail-customers,2021-06-02,Launched to all retail customers
+fdic-58979,digital_business,BankUnited TreasurySuite (vendor not disclosed),current,FI announcement,https://www.bankunited.com/commercial/lynx-upgrade,2026-08-12,"Business (commercial treasury) platform: BankUnited TreasurySuite (vendor not disclosed), replacing BankUnited Lynx; client migration in waves during 2026."
 fdic-59074,digital,Jack Henry (Banno),current,Login page scan,https://bihbank.com/,2026-11-17,login host digital.bihbank.com points (DNS) to banno-online.jackhenry.bank
 fdic-59086,digital,Jack Henry (Banno),current,Login page scan,https://www.primarybanknh.com/,2026-11-17,login host my.primarybanknh.com points (DNS) to banno-online.jackhenry.bank
 fdic-59093,digital,Q2,current,Login page scan,https://www.ibc.com/,2026-11-17,login host www.myibc.com points (DNS) to 4998.gslb.onlineaccess1.com

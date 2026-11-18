@@ -248,7 +248,7 @@ def provider_block(x, prov, board_by_url):
             f'<div class="prov-grid">{"".join(items)}</div>'
             '<p class="note prov-how">Core and bill pay come only from verified public announcements. Digital banking comes from a scan of the '
             'online banking login links on the institution&#39;s public website (hostname and DNS), or from a verified announcement; '
-            'a business login is shown separately only when it sits on its own business or treasury hostname. '
+            'a business platform is shown separately only when a verified announcement names it or its login sits on its own business or treasury hostname. '
             'Announced changes are shown in place of the current value. We never infer one field from another.</p></section>')
 
 
