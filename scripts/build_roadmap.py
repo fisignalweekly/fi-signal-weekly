@@ -82,6 +82,8 @@ def is_unlisted_only(item):
     return item.get("unlisted_only") is True
 
 FOOTER = '''<footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>'''
+CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<site_token>"}'></script>
+"""
 
 TITLE = "Roadmap"
 DESC = "What is live on FI Signal Weekly, what is being built, and what is queued, with estimated showcase and full dates."
@@ -141,7 +143,7 @@ def render_page(data, items, *, unlisted=False):
   {body}
 </main>
 {FOOTER}
-</body></html>
+{CF_BEACON}</body></html>
 '''
     return page
 
