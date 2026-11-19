@@ -314,6 +314,7 @@ def build(files):
         with open(sp, newline="", encoding="utf-8") as f:
             for r in csv.DictReader(f):
                 social.setdefault(r["fi_id"], {})[r["network"]] = r
+    strategy = S.load_strategy(ROOT)  # data/strategic_priorities.csv: published (fact-checked) rows only
     board_by_url = {(r["fi_id"], r["source_url"]): r["id"] for r in trig["rows"] if r.get("fi_id")}
 
     # slugs: name, then name-city, then name-city-<number>, unique within a state
@@ -470,7 +471,9 @@ def build(files):
                 f'<p class="fi-sub">{"Credit union" if x["charter_type"] == "cu" else "Bank"} · {e(x["city"])}, {e(x["state"])}' + (f" · {e(a)} in assets" if a else "") + "</p>"
                 + S.header_trend(cr, AS_OF) +
                 f'<dl class="facts">{dl}</dl>' + S.trend_section(cr, QS, AS_OF, x["charter_type"], bench) + S.peer_section(peer) +
-                provider_block(x, prov, board_by_url) + S.exec_section(rows, TYPE_LABEL) +
+                provider_block(x, prov, board_by_url) +
+                (S.strategy_section(strategy.get(x["id"], [])) if S.feature_on("strategic_priorities", showcase) else "") +
+                S.exec_section(rows, TYPE_LABEL) +
                 S.history_section(cr.get("hist"), rows, CLASS_LABEL, x["charter_type"], TYPE_LABEL) + hist +
                 S.similar_section(x, sim, sim_v, st_name, tier_name[x["_tier"]], fi_li) +
                 f'<p class="more-links"><a href="/?state={e(x["state"])}">{e(st_name)} on the board</a><a href="/fi/{x["state"].lower()}/">All {e(st_name)} institutions</a><a href="/fi/assets/{e(x["_tier"])}/">{e(dict((t[0], t[1]) for t in TIERS)[x["_tier"]])}</a></p></article>')
