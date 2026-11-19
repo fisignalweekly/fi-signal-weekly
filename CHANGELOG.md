@@ -2,6 +2,12 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.3.1 (2026-11-19, ET)
+
+Landscape phones: a Filters button appears after scrolling deep into the board and jumps back to the filters
+
+Footer links are now larger, easier-to-tap targets
+
 ## v1.3.0 (2026-11-19, ET)
 
 Homepage: new Latest added section listing rows added in the last 7 days, newest first, with each row's event date

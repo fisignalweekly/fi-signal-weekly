@@ -729,3 +729,24 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .latest-list > li:nth-child(n+6){display:block}
   .latest-all{display:inline-flex}
 }
+/* ===== Spec 07 (own PR after 06): UX QA follow-ups after #42-46. APPEND TO css/style.css after spec 06 latest.css ===== */
+
+/* 07a: short landscape phones (>=760 wide, <=500 tall, touch). The inline filters scroll away (nothing sticky, by spec 02/03);
+   a floating "Filters" pill, shown only while the filter panel is above the viewport and the board is on screen, jumps back to it. */
+.filters-fab{position:fixed;z-index:45;right:max(16px,calc(var(--safe-r) + 8px));bottom:calc(12px + var(--safe-b));
+  display:inline-flex;align-items:center;gap:8px;min-height:var(--tap);padding:0 16px 0 14px;border:0;border-radius:var(--r-pill);
+  background:var(--navy-700);color:#fff;font-size:var(--fs-base);font-weight:700;line-height:1;box-shadow:0 4px 16px rgba(0,15,38,.3);cursor:pointer}
+.filters-fab[hidden]{display:none}
+.filters-fab svg{flex:none}
+.filters-fab .fcount{background:#fff;color:var(--navy-700);border-radius:var(--r-pill);padding:2px 8px;font-size:.8125rem}
+.filters-fab .fcount[hidden]{display:none}
+.filters-fab:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+@media(min-width:760px) and (max-height:500px) and (orientation:landscape) and (pointer:coarse){
+  #cards{padding-bottom:calc(var(--tap) + 24px + var(--safe-b))}     /* the last card can scroll clear of the pill */
+}
+@media(prefers-reduced-motion:no-preference){.filters-fab:not([hidden]){animation:fab-in .15s ease-out}}
+@keyframes fab-in{from{transform:translateY(8px);opacity:0}}
+
+/* 07b: footer links are 44px tall targets at every width, separated by the existing " · " text (>= 8px between hit areas) */
+footer .wrap{line-height:1.6}
+footer a{display:inline-flex;align-items:center;min-height:var(--tap);padding:0 4px;margin:0;vertical-align:middle}
