@@ -12,7 +12,7 @@ Navy and pulse green are sampled from the X avatar and header (`img/mark-512.png
 | Navy 800 | `#031940` | Mark tile background (X avatar background), button hover |
 | Navy 700 | `#0A2A5C` | Buttons, card accent bar, feedback panel rule |
 | Pulse green | `#40E737` | The pulse line, "Weekly" in the wordmark, links on navy, row highlight. **Only on navy backgrounds.** |
-| Green (on light) | `#15803D` | "New" tag (same ET calendar day a row is published; drops off at midnight ET; never shown on backfill rows) and any green text on white or light backgrounds |
+| Green (on light) | `#15803D` | "New" tag, as text + dot on a thin outline (7 ET calendar days from the day a row is published; never shown on backfill rows) and any green text on white or light backgrounds |
 | On-dark text | `#FFFFFF` | Text on navy |
 | On-dark muted | `#A8BACC` | Secondary text and nav links on navy |
 | Ink | `#0B1B33` | Body text on light backgrounds |

@@ -77,6 +77,7 @@
     if($("f-tz").value)list.push(["f-tz","Eastern Time"]);
     if($("f-from").value)list.push(["f-from",label("f-from")+" "+fmt($("f-from").value)]);
     if($("f-to").value)list.push(["f-to",label("f-to")+" "+fmt($("f-to").value)]);
+    if($("f-added").value)list.push(["f-added",label("f-added")+": "+optText("f-added")]);
     if(q.value.trim())list.push(["f-q",label("f-q")+": "+q.value.trim()]);
     var sig=JSON.stringify(list);if(wrap.dataset.sig===sig)return;wrap.dataset.sig=sig;
     wrap.textContent="";wrap.hidden=!list.length;
