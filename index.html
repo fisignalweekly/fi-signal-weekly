@@ -35,16 +35,18 @@
   <section class="hero">
     <h1>Buying-window triggers at US banks &amp; credit unions</h1>
     <p class="hero-line">New signals added every weekday. Free digest every Friday.</p>
+    <p class="hero-sub">Pending mergers, core deals and new executives, each linked to its public source. Built for fintech sales reps.</p>
     <div id="subscribe" class="subscribe" aria-label="Friday digest signup">
       <div class="subscribe-form">
-        <a class="cta subscribe-fallback" href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Subscribe to the Friday digest</a>
-        <script>/* the signup link shows until the embedded form reports it has rendered; a blocked or failed embed never leaves a gap */
-        addEventListener("message",function(e){var d=e.data;if(e.origin==="https://subscribe-forms.beehiiv.com"&&d&&d.type==="beehiiv:styles"&&d.payload&&parseInt(d.payload.height,10)>0){var f=document.querySelector("#subscribe .subscribe-form");if(f)f.classList.add("embed-ok")}});</script>
+        <div class="subscribe-fallback-box"><p class="sf-title">Get the Friday digest</p><a class="cta subscribe-fallback" href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Subscribe to the Friday digest</a><p class="sf-note">Free. One email a week. Unsubscribe anytime.</p></div>
+        <script>/* the signup link shows until the embedded form reports it has rendered; a blocked or failed embed never leaves a gap.
+           The box keeps the embed's height reserved either way, so nothing below it jumps when the form arrives. */
+        addEventListener("message",function(e){var d=e.data;if(e.origin==="https://subscribe-forms.beehiiv.com"&&d&&d.type==="beehiiv:styles"&&d.payload&&parseInt(d.payload.height,10)>0){var f=document.querySelector("#subscribe .subscribe-form"),n=0;if(!f||f.classList.contains("embed-ok"))return;
+          (function swap(){var i=f.querySelector("iframe");if(i&&parseInt(i.style.height,10)>0||++n>30){f.classList.add("embed-ok");if(i&&!i.title)i.title="Friday digest signup form"}else requestAnimationFrame(swap)})()}});</script>
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="703c548c-7539-4628-9106-647d8a871b28"></script>
       </div>
       <p class="note small">One free email every Friday with the week's new triggers. Trouble subscribing? <a href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Use the plain signup page</a>.</p>
     </div>
-    <p>Pending mergers, core renewals and conversions, and new executives — every row linked to a public source. Built for fintech sales reps.</p>
     <p class="board-updated">Board updated <strong id="updated">…</strong> <span class="muted-inline">· dates on each row are event dates</span></p>
   </section>
 

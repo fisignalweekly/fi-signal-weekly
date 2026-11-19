@@ -48,6 +48,20 @@ footer a.follow-x{color:var(--signal)}
 .subscribe .note{margin:0 0 12px}
 .subscribe .note.small{margin:12px 0 0;font-size:.85rem}
 .subscribe-form{min-height:60px;max-width:560px}
+/* Hero signup: the box reserves the embedded form's own height (the form sizes itself by its width: 315px tall
+   when wide, 339px under ~450px, 375px under ~352px, 399px under ~300px), so the board never jumps when the form
+   arrives. Until then, or if it never loads, the box shows a signup button to the hosted page: never a blank gap. */
+.hero .hero-sub{margin:0 0 14px;color:var(--muted)}
+.hero .subscribe-form{container-type:inline-size;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.subscribe-fallback-box{min-height:315px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px 16px;text-align:center}
+.subscribe-fallback-box .sf-title{margin:0;font-weight:800;font-size:1.25rem;color:var(--ink)}
+.subscribe-fallback-box .sf-note{margin:0;font-size:.9rem;color:var(--muted)}
+.subscribe-fallback-box .cta{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;max-width:100%}
+.subscribe-form.embed-ok .subscribe-fallback-box{display:none}
+@container (max-width:445px){.subscribe-fallback-box{min-height:339px}}
+@container (max-width:352px){.subscribe-fallback-box{min-height:375px}}
+@container (max-width:300px){.subscribe-fallback-box{min-height:399px}}
+@media(max-width:759px){section.hero{padding:16px 0 4px}.hero h1{font-size:1.5rem;line-height:1.2;margin:0 0 6px}.hero .hero-line{font-size:1.05rem;margin:0 0 4px}.hero .hero-sub{font-size:.95rem;line-height:1.45;margin:0 0 12px}}
 #subscribe{scroll-margin-top:72px}
 .hero .hero-line{color:var(--ink);font-size:1.15rem;font-weight:600;margin:0 0 12px}
 .hero .subscribe{margin:0 0 16px}
