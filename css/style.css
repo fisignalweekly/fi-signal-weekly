@@ -369,16 +369,6 @@ body{line-height:var(--lh-body);-webkit-text-size-adjust:100%}
 header.site :focus-visible{outline-color:var(--focus-on-dark)}
 .wrap{padding-left:max(var(--gutter),var(--safe-l));padding-right:max(var(--gutter),var(--safe-r))}
 
-/* compact header (full treatment in spec 02) */
-header.site .wrap{min-height:calc(var(--header-h) - 3px);padding-top:0;padding-bottom:0;gap:var(--sp-3)}
-header.site .wrap{padding-left:max(12px,var(--safe-l));padding-right:max(12px,var(--safe-r))}
-.logo{min-height:var(--tap)}
-/* provisional until spec 02: logo and nav must not touch at 375 */
-.logo{flex-shrink:0}
-@media(max-width:559px){nav a.nav-opt{display:none}}   /* live site overflows 460-560px (scrollWidth 541 at 480) */
-@media(max-width:400px){header.site .wrap{gap:8px}.logo{font-size:.9375rem;gap:6px}nav a{font-size:.9375rem;padding:0 4px}}
-@media(max-width:359px){header.site .wrap{gap:6px}nav a{padding:0 2px}}
-
 /* hero: phone first */
 .hero{padding:var(--sp-4) 0 var(--sp-2)}
 .hero h1{font-size:var(--fs-xl);line-height:var(--lh-tight);margin:0 0 var(--sp-2);letter-spacing:-.01em;text-wrap:balance}
@@ -425,3 +415,78 @@ header.site .wrap{padding-left:max(12px,var(--safe-l));padding-right:max(12px,va
   .hero h1{font-size:var(--fs-3xl)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* ===== Compact sticky header + nav =====
+   Scoped to header.site so the breadcrumb <nav class="crumbs"> on /fi/ pages is untouched. */
+:root{
+  --header-offset:calc(var(--header-h) + env(safe-area-inset-top,0px)); /* real height of the sticky header */
+  --sticky-top:var(--header-offset);   /* a sticky sub-bar (board filters) uses top:var(--sticky-top) */
+}
+@media(max-height:500px) and (orientation:landscape){:root{--sticky-top:0px}}  /* short landscape: header scrolls away */
+html{scroll-padding-top:calc(var(--sticky-top) + var(--sp-2))}  /* #board, #sponsor, #tNNN anchors land below the header */
+
+header.site{position:sticky;top:0;z-index:40;padding-top:env(safe-area-inset-top,0px)}
+@media(max-height:500px) and (orientation:landscape){header.site{position:relative}}
+header.site .wrap{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:var(--sp-3);
+  height:calc(var(--header-h) - 3px);min-height:0;padding:0 max(12px,var(--safe-r)) 0 max(12px,var(--safe-l))}
+header.site .logo{flex-shrink:0;min-height:var(--tap);gap:8px;font-size:1.0625rem;white-space:nowrap}
+header.site .logo .mark{width:28px;height:28px}
+header.site nav{display:flex;align-items:center;gap:var(--tap-gap);flex-shrink:0;min-width:0}  /* 8px between targets */
+header.site nav a{margin-left:0;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:var(--tap);min-width:var(--tap);padding:0 10px;border-radius:var(--r-md);
+  font-size:var(--fs-base);font-weight:600;color:var(--on-dark-muted);text-decoration:none}
+header.site nav a:hover{color:var(--on-dark)}
+header.site nav a.follow-x{color:var(--signal)}
+header.site nav a[aria-current="page"]{color:var(--on-dark);box-shadow:inset 0 -3px 0 var(--signal)}
+header.site :focus-visible,.menu-sheet :focus-visible{outline:3px solid var(--focus-on-dark);outline-offset:-3px}
+
+/* 600-759: tighter links so all five fit on one line */
+@media(min-width:600px) and (max-width:759px){header.site nav a{padding:0 6px}}
+/* < 820: X becomes a 44px icon (handle stays in aria-label + footer); full "Follow @FISignalWeekly" text from 820 */
+@media(max-width:819px){
+  header.site nav a.follow-x{width:var(--tap);padding:0}
+  header.site nav a.follow-x .fx-text{display:none}
+  header.site nav a.follow-x .x-icon{width:20px;height:20px}
+}
+/* < 600: phone. Inline: Board, Directory, (X icon | menu button). Sponsor/About go to the menu (JS) or footer (no JS). */
+@media(max-width:599px){
+  header.site .wrap{gap:var(--sp-2)}
+  header.site nav a{padding:0 4px}
+  header.site nav a.nav-opt{display:none}
+}
+@media(max-width:400px){
+  header.site .logo{font-size:.9375rem;gap:6px}
+  header.site nav a{font-size:.9375rem;padding:0 2px}
+}
+@media(max-width:359px){header.site .wrap{gap:var(--tap-gap)}header.site .logo{font-size:.875rem}header.site nav a{padding:0 1px}}
+@media(max-width:350px){header.site .logo .mark{display:none}}
+
+/* menu button + sheet: only on pages that ship js/nav.js (it adds .has-menu and un-hides the button) */
+header.site .nav-toggle{display:none}
+@media(max-width:599px){
+  header.site.has-menu nav a.follow-x{display:none}
+  header.site.has-menu .nav-toggle{display:inline-flex;align-items:center;justify-content:center;
+    width:var(--tap);height:var(--tap);min-height:0;margin-left:0;padding:0;border:0;border-radius:var(--r-md);
+    background:transparent;color:var(--on-dark);cursor:pointer}
+  header.site.has-menu .nav-toggle[aria-expanded="true"]{background:rgba(255,255,255,.12)}
+}
+.menu-sheet{position:fixed;left:0;right:0;top:var(--header-offset);z-index:60;
+  background:var(--navy-900);border-bottom:3px solid var(--signal);box-shadow:0 12px 24px rgba(0,15,38,.35);
+  padding:var(--sp-2) max(12px,var(--safe-r)) calc(var(--sp-4) + var(--safe-b)) max(12px,var(--safe-l));
+  max-height:calc(100vh - var(--header-offset));max-height:calc(100dvh - var(--header-offset));
+  overflow-y:auto;overscroll-behavior:contain}
+.menu-sheet[hidden],.menu-scrim[hidden]{display:none}
+.menu-sheet a{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 var(--sp-3);
+  font-size:var(--fs-md);font-weight:600;color:var(--on-dark);text-decoration:none;border-radius:var(--r-md);
+  border-bottom:1px solid rgba(168,186,204,.2)}
+.menu-sheet a:last-child{border-bottom:0}
+.menu-sheet a.follow-x{color:var(--signal)}
+.menu-sheet a .x-icon{width:20px;height:20px}
+.menu-sheet a[aria-current="page"]{box-shadow:inset 3px 0 0 var(--signal)}
+.menu-scrim{position:fixed;left:0;right:0;bottom:0;top:var(--header-offset);z-index:55;background:rgba(0,15,38,.5)}
+html.menu-open,html.menu-open body{overflow:hidden}
+@media(prefers-reduced-motion:no-preference){.menu-sheet:not([hidden]){animation:menu-in .15s ease-out}}
+@keyframes menu-in{from{transform:translateY(-8px);opacity:0}}
+@media(min-width:600px){.menu-sheet,.menu-scrim{display:none!important}}
+/* unlisted pages' sticky city headings sit under the header instead of behind it */
+.terr h3.city{top:var(--sticky-top)}
