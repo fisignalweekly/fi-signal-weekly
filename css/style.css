@@ -515,7 +515,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
 
 /* ---------- phone: sticky bar + bottom sheet ---------- */
 @media(max-width:759px){
-  html{scroll-padding-top:calc(var(--sticky-top) + var(--fbar-h) + var(--sp-2))}
+  html:has(#filters-toggle){scroll-padding-top:calc(var(--sticky-top) + var(--fbar-h) + var(--sp-2))}  /* board only: other pages have no filter bar */
   .filters-panel,.filters-panel.open{position:sticky;top:var(--sticky-top);z-index:30;  /* under the header (40) */
     margin:var(--sp-4) calc(-1 * var(--gutter)) 0;padding:var(--sp-2) var(--gutter);
     border:0;border-bottom:1px solid var(--line);border-radius:0;background:var(--bg)}
