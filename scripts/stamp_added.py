@@ -7,8 +7,9 @@ Run after adding rows and bumping the top-level "updated" date:
 Rows that already have "added" are never changed. Backfill rows ("backfill": true)
 also never have "added" overwritten; if they lack it, it is set to the row's own
 "date" (the event/announcement date), not the publish day. The board shows a
-"New" tag only on the Eastern-time calendar day a row was published ("added");
-it drops off at midnight ET and is never shown on backfill rows. "Today" is
+"New" tag for 7 Eastern-time calendar days starting the day a row was published
+("added"), and lists those rows in "Latest added"; the tag drops off at midnight ET
+after day 7 and is never shown on backfill rows. "Today" is
 computed in the browser in America/New_York.
 """
 import json, re, sys

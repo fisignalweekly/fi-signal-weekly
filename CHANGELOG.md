@@ -2,6 +2,12 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.3.0 (2026-11-19, ET)
+
+Homepage: new Latest added section listing rows added in the last 7 days, newest first, with each row's event date
+
+Board: New tag now lasts 7 days (Eastern time) and has a lighter look; new Added: Last 7 days filter
+
 ## v1.2.0 (2026-11-19, ET)
 
 Adds a new Strategic priorities section on showcase institution pages, built only from verified rows.

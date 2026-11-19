@@ -1,87 +1,67 @@
 #!/usr/bin/env node
-// Same-day ET "New" tag. Run: node scripts/test_newtag.js
+// 7-day ET "New" tag and the Latest added list (spec 06). Run: node scripts/test_newtag.js
 var assert = require("assert");
 var path = require("path");
-var {etToday, isNew} = require(path.join(__dirname, "..", "js", "newtag.js"));
-
+var N = require(path.join(__dirname, "..", "js", "newtag.js"));
+var B = require(path.join(__dirname, "..", "js", "boardrows.js"));
+var etToday = N.etToday, isNew = N.isNew;
 var n = 0;
-function check(name, fn){
-  fn();
-  n++;
-  console.log("ok", n, name);
-}
+function check(name, fn){ fn(); n++; console.log("ok", n, name); }
+var at = function(s){ return new Date(s); };
 
-// 17 Nov 2026 is a Tuesday; EST (UTC-5) is in effect (DST ended 1 Nov).
-var today = "2026-11-17";
-var yesterday = "2026-11-16";
-var midEvening = new Date("2026-11-17T23:59:00-05:00"); // 11:59 PM ET
-var justAfter = new Date("2026-11-18T00:01:00-05:00");  // 12:01 AM ET
-var utcAlreadyTomorrow = new Date("2026-11-18T03:00:00Z"); // 10:00 PM ET on the 17th
-
-check("etToday at 11:59 PM ET is that calendar day", function(){
-  assert.strictEqual(etToday(midEvening), today);
+// Nov 2026: EST (UTC-5); DST ended Nov 1. Mar 2027: DST starts Sun Mar 14.
+check("etToday uses America/New_York, not UTC", function(){
+  assert.strictEqual(etToday(at("2026-11-18T03:00:00Z")), "2026-11-17");   // 10 PM ET on the 17th
+  assert.strictEqual(etToday(at("2026-11-18T00:01:00-05:00")), "2026-11-18");
 });
-check("etToday at 12:01 AM ET is the next calendar day", function(){
-  assert.strictEqual(etToday(justAfter), "2026-11-18");
+check("added today is New", function(){ assert.strictEqual(isNew({added:"2026-11-19"}, at("2026-11-19T00:00:00-05:00")), true); });
+check("day 7 (added 6 days ago) is New until 11:59 PM ET", function(){
+  assert.strictEqual(isNew({added:"2026-11-13"}, at("2026-11-19T23:59:59-05:00")), true);
 });
-check("etToday uses America/New_York, not UTC (10 PM ET is still the 17th when UTC is the 18th)", function(){
-  assert.strictEqual(etToday(utcAlreadyTomorrow), today);
+check("day 8: not New at 12:00 AM ET", function(){
+  assert.strictEqual(isNew({added:"2026-11-13"}, at("2026-11-20T00:00:00-05:00")), false);
 });
-
-check("row added today is New during that ET day", function(){
-  assert.strictEqual(isNew({added: today, date: yesterday}, midEvening), true);
+check("boundary is ET, not UTC (7 PM ET Nov 19 = 00:00 UTC Nov 20: added Nov 13 still New)", function(){
+  assert.strictEqual(isNew({added:"2026-11-13"}, at("2026-11-20T00:00:00Z")), true);
 });
-check("row added yesterday is not New, even if the event date is today", function(){
-  assert.strictEqual(isNew({added: yesterday, date: today}, midEvening), false);
+check("added tomorrow (ET) is not New", function(){ assert.strictEqual(isNew({added:"2026-11-20"}, at("2026-11-19T23:59:00-05:00")), false); });
+check("event date never matters, only added", function(){
+  assert.strictEqual(isNew({added:"2026-11-19", date:"2026-03-02"}, at("2026-11-19T12:00:00-05:00")), true);
+  assert.strictEqual(isNew({added:"2026-11-01", date:"2026-11-19"}, at("2026-11-19T12:00:00-05:00")), false);
 });
-check("row added today is not New at 12:01 AM ET the next day", function(){
-  assert.strictEqual(isNew({added: today}, justAfter), false);
+check("backfill is never New, even added today", function(){
+  assert.strictEqual(isNew({added:"2026-11-19", backfill:true}, at("2026-11-19T12:00:00-05:00")), false);
 });
-check("row added tomorrow is not New at 11:59 PM ET", function(){
-  assert.strictEqual(isNew({added: "2026-11-18"}, midEvening), false);
+check("missing or malformed added is not New", function(){
+  [{}, null, {added:""}, {added:"11/19/2026"}].forEach(function(r){ assert.strictEqual(isNew(r, at("2026-11-19T12:00:00-05:00")), false); });
 });
-check("missing added is not New", function(){
-  assert.strictEqual(isNew({date: today}, midEvening), false);
-  assert.strictEqual(isNew({}, midEvening), false);
-  assert.strictEqual(isNew(null, midEvening), false);
+check("window across the DST start stays 7 calendar days", function(){
+  var now = at("2027-03-16T00:30:00-04:00");                       // EDT, 12:30 AM Mar 16
+  assert.strictEqual(N.windowStart(now), "2027-03-10");
+  assert.strictEqual(isNew({added:"2027-03-10"}, now), true);
+  assert.strictEqual(isNew({added:"2027-03-09"}, now), false);
 });
-
-check("backfill row is not New even when added is today", function(){
-  assert.strictEqual(isNew({added: today, backfill: true, date: "2026-03-10"}, midEvening), false);
+check("window across a month/year boundary", function(){
+  assert.strictEqual(N.windowStart(at("2027-01-03T09:00:00-05:00")), "2026-12-28");
 });
-check("backfill row with added equal to its own date is not New", function(){
-  assert.strictEqual(isNew({added: "2026-03-10", backfill: true, date: "2026-03-10"}, midEvening), false);
+check("latestAdded: board rows only, New only, added desc, then event date desc, then id desc", function(){
+  var now = at("2026-11-19T18:00:00-05:00");
+  var rows = [
+    {id:"t1", type:"merger", added:"2026-11-18", date:"2026-10-02"},
+    {id:"t2", type:"merger", added:"2026-11-19", date:"2026-01-05"},
+    {id:"t3", type:"executive", added:"2026-11-19", date:"2026-11-10"},
+    {id:"t4", type:"executive", added:"2026-11-19", date:"2026-11-10"},
+    {id:"t5", type:"executive", added:"2026-11-19", backfill:true, date:"2026-11-19"},
+    {id:"t6", type:"executive", added:"2026-11-19", fi_only:true, date:"2026-11-19"},
+    {id:"t7", type:"branch_opening", added:"2026-11-19", date:"2026-11-19"},
+    {id:"t8", type:"core", added:"2026-11-12", date:"2026-11-12"}
+  ];
+  assert.deepStrictEqual(N.latestAdded(B.boardRows(rows), now).map(function(r){return r.id}), ["t4","t3","t2","t1"]);
 });
-check("backfill: false still follows the added date", function(){
-  assert.strictEqual(isNew({added: today, backfill: false}, midEvening), true);
-  assert.strictEqual(isNew({added: yesterday, backfill: false}, midEvening), false);
+check("live data: Latest added never contains backfill, fi_only or branch_opening rows", function(){
+  var rows = require(path.join(__dirname, "..", "data", "triggers.json")).rows;
+  var now = at("2026-11-19T18:00:00-05:00");
+  var l = N.latestAdded(B.boardRows(rows), now);
+  assert.ok(l.every(function(r){ return r.backfill !== true && r.fi_only !== true && r.type !== "branch_opening"; }));
+  console.log("   live rows in window at Nov 19 6 PM ET:", l.length);
 });
-check("missing backfill is unchanged (added today is New)", function(){
-  assert.strictEqual(isNew({added: today}, midEvening), true);
-});
-
-// Default path (no now arg) follows a stubbed Date, as the live check does.
-var RealDate = Date;
-var frozen = new Date("2026-11-18T00:01:00-05:00").getTime();
-function FakeDate(){
-  if(arguments.length===0) return new RealDate(frozen);
-  var args = arguments;
-  if(args.length===1) return new RealDate(args[0]);
-  return new RealDate(args[0], args[1], args[2]||0, args[3]||0, args[4]||0, args[5]||0, args[6]||0);
-}
-FakeDate.now = function(){return frozen};
-FakeDate.parse = RealDate.parse;
-FakeDate.UTC = RealDate.UTC;
-FakeDate.prototype = RealDate.prototype;
-global.Date = FakeDate;
-try{
-  check("stubbed Date at 12:01 AM ET 18 Nov: etToday is the 18th and today's rows are not New", function(){
-    assert.strictEqual(etToday(), "2026-11-18");
-    assert.strictEqual(isNew({added: today}), false);
-    assert.strictEqual(isNew({added: "2026-11-18"}), true);
-  });
-}finally{
-  global.Date = RealDate;
-}
-
-console.log(n+" checks passed");

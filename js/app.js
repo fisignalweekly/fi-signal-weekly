@@ -38,7 +38,7 @@
   function fmtDate(d){
     var p=d.split("-");return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"});
   }
-  // "New" = the row's publish date (r.added) is today's date in America/New_York (see js/newtag.js).
+  // "New" = the row was published (r.added) within the last 7 Eastern-time calendar days, today included (js/newtag.js).
   // Computed at load; a tab left open past midnight ET does not have to refresh itself.
   // Rows with backfill: true never show the tag, whatever their added value.
   function isNew(r){return FINew.isNew(r)}
@@ -49,17 +49,19 @@
   // everything else => bank. Cross-charter deals (a credit union buying a bank) count as credit union,
   // because the credit union is named in the row.
   function charter(r){if(r.charter_type==="bank"||r.charter_type==="cu")return r.charter_type;return /credit union/i.test(r.institution)||/\b[A-Z]*CU\b/.test(r.institution)?"cu":"bank"}
-  var FILTERS=["f-type","f-state","f-charter","f-assets","f-from","f-to","f-q","f-tz","f-assets-min"];
+  var FILTERS=["f-type","f-state","f-charter","f-assets","f-from","f-to","f-q","f-tz","f-assets-min","f-added"];
   function selStates(){var v=$("f-state").value;return v?v.split(","):[]}
   function filtered(){
     var t=$("f-type").value,s=selStates(),c=$("f-charter").value,sz=$("f-assets").value,from=$("f-from").value,to=$("f-to").value,q=$("f-q").value.trim().toLowerCase();
-    var tz=$("f-tz").value,amin=parseInt($("f-assets-min").value,10);
-    return all.filter(function(r){
+    var tz=$("f-tz").value,amin=parseInt($("f-assets-min").value,10),added=$("f-added").value==="7d";
+    var rows=all.filter(function(r){
       return (!t||r.type===t)&&(!s.length||s.indexOf(r.state)>-1)&&(!c||charter(r)===c)&&inTier(r,sz)&&(!from||r.date>=from)&&(!to||r.date<=to)&&
         (!q||(r.institution+" "+r.summary).toLowerCase().indexOf(q)>-1)&&
         (!tz||(window.FI_TERRITORY&&r.fi_id&&FI_TERRITORY.ids[r.fi_id]))&&
-        (!amin||(assetsUsd(r)!=null&&assetsUsd(r)>=amin));
-    }).sort(function(a,b){return a.date<b.date?1:-1});
+        (!amin||(assetsUsd(r)!=null&&assetsUsd(r)>=amin))&&(!added||FINew.isNew(r));
+    });
+    // "Added: Last 7 days" lists newest-added first (same order as Latest added); otherwise newest event date first.
+    return added?FINew.latestAdded(rows):rows.sort(function(a,b){return a.date<b.date?1:-1});
   }
   // Row links never carry the current view: /#t217 always shows that row.
   function rowUrl(id){return location.origin+location.pathname+"#"+id}
@@ -68,7 +70,7 @@
   // ?type=merger&state=MI,OH&charter=cu&assets=1b-10b&from=2026-10-01&to=2026-11-30&q=core
   // ?charter=bank&tz=et&assets_min=1400000000  (tz=et = Eastern Time HQ banks)
   // Opening such a URL restores the filters. A #tNNN anchor still wins: it clears filters that hide its row.
-  var PARAMS=[["type","f-type"],["state","f-state"],["charter","f-charter"],["assets","f-assets"],["from","f-from"],["to","f-to"],["q","f-q"],["tz","f-tz"],["assets_min","f-assets-min"]];
+  var PARAMS=[["type","f-type"],["state","f-state"],["charter","f-charter"],["assets","f-assets"],["from","f-from"],["to","f-to"],["q","f-q"],["tz","f-tz"],["assets_min","f-assets-min"],["added","f-added"]];
   function viewQuery(){
     return PARAMS.map(function(p){var v=$(p[1]).value.trim();return v?p[0]+"="+encodeURIComponent(v).replace(/%2C/g,","):""}).filter(Boolean).join("&");
   }
@@ -82,7 +84,7 @@
   function optOk(id,v){return [].some.call($(id).options,function(o){return o.value===v})}
   function applyQuery(search){
     var p=new URLSearchParams(search||""),get=function(k){return (p.get(k)||"").trim()};
-    ["type","charter","assets"].forEach(function(k){var id="f-"+k,v=get(k).toLowerCase();$(id).value=v&&optOk(id,v)?v:""});
+    ["type","charter","assets","added"].forEach(function(k){var id="f-"+k,v=get(k).toLowerCase();$(id).value=v&&optOk(id,v)?v:""});
     ["from","to"].forEach(function(k){var v=get(k);$("f-"+k).value=/^\d{4}-\d{2}-\d{2}$/.test(v)?v:""});
     $("f-q").value=get("q").slice(0,100);
     setStates(get("state").toUpperCase().split(/[\s,]+/).filter(function(x){return USPS.indexOf(x)>-1}));
@@ -160,6 +162,7 @@
       m.appendChild(el("span",null,r.state));
       var as=el("span","assets",assetsText(r));var at=assetsTitle(r);if(at)as.title=at;m.appendChild(as);
       m.appendChild(el("span",null,fmtDate(r.date)));
+      if(isNew(r))m.appendChild(el("span","added",addedText(r.added)));   // spec 06: an old event added this week reads as old
       li.appendChild(m);
       li.appendChild(el("p",null,r.summary));
       var a=el("a","src","Source ↗");a.href=r.source_url;a.target="_blank";a.rel="noopener noreferrer";
@@ -178,12 +181,44 @@
       b.addEventListener("click",function(){shown+=PAGE;render()});more.appendChild(b);list.appendChild(more);
     }
   }
+  // ---- Latest added (spec 06): newest 10 board rows published in the last 7 ET days; phones show 5 (CSS) ----
+  // Each row links to its board row (#tNNN, see goToRow). The list keeps its reserved height while it is on screen,
+  // so filling it, a short list or the empty note never moves the board (CLS 0).
+  var ET_TODAY=FINew.etToday();
+  function shortDate(d){var p=d.split("-"),s=new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString("en-US",{month:"short",day:"numeric"});return p[0]===ET_TODAY.slice(0,4)?s:s+", "+p[0]}
+  function addedText(d){return "Added "+(d===ET_TODAY?"today":d===FINew.addDays(ET_TODAY,-1)?"yesterday":shortDate(d))}
+  function latestDone(n){
+    var box=$("latest-list"),sec=$("latest");box.removeAttribute("aria-busy");
+    if(sec.getBoundingClientRect().top>=window.innerHeight)sec.classList.add("fit");  // off screen: let it shrink to fit
+    if(!n)sec.classList.add("is-empty");
+  }
+  function renderLatest(){
+    var box=$("latest-list");if(!box)return;
+    var rows=FINew.latestAdded(all),top=rows.slice(0,10);
+    box.textContent="";$("latest-count").textContent=rows.length;
+    if(!rows.length){box.appendChild(el("li","empty","No rows added in the last 7 days."));latestDone(0);return}
+    top.forEach(function(r){
+      var li=el("li","card lrow "+r.type),a=el("a","lrow-a");a.href="#"+r.id;
+      var nm=el("span","lrow-name");nm.appendChild(el("span","lrow-nm",r.institution));a.appendChild(nm);
+      var ty=el("span","lrow-type");ty.appendChild(el("span","badge "+r.type,TYPE_LABEL[r.type]||r.type));ty.appendChild(el("span","lrow-st",r.state));a.appendChild(ty);   // no New tag in the section: every row here is new; the tag is on board cards
+      var dt=el("span","lrow-dates");dt.appendChild(el("span","lrow-ev","Event "+shortDate(r.date)));
+      var sep=el("span","sep"," · ");sep.setAttribute("aria-hidden","true");dt.appendChild(sep);dt.appendChild(el("span",null,addedText(r.added)));a.appendChild(dt);
+      li.appendChild(a);box.appendChild(li);
+    });
+    $("latest-all").textContent="See all "+rows.length+" on the board";
+    latestDone(rows.length);
+  }
+  function latestError(){
+    var box=$("latest-list");if(!box)return;box.textContent="";
+    box.appendChild(el("li","empty","Couldn't load the latest signals. Please refresh, or try again in a minute."));latestDone(0);
+  }
   function init(data){
     all=FIBoard.boardRows(data.rows);  // fi_only / branch_opening rows stay on /fi/ pages only
     $("updated").textContent=fmtDate(data.updated);
     all.forEach(function(r){stateCounts[r.state]=(stateCounts[r.state]||0)+1});
     buildStateOpts();statePicker();
-    ["f-type","f-charter","f-assets","f-from","f-to"].forEach(function(id){$(id).addEventListener("change",changed)});
+    ["f-type","f-charter","f-assets","f-from","f-to","f-added"].forEach(function(id){$(id).addEventListener("change",changed)});
+    var la=$("latest-all");if(la)la.addEventListener("click",function(e){e.preventDefault();applyQuery("added=7d");changed();$("count").scrollIntoView({block:"start"})});
     $("f-q").addEventListener("input",changed);
     $("reset").addEventListener("click",function(){clearFilters();changed()});
     $("copy-view").addEventListener("click",copyView);
@@ -192,7 +227,7 @@
         var c=$("count");if(c&&c.getBoundingClientRect().top>window.innerHeight)c.scrollIntoView({block:"center"})});
     });
     applyQuery(location.search);
-    render();syncUrl(false);
+    render();renderLatest();syncUrl(false);
     goToRow();
     window.addEventListener("hashchange",goToRow);
   }
@@ -222,7 +257,7 @@
     // Optional: if it fails to load, names just stay plain text.
     var links=fetch("fi/linked.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {}});
     fetch("data/triggers.json").then(function(r){return r.json()}).then(function(d){return links.then(function(l){fiPaths=l||{};init(d)})}).catch(function(){
-      $("cards").textContent="";$("cards").appendChild(el("li","empty","Couldn't load the latest signals. Please refresh, or try again in a minute."));
+      $("cards").textContent="";$("cards").appendChild(el("li","empty","Couldn't load the latest signals. Please refresh, or try again in a minute."));latestError();
     });
   }
 })();

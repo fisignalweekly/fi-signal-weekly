@@ -22,7 +22,7 @@ for r in d["rows"]:
     if r["type"] in FI_ONLY_TYPES and r.get("fi_only") is not True: print("branch_opening (fi-only type) rows need fi_only: true",r["id"]);ok=False
     if not re.match(r"\d{4}-\d{2}-\d{2}$",r["date"]): print("bad date",r["id"]);ok=False
     if not r["source_url"].startswith("http"): print("bad url",r["id"]);ok=False
-    # "added" = date the row went live on the board (drives the "New" tag, shown only that ET calendar day); set it with scripts/stamp_added.py
+    # "added" = date the row went live on the board (drives the "New" tag and Latest added: 7 ET calendar days including that day, js/newtag.js); set it with scripts/stamp_added.py
     # "backfill": true = historical site-only row; never gets a "New" tag; added should be the row's own date
     if "backfill" in r and r["backfill"] is not True and r["backfill"] is not False:
         print("bad backfill",r["id"]);ok=False

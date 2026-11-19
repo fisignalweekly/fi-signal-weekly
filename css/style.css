@@ -666,3 +666,67 @@ html.menu-open,html.menu-open body{overflow:hidden}
 @media(max-height:500px) and (orientation:landscape){.dir main > .more-links{position:static}}
 /* 44px "Only with signals" row on iPad and desktop too */
 @media(min-width:760px){.dir #fi-search label.check{min-height:var(--tap)}}
+/* ===== Spec 06: "Latest added" section + light 7-day New tag. APPEND TO css/style.css (after the spec 05 block) =====
+   Tokens: system.md (adds --new-ink, --new-line, --lrow-h). Reserved heights keep CLS at 0 (see spec 06, "CLS"). */
+:root{--new-ink:var(--signal-ink);--new-line:#9FD3AE;--lrow-h:114px}
+
+/* ---- New tag, light (board cards + Latest added): green text + dot on a thin outline, no fill. 12px uppercase pill
+   (the system's only exception to the 14px floor). #15803D is 5.0:1 on #FFF, 4.7:1 on --bg, 4.6:1 on the CU-buys-bank tint. */
+.tag-new{display:inline-flex;align-items:center;gap:4px;height:18px;padding:0 6px 0 5px;margin-left:6px;vertical-align:2px;
+  border:1px solid var(--new-line);border-radius:var(--r-pill);background:transparent;color:var(--new-ink);
+  font-size:.75rem;font-weight:700;letter-spacing:.04em;line-height:1;text-transform:uppercase;white-space:nowrap}
+.tag-new::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.card .meta .added{order:1;color:var(--muted)}       /* board: "Added today" sits right after the event date (spec 03 order) */
+
+/* ---- section ---- */
+.latest{margin:var(--sp-6) 0 0}
+.latest h2{display:flex;align-items:center;gap:var(--sp-2);font-size:1.125rem;line-height:1.3;margin:0 0 var(--sp-1)}
+.latest h2 .count-pill{min-width:3.2em;justify-content:center;text-align:center;font-size:var(--fs-sm)}
+.latest h2 .count-pill:empty{visibility:hidden}
+.latest-note{font-size:var(--fs-sm);line-height:1.45;margin:0 0 var(--sp-3);max-width:60ch}
+.latest-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-2);align-content:start;
+  min-height:calc(5 * var(--lrow-h) + 4 * var(--sp-2))}                 /* phone: 5 rows reserved = 602px */
+.latest-list > li:nth-child(n+6){display:none}                          /* phone shows the newest 5 */
+
+/* compact card: fixed height so the skeleton and the filled list are the same size */
+.latest .lrow{display:block;height:var(--lrow-h);padding:0;margin:0;overflow:hidden}
+.latest .lrow-a{display:grid;grid-template-rows:44px 22px 20px;row-gap:4px;height:100%;padding:10px 14px 10px 12px;color:var(--ink);text-decoration:none;border-radius:inherit}
+.latest .lrow-a:hover .lrow-nm{text-decoration:underline}
+.latest .lrow-a:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.lrow-name{display:block;min-width:0;overflow:hidden}   /* up to 2 lines; a longer name is clamped with an ellipsis */
+.lrow-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;font-size:var(--fs-base);line-height:22px;overflow-wrap:anywhere}
+.lrow-nm{font-weight:700;color:var(--brand)}
+.lrow-type{display:flex;align-items:center;gap:var(--sp-2);min-width:0;white-space:nowrap}
+.lrow-type .badge{font-size:.75rem;padding:3px 10px;line-height:14px;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 112px)}
+.lrow-type .tag-new{margin-left:auto}                  /* right end of the type line: never clipped by a long name */
+.lrow-st{font-size:var(--fs-sm);color:var(--muted)}
+.lrow-dates{font-size:var(--fs-sm);line-height:20px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lrow-ev{color:var(--ink);font-weight:600}
+
+/* skeleton rows (static HTML) */
+.latest .lrow.skel{min-height:0;padding:12px 14px;border-left-color:var(--line);background:var(--card)}
+.latest .lrow.skel i{display:block;height:14px;border-radius:7px;background:#E9EEF5;margin:0 0 12px}
+.latest .lrow.skel i:nth-child(1){width:62%;height:18px;margin-bottom:34px}.latest .lrow.skel i:nth-child(2){width:38%}.latest .lrow.skel i:nth-child(3){width:52%;margin:0}
+@media(prefers-reduced-motion:no-preference){.latest .lrow.skel i{animation:skel 1.2s ease-in-out infinite alternate}}
+
+/* empty + error: a one-line note; it keeps the reserved box while on screen, else the box shrinks (.fit) */
+.latest-list > li.empty{grid-column:1/-1;align-self:start;background:var(--card);border:1px dashed var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-3) var(--sp-4);color:var(--muted);font-size:var(--fs-base);line-height:1.4}
+.latest.fit .latest-list{min-height:0}
+.latest.is-empty .latest-foot{visibility:hidden}
+.latest.is-empty.fit .latest-foot{display:none}
+
+/* "See all N on the board": 48px, full width on phones */
+.latest-foot{margin:var(--sp-3) 0 0}
+.latest-all{display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--sp-4);border-radius:var(--r-md);
+  background:var(--chip);color:var(--ink);font-weight:700;text-decoration:none;font-size:var(--fs-base)}
+.latest-all:hover{text-decoration:underline}
+
+/* iPad + desktop: 10 rows in 2 columns = the same 5-row height */
+@media(min-width:820px){
+  .latest{margin-top:var(--sp-8)}
+  .latest h2{font-size:var(--fs-lg)}
+  .latest-list{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--sp-3)}
+  .latest-list > li:nth-child(n+6){display:block}
+  .latest-all{display:inline-flex}
+}

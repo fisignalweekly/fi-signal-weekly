@@ -7,7 +7,7 @@ Weekly buying-window triggers at US banks and credit unions: pending mergers, co
 Rows live in `data/triggers.json`. For each publish (weekdays):
 
 1. Add the new verified rows and set the top-level `updated` to the publish date (`YYYY-MM-DD`). The site shows it as "Board updated".
-2. Run `python3 scripts/stamp_added.py` to set `added` (the date a row went live) on new rows. The board shows a "New" tag only on the Eastern-time calendar day a row was published (`added`); it drops off at midnight ET. "Today" is computed in the browser in `America/New_York` (`js/newtag.js`), not the visitor's local zone or UTC. Rows with `"backfill": true` (historical, website-only) never show the tag; `stamp_added.py` will not overwrite their `added`, and if it is missing sets it to the row's own `date`.
+2. Run `python3 scripts/stamp_added.py` to set `added` (the date a row went live) on new rows. The board shows a "New" tag for 7 Eastern-time calendar days starting the day a row was published (`added`), and lists those rows in "Latest added" at the top of the page; the tag drops off at midnight ET after day 7. "Today" is computed in the browser in `America/New_York` (`js/newtag.js`), not the visitor's local zone or UTC. Rows with `"backfill": true` (historical, website-only) never show the tag; `stamp_added.py` will not overwrite their `added`, and if it is missing sets it to the row's own `date`.
 3. Run `python3 scripts/link_institutions.py` (if rows were added), then `python3 scripts/build_directory.py` to refresh the FI directory.
 4. Run `python3 scripts/validate.py`.
 

@@ -26,7 +26,7 @@
 <meta name="twitter:site" content="@FISignalWeekly">
 <meta name="twitter:creator" content="@FISignalWeekly">
 <link rel="preconnect" href="https://subscribe-forms.beehiiv.com">
-<link rel="stylesheet" href="css/style.css?v=20261119hero">
+<link rel="stylesheet" href="css/style.css?v=20261120latest">
 </head><body>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html"><img class="mark" src="img/mark-64.png" width="32" height="32" alt="">FI Signal <span>Weekly</span></a>
@@ -51,6 +51,13 @@
     <p class="board-updated">Board updated <strong id="updated">…</strong> <span class="muted-inline">· dates on each row are event dates</span></p>
   </section>
 
+  <section id="latest" class="latest" aria-labelledby="latest-h">
+    <h2 id="latest-h">Latest added <span class="count-pill" id="latest-count"></span></h2>
+    <p class="note latest-note">Added to the board in the last 7 days, newest first.</p>
+    <ul class="latest-list" id="latest-list" aria-busy="true"><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li><li class="card lrow skel" aria-hidden="true"><i></i><i></i><i></i></li></ul>
+    <p class="latest-foot"><a class="latest-all" id="latest-all" href="?added=7d#board">See all on the board</a></p>
+  </section>
+
   <section id="board">
     <p class="sourcing"><strong>How we source:</strong> every signal comes from a public source (regulator notices and data, filings, press releases) and is fact-checked before it's posted. Bank / credit union type and asset size come from the latest FDIC and NCUA call reports.</p>
     <div class="panel filters-panel">
@@ -70,6 +77,7 @@
         <div><label for="f-assets">Asset size</label><select id="f-assets"><option value="">All sizes</option><option value="lt500m">Under $500M</option><option value="500m-1b">$500M–$1B</option><option value="1b-10b">$1B–$10B</option><option value="10b-50b">$10B–$50B</option><option value="50b+">$50B+</option><option value="na">Not reported</option></select></div>
         <div><label for="f-from">From</label><input id="f-from" type="date"></div>
         <div><label for="f-to">To</label><input id="f-to" type="date"></div>
+        <div><label for="f-added">Added</label><select id="f-added"><option value="">Any time</option><option value="7d">Last 7 days</option></select></div>
                 <div class="f-actions"><p class="sheet-count" id="sheet-count" aria-live="polite"></p><button id="reset" class="ghost" type="button">Reset</button><button id="copy-view" class="copy-view" type="button">Copy link to this view</button><button id="filters-done" class="filters-done" type="button">Done</button></div>
       </div>
     </div>
@@ -99,10 +107,10 @@
 </main>
 <footer><div class="wrap">FI Signal Weekly · Data compiled from public sources (NCUA, FDIC, SEC filings, press releases). Verify before acting. Not affiliated with any regulator or vendor. · <a href="fi/">Directory</a> · <a href="about.html">About</a> · <a href="#sponsor">Sponsor</a> · <a href="#feedback">Feedback</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
 <script src="js/territory-et.js?v=20261118fionly" defer></script>
-<script src="js/newtag.js?v=20261118fionly" defer></script>
+<script src="js/newtag.js?v=20261120latest" defer></script>
 <script src="js/boardrows.js?v=20261118fionly" defer></script>
-<script src="js/app.js?v=20261119board" defer></script>
-<script src="js/ui.js?v=20261119board" defer></script>
+<script src="js/app.js?v=20261120latest" defer></script>
+<script src="js/ui.js?v=20261120latest" defer></script>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 <script src="js/nav.js?v=20261119nav" defer></script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ffe394f0466d4ff8866c7bbfd8d53eb2"}'></script>
