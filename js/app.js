@@ -222,7 +222,7 @@
     // Optional: if it fails to load, names just stay plain text.
     var links=fetch("fi/linked.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {}});
     fetch("data/triggers.json").then(function(r){return r.json()}).then(function(d){return links.then(function(l){fiPaths=l||{};init(d)})}).catch(function(){
-      $("cards").textContent="";$("cards").appendChild(el("li","empty","Couldn't load data/triggers.json. Serve the site over HTTP (e.g. python3 -m http.server)."));
+      $("cards").textContent="";$("cards").appendChild(el("li","empty","Couldn't load the latest signals. Please refresh, or try again in a minute."));
     });
   }
 })();
