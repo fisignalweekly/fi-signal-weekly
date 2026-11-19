@@ -4,6 +4,36 @@
   --on-dark:#FFFFFF;--on-dark-muted:#A8BACC;
   --bg:#F4F7FB;--card:#FFFFFF;--ink:#0B1B33;--muted:#4A5B73;--line:#DCE3EE;--brand:#1450B8;
   --merger:#7C3AED;--core:#0E7490;--executive:#B45309;--digital_banking_change:#1D4ED8}
+/* Design tokens (mobile design system v1) */
+:root{
+  color-scheme:light;
+  /* color: existing brand vars stay as-is (--navy-900 … --digital_banking_change) */
+  --focus:#1450B8;            /* focus ring on light; 7.3:1 on white */
+  --focus-on-dark:#40E737;    /* focus ring on navy; 11.6:1 on navy-900 */
+  --chip:#E6ECF5;             /* ghost button / toggle fill; ink on chip 14.6:1 */
+  /* type */
+  --fs-sm:.875rem;   /* 14  notes, meta, captions: the floor for any text */
+  --fs-base:1rem;    /* 16  body, inputs, buttons */
+  --fs-md:1.0625rem; /* 17  hero line */
+  --fs-lg:1.25rem;   /* 20  h2, card title on desktop */
+  --fs-xl:1.625rem;  /* 26  h1 phone */
+  --fs-2xl:2rem;     /* 32  h1 iPad */
+  --fs-3xl:2.375rem; /* 38  h1 desktop */
+  --lh-body:1.5; --lh-tight:1.2; --lh-snug:1.35;
+  /* space (4/8 grid) */
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-8:32px;--sp-10:40px;--sp-12:48px;
+  --gutter:16px;     /* page side padding, phone */
+  /* shape */
+  --r-sm:6px;--r-md:8px;--r-lg:12px;--r-pill:999px;
+  --shadow-1:0 1px 2px rgba(0,15,38,.06),0 2px 8px rgba(0,15,38,.06);
+  /* touch + chrome */
+  --tap:44px;        /* min tap target */
+  --tap-gap:8px;     /* min space between targets */
+  --header-h:52px;   /* incl. 3px green rule; hard cap 56px */
+  /* safe areas (needs viewport-fit=cover) */
+  --safe-l:env(safe-area-inset-left,0px);--safe-r:env(safe-area-inset-right,0px);--safe-b:env(safe-area-inset-bottom,0px);
+}
+@media(min-width:820px){:root{--gutter:24px}}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
 a{color:var(--brand)}
@@ -48,20 +78,6 @@ footer a.follow-x{color:var(--signal)}
 .subscribe .note{margin:0 0 12px}
 .subscribe .note.small{margin:12px 0 0;font-size:.85rem}
 .subscribe-form{min-height:60px;max-width:560px}
-/* Hero signup: the box reserves the embedded form's own height (the form sizes itself by its width: 315px tall
-   when wide, 339px under ~450px, 375px under ~352px, 399px under ~300px), so the board never jumps when the form
-   arrives. Until then, or if it never loads, the box shows a signup button to the hosted page: never a blank gap. */
-.hero .hero-sub{margin:0 0 14px;color:var(--muted)}
-.hero .subscribe-form{container-type:inline-size;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.subscribe-fallback-box{min-height:315px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px 16px;text-align:center}
-.subscribe-fallback-box .sf-title{margin:0;font-weight:800;font-size:1.25rem;color:var(--ink)}
-.subscribe-fallback-box .sf-note{margin:0;font-size:.9rem;color:var(--muted)}
-.subscribe-fallback-box .cta{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;max-width:100%}
-.subscribe-form.embed-ok .subscribe-fallback-box{display:none}
-@container (max-width:445px){.subscribe-fallback-box{min-height:339px}}
-@container (max-width:352px){.subscribe-fallback-box{min-height:375px}}
-@container (max-width:300px){.subscribe-fallback-box{min-height:399px}}
-@media(max-width:759px){section.hero{padding:16px 0 4px}.hero h1{font-size:1.5rem;line-height:1.2;margin:0 0 6px}.hero .hero-line{font-size:1.05rem;margin:0 0 4px}.hero .hero-sub{font-size:.95rem;line-height:1.45;margin:0 0 12px}}
 #subscribe{scroll-margin-top:72px}
 .hero .hero-line{color:var(--ink);font-size:1.15rem;font-weight:600;margin:0 0 12px}
 .hero .subscribe{margin:0 0 16px}
@@ -346,3 +362,66 @@ label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
   .rm-dates > div{grid-template-columns:1fr}
   .rm-dates dt{padding-top:0}
 }
+
+/* ===== Hero + signup, mobile first ===== */
+body{line-height:var(--lh-body);-webkit-text-size-adjust:100%}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+header.site :focus-visible{outline-color:var(--focus-on-dark)}
+.wrap{padding-left:max(var(--gutter),var(--safe-l));padding-right:max(var(--gutter),var(--safe-r))}
+
+/* compact header (full treatment in spec 02) */
+header.site .wrap{min-height:calc(var(--header-h) - 3px);padding-top:0;padding-bottom:0;gap:var(--sp-3)}
+header.site .wrap{padding-left:max(12px,var(--safe-l));padding-right:max(12px,var(--safe-r))}
+.logo{min-height:var(--tap)}
+/* provisional until spec 02: logo and nav must not touch at 375 */
+.logo{flex-shrink:0}
+@media(max-width:559px){nav a.nav-opt{display:none}}   /* live site overflows 460-560px (scrollWidth 541 at 480) */
+@media(max-width:400px){header.site .wrap{gap:8px}.logo{font-size:.9375rem;gap:6px}nav a{font-size:.9375rem;padding:0 4px}}
+@media(max-width:359px){header.site .wrap{gap:6px}nav a{padding:0 2px}}
+
+/* hero: phone first */
+.hero{padding:var(--sp-4) 0 var(--sp-2)}
+.hero h1{font-size:var(--fs-xl);line-height:var(--lh-tight);margin:0 0 var(--sp-2);letter-spacing:-.01em;text-wrap:balance}
+.hero .hero-line{font-size:var(--fs-md);line-height:var(--lh-snug);margin:0 0 var(--sp-3);text-wrap:pretty}
+.hero .subscribe{margin:0 0 var(--sp-4)}
+.hero p{max-width:65ch}
+
+/* signup card: reserved height = the embed's rendered height, so embed load never shifts the page (CLS) */
+.subscribe-form{
+  position:relative;max-width:560px;
+  min-height:380px;   /* = embed height 375 + 4px top + 1px bottom border; embed is 375px when the iframe is <=350px wide */
+  background:var(--card);border:1px solid var(--line);border-top:4px solid var(--navy-700);
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-1);
+  display:flex;flex-direction:column;justify-content:center;
+}
+@supports (container-type:inline-size){
+  .subscribe{container-type:inline-size}
+  @container (min-width:353px){.subscribe-form{min-height:344px}}   /* iframe 351-412px wide -> embed 339px */
+  @container (min-width:415px){.subscribe-form{min-height:320px}}   /* iframe >=413px wide -> embed 315px */
+  @container (max-width:301px){.subscribe-form{min-height:404px}}   /* iframe <=~300px wide (320px phones) -> embed 399px */
+}
+.subscribe-form iframe{display:block;width:100%!important}
+/* fallback (PR #41) is the default state: centered in the reserved card, never a blank box */
+.subscribe-form .subscribe-fallback{display:flex;align-items:center;justify-content:center;
+  min-height:48px;margin:var(--sp-4);font-size:var(--fs-base);line-height:1.25;white-space:normal}
+.subscribe-form.embed-ok{justify-content:flex-start}
+.subscribe .note.small{font-size:var(--fs-sm);line-height:1.45;margin:var(--sp-2) 0 0}
+.hero .board-updated{font-size:var(--fs-sm)}
+.muted-inline{font-size:var(--fs-sm)}
+
+/* iPad + desktop: text left, signup card right; DOM order unchanged */
+@media(min-width:820px){
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) 380px;column-gap:var(--sp-8);
+    grid-template-areas:"h1 sub" "line sub" "desc sub" "upd sub" ". sub";grid-template-rows:auto auto auto auto 1fr;
+    padding:var(--sp-8) 0 var(--sp-4);align-items:start}
+  .hero h1{grid-area:h1;font-size:var(--fs-2xl)}
+  .hero .hero-line{grid-area:line;font-size:var(--fs-lg)}
+  .hero #subscribe{grid-area:sub;margin:0}
+  .hero > p:not(.hero-line):not(.board-updated){grid-area:desc;font-size:var(--fs-base)}
+  .hero .board-updated{grid-area:upd}
+}
+@media(min-width:1024px){
+  .hero{grid-template-columns:minmax(0,1fr) 420px;column-gap:var(--sp-10)}
+  .hero h1{font-size:var(--fs-3xl)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
