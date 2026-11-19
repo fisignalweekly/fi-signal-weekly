@@ -25,7 +25,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <meta name="twitter:site" content="@FISignalWeekly">
 <meta name="twitter:creator" content="@FISignalWeekly">
-<link rel="stylesheet" href="css/style.css?v=20261118territory">
+<link rel="stylesheet" href="css/style.css?v=20261118signup">
 </head><body>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html"><img class="mark" src="img/mark-64.png" width="32" height="32" alt="">FI Signal <span>Weekly</span></a>
@@ -37,8 +37,10 @@
     <p class="hero-line">New signals added every weekday. Free digest every Friday.</p>
     <div id="subscribe" class="subscribe" aria-label="Friday digest signup">
       <div class="subscribe-form">
+        <a class="cta subscribe-fallback" href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Subscribe to the Friday digest</a>
+        <script>/* the signup link shows until the embedded form reports it has rendered; a blocked or failed embed never leaves a gap */
+        addEventListener("message",function(e){var d=e.data;if(e.origin==="https://subscribe-forms.beehiiv.com"&&d&&d.type==="beehiiv:styles"&&d.payload&&parseInt(d.payload.height,10)>0){var f=document.querySelector("#subscribe .subscribe-form");if(f)f.classList.add("embed-ok")}});</script>
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="703c548c-7539-4628-9106-647d8a871b28"></script>
-        <noscript><p><a class="cta" href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Subscribe to the Friday digest</a></p></noscript>
       </div>
       <p class="note small">One free email every Friday with the week's new triggers. Trouble subscribing? <a href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Use the plain signup page</a>.</p>
     </div>
