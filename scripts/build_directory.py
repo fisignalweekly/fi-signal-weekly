@@ -42,7 +42,7 @@ TIERS = [("lt500m", "Under $500M", 0, 5e8), ("500m-1b", "$500M–$1B", 5e8, 1e9)
 # Never add pages from scripts/unlisted.py UNLISTED_PAGES here (/whats-new/, /roadmap/, /territory/, /r/...):
 # they stay live but out of sitemap.xml, and validate.py fails if one is listed.
 STATIC_PAGES = ()
-CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<site_token>"}'></script>
+CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ffe394f0466d4ff8866c7bbfd8d53eb2"}'></script>
 """
 TIER_LIST_MAX = 1500   # tiers bigger than this list the largest TIER_TOP plus everything with signals, then link to search
 TIER_TOP = 300

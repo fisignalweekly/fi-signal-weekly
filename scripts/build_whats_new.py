@@ -10,7 +10,7 @@ from unlisted import is_unlisted, ROBOTS_META
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = "20261118whatsnew"
-CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<site_token>"}'></script>
+CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ffe394f0466d4ff8866c7bbfd8d53eb2"}'></script>
 """
 MONTHS = "January February March April May June July August September October November December".split()
 

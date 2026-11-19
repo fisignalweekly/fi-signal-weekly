@@ -23,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS_MIN = 1_400_000_000
 CACHE = "20261118territory"
-CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<site_token>"}'></script>
+CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ffe394f0466d4ff8866c7bbfd8d53eb2"}'></script>
 """
 
 PURE_ET = set("ME NH VT MA RI CT NY NJ PA DE MD DC VA WV NC SC GA OH".split())
