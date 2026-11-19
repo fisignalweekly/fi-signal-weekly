@@ -73,6 +73,8 @@ body{overflow-wrap:break-word}
 .card,.card h3,.card p,footer,.note,.sourcing,.prose{overflow-wrap:anywhere}
 img,iframe{max-width:100%}
 .subscribe-form iframe{max-width:100%!important}
+.subscribe-form:not(.embed-ok) iframe{height:0!important;min-height:0!important;visibility:hidden}
+.subscribe-form.embed-ok .subscribe-fallback{display:none}
 /* Header: logo + nav on one line. Phones get an X icon instead of the full "Follow @FISignalWeekly" text;
    the handle stays in the link's aria-label and in the footer. */
 header.site .wrap{flex-wrap:nowrap}
