@@ -490,3 +490,109 @@ html.menu-open,html.menu-open body{overflow:hidden}
 @media(min-width:600px){.menu-sheet,.menu-scrim{display:none!important}}
 /* unlisted pages' sticky city headings sit under the header instead of behind it */
 .terr h3.city{top:var(--sticky-top)}
+
+/* ===== Board: stacked cards, sticky search + filter bar, bottom-sheet filters ===== */
+:root{--fbar-h:61px}  /* phone sticky bar: 8 + 44 + 8 + 1px rule */
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- search (all widths) ---------- */
+.fbar{display:flex;align-items:flex-end;gap:var(--sp-2)}
+.fbar-search{position:relative;flex:1;min-width:0}
+.fbar-search input[type=search]{width:100%;min-height:var(--tap);font-size:16px;padding:9px 44px 9px 38px;
+  border:1px solid var(--line);border-radius:var(--r-md);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%234A5B73' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4-4'/%3E%3C/svg%3E") no-repeat 12px 50%;
+  -webkit-appearance:none;appearance:none}
+.fbar-search input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;display:none}  /* our own 44px clear */
+.fbar-search input:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
+.q-clear{position:absolute;right:0;bottom:0;width:var(--tap);height:var(--tap);min-height:0;padding:0;display:flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--muted);border-radius:var(--r-md)}
+.q-clear[hidden]{display:none}
+@media(min-width:760px){
+  .filters-panel .fbar{margin-bottom:var(--sp-3)}
+  .fbar-search{max-width:560px}
+  .filters-done,.sheet-count,.sheet-head{display:none!important}
+}
+
+/* ---------- phone: sticky bar + bottom sheet ---------- */
+@media(max-width:759px){
+  html{scroll-padding-top:calc(var(--sticky-top) + var(--fbar-h) + var(--sp-2))}
+  .filters-panel,.filters-panel.open{position:sticky;top:var(--sticky-top);z-index:30;  /* under the header (40) */
+    margin:var(--sp-4) calc(-1 * var(--gutter)) 0;padding:var(--sp-2) var(--gutter);
+    border:0;border-bottom:1px solid var(--line);border-radius:0;background:var(--bg)}
+  .filters-panel.open{z-index:60}  /* sticky makes a stacking context: lift it so scrim + sheet cover the header */
+  .fbar{align-items:center}
+  .fbar-search label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap} /* label stays for AT; placeholder + icon show */
+  .filters-toggle{width:auto;flex:0 0 auto;min-height:var(--tap);padding:0 12px;gap:8px;font-size:var(--fs-base)}
+  .filters-toggle .chev{display:none}
+  .filters-toggle .fcount{padding:1px 8px;font-size:.8125rem}
+
+  /* the sheet: existing #filters grid, fixed to the bottom while .filters-panel.open */
+  .filters-panel.open .filters{position:fixed;left:0;right:0;bottom:0;z-index:2;margin:0;
+    max-height:85vh;max-height:85dvh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    padding:0 max(var(--gutter),var(--safe-r)) 0 max(var(--gutter),var(--safe-l));
+    background:var(--card);border-radius:16px 16px 0 0;box-shadow:0 -8px 32px rgba(0,15,38,.25);
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-4) var(--sp-3);align-content:start}
+  .sheet-head{grid-column:1/-1;position:sticky;top:0;z-index:2;background:var(--card);margin:0 calc(-1 * var(--gutter));
+    padding:var(--sp-2) var(--gutter) var(--sp-2);border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center}
+  .sheet-handle{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 0 var(--sp-2)}
+  .sheet-head h2{margin:0;font-size:var(--fs-md);line-height:1.3;align-self:flex-start}
+  .filters-panel.open .f-actions{grid-column:1/-1;position:sticky;bottom:0;z-index:2;background:var(--card);
+    margin:0 calc(-1 * var(--gutter));padding:var(--sp-3) var(--gutter) calc(var(--sp-3) + var(--safe-b));
+    border-top:1px solid var(--line);display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"count reset" "copy done";gap:var(--sp-2) var(--sp-2);align-items:center}
+  .sheet-count{grid-area:count;margin:0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink);font-weight:600}
+  .filters-panel.open .f-actions #reset{grid-area:reset;justify-self:end;min-height:var(--tap);padding:0 16px}
+  .filters-panel.open .f-actions .copy-view{grid-area:copy;white-space:normal;line-height:1.2;min-height:48px;font-size:.9375rem;background:var(--chip);color:var(--ink)}
+  .filters-done{grid-area:done;min-height:48px}
+  .filters-panel.open .f-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .filters-panel:not(.open) .filters-done{display:none}
+  .sheet-scrim{position:fixed;inset:0;z-index:1;background:rgba(0,15,38,.5)}
+  .sheet-scrim[hidden]{display:none}
+  html.sheet-open,html.sheet-open body{overflow:hidden}
+  @media(prefers-reduced-motion:no-preference){.filters-panel.open .filters{animation:sheet-in .2s ease-out}}
+}
+@keyframes sheet-in{from{transform:translateY(24px);opacity:.6}}
+
+/* ---------- active filter chips ---------- */
+.active-chips{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin:var(--sp-3) 0 0}
+.active-chips[hidden]{display:none}
+.achip{display:inline-flex;align-items:center;gap:6px;min-height:var(--tap);max-width:100%;padding:0 6px 0 12px;
+  border:1px solid var(--navy-700);border-radius:var(--r-pill);background:#fff;color:var(--navy-700);font-size:var(--fs-sm);font-weight:600;line-height:1.2;text-align:left}
+.achip span{overflow-wrap:anywhere}
+.achip svg{flex-shrink:0}
+.achip.clear-all{border-color:transparent;background:transparent;color:var(--brand);text-decoration:underline;padding:0 8px}
+.count{margin:var(--sp-3) 0 var(--sp-3);min-height:1.5em}
+
+/* ---------- cards ---------- */
+.card{display:flex;flex-wrap:wrap;align-items:center;column-gap:var(--sp-4);padding:var(--sp-4)}
+.card > h3,.card > .meta,.card > p{flex:0 0 100%}
+.card h3{font-size:1.125rem;line-height:1.3;margin:0 0 var(--sp-2);text-wrap:pretty;overflow-wrap:anywhere}
+.card h3 .fi-link{display:inline;min-height:0;padding:11px 0}   /* inline padding = 45px hit area on one line, no layout change */
+.card .tag-new{font-size:.75rem;margin-left:6px;vertical-align:2px}
+.meta{gap:6px 12px;font-size:var(--fs-sm);margin:0 0 var(--sp-2)}
+.meta > .badge{order:0;font-size:.75rem;padding:3px 10px}
+.meta > span:nth-child(4){order:1;color:var(--ink);font-weight:600}   /* event date right after the trigger type */
+.meta > span:nth-child(2){order:2}                                     /* state */
+.meta > .assets{order:3}
+.card > p{margin:0;font-size:var(--fs-base);line-height:var(--lh-body);padding-right:max(0px,calc(100% - 70ch))}  /* 70ch measure, actions still wrap below */
+.card:not(.open) > p.clampable{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.card .src,.card .row-link,.card .more{display:inline-flex;align-items:center;min-height:var(--tap);min-width:var(--tap);font-size:.9375rem;margin:var(--sp-1) 0 0}
+.card .src{font-weight:700}
+.card .row-link{margin-left:0;padding:0;color:var(--muted)}
+.card .more{margin-left:auto;padding:0 4px;background:none;border:0;color:var(--brand);font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cards > li.empty{grid-column:1/-1}
+.cards > li.empty .ghost{min-height:48px;width:100%;max-width:420px}
+.empty-actions{margin-top:var(--sp-3)}
+
+/* loading skeleton: reserved heights so the late board never shifts the page (CLS) */
+.card.skel{display:block;min-height:188px;border-left-color:var(--line);background:var(--card)}
+.card.skel i{display:block;height:14px;border-radius:7px;background:#E9EEF5;margin:0 0 12px}
+.card.skel i:nth-child(1){width:70%;height:20px;margin-bottom:16px}.card.skel i:nth-child(2){width:45%}
+.card.skel i:nth-child(3){width:100%}.card.skel i:nth-child(4){width:85%}
+@media(prefers-reduced-motion:no-preference){.card.skel i{animation:skel 1.2s ease-in-out infinite alternate}}
+@keyframes skel{to{opacity:.55}}
+.cards:has(> .skel){min-height:100vh;min-height:100dvh}
+#updated{display:inline-block;min-width:6.6em}   /* "…" -> "Nov 18, 2026" without moving the rest of the line */
+
+/* ---------- iPad / desktop ---------- */
+@media(min-width:1024px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
