@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>FI Signal Weekly — buying-window signals at US banks &amp; credit unions</title>
 <meta name="description" content="FI Signal Weekly: a free board, updated every weekday, of buying-window triggers at US banks and credit unions: pending mergers, core renewals and conversions, and new executives.">
 <meta property="og:type" content="website">
@@ -25,11 +25,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <meta name="twitter:site" content="@FISignalWeekly">
 <meta name="twitter:creator" content="@FISignalWeekly">
-<link rel="stylesheet" href="css/style.css?v=20261118signup">
+<link rel="preconnect" href="https://subscribe-forms.beehiiv.com">
+<link rel="stylesheet" href="css/style.css?v=20261119hero">
 </head><body>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html"><img class="mark" src="img/mark-64.png" width="32" height="32" alt="">FI Signal <span>Weekly</span></a>
-  <nav><a href="#board">Board</a><a class="nav-opt" href="#sponsor">Sponsor</a><a class="nav-dir" href="fi/">Directory</a><a class="nav-opt" href="about.html">About</a><a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener" aria-label="Follow @FISignalWeekly on X"><svg class="x-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="fx-text">Follow @FISignalWeekly</span></a></nav>
+  <nav><a href="#board">Board</a><a class="nav-opt" href="#sponsor">Sponsor</a><a class="nav-dir" href="fi/">Directory</a><a class="nav-opt" href="about.html">About</a><a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener" aria-label="Follow @FISignalWeekly on X"><svg class="x-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="fx-text">Follow @FISignalWeekly</span></a><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu" hidden><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></nav>
 </div></header>
 <main class="wrap">
   <section class="hero">
@@ -39,7 +40,9 @@
       <div class="subscribe-form">
         <a class="cta subscribe-fallback" href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Subscribe to the Friday digest</a>
         <script>/* the signup link shows until the embedded form reports it has rendered; a blocked or failed embed never leaves a gap */
-        addEventListener("message",function(e){var d=e.data;if(e.origin==="https://subscribe-forms.beehiiv.com"&&d&&d.type==="beehiiv:styles"&&d.payload&&parseInt(d.payload.height,10)>0){var f=document.querySelector("#subscribe .subscribe-form");if(f)f.classList.add("embed-ok")}});</script>
+        addEventListener("message",function(e){var d=e.data;if(e.origin==="https://subscribe-forms.beehiiv.com"&&d&&d.type==="beehiiv:styles"&&d.payload&&parseInt(d.payload.height,10)>0){var f=document.querySelector("#subscribe .subscribe-form"),n=0;if(!f||f.classList.contains("embed-ok"))return;
+          /* swap only once the iframe has its height, so the card never collapses between the two states */
+          (function swap(){var i=f.querySelector("iframe");if(i&&parseInt(i.style.height,10)>0||++n>30){f.classList.add("embed-ok");if(i&&!i.title)i.title="Friday digest signup"}else requestAnimationFrame(swap)})()}});</script>
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="703c548c-7539-4628-9106-647d8a871b28"></script>
       </div>
       <p class="note small">One free email every Friday with the week's new triggers. Trouble subscribing? <a href="https://fisignalweekly.beehiiv.com/subscribe" rel="noopener">Use the plain signup page</a>.</p>
@@ -97,4 +100,5 @@
 <script src="js/app.js?v=20261118fionly"></script>
 <script src="js/ui.js?v=20261118fionly"></script>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+<script src="js/nav.js?v=20261119nav" defer></script>
 </body></html>
