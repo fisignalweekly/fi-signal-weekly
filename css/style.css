@@ -664,3 +664,5 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .dir main > .more-links a:last-child{margin-right:24px}
 }
 @media(max-height:500px) and (orientation:landscape){.dir main > .more-links{position:static}}
+/* 44px "Only with signals" row on iPad and desktop too */
+@media(min-width:760px){.dir #fi-search label.check{min-height:var(--tap)}}
