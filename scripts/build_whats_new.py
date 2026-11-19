@@ -10,6 +10,8 @@ from unlisted import is_unlisted, ROBOTS_META
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = "20261118whatsnew"
+CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ffe394f0466d4ff8866c7bbfd8d53eb2"}'></script>
+"""
 MONTHS = "January February March April May June July August September October November December".split()
 
 def e(s): return html.escape(s or "", quote=True)
@@ -79,7 +81,7 @@ def build():
   {"".join(sections)}
 </main>
 <footer><div class="wrap">FI Signal Weekly · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/vendor-changes/">Vendor changes</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
-</body></html>
+{CF_BEACON}</body></html>
 '''
     out = ROOT / "whats-new/index.html"
     out.parent.mkdir(parents=True, exist_ok=True)

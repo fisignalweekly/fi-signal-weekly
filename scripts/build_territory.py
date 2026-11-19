@@ -23,6 +23,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS_MIN = 1_400_000_000
 CACHE = "20261118territory"
+CF_BEACON = """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ffe394f0466d4ff8866c7bbfd8d53eb2"}'></script>
+"""
 
 PURE_ET = set("ME NH VT MA RI CT NY NJ PA DE MD DC VA WV NC SC GA OH".split())
 # Multi-word counties must stay intact (do not .split() these strings).
@@ -364,7 +366,7 @@ def write_html(listed, as_of):
   {"".join(sections)}
 </main>
 <footer><div class="wrap">FI Signal Weekly · Institution data from FDIC BankFind and NCUA call reports; digital providers from public login-page scans. Verify before acting. Not affiliated with any regulator or vendor. · <a href="/">Board</a> · <a href="/fi/">Directory</a> · <a href="/about.html">About</a> · <a href="/#subscribe">Friday digest</a> · <a class="follow-x" href="https://x.com/FISignalWeekly" target="_blank" rel="noopener">Follow @FISignalWeekly</a></div></footer>
-</body></html>
+{CF_BEACON}</body></html>
 """
     (ROOT / "territory/index.html").write_text(page, encoding="utf-8")
 
