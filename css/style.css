@@ -424,6 +424,7 @@ header.site :focus-visible{outline-color:var(--focus-on-dark)}
 }
 @media(max-height:500px) and (orientation:landscape){:root{--sticky-top:0px}}  /* short landscape: header scrolls away */
 html{scroll-padding-top:calc(var(--sticky-top) + var(--sp-2))}  /* #board, #sponsor, #tNNN anchors land below the header */
+#subscribe,.card{scroll-margin-top:0}  /* old 72px/24px offsets would stack on top of the scroll-padding */
 
 header.site{position:sticky;top:0;z-index:40;padding-top:env(safe-area-inset-top,0px)}
 @media(max-height:500px) and (orientation:landscape){header.site{position:relative}}
