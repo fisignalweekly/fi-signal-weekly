@@ -50,14 +50,6 @@
     },
     {
       "date": "2026-11-18",
-      "id": "vendor-changes",
-      "title": "Vendor platform change feed",
-      "body": "A new Vendor platform changes page collects public notices about digital banking platforms and lists institutions that may be affected, based on a login-page scan. The first entry is Jack Henry's planned retirement of NetTeller Online Banking and Cash Management on July 1, 2027.",
-      "link_href": "/vendor-changes/",
-      "link_label": "Vendor platform changes"
-    },
-    {
-      "date": "2026-11-18",
       "id": "territory",
       "title": "Territory view",
       "body": "A new Territory page lists banks with assets strictly above $1.4 billion and an Eastern Time headquarters, grouped by HQ city, with the rule published on the page. The same view is a URL filter on the board and in the directory.",
