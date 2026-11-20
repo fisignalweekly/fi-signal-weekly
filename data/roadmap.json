@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "intro": "What is live on FI Signal Weekly, what is being built, and what is queued. Dates marked est. are estimates and may move. Showcase means a first public example; full means the feature is on the site for the planned set of institutions.",
   "showcase_pages": {
     "note": "Five institution pages are showcases of what every page will look like once the backfill and updates are done. New features land there first:",
@@ -59,11 +59,16 @@
       "name": "LinkedIn links and business digital banking",
       "description": "Institution pages will add the company's public LinkedIn page, when the institution publishes one, and the business digital banking provider when a public login-page scan or verified announcement supports it.",
       "status": "Building",
-      "showcase": null,
-      "full": {
+      "showcase": {
         "date": "2026-11-18",
-        "est": true,
-        "note": "evening"
+        "est": false,
+        "label": "Glacier Bank",
+        "href": "/fi/mt/glacier-bank/",
+        "note": "business online banking is live for 63 institutions"
+      },
+      "full": {
+        "date": "2026-11-23",
+        "est": true
       }
     },
     {
@@ -85,10 +90,8 @@
       "status": "Building",
       "showcase": null,
       "full": {
-        "date": "2026-11-18",
-        "est": true,
-        "href": "/vendor-changes/",
-        "label": "Vendor platform changes"
+        "date": "2026-11-24",
+        "est": true
       }
     },
     {
@@ -312,6 +315,43 @@
         "est": false,
         "note": "partner preview"
       }
+    },
+    {
+      "id": "latest-added",
+      "name": "Latest added on the homepage",
+      "description": "The newest signals sit at the top of the homepage, and new rows carry a New tag for 7 days.",
+      "status": "Live",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-19",
+        "est": false
+      }
+    },
+    {
+      "id": "faster-intake",
+      "name": "Faster signal intake",
+      "description": "Every signal is tracked from first sighting through fact-check to publish, so fresh news is prioritized and reaches the board within a business day.",
+      "status": "Building",
+      "showcase": null,
+      "full": {
+        "date": "2026-11-23",
+        "est": true
+      }
+    },
+    {
+      "id": "coverage-check",
+      "name": "Weekly coverage check",
+      "description": "Each week we rebuild one day's signals independently from public sources and compare it with the board, to catch anything we missed.",
+      "status": "Queued",
+      "showcase": null,
+      "full": null,
+      "milestones": [
+        {
+          "label": "First check",
+          "date": "2026-11-27",
+          "est": true
+        }
+      ]
     }
   ]
 }
