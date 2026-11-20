@@ -115,5 +115,25 @@
     new MutationObserver(decorate).observe(cards,{childList:true});
   }
   window.addEventListener("hashchange",function(){setTimeout(decorate,0)});
+  // ---- spec 07a: short landscape phones: floating "Filters" pill back to the inline filters (no new strings) ----
+  (function(){
+    var lmq=matchMedia("(min-width:760px) and (max-height:500px) and (orientation:landscape) and (pointer:coarse)"),board=$("board");
+    if(!window.IntersectionObserver||!board)return;
+    var fab=document.createElement("button");fab.type="button";fab.className="filters-fab";fab.hidden=true;
+    fab.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Filters</span> <span class="fcount" hidden></span>';
+    document.body.appendChild(fab);
+    var above=false,onBoard=false,fc=fab.querySelector(".fcount");
+    function sync(){var n=active();fc.hidden=!n;fc.textContent=n?n+" active":"";fab.hidden=!(lmq.matches&&above&&onBoard)}
+    var raf=0;function measure(){raf=0;above=panel.getBoundingClientRect().bottom<=0;sync()}   // a jump scroll can skip IO crossings
+    addEventListener("scroll",function(){if(!raf&&lmq.matches)raf=requestAnimationFrame(measure)},{passive:true});
+    new IntersectionObserver(function(es){onBoard=es[es.length-1].isIntersecting;measure()}).observe(board);
+    fab.addEventListener("click",function(){
+      panel.setAttribute("tabindex","-1");
+      panel.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
+      panel.focus({preventScroll:true});                        // focus lands on the panel; no keyboard pops up
+    });
+    box.addEventListener("change",sync);
+    (lmq.addEventListener?lmq.addEventListener.bind(lmq,"change"):lmq.addListener.bind(lmq))(sync);
+  })();
   update();qSync();
 })();
