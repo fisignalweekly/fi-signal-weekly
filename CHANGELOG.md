@@ -4,7 +4,7 @@ Production releases of the FI Signal Weekly site. Entries are dated in Eastern T
 
 ## v1.4.1 (2026-11-19, ET)
 
-The /subscribe/ address now takes visitors to the signup form on the homepage instead of a not-found page
+The subscribe page address now takes visitors to the signup form on the homepage instead of a not-found page
 
 ## v1.4.0 (2026-11-19, ET)
 
