@@ -2,6 +2,12 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.0 (2026-11-19, ET)
+
+Adds pipeline tools in tools/: a row ledger with found, staged, verified, needs_review, rejected, live and corrected statuses, plus found, published and lane fields
+
+New ledger commands add, set, published and stale (fresh items waiting more than 1 business day), and a per-source sweep health check
+
 ## v1.3.1 (2026-11-19, ET)
 
 Landscape phones: a Filters button appears after scrolling deep into the board and jumps back to the filters
