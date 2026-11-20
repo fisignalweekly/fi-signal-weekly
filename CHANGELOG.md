@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.1 (2026-11-19, ET)
+
+The /subscribe/ address now takes visitors to the signup form on the homepage instead of a not-found page
+
 ## v1.4.0 (2026-11-19, ET)
 
 Adds pipeline tools in tools/: a row ledger with found, staged, verified, needs_review, rejected, live and corrected statuses, plus found, published and lane fields
