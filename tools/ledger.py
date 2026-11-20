@@ -570,6 +570,7 @@ def source_files() -> list[Path]:
 
 def fingerprint(files: list[Path], sha: str) -> str:
     h = hashlib.sha256(sha.encode())
+    h.update(f"schema={'|'.join(COLUMNS)}\n".encode())  # a column change forces one rebuild
     for p in sorted(files):
         st = p.stat()
         h.update(f"{p}|{st.st_size}|{st.st_mtime_ns}\n".encode())
