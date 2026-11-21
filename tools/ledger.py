@@ -14,6 +14,8 @@ needs_review from older ledger files.)
 Subcommands:
   build                    full idempotent rebuild of ledger.tsv (also the default with no subcommand)
   snapshot <file>          copy <file> into snapshots/ (keep last 10), then build
+  snapshot --prune         list snapshots older than the latest publish (dry run);
+                           --yes deletes them, always keeping the newest per source
   verified-unpublished     rows with status=verified that are not live
   status                   row counts by status and conflict count
   add <row_id> found|staged  record a found or staged item (append-only, deduped by row id)
@@ -1195,6 +1197,85 @@ def verified_unpublished_rows() -> tuple[list[dict], list[str], list[str]]:
 
 # ---- snapshot -----------------------------------------------------------
 
+SNAPSHOT_STAMP = re.compile(r"^(?P<producer>.+)\.(?P<stamp>\d{8}-\d{6})(?:-(?P<n>\d+))?\.tsv$")
+
+
+def parse_snapshot(path: Path) -> dict | None:
+    m = SNAPSHOT_STAMP.fullmatch(path.name)
+    if not m:
+        return None
+    return {"path": path, "producer": m.group("producer"), "stamp": m.group("stamp"),
+            "n": int(m.group("n") or 0), "day": f"{m.group('stamp')[:4]}-{m.group('stamp')[4:6]}-{m.group('stamp')[6:8]}"}
+
+
+def latest_publish_date() -> date | None:
+    days = []
+    for row in read_tsv(PUBLISH_LOG):
+        raw = (row.get("date") or "").strip()[:10]
+        try:
+            days.append(date.fromisoformat(raw))
+        except ValueError:
+            continue
+    return max(days) if days else None
+
+
+def list_snapshots() -> list[dict]:
+    if not SNAPSHOTS.is_dir():
+        return []
+    out = []
+    for p in SNAPSHOTS.iterdir():
+        rec = parse_snapshot(p)
+        if rec and p.is_file():
+            out.append(rec)
+    out.sort(key=lambda r: (r["producer"], r["stamp"], r["n"], r["path"].name))
+    return out
+
+
+def plan_prune() -> tuple[date, list[dict], list[dict]]:
+    """Return (latest_publish_date, keep, drop). Drop = older than that date, except the
+    newest snapshot of each producer, which is always kept."""
+    latest = latest_publish_date()
+    if latest is None:
+        raise SystemExit("snapshot --prune: no publish date found in the publish log")
+    snaps = list_snapshots()
+    newest: dict[str, dict] = {}
+    for rec in snaps:
+        cur = newest.get(rec["producer"])
+        if cur is None or (rec["stamp"], rec["n"]) > (cur["stamp"], cur["n"]):
+            newest[rec["producer"]] = rec
+    keep, drop = [], []
+    for rec in snaps:
+        reasons = []
+        if newest.get(rec["producer"]) is rec:
+            reasons.append(f"newest for {rec['producer']}")
+        if date.fromisoformat(rec["day"]) >= latest:
+            reasons.append(f"on or after {latest.isoformat()}")
+        rec = {**rec, "reasons": reasons}
+        if reasons:
+            keep.append(rec)
+        else:
+            rec["reasons"] = [f"older than {latest.isoformat()}"]
+            drop.append(rec)
+    return latest, keep, drop
+
+
+def cmd_prune(yes: bool) -> int:
+    latest, keep, drop = plan_prune()
+    mode = "deleted" if yes else "would delete"
+    if yes:
+        for rec in drop:
+            rec["path"].unlink()
+    print(f"snapshot prune ({'apply' if yes else 'dry run, pass --yes to delete'})")
+    print(f"latest publish: {latest.isoformat()}")
+    print(f"kept ({len(keep)}):")
+    for rec in keep:
+        print(f"  {rec['path'].name}  {'; '.join(rec['reasons'])}")
+    print(f"{mode} ({len(drop)}):")
+    for rec in drop:
+        print(f"  {rec['path'].name}  {'; '.join(rec['reasons'])}")
+    return 0
+
+
 def glob_escape(text: str) -> str:
     return re.sub(r"([*?\[])", r"[\1]", text)
 
@@ -1239,7 +1320,9 @@ def main(argv=None) -> int:
     sub = ap.add_subparsers(dest="cmd")
     sub.add_parser("build", help="full rebuild of ledger.tsv (also the default with no subcommand)")
     sp = sub.add_parser("snapshot")
-    sp.add_argument("file")
+    sp.add_argument("file", nargs="?", help="working file to copy into snapshots/")
+    sp.add_argument("--prune", action="store_true", help="list or delete snapshots older than the latest publish")
+    sp.add_argument("--yes", action="store_true", help="with --prune, actually delete (default is a dry run)")
     vp = sub.add_parser("verified-unpublished")
     vp.add_argument("--json", action="store_true", dest="as_json")
     vp.add_argument("--quiet", action="store_true")
@@ -1272,6 +1355,14 @@ def main(argv=None) -> int:
         build()
         return 0
     if cmd == "snapshot":
+        if args.yes and not args.prune:
+            print("snapshot: --yes is only valid with --prune", file=sys.stderr)
+            return 2
+        if args.prune:
+            return cmd_prune(args.yes)
+        if not args.file:
+            print("snapshot: pass a file to copy, or --prune", file=sys.stderr)
+            return 2
         snapshot(args.file)
         return 0
     if cmd == "status":

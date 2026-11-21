@@ -48,6 +48,7 @@ from older ledger files. Conflict kind names (for example `live_but_flagged`) ar
 | `ledger.py status` | Counts by status, open conflicts, pending takedowns. |
 | `ledger.py verified-unpublished [--json] [--quiet]` | Same as `verified_unpublished.py`. |
 | `ledger.py snapshot <file>` | Copy a working file into `snapshots/` (last 10 kept), then rebuild. |
+| `ledger.py snapshot --prune` | List snapshots older than the latest successful publish (dry run). `--yes` deletes them. The newest snapshot from each source is always kept. |
 
 Allowed `set` changes (anything else exits 2 unless `--force`):
 `found → staged | rejected`, `staged → verified | needs_review | rejected`,
