@@ -13,7 +13,7 @@ import argparse, csv, datetime as dt, difflib, io, json, os, re, sys, time, urll
 
 STATE_DIR = os.environ.get("FISIGNAL_STATE", "/workspace/fisignal-state")
 NCUA_DIR = os.path.join(STATE_DIR, "ncua")
-UA = "FI Signal Weekly fisignal@mail.grokbot.com"
+UA = "FI Signal Weekly hello@fisignalweekly.com"
 STOP = {"inc", "corp", "corporation", "co", "company", "the", "of", "and", "financial", "bancorp", "bancshares", "holding", "holdings", "group", "bank", "national", "association", "na", "n.a.", "federal", "credit", "union", "fcu", "cu", "trust", "savings", "&"}
 
 def get(url, timeout=40):

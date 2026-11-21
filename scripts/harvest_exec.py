@@ -23,7 +23,7 @@ import xml.etree.ElementTree as ET
 
 STATE_DIR = os.environ.get("FISIGNAL_STATE", "/workspace/fisignal-state")
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SEC_UA = "FI Signal Weekly fisignal@mail.grokbot.com"
+SEC_UA = "FI Signal Weekly hello@fisignalweekly.com"
 BR_UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 BANK_SICS = ["6021", "6022", "6035", "6036", "6712"]
 
