@@ -29,7 +29,7 @@ import argparse, csv, datetime as dt, io, json, os, re, sys, time, urllib.parse,
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 CACHE = os.environ.get("FISIGNAL_FIDB_CACHE", "/workspace/fisignal-state/fidb-cache")
-UA = "FI Signal Weekly fisignal@mail.grokbot.com"
+UA = "FI Signal Weekly hello@fisignalweekly.com"
 FDIC_URL = "https://api.fdic.gov/banks/institutions"
 NCUA_ZIP = "https://ncua.gov/files/publications/analysis/call-report-data-{y}-{m:02d}.zip"
 LOCATOR = "https://mapping.ncua.gov/api/CreditUnionDetails/GetCreditUnionDetails/{}"

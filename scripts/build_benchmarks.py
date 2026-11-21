@@ -24,7 +24,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.environ.get("FISIGNAL_CALLREPORTS", "/workspace/fi-signal/callreports")
 CPI_CACHE = os.environ.get("FISIGNAL_CPI", "/workspace/fi-signal/cpi")
 OUT = os.path.join(ROOT, "data", "benchmarks.json")
-UA = "FISignalWeeklyBot/1.0 (+https://fisignalweekly.com; fisignal@mail.grokbot.com)"
+UA = "FISignalWeeklyBot/1.0 (+https://fisignalweekly.com; hello@fisignalweekly.com)"
 CPI_SERIES = "CUUR0000SA0"
 MIN_PEERS = 5  # fewer comparable peers than this: no peer line on the page (said plainly)
 

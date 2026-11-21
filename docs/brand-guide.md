@@ -53,4 +53,4 @@ Contrast (WCAG AA, 4.5:1 for normal text): white on Navy 900 19.2:1; pulse green
 
 ## Brand-only
 
-Everything public is FI Signal Weekly: site, digest, X, commits, branches and PR text. Never use the owner's name, likeness or personal accounts. Contact address: fisignal@mail.grokbot.com.
+Everything public is FI Signal Weekly: site, digest, X, commits, branches and PR text. Never use the owner's name, likeness or personal accounts. Contact address: hello@fisignalweekly.com.

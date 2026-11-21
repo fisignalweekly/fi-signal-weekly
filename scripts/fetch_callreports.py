@@ -21,7 +21,7 @@ import argparse, csv, io, json, os, sys, time, urllib.parse, urllib.request, zip
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.environ.get("FISIGNAL_CALLREPORTS", "/workspace/fi-signal/callreports")
 OUT = os.path.join(ROOT, "data", "callreports.json")
-UA = "FISignalWeeklyBot/1.0 (+https://fisignalweekly.com; fisignal@mail.grokbot.com)"
+UA = "FISignalWeeklyBot/1.0 (+https://fisignalweekly.com; hello@fisignalweekly.com)"
 FIRST = (2016, 1)
 HIST_CODES = {110, 211, 221, 222, 223, 224, 420, 430, 440, 510, 712, 810, 811}
 
