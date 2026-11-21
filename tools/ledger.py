@@ -207,6 +207,26 @@ def coarse_type(typ: str) -> str:
     return re.split(r"\s*\(", (typ or "").strip().lower(), maxsplit=1)[0].strip()
 
 
+
+PLANNED_BRANCH_ID = re.compile(r"-branch-planned-", re.I)
+
+
+def is_planned_branch(row_id: str, types: list[str] | None = None) -> bool:
+    """True when this is a planned-branch row, not an already-open branch.
+
+    Signalled by '-branch-planned-' in the row id, or a type that names a
+    planned branch. A plain 'branch_opening' type is not enough: opened and
+    planned branches share that type, and must not be collapsed together.
+    """
+    if PLANNED_BRANCH_ID.search(row_id or ""):
+        return True
+    for typ in types or []:
+        t = (typ or "").replace("_", " ").replace("-", " ").casefold()
+        if "planned" in t and "branch" in t:
+            return True
+    return False
+
+
 def date_from_filename(path: Path) -> date | None:
     m = FILENAME_DATE.findall(path.name)
     try:
@@ -763,9 +783,16 @@ def build_records():
             url_users[norm_url(u)].add(r.id)
 
     def live_match(r: Row) -> tuple[set[str], str]:
-        """id > exact (institution, type, date) > source URL > fuzzy (date + type + name token)."""
+        """Exact id first, then (institution, type, date), then source URL, then a name-token fuzzy match.
+
+        A planned-branch row never attaches to a different live trigger: two
+        events can share an institution, type, date and even a source URL
+        (one announcement covering an opening and a separate plan).
+        """
         if r.id in live_by_id:
             return {r.id}, "id"
+        if is_planned_branch(r.id, r.types):
+            return set(), ""
         types = set()
         for t in r.types:
             types |= type_aliases(r.id, t) | type_aliases(r.id, coarse_type(t))
