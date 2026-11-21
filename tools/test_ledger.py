@@ -350,5 +350,81 @@ class SourceHealthTests(unittest.TestCase):
         self.assertEqual(len(list(self.root.glob("source-health.pre-*.tsv"))), 1)
 
 
+
+class SnapshotPruneTests(Fixture):
+    def setUp(self):
+        super().setUp()
+        (self.data / "publish-log.tsv").write_text(
+            "date\tpr_url\tids\tinstitutions\n"
+            "2026-11-18\thttps://example.com/pr/1\tt001\tAlpha Bank\n"
+            "2026-11-20\thttps://example.com/pr/2\tt010\tExample National Bank\n")
+        self.snap = self.data / "snapshots"
+        self.snap.mkdir()
+        # two sources: "staging" has old, same-day, and newer; "queue" is all older
+        self.files = {
+            "staging.20261119-095924.tsv": "old staging",
+            "staging.20261119-175438.tsv": "also old staging",
+            "staging.20261120-065915.tsv": "same day as publish",
+            "staging.20261121-000535.tsv": "newest staging",
+            "queue.20261119-173806.tsv": "older queue",
+            "queue.20261119-193321.tsv": "newest queue, still before publish",
+            "queue.20261119-193321-1.tsv": "same-second later queue (newest)",
+        }
+        for name, text in self.files.items():
+            (self.snap / name).write_text(text)
+
+    def names(self, output, section):
+        lines = output.splitlines()
+        start = next(i for i, l in enumerate(lines) if l.startswith(section))
+        out = []
+        for l in lines[start + 1:]:
+            if l.startswith("  "):
+                out.append(l.split()[0])
+            elif l and not l.startswith(" "):
+                break
+        return out
+
+    def test_dry_run_does_not_delete(self):
+        code, out, err = self.L("snapshot", "--prune")
+        self.assertEqual(code, 0, err)
+        self.assertIn("dry run", out)
+        self.assertIn("latest publish: 2026-11-20", out)
+        kept = self.names(out, "kept")
+        drop = self.names(out, "would delete")
+        self.assertEqual(kept, [
+            "queue.20261119-193321-1.tsv",
+            "staging.20261120-065915.tsv",
+            "staging.20261121-000535.tsv",
+        ])
+        self.assertEqual(drop, [
+            "queue.20261119-173806.tsv",
+            "queue.20261119-193321.tsv",
+            "staging.20261119-095924.tsv",
+            "staging.20261119-175438.tsv",
+        ])
+        # newest queue is kept even though it is older than the publish date
+        self.assertIn("newest for queue", out)
+        self.assertTrue(all((self.snap / n).is_file() for n in self.files))
+
+    def test_yes_deletes_only_the_listed_files(self):
+        # dry run first on a copy of the list, then apply
+        self.L("snapshot", "--prune")
+        code, out, err = self.L("snapshot", "--prune", "--yes")
+        self.assertEqual(code, 0, err)
+        self.assertIn("deleted (4):", out)
+        self.assertFalse((self.snap / "staging.20261119-095924.tsv").exists())
+        self.assertFalse((self.snap / "queue.20261119-173806.tsv").exists())
+        self.assertTrue((self.snap / "staging.20261121-000535.tsv").is_file())
+        self.assertTrue((self.snap / "staging.20261120-065915.tsv").is_file())
+        self.assertTrue((self.snap / "queue.20261119-193321-1.tsv").is_file())
+        self.assertEqual((self.snap / "staging.20261121-000535.tsv").read_text(), "newest staging")
+
+    def test_yes_without_prune_is_an_error(self):
+        code, _, err = self.L("snapshot", "--yes")
+        self.assertEqual(code, 2)
+        self.assertIn("--yes", err)
+
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)
