@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.2 (2026-11-21, ET)
+
+Stops the pipeline ledger from treating a planned branch as the same live event as a different row that only shares an institution, date and source
+
 ## v1.4.1 (2026-11-19, ET)
 
 The subscribe page address now takes visitors to the signup form on the homepage instead of a not-found page

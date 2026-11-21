@@ -55,6 +55,14 @@ Allowed `set` changes (anything else exits 2 unless `--force`):
 `rejected → staged`, `live → corrected`, `corrected → corrected`.
 `live` is never set by hand: it comes only from `triggers.json`, and live rows are never demoted.
 
+A row is treated as live when its id is already in `triggers.json`. If the ids differ, the
+ledger may still match on institution + type + date, then source URL, then a name-token
+fuzzy match — this is how a staging id is tied to the t-id it was published as. A planned
+branch (the row id contains `-branch-planned-`, or the type names a planned branch) is
+never attached to a different live trigger that way. A plain `branch_opening` type is not
+enough to decide: an opening and a separate plan can share an institution, date and source.
+
+
 How explicit writes survive rebuilds: `add`, `set` and `published` append to `ledger-events.tsv`
 (append-only, in `data_dir`). Every build derives state from the source files, then replays the
 events:

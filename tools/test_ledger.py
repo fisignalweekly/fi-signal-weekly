@@ -207,6 +207,79 @@ class StaleTests(Fixture):
         self.assertIn("stale=", out.splitlines()[-1])
 
 
+
+
+class LiveMatchTests(Fixture):
+    """A planned-branch row must not be collapsed into a different live trigger
+    that happens to share institution, type, date and source URL. A normal
+    unpublished row with the same key still matches."""
+
+    SHARED_URL = "https://example.com/opening-and-plan"
+
+    def setUp(self):
+        super().setUp()
+        # opened branch already live (same key+URL as the planned row below)
+        self.write_triggers([
+            {"id": "t010", "institution": "Example National Bank", "type": "branch_opening",
+             "date": "2026-07-13", "added": "2026-07-13", "fi_only": True,
+             "source_url": self.SHARED_URL,
+             "summary": "Example National Bank opened a Westside branch on July 13, 2026."},
+            {"id": "t011", "institution": "Other State Bank", "type": "merger",
+             "date": "2026-11-01", "added": "2026-11-02",
+             "source_url": "https://example.com/other-merger",
+             "summary": "Other State Bank merged on Nov 1, 2026."},
+        ])
+        (self.data / "staging.tsv").write_text(
+            (self.data / "staging.tsv").read_text()
+            + "\t".join([
+                "bf-example-branch-planned-2026-07-13", "Example National Bank", "FL",
+                "branch_opening", "2026-07-13",
+                "Example National Bank plans to open a Downtown branch.",
+                self.SHARED_URL, "Pending", "",
+            ]) + "\n"
+            + "\t".join([
+                "w-normal-1", "Other State Bank", "OH", "merger", "2026-11-01",
+                "Other State Bank merged.", "https://example.com/other-merger", "Pending", "",
+            ]) + "\n")
+        (self.data / "verify-batch-2026-11-18.tsv").write_text(
+            VERDICT_HEADER
+            + "\t".join([
+                "bf-example-branch-planned-2026-07-13", "Example National Bank",
+                "branch_opening", "2026-07-13", "Pass", "announced plan only", self.SHARED_URL,
+            ]) + "\n")
+
+    def test_id_pattern_and_type(self):
+        self.assertTrue(ledger.is_planned_branch("bf-example-branch-planned-2026-07-13", ["branch_opening"]))
+        self.assertTrue(ledger.is_planned_branch("x-1", ["planned_branch"]))
+        self.assertFalse(ledger.is_planned_branch("t010", ["branch_opening"]))
+        self.assertFalse(ledger.is_planned_branch("w-normal-1", ["merger"]))
+
+    def test_planned_branch_stays_off_the_other_live_row(self):
+        self.L("build")
+        r = self.rows()
+        planned = r["bf-example-branch-planned-2026-07-13"]
+        self.assertEqual(planned["status"], "verified")
+        self.assertNotIn("t010", planned.get("source", ""))
+        self.assertEqual(r["t010"]["status"], "live")
+        self.assertEqual(r["t010"]["source"].split()[0], "triggers.json:t010")
+        # a normal row with the same institution+type+date as a live trigger still matches
+        self.assertEqual(r["w-normal-1"]["status"], "live")
+        self.assertIn("t011", r["w-normal-1"]["source"])
+        # set verified must not re-attach it, and the live t-id stays put
+        code, _, err = self.L("set", "bf-example-branch-planned-2026-07-13", "verified")
+        self.assertEqual(code, 0, err)
+        r = self.rows()
+        self.assertEqual(r["bf-example-branch-planned-2026-07-13"]["status"], "verified")
+        self.assertEqual(r["t010"]["status"], "live")
+
+    def test_verified_unpublished_includes_the_planned_row(self):
+        code, out, _ = self.L("verified-unpublished")
+        self.assertEqual(code, 1)
+        ids = [line.split("\t")[0] for line in out.strip().splitlines()[1:]]
+        self.assertIn("bf-example-branch-planned-2026-07-13", ids)
+        self.assertNotIn("w-normal-1", ids)
+        self.assertNotIn("t010", ids)
+
 class SourceHealthTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
