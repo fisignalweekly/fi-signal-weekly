@@ -145,27 +145,27 @@
       "milestones": [
         {
           "label": "Top 10 banks",
-          "date": "2026-11-23",
+          "date": "2026-11-24",
           "est": true
         },
         {
           "label": "Top 25 banks",
-          "date": "2026-11-28",
+          "date": "2026-11-30",
           "est": true
         },
         {
           "label": "Next 25 banks",
-          "date": "2026-12-02",
+          "date": "2026-12-04",
           "est": true
         },
         {
           "label": "Top 100 banks",
-          "date": "2026-12-09",
+          "date": "2026-12-11",
           "est": true
         },
         {
           "label": "All public banks and top credit unions",
-          "date": "2026-12-23",
+          "date": "2027-01-08",
           "est": true
         }
       ]
