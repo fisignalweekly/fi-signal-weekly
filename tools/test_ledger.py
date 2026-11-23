@@ -78,7 +78,7 @@ class Fixture(unittest.TestCase):
 class StatusTests(Fixture):
     def test_status_list(self):
         self.assertEqual(ledger.STATUSES,
-                         ("found", "staged", "verified", "needs_review", "rejected", "live", "corrected"))
+                         ("found", "staged", "verified", "needs_review", "rejected", "live", "published", "corrected"))
 
     def test_derived_statuses_and_flagged_reads_as_needs_review(self):
         self.L("build")
@@ -253,6 +253,11 @@ class LiveMatchTests(Fixture):
         self.assertTrue(ledger.is_planned_branch("x-1", ["planned_branch"]))
         self.assertFalse(ledger.is_planned_branch("t010", ["branch_opening"]))
         self.assertFalse(ledger.is_planned_branch("w-normal-1", ["merger"]))
+        self.assertTrue(ledger.is_planned_text("Example National Bank plans to open a Downtown branch."))
+        self.assertTrue(ledger.is_planned_text("announced plans to open a branch"))
+        self.assertTrue(ledger.is_planned_text("a planned branch at 100 Main"))
+        self.assertFalse(ledger.is_planned_text("CEO announced plans to retire later in 2027"))
+        self.assertFalse(ledger.is_planned_text("announced plans for retirement"))
 
     def test_planned_branch_stays_off_the_other_live_row(self):
         self.L("build")
@@ -279,6 +284,150 @@ class LiveMatchTests(Fixture):
         self.assertIn("bf-example-branch-planned-2026-07-13", ids)
         self.assertNotIn("w-normal-1", ids)
         self.assertNotIn("t010", ids)
+
+    def test_planned_row_matches_its_own_planned_trigger_one_to_one(self):
+        # two live triggers share institution, type, date and URL: an opening and a plan
+        self.write_triggers([
+            {"id": "t010", "institution": "Example National Bank", "type": "branch_opening",
+             "date": "2026-07-13", "added": "2026-07-13", "fi_only": True,
+             "source_url": self.SHARED_URL,
+             "summary": "Example National Bank opened a Westside branch on July 13, 2026."},
+            {"id": "t012", "institution": "Example National Bank", "type": "branch_opening",
+             "date": "2026-07-13", "added": "2026-07-13", "fi_only": True,
+             "source_url": self.SHARED_URL,
+             "summary": "Example National Bank plans to open a Downtown branch at 100 Main Street."},
+            {"id": "t011", "institution": "Other State Bank", "type": "merger",
+             "date": "2026-11-01", "added": "2026-11-02",
+             "source_url": "https://example.com/other-merger",
+             "summary": "Other State Bank merged on Nov 1, 2026."},
+        ])
+        (self.data / "staging.tsv").write_text(
+            STAGING_HEADER
+            + "\t".join(["bf-example-branch-planned-2026-07-13", "Example National Bank", "FL",
+                          "branch_opening", "2026-07-13",
+                          "Example National Bank plans to open a Downtown branch.",
+                          self.SHARED_URL, "Pending", ""]) + "\n"
+            + "\t".join(["bf-example-westside-opening-2026-07-13", "Example National Bank", "FL",
+                          "branch_opening", "2026-07-13",
+                          "Example National Bank opened a Westside branch.",
+                          self.SHARED_URL, "Pending", ""]) + "\n")
+        code, _, err = self.L("build")
+        self.assertEqual(code, 0, err)
+        r = self.rows()
+        planned, opened = r["bf-example-branch-planned-2026-07-13"], r["bf-example-westside-opening-2026-07-13"]
+        self.assertEqual(planned["status"], "live")
+        self.assertIn("t012", planned["source"])
+        self.assertNotIn("t010", planned["source"])
+        self.assertEqual(opened["status"], "live")
+        self.assertIn("t010", opened["source"])
+        self.assertNotIn("t012", opened["source"])
+        self.assertNotEqual(planned["source"], "conflict")
+        self.assertNotEqual(opened["source"], "conflict")
+        conf = (self.data / "ledger-conflicts.tsv").read_text() if (self.data / "ledger-conflicts.tsv").exists() else ""
+        self.assertNotIn("ambiguous_live_match", conf)
+
+    def test_recorded_source_id_link_wins(self):
+        self.write_triggers([
+            {"id": "t010", "institution": "Example National Bank", "type": "branch_opening",
+             "date": "2026-07-13", "added": "2026-07-13", "fi_only": True,
+             "source_url": self.SHARED_URL,
+             "summary": "Example National Bank opened a Westside branch on July 13, 2026."},
+            {"id": "t012", "institution": "Example National Bank", "type": "branch_opening",
+             "date": "2026-07-13", "added": "2026-07-13", "fi_only": True,
+             "source_url": self.SHARED_URL,
+             "summary": "Example National Bank plans to open a Downtown branch at 100 Main Street."},
+        ])
+        (self.data / "publish-log.tsv").write_text(
+            "date\tpr_url\tids\tinstitutions\n"
+            "2026-11-23\thttps://example.com/pr/60\tt012\tfi_only branch: t012 bf-example-branch-planned\n")
+        self.L("build")
+        r = self.rows()
+        self.assertIn("source-id", r["bf-example-branch-planned-2026-07-13"]["source"])
+        self.assertIn("t012", r["bf-example-branch-planned-2026-07-13"]["source"])
+
+    def test_two_source_rows_do_not_claim_the_same_trigger(self):
+        self.write_triggers([
+            {"id": "t010", "institution": "Example National Bank", "type": "branch_opening",
+             "date": "2026-07-13", "added": "2026-07-13",
+             "source_url": self.SHARED_URL,
+             "summary": "Example National Bank opened a Westside branch on July 13, 2026."},
+        ])
+        (self.data / "staging.tsv").write_text(
+            STAGING_HEADER
+            + "\t".join(["w-open-1", "Example National Bank", "FL", "branch_opening", "2026-07-13",
+                          "Opened a Westside branch.", self.SHARED_URL, "Pending", ""]) + "\n"
+            + "\t".join(["w-open-2", "Example National Bank", "FL", "branch_opening", "2026-07-13",
+                          "Opened a Westside branch, duplicate draft.", self.SHARED_URL, "Pending", ""]) + "\n")
+        self.L("build")
+        r = self.rows()
+        # same-event drafts may both point at the one opening trigger; neither may
+        # also point at a second trigger. The leftover t-id line is omitted when
+        # a source row already claims it.
+        for i in ("w-open-1", "w-open-2"):
+            self.assertEqual(r[i]["status"], "live")
+            self.assertIn("t010", r[i]["source"])
+            self.assertNotIn("t012", r[i]["source"])
+        if "t010" in r:
+            self.assertEqual(r["t010"]["status"], "live")
+
+
+class MarkPublishedTests(Fixture):
+    def setUp(self):
+        super().setUp()
+        (self.site / "data" / "providers.csv").write_text(
+            "fi_id,field,value,status,source_type,source_url,last_updated,note\n"
+            "fdic-10001,digital,Example Platform,current,Vendor press release,https://example.com/b,2021-06-02,retail\n"
+            "fdic-10001,digital_business,Example Treasury,current,FI announcement,https://example.com/t,2026-04-10,business\n")
+        (self.site / "data" / "contract_windows.csv").write_text(
+            "fi_id,field,text,source_url,public_display,approved\n"
+            "fdic-10001,digital,Estimated window,https://example.com/b,true,2026-11-18\n")
+        self.write_triggers([
+            {"id": "t001", "institution": "Alpha Bank", "type": "merger", "date": "2026-11-02",
+             "added": "2026-11-03", "source_url": "https://example.com/a"},
+        ])
+        (self.data / "verify-batch-2026-11-18.tsv").write_text(
+            VERDICT_HEADER
+            + "\t".join(["ex-digital-business-suite", "Example Bank, N.A. (fdic-10001)",
+                          "provider: digital_business", "2026-04-10", "Pass", "", "https://example.com/t"]) + "\n"
+            + "\t".join(["ex-digital-retail-vendor", "Example Bank, N.A. (fdic-10001)",
+                          "provider: digital", "2021-06-02", "Pass", "", "https://example.com/b"]) + "\n"
+            + "\t".join(["ex-contract-window-estimate", "Example Bank, N.A. (fdic-10001)",
+                          "contract_window (estimate)", "2026-11-18", "Pass", "", "https://example.com/b"]) + "\n"
+            + "\t".join(["ex-held-provider", "Example Bank, N.A. (fdic-10001)",
+                          "provider: digital", "2021-06-02", "Needs review", "held", "https://example.com/b"]) + "\n")
+
+    def test_dry_run_then_yes(self):
+        self.L("build")
+        ids = ["ex-digital-business-suite", "ex-digital-retail-vendor", "ex-contract-window-estimate"]
+        code, out, err = self.L("mark-published", *ids, "--pr", "60")
+        self.assertEqual(code, 0, err)
+        self.assertIn("dry run", out)
+        self.assertTrue(all(i in out for i in ids))
+        r = self.rows()
+        self.assertTrue(all(r[i]["status"] == "verified" for i in ids))  # not written yet
+        code, out, err = self.L("mark-published", *ids, "--pr", "60", "--yes")
+        self.assertEqual(code, 0, err)
+        r = self.rows()
+        for i in ids:
+            self.assertEqual(r[i]["status"], "published", i)
+            self.assertIn("/pull/60", r[i]["pr"])
+        code, vu, _ = self.L("verified-unpublished")
+        vu_ids = [line.split("\t")[0] for line in vu.strip().splitlines()[1:]]
+        self.assertTrue(set(ids).isdisjoint(vu_ids))
+        # already published is idempotent
+        code, out, err = self.L("mark-published", ids[0], "--pr", "60", "--yes")
+        self.assertEqual(code, 0, err)
+        self.assertIn("already published", out)
+
+    def test_refuses_trigger_and_held_and_missing(self):
+        self.L("build")
+        code, out, err = self.L("mark-published", "t001", "ex-held-provider", "no-such-row", "--pr", "60")
+        self.assertEqual(code, 2)
+        self.assertIn("trigger row", err)
+        self.assertIn("ex-held-provider", err)
+        self.assertIn("no-such-row", err)
+        self.assertEqual(self.rows()["t001"]["status"], "live")
+
 
 class SourceHealthTests(unittest.TestCase):
     def setUp(self):
