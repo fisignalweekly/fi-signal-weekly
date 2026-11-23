@@ -24,10 +24,11 @@ SCAN = "Login page scan"
 DEFAULT_DB = "/workspace/fi-signal/site-watcher/data/watcher.db"
 # Hostname labels that mean a business / treasury / cash-management login. A vendor counts as the business
 # platform only if EVERY login host it was seen on matches; it is retail only if none match. Anything mixed stays combined.
+BIZ_TXT = re.compile(r"\b(business|commercial|treasury|cash management|corporate)\b", re.I)  # login link text
 BIZ_HOST = re.compile(r"(^|[.-])(business|biz|ebiz|treasury|commercial|cash|cashmgmt|corporate|tm|cm|bol|tmconnect)([.-]|$)|business|treasury|commercial", re.I)
 
 
-def evidence_text(ev):
+def evidence_text(ev, ltxt=None):
     if ev["via"] == "login_host":
         return f'login link goes to {ev["match"]}'
     if ev["via"] == "login_cname":
@@ -56,8 +57,10 @@ def scan_rows(db):
         for x in ev:
             tally[x["vendor"]] += 1 + x.get("weight", 0)
             hosts[x["vendor"]].add(x["host"])
-        biz = {v for v, hs in hosts.items() if all(BIZ_HOST.search(h) for h in hs)}
-        ret = {v for v, hs in hosts.items() if not any(BIZ_HOST.search(h) for h in hs)}
+        ltxt = d.get("login_link_text") or {}  # captured since Nov 18, 2026
+        is_biz = lambda h: bool(BIZ_HOST.search(h) or any(BIZ_TXT.search(t) for t in ltxt.get(h, [])))
+        biz = {v for v, hs in hosts.items() if all(is_biz(h) for h in hs)}
+        ret = {v for v, hs in hosts.items() if not any(is_biz(h) for h in hs)}
         base = {"fi_id": fi, "status": "current", "source_type": SCAN,
                 "source_url": d.get("final_url") or d.get("url_fetched") or "", "last_updated": (fetched or "")[:10]}
         if len(tally) > 1 and biz and ret and biz | ret == set(tally):
@@ -66,7 +69,11 @@ def scan_rows(db):
                 group = sorted(group)
                 if "Jack Henry" in group and any(v.startswith("Jack Henry (") for v in group):
                     group.remove("Jack Henry")
-                proof = [evidence_text(next(x for x in ev if x["vendor"] == v)) for v in group]
+                proof = []
+                for v in group:
+                    x = next(x for x in ev if x["vendor"] == v)
+                    bt = [t for t in ltxt.get(x["host"], []) if BIZ_TXT.search(t)]
+                    proof.append(evidence_text(x) + (f' (link text "{bt[0]}")' if field == "digital_business" and bt else ""))
                 out.append(dict(base, field=field, value=" + ".join(group), note="; ".join(proof)))
             continue
         top = max(tally.values())
