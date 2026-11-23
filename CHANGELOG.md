@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.5 (2026-11-23, ET)
+
+Directory importers: adds LinkedIn company-page extraction and login link-text detection for business banking platforms from website scans.
+
 ## v1.4.4 (2026-11-23, ET)
 
 Binds each ledger source row to at most one live trigger, so a planned branch matches its own published trigger instead of staying unpublished next to a related opening.
