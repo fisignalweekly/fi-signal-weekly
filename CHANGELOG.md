@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.7 (2026-11-23, ET)
+
+Phone layout: gives the See all button clear breathing room under the sticky header when jumping to the board, and places the Added filter above From and To in the filter sheet.
+
 ## v1.4.6 (2026-11-23, ET)
 
 Fixes a double period on institution directory pages whose names end with a period, and removes a stale footer link from page templates.
