@@ -34,7 +34,7 @@ Only `data_dir` is required. `FISIGNAL_DATA_DIR` and `FISIGNAL_SITE_DIR` overrid
 Row content (institution, type, dates, summary, URL) stays in the staging files; the ledger holds the
 id, status, timestamps and lane.
 
-Statuses, in order: `found` → `staged` → `verified` | `needs_review` | `rejected` → `live` → `corrected`.
+Statuses, in order: `found` → `staged` → `verified` | `needs_review` | `rejected` → `live` | `published` → `corrected`.
 `flagged` is the old name for `needs_review`: it is accepted as input and read as `needs_review`
 from older ledger files. Conflict kind names (for example `live_but_flagged`) are unchanged.
 
@@ -44,6 +44,7 @@ from older ledger files. Conflict kind names (for example `live_but_flagged`) ar
 | `ledger.py add <row_id> found\|staged [--date YYYY-MM-DD] [--lane fresh\|backlog\|backfill] [--backfill] [--found-at ISO] [--note TEXT]` | Record a found or staged item. Append-only and deduped by row id: a second `add` for the same id changes nothing and exits 0. The event date comes from the staging row, or `--date` when there is no staging row yet. |
 | `ledger.py set <row_id> <status> [--note TEXT] [--at ISO] [--force]` | Change a row's status. Settable: `staged`, `verified`, `needs_review` (alias `flagged`), `rejected`, `corrected`. |
 | `ledger.py published <row_id>... [--at ISO] [--pr URL]` | Record `published_at` for rows that went live. |
+| `ledger.py mark-published <row_id>... --pr N [--yes] [--at ISO]` | Mark a non-trigger row (provider or contract window) as `published`. Dry run by default; `--yes` writes the event. Refuses trigger rows and flagged or held rows, and only accepts rows that are already in the published provider or contract-window files on origin/main. |
 | `ledger.py stale [--now ISO] [--json]` | Fresh items still `found` or `staged` after more than 1 business day. Exit 1 if any. |
 | `ledger.py status` | Counts by status, open conflicts, pending takedowns. |
 | `ledger.py verified-unpublished [--json] [--quiet]` | Same as `verified_unpublished.py`. |
@@ -57,14 +58,19 @@ Allowed `set` changes (anything else exits 2 unless `--force`):
 `live` is never set by hand: it comes only from `triggers.json`, and live rows are never demoted.
 
 A row is treated as live when its id is already in `triggers.json`. If the ids differ, the
-ledger may still match on institution + type + date, then source URL, then a name-token
-fuzzy match — this is how a staging id is tied to the t-id it was published as. A planned
-branch (the row id contains `-branch-planned-`, or the type names a planned branch) is
-never attached to a different live trigger that way. A plain `branch_opening` type is not
-enough to decide: an opening and a separate plan can share an institution, date and source.
+ledger binds each source row to at most one published trigger, one-to-one: an exact id or
+a source-id link recorded in the publish log wins, then a unique key, URL or fuzzy
+candidate. One source row never resolves to two triggers (that is an `ambiguous_live_match` and is left unassigned). A planned branch
+(the row id contains `-branch-planned-`, or the type or text names a planned branch) is
+never attached to a different, already-open live trigger, but it does match its own
+published planned-branch trigger. A plain `branch_opening` type is not enough to decide:
+an opening and a separate plan can share an institution, date and source.
+
+`published` is for rows that went out in provider or contract-window files rather than
+`triggers.json`. The publish guard and `verified-unpublished` treat them as done.
 
 
-How explicit writes survive rebuilds: `add`, `set` and `published` append to `ledger-events.tsv`
+How explicit writes survive rebuilds: `add`, `set`, `published` and `mark-published` append to `ledger-events.tsv`
 (append-only, in `data_dir`). Every build derives state from the source files, then replays the
 events:
 - `add` creates the row if no source knows it yet, and sets `found_at` and `lane`. On a row that only
@@ -72,6 +78,7 @@ events:
 - `set` wins over staging. Against a verdict file, a verdict file dated after the event's Eastern day
   wins; a same-day disagreement is applied and logged as an `event_verdict_disagree` conflict.
 - `published` sets `published_at`. Without one, live rows use the publish-log date or `added`.
+- `mark-published` sets status to `published` and records the pull request, for provider and contract-window rows that are not in `triggers.json`.
 
 Lane rule (computed at `add` time, Eastern dates): `backfill` if the backfill flag is set (the row is in
 `staging-backfill.tsv`, `--backfill` was passed, or the live row has `backfill: true`); `fresh` if the

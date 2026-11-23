@@ -2,6 +2,12 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.4 (2026-11-23, ET)
+
+Binds each ledger source row to at most one live trigger, so a planned branch matches its own published trigger instead of staying unpublished next to a related opening.
+
+Adds a mark-published command for provider and contract-window rows that went out without a triggers.json entry. It is a dry run unless --yes is passed.
+
 ## v1.4.3 (2026-11-21, ET)
 
 Adds a dry-run prune for ledger snapshot backups: it drops copies older than the latest publish and always keeps the newest copy from each source

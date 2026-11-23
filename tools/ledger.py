@@ -21,6 +21,8 @@ Subcommands:
   add <row_id> found|staged  record a found or staged item (append-only, deduped by row id)
   set <row_id> <status>    record a decision: staged | verified | needs_review | rejected | corrected
   published <row_id>...    record published_at (and optional PR) for rows that went live
+  mark-published <row_id>... --pr N
+                           record a non-trigger row as published (dry run; --yes writes the event)
   stale                    fresh items still found/staged after more than 1 business day (exit 1 if any)
 
 Configuration (no paths are hard-coded): --config FILE, or env
@@ -82,7 +84,7 @@ CONFLICT_KINDS = ("verdict_files_disagree", "live_but_rejected", "live_but_flagg
 RESOLUTION_GLOB = "verify-ledger-conflicts-*.tsv"
 RESOLUTIONS_EXTRA = FI / "ledger-resolutions.tsv"
 RES_WARNINGS = FI / "ledger-resolution-warnings.tsv"
-STATUSES = ("found", "staged", "verified", "needs_review", "rejected", "live", "corrected")
+STATUSES = ("found", "staged", "verified", "needs_review", "rejected", "live", "published", "corrected")
 STATUS_ALIASES = {"flagged": "needs_review", "needs-review": "needs_review", "needs review": "needs_review"}
 DECISIONS = ("verified", "needs_review", "rejected")
 SETTABLE = ("staged", *DECISIONS, "corrected")
@@ -227,6 +229,24 @@ def is_planned_branch(row_id: str, types: list[str] | None = None) -> bool:
         if "planned" in t and "branch" in t:
             return True
     return False
+
+
+PLANNED_TEXT = re.compile(
+    r"\b(?:(?:plans|announced plans) to open|planned (?:new )?(?:branch|opening))\b",
+    re.I,
+)
+# "t012 some-source-id" recorded in the publish log (token must contain a hyphen).
+SOURCE_LINK = re.compile(r"\b(t\d+)\s+([A-Za-z][\w.-]*-[\w.-]*[A-Za-z0-9])")
+
+
+def is_planned_text(*texts: str) -> bool:
+    return any(PLANNED_TEXT.search(t or "") for t in texts)
+
+
+def is_planned_live(trigger: dict) -> bool:
+    """A published trigger that is itself a planned branch, not an already-open one."""
+    return is_planned_branch(str(trigger.get("id") or ""), [trigger.get("type") or ""]) or is_planned_text(
+        trigger.get("summary") or "")
 
 
 def date_from_filename(path: Path) -> date | None:
@@ -416,7 +436,7 @@ def derive_lane(event_date: str, ref: datetime | None, backfill: bool) -> str:
 
 # ---- event log (explicit writes; merged into every build) ---------------
 
-RANK = {"found": 0, "staged": 1, "needs_review": 2, "verified": 2, "rejected": 2, "live": 3, "corrected": 4}
+RANK = {"found": 0, "staged": 1, "needs_review": 2, "verified": 2, "rejected": 2, "live": 3, "published": 3, "corrected": 4}
 # set: allowed status changes. live is only ever derived from triggers.json.
 TRANSITIONS = {
     "found": {"staged", "rejected"},
@@ -425,6 +445,7 @@ TRANSITIONS = {
     "verified": {"needs_review", "rejected"},
     "rejected": {"staged"},
     "live": {"corrected"},
+    "published": set(),
     "corrected": {"corrected"},
 }
 
@@ -500,6 +521,19 @@ def apply_events(records: dict, now: str) -> tuple[list[list[str]], list[str]]:
             if ev.get("pr") and not rec.get("pr"):
                 rec["pr"] = ev["pr"]
             continue
+        if action == "mark-published":
+            if rec["status"] in ("live", "corrected"):
+                warns.append(f"{rid}: mark-published ignored (row is {rec['status']}, a trigger row)")
+                continue
+            rec["status"] = "published"
+            rec["source"] = f"event:mark-published {at}"
+            rec["published_at"] = ev.get("published_at") or rec.get("published_at") or at
+            if ev.get("pr"):
+                rec["pr"] = ev["pr"]
+            if ev.get("note"):
+                rec["note"] = ev["note"]
+            rec["_conflict"] = False
+            continue
         if action != "set":
             continue
         st = canon_status(ev.get("status", ""))
@@ -508,8 +542,8 @@ def apply_events(records: dict, now: str) -> tuple[list[list[str]], list[str]]:
             if ev.get("note"):
                 rec["note"] = ev["note"]
             continue
-        if cur in ("live", "corrected") and st != "corrected":
-            warns.append(f"{rid}: set {st} ignored (row is {cur}; live rows are never demoted)")
+        if cur in ("live", "published", "corrected") and st != "corrected":
+            warns.append(f"{rid}: set {st} ignored (row is {cur}; live/published rows are never demoted)")
             continue
         if st == "corrected" and cur not in ("live", "corrected"):
             warns.append(f"{rid}: set corrected ignored (row is {cur}, not live)")
@@ -536,7 +570,7 @@ def apply_events(records: dict, now: str) -> tuple[list[list[str]], list[str]]:
             cands = [c for c in (first_seen.get(rid, ""), rec.get("_added", "")) if c]
             fs = min(cands) if cands else now
             rec["found_at"] = fs
-        if not rec.get("published_at") and rec["status"] in ("live", "corrected"):
+        if not rec.get("published_at") and rec["status"] in ("live", "published", "corrected"):
             rec["published_at"] = rec.get("date") if "publish-log" in rec.get("source", "") else (
                 rec.get("_added") or rec.get("date", ""))
         if not rec.get("lane"):
@@ -577,6 +611,24 @@ def load_publish_log() -> dict[str, tuple[str, str]]:
                     out[f"t{n:0{width}d}"] = (row.get("date", ""), row.get("pr_url", ""))
             elif re.fullmatch(r"t\d+", part):
                 out[part] = (row.get("date", ""), row.get("pr_url", ""))
+    return out
+
+
+def publish_source_links(known_ids: list[str]) -> dict[str, str]:
+    """Source row id -> t-id, from 'tNNN source-id' notes in the publish log. Later lines win."""
+    token_to_tid: dict[str, str] = {}
+    for row in read_tsv(PUBLISH_LOG):
+        text = " ".join(row.get(c, "") or "" for c in ("ids", "institutions", "notes", "note"))
+        for m in SOURCE_LINK.finditer(text):
+            token_to_tid[m.group(2)] = m.group(1)
+    out: dict[str, str] = {}
+    for token, tid in token_to_tid.items():
+        if token in known_ids:
+            hits = [token]
+        else:
+            hits = [i for i in known_ids if i == token or i.startswith(token + "-")]
+        if len(hits) == 1:
+            out[hits[0]] = tid
     return out
 
 
@@ -784,44 +836,19 @@ def build_records():
         for u in r.urls:
             url_users[norm_url(u)].add(r.id)
 
-    def live_match(r: Row) -> tuple[set[str], str]:
-        """Exact id first, then (institution, type, date), then source URL, then a name-token fuzzy match.
+    def row_text(r: Row) -> str:
+        bits = [r.id, *r.insts, *r.types]
+        for st in r.staging_rows:
+            bits.append(st.get("summary") or "")
+        if r.verdicts:
+            bits.append(sorted(r.verdicts, key=lambda v: v["sort_key"])[-1].get("notes") or "")
+        return " ".join(bits)
 
-        A planned-branch row never attaches to a different live trigger: two
-        events can share an institution, type, date and even a source URL
-        (one announcement covering an opening and a separate plan).
-        """
-        if r.id in live_by_id:
-            return {r.id}, "id"
-        if is_planned_branch(r.id, r.types):
-            return set(), ""
-        types = set()
-        for t in r.types:
-            types |= type_aliases(r.id, t) | type_aliases(r.id, coarse_type(t))
-        keys = set()
-        for i in r.insts:
-            for t in types:
-                for d in r.dates:
-                    keys |= by_key.get((norm_inst(i), t, d), set())
-        if keys:
-            return keys, "key"
-        urls = set()
-        for u in r.urls:
-            urls |= by_url.get(norm_url(u), set())
-        if len(urls) > 1:  # one release, several live rows: break the tie on institution name
-            best = best_by_name(r, urls)
-            if len(best) == 1:
-                return best, "url+name"
-        if urls:
-            return urls, "url"
-        cands = {tid for tid, t in live_by_id.items()
-                 if (t.get("date") or "") in r.dates and (t.get("type") or "") in types}
-        best = best_by_name(r, cands)
-        if len(best) == 1:
-            return best, "fuzzy"
-        if best:
-            return best, "fuzzy-ambiguous"
-        return set(), ""
+    def compatible(r: Row, tid: str) -> bool:
+        """Planned-branch source rows only match planned live triggers, and vice versa."""
+        src = is_planned_branch(r.id, r.types) or is_planned_text(row_text(r))
+        live = is_planned_live(live_by_id[tid])
+        return src == live
 
     def best_by_name(r: Row, tids: set[str]) -> set[str]:
         mine = set().union(*(name_tokens(i) for i in r.insts)) if r.insts else set()
@@ -832,6 +859,125 @@ def build_records():
             if n:
                 scored[n].add(tid)
         return scored[max(scored)] if scored else set()
+
+    def best_by_text(r: Row, tids: set[str]) -> set[str]:
+        mine = name_tokens(row_text(r))
+        scored = defaultdict(set)
+        for tid in tids:
+            t = live_by_id[tid]
+            n = len(mine & name_tokens(" ".join((t.get("summary") or "", t.get("institution") or "", tid))))
+            if n:
+                scored[n].add(tid)
+        return scored[max(scored)] if scored else set()
+
+    def candidate_set(r: Row) -> tuple[set[str], str]:
+        """Candidates for a source row, excluding planned/non-planned mismatches.
+
+        Exact id is handled in assign_live. Order: key, URL, fuzzy.
+        """
+        types = set()
+        for t in r.types:
+            types |= type_aliases(r.id, t) | type_aliases(r.id, coarse_type(t))
+        keys = set()
+        for i in r.insts:
+            for t in types:
+                for d in r.dates:
+                    keys |= by_key.get((norm_inst(i), t, d), set())
+        keys = {t for t in keys if t in live_by_id and compatible(r, t)}
+        if keys:
+            return keys, "key"
+        urls = set()
+        for u in r.urls:
+            urls |= by_url.get(norm_url(u), set())
+        urls = {t for t in urls if t in live_by_id and compatible(r, t)}
+        if len(urls) > 1:
+            best = best_by_name(r, urls)
+            if len(best) == 1:
+                return best, "url+name"
+        if urls:
+            return urls, "url"
+        # Fuzzy matches stay name-token based, same as before: do not use summary
+        # text here, or unrelated rows get pulled onto a trigger.
+        cands = {tid for tid, t in live_by_id.items()
+                 if (t.get("date") or "") in r.dates and (t.get("type") or "") in types and compatible(r, tid)}
+        best = best_by_name(r, cands)
+        if len(best) == 1:
+            return best, "fuzzy"
+        if best:
+            return best, "fuzzy-ambiguous"
+        return set(), ""
+
+    def assign_live() -> tuple[dict[str, tuple[str, str]], dict[str, tuple[set[str], str]]]:
+        """Bind each source row to at most one live trigger.
+
+        Exact id or a recorded source-id link wins. A row with several candidates is
+        bound only when one remains after dropping triggers reserved by an
+        authoritative link, or when text uniquely picks one. A row is never assigned
+        to two triggers. Two source rows may share a trigger when they are the same
+        event (a verified row and its rejected duplicate, for example).
+        """
+        bindings: dict[str, tuple[str, str]] = {}
+        reserved: dict[str, str] = {}  # tid -> rid from exact id or source-id link
+        ambiguous: dict[str, tuple[set[str], str]] = {}
+
+        def bind(rid: str, tid: str, how: str, authoritative: bool = False) -> bool:
+            if tid not in live_by_id:
+                return False
+            bindings[rid] = (tid, how)
+            if authoritative:
+                reserved[tid] = rid
+            return True
+
+        for rid, r in rows.items():
+            if rid in live_by_id:
+                bind(rid, rid, "id", authoritative=True)
+
+        for rid, tid in publish_source_links(list(rows) + list(live_by_id)).items():
+            if rid in bindings or rid not in rows:
+                continue
+            bind(rid, tid, "source-id", authoritative=True)
+
+        pending = {rid: r for rid, r in rows.items() if rid not in bindings}
+        cands = {rid: candidate_set(r) for rid, r in pending.items()}
+
+        def available(rid: str, s: set[str]) -> set[str]:
+            # Singles always bind, even if another row already claims that trigger
+            # (a verified source id and its t-id leftover, for example). Reserved
+            # tids only drop out of a multi-candidate set.
+            if len(s) <= 1:
+                return set(s)
+            return {t for t in s if reserved.get(t) in (None, rid)}
+
+        # rows with exactly one remaining candidate bind, even if they share it
+        changed = True
+        while changed:
+            changed = False
+            for rid, (s, how) in list(cands.items()):
+                if rid in bindings:
+                    continue
+                left = available(rid, s)
+                cands[rid] = (left, how)
+                if len(left) == 1:
+                    bind(rid, next(iter(left)), how)
+                    changed = True
+            cands = {rid: v for rid, v in cands.items() if rid not in bindings}
+
+        for rid, (s, how) in cands.items():
+            left = available(rid, s)
+            if not left:
+                continue
+            if len(left) == 1:
+                bind(rid, next(iter(left)), how)
+                continue
+            pick = best_by_name(rows[rid], left)
+            if len(pick) == 1:
+                bind(rid, next(iter(pick)), how)
+            else:
+                ambiguous[rid] = (left, how)
+        return bindings, ambiguous
+
+
+    live_bind, live_ambiguous = assign_live()
 
     records: dict[str, dict] = {}
     claimed: set[str] = set()
@@ -889,10 +1035,17 @@ def build_records():
             if sstatus == "rejected" and vstatus == "verified":
                 vstatus, vsource = "rejected", vsource + f" + {ssource} dropped"
 
-        live_ids, how = live_match(r)
-        if len(live_ids) > 1:
+        if rid in live_ambiguous:
+            live_ids, how = live_ambiguous[rid]
             rec["_conflict"] = True
-            conflict(rid, "ambiguous_live_match", [f"triggers.json@{sha[:10]} ({how} match)"], sorted(live_ids, key=tid_key))
+            conflict(rid, "ambiguous_live_match", [f"triggers.json@{sha[:10]} ({how} match)"],
+                     sorted(live_ids, key=tid_key))
+            live_ids, how = set(), ""  # do not assign a row to two triggers
+        elif rid in live_bind:
+            tid, how = live_bind[rid]
+            live_ids = {tid}
+        else:
+            live_ids, how = set(), ""
         if live_ids:
             tid = sorted(live_ids, key=tid_key)[0]
             rec["status"] = "live"
@@ -1345,6 +1498,11 @@ def main(argv=None) -> int:
     pb.add_argument("row_ids", nargs="+")
     pb.add_argument("--at", help="ISO time (default: now)")
     pb.add_argument("--pr", default="")
+    mp = sub.add_parser("mark-published", help="mark a non-trigger row published (dry run; --yes writes)")
+    mp.add_argument("row_ids", nargs="+")
+    mp.add_argument("--pr", required=True, help="publish PR number or URL")
+    mp.add_argument("--yes", action="store_true", help="write the event (default is a dry run)")
+    mp.add_argument("--at", help="ISO time (default: now)")
     sl = sub.add_parser("stale", help="fresh items found/staged for more than 1 business day")
     sl.add_argument("--now", help="ISO time to evaluate at (default: now)")
     sl.add_argument("--json", action="store_true", dest="as_json")
@@ -1383,6 +1541,8 @@ def main(argv=None) -> int:
         return cmd_set(args)
     if cmd == "published":
         return cmd_published(args)
+    if cmd == "mark-published":
+        return cmd_mark_published(args)
     if cmd == "stale":
         return cmd_stale(args)
     return 2
@@ -1446,8 +1606,8 @@ def cmd_set(args) -> int:
         allowed = ", ".join(sorted(TRANSITIONS.get(cur, set()))) or "none"
         print(f"set: {rid} {cur} -> {st} is not allowed (from {cur}: {allowed})", file=sys.stderr)
         return 2
-    if st != "corrected" and cur in ("live", "corrected"):
-        print(f"set: {rid} is {cur}; live rows are never demoted", file=sys.stderr)
+    if st != "corrected" and cur in ("live", "published", "corrected"):
+        print(f"set: {rid} is {cur}; live/published rows are never demoted", file=sys.stderr)
         return 2
     at = parse_when(args.at) if args.at else now_et()
     if at is None:
@@ -1481,6 +1641,141 @@ def cmd_published(args) -> int:
     build(quiet=True)
     print(f"published: {len(args.row_ids) - bad} row(s) at {at.isoformat(timespec='seconds')}")
     return 2 if bad else 0
+
+
+
+def pr_url(value: str) -> str:
+    v = (value or "").strip()
+    if re.fullmatch(r"\d+", v):
+        return f"https://github.com/fisignalweekly/fi-signal-weekly/pull/{v}"
+    return v
+
+
+def site_file(rel: str) -> str:
+    sha = triggers_sha()
+    return git("show", f"{sha}:{rel}")
+
+
+def load_site_csv(rel: str) -> list[dict]:
+    try:
+        text = site_file(rel)
+    except RuntimeError:
+        return []
+    import io
+    return list(csv.DictReader(io.StringIO(text)))
+
+
+def extract_fi_ids(*texts: str) -> set[str]:
+    found = set()
+    for text in texts:
+        for m in re.finditer(r"\b((?:fdic|ncua)-\d+)\b", text or "", re.I):
+            found.add(m.group(1).lower())
+    return found
+
+
+def published_field(rid: str, types: list[str]) -> str:
+    for typ in types:
+        t = (typ or "").strip().lower().replace(" ", "_")
+        if "contract_window" in t or t.startswith("contract"):
+            return "contract"
+        m = re.search(r"provider[:\s_]+([a-z_]+)", t)
+        if m:
+            return m.group(1)
+    if "-contract-window-" in rid or rid.endswith("-contract-window"):
+        return "contract"
+    if "-digital-business-" in rid:
+        return "digital_business"
+    if "-digital-retail-" in rid or re.search(r"-digital-", rid):
+        return "digital"
+    return ""
+
+
+def in_published_nontrigger(rid: str, row, led: dict) -> tuple[bool, str]:
+    """Whether this non-trigger row appears in published provider/contract data on origin/main."""
+    triggers, _ = load_triggers()
+    live_ids = {str(t.get("id") or "") for t in triggers if t.get("id")}
+    if rid in live_ids:
+        return False, "this is a published trigger row; it must match a trigger, not be marked published"
+    rec = led.get(rid, {})
+    insts, types, dates, notes = [], [], [], []
+    if row is not None:
+        insts, types, dates = list(row.insts), list(row.types), list(row.dates)
+        notes = [(row.staging or {}).get("notes", "")]
+        if row.verdicts:
+            v = sorted(row.verdicts, key=lambda x: x["sort_key"])[-1]
+            insts.append(v.get("institution") or "")
+            types.append(v.get("type") or "")
+            dates.append(v.get("date") or "")
+            notes.append(v.get("notes") or "")
+    fi_ids = extract_fi_ids(rid, rec.get("note", ""), rec.get("source", ""), *insts, *notes)
+    field = published_field(rid, types)
+    if field == "contract":
+        rows = load_site_csv("data/contract_windows.csv")
+        if any((r.get("fi_id") or "").lower() in fi_ids for r in rows):
+            return True, "data/contract_windows.csv"
+        return False, "not found in data/contract_windows.csv on origin/main"
+    providers = load_site_csv("data/providers.csv")
+    hits = [r for r in providers if (r.get("fi_id") or "").lower() in fi_ids
+            and (not field or (r.get("field") or "") == field)]
+    if hits:
+        return True, f"data/providers.csv ({field or 'fi match'})"
+    if fi_ids and any((r.get("fi_id") or "").lower() in fi_ids for r in providers):
+        return False, f"institution is in data/providers.csv but field {field or '(unknown)'} is not"
+    return False, "not found in data/providers.csv or data/contract_windows.csv on origin/main"
+
+
+def cmd_mark_published(args) -> int:
+    ensure_fresh()
+    led = read_ledger()
+    model, _ = load_model()
+    at = parse_when(args.at) if args.at else now_et()
+    if at is None:
+        print(f"mark-published: bad --at {args.at!r}", file=sys.stderr)
+        return 2
+    pr = pr_url(args.pr)
+    ok, refused = [], []
+    for raw in args.row_ids:
+        rid = clean_id(raw)
+        rec = led.get(rid)
+        if rec is None:
+            refused.append((rid, "unknown row"))
+            continue
+        st = rec["status"]
+        if st in ("needs_review", "flagged") or st == "held":
+            refused.append((rid, f"status is {st}; flagged or held rows cannot be marked published"))
+            continue
+        # staging held is already needs_review/flagged after a build; also catch a raw held note
+        if "held" in (rec.get("note") or "").lower() and st == "needs_review":
+            refused.append((rid, "row is held"))
+            continue
+        if st in ("live", "corrected"):
+            refused.append((rid, "this is a trigger row (status {0}); it must match a trigger".format(st)))
+            continue
+        present, why = in_published_nontrigger(rid, model.get(rid), led)
+        if not present:
+            refused.append((rid, why))
+            continue
+        if st == "published":
+            ok.append((rid, f"already published ({why})"))
+        else:
+            ok.append((rid, why))
+    mode = "apply" if args.yes else "dry run, pass --yes to write"
+    print(f"mark-published ({mode}) pr={pr}")
+    for rid, why in ok:
+        print(f"  would mark {rid}: {why}" if not args.yes else f"  marked {rid}: {why}")
+    for rid, why in refused:
+        print(f"  refused {rid}: {why}", file=sys.stderr)
+    if args.yes:
+        for rid, _ in ok:
+            rec = led[rid]
+            if rec["status"] == "published" and rec.get("pr") == pr:
+                continue
+            append_event({"event_at": now_et().isoformat(timespec="seconds"), "row_id": rid,
+                          "action": "mark-published", "status": "published",
+                          "published_at": at.isoformat(timespec="seconds"), "pr": pr})
+        if ok:
+            build(quiet=True)
+    return 2 if refused else 0
 
 
 def stale_rows(ledger: dict[str, dict], now: datetime) -> list[dict]:
