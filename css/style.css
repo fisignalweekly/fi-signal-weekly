@@ -750,3 +750,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* 07b: footer links are 44px tall targets at every width, separated by the existing " · " text (>= 8px between hit areas) */
 footer .wrap{line-height:1.6}
 footer a{display:inline-flex;align-items:center;min-height:var(--tap);padding:0 4px;margin:0;vertical-align:middle}
+
+/* ===== 07b (after #51): "See all N on the board" clears the sticky header when the header's Board link lands on #board (phone) ===== */
+@media(max-width:759px){
+  .latest + #board > .sourcing{margin-top:var(--sp-3)}   /* 20 -> 12px: the button's top lands 9px under the header instead of 0.8px */
+  .filters-panel.open .filters > div:has(> #f-added){grid-column:1/-1}   /* sheet: Added gets its own row, so From/To stay side by side */
+}
