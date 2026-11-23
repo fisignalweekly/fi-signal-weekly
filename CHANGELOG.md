@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.6 (2026-11-23, ET)
+
+Fixes a double period on institution directory pages whose names end with a period, and removes a stale footer link from page templates.
+
 ## v1.4.5 (2026-11-23, ET)
 
 Directory importers: adds LinkedIn company-page extraction and login link-text detection for business banking platforms from website scans.

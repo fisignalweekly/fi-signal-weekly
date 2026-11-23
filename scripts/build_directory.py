@@ -461,7 +461,7 @@ def build(files):
         if rows:
             hist = (f'<h2>Signals <span class="count-pill">{len(rows)}</span></h2><ul class="sig-list">' + "".join(sig_li(r) for r in rows) + "</ul>")
         else:
-            hist = (f'<h2>Signals</h2><p class="empty-note">No signals on the board yet for {e(x["name"])}. New signals go up every weekday. '
+            hist = (f'<h2>Signals</h2><p class="empty-note">No signals on the board yet for {e(x["name"])}{"" if x["name"].rstrip().endswith(".") else "."} New signals go up every weekday. '
                     f'<a href="/#subscribe">Get the Friday digest</a>.</p>')
         if showcase and not any(r["type"] == "branch_opening" for r in rows):
             hist += ('<p class="empty-note branch-none">Branch openings: none verified yet. We list a new branch here once the '
