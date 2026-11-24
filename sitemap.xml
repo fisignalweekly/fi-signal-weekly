@@ -70,6 +70,7 @@
   <url><loc>https://fisignalweekly.com/fi/ak/northrim-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/al/bryant-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/al/ccb-community-bank/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/al/family-savings-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/al/gulf-coast-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/al/max-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/al/nrs-community-development-cu/</loc></url>
@@ -113,6 +114,7 @@
   <url><loc>https://fisignalweekly.com/fi/fl/bankunited-national-association/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/fl/campus-usa-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/fl/evermore-bank/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/fl/gulf-winds-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/fl/jm-associates-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/fl/launch-credit-union/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/fl/madison-county-community-bank/</loc></url>
@@ -131,6 +133,7 @@
   <url><loc>https://fisignalweekly.com/fi/hi/maui-county-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/ia/first-class-community-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/ia/greater-iowa-cu/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/ia/iowa-state-bank-algona/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/ia/members1st-community-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/ia/northwest-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/id/westmark-cu/</loc></url>
@@ -145,7 +148,6 @@
   <url><loc>https://fisignalweekly.com/fi/il/healthcare-associates-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/il/heartland-bank-and-trust-company/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/il/midland-states-bank/</loc></url>
-  <url><loc>https://fisignalweekly.com/fi/il/peoplefirst-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/il/scott-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/il/the-northern-trust-company/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/il/williamsville-state-bank-and-trust/</loc></url>
@@ -229,6 +231,7 @@
   <url><loc>https://fisignalweekly.com/fi/mt/first-interstate-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/mt/fort-peck-community-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/mt/glacier-bank/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/mt/opportunity-bank-of-montana/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/mt/sky-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/mt/vocal-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/mt/whitefish-credit-union-association-cu/</loc></url>
@@ -236,6 +239,7 @@
   <url><loc>https://fisignalweekly.com/fi/nc/live-oak-banking-company/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/nc/mcdowell-cornerstone-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/nc/mechanics-and-farmers-bank/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/nc/new-republic-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/nc/piedmont-advantage-credit-union/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/nc/state-employees-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/nc/truist-bank/</loc></url>
@@ -317,6 +321,7 @@
   <url><loc>https://fisignalweekly.com/fi/sd/wells-fargo-bank-national-association/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tn/delta-refining-co-emp-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tn/home-federal-bank-of-tennessee/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/tn/peoples-bank-of-east-tennessee/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tn/ten-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tn/the-west-tennessee-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tn/vanderbilt-cu/</loc></url>
@@ -335,6 +340,7 @@
   <url><loc>https://fisignalweekly.com/fi/tx/smart-financial-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tx/southern-star-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tx/texas-dow-employees-cu/</loc></url>
+  <url><loc>https://fisignalweekly.com/fi/tx/texasbank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tx/texoma-community-cu/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/tx/third-coast-bank/</loc></url>
   <url><loc>https://fisignalweekly.com/fi/ut/america-first-cu/</loc></url>
