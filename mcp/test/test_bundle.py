@@ -51,6 +51,14 @@ class BundleTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.read("data/not-an-input.tsv")
 
+    def test_name_change_is_a_public_other_type(self):
+        types, fi_only = B.load_types(self.read("scripts/trigger_types.py"))
+        types = {**types, "name_change": "Name change"}  # site adds it in v1.4.8
+        row = {**next(r for r in self.src if r["type"] == "merger"), "type": "name_change"}
+        self.assertTrue(B.is_public_signal(row, types, fi_only))
+        self.assertEqual(B.TYPE_GROUP.get("name_change", "other"), "other")
+        self.assertEqual(B.TYPE_ORDER[-1], "name_change")
+
     def test_type_order_ma_then_exec(self):
         groups = [t["group"] for t in self.b["types"]]
         self.assertEqual(groups[:5], ["m_and_a"] * 3 + ["executive"] * 2)

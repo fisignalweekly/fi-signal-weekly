@@ -23,7 +23,7 @@ INPUTS = ["data/triggers.json", "data/institutions.json", "data/providers.csv", 
 
 # Board types in priority order: M&A first, then executive moves, then the rest.
 TYPE_ORDER = ["merger", "cu_merger", "cu_acquires_bank", "executive", "cu_executive",
-              "core", "cu_charter", "digital_banking_change"]
+              "core", "cu_charter", "digital_banking_change", "name_change"]
 TYPE_GROUP = {"merger": "m_and_a", "cu_merger": "m_and_a", "cu_acquires_bank": "m_and_a",
               "executive": "executive", "cu_executive": "executive"}
 # Any of these keys set to a truthy value keeps a row out (defensive: none exist today).
