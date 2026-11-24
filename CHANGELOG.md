@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.4.8 (2026-11-24, ET)
+
+Shows stated strategic priorities on every matching institution page, not only the early-preview set. Validation fails when a row does not match a directory page.
+
 ## v1.4.7 (2026-11-23, ET)
 
 Phone layout: gives the See all button clear breathing room under the sticky header when jumping to the board, and places the Added filter above From and To in the filter sheet.

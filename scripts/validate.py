@@ -132,6 +132,25 @@ if os.path.exists("data/showcase.txt"):
     for ln in open("data/showcase.txt"):
         i=ln.split("#")[0].strip()
         if i and inst and i not in inst: print("showcase.txt: unknown fi_id",i);ok=False
+if os.path.exists("data/strategic_priorities.csv"):
+    from fi_sections import STRATEGY_TICKERS, strategy_page_ids
+    with open("data/strategic_priorities.csv",newline="",encoding="utf-8") as f:
+        sp=list(csv.DictReader(f))
+    for ticker, fids in STRATEGY_TICKERS.items():
+        for fid in fids:
+            if inst and fid not in inst:
+                print("STRATEGY_TICKERS: unknown fi_id",fid,"for",ticker);ok=False
+    sp_pages=set(); sp_unmapped=[]
+    for r in sp:
+        for fid in (x.strip() for x in (r.get("fi_ids") or "").split("|") if x.strip()):
+            if inst and fid not in inst:
+                print("strategic_priorities.csv: unknown fi_id",fid,r.get("row_id"));ok=False
+        pages=strategy_page_ids(r, inst)
+        if not pages:
+            print("strategic_priorities.csv: no directory page for", r.get("row_id") or r.get("ticker") or "?");ok=False
+            sp_unmapped.append(r.get("row_id"))
+        sp_pages.update(pages)
+    print(f"strategic_priorities.csv: {len(sp)} rows on {len(sp_pages)} directory pages" + (f", {len(sp_unmapped)} unmapped" if sp_unmapped else ""))
 if os.path.exists("data/fi-pinned.txt"):
     for ln in open("data/fi-pinned.txt"):
         ln=ln.strip()
