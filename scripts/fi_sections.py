@@ -10,7 +10,60 @@ e = lambda s: html.escape(str(s), quote=True)
 
 # Feature flags: a name listed here renders only on showcase pages (data/showcase.txt). Move a feature to all
 # pages by removing it from this set. Empty = every shipped feature is on every page.
-SHOWCASE_ONLY = {"strategic_priorities"}  # benchmarks moved to all pages Nov 18, 2026 (Kyle); strategic priorities showcase Nov 19, 2026
+SHOWCASE_ONLY = set()  # strategic_priorities moved to every matching institution page Nov 24, 2026
+
+# Parent ticker -> operating-bank fi_ids that have /fi/ pages (from data/institutions.json).
+# load_strategy uses this when a row's fi_ids are empty or none of them match a directory institution.
+# BBT is the retired ticker for the same operating bank as TFC.
+STRATEGY_TICKERS = {
+    "BAC": ("fdic-3510", "fdic-25178"),
+    "BKU": ("fdic-58979",),
+    "C": ("fdic-7213",),
+    "COF": ("fdic-4297",),
+    "GBCI": ("fdic-30788",),
+    "JPM": ("fdic-628", "fdic-21761"),
+    "KISB": ("fdic-14969",),
+    "MS": ("fdic-32992", "fdic-34221"),
+    "PNC": ("fdic-6384",),
+    "TFC": ("fdic-9846",),
+    "BBT": ("fdic-9846",),  # retired ticker; same bank as TFC
+    "UFS": ("fdic-90290",),
+    "USB": ("fdic-6548",),
+    "WFC": ("fdic-3511", "fdic-27389", "fdic-5146"),
+    "FFBC": ("fdic-6600",),
+    "FMBH": ("fdic-3705",),
+    "MPB": ("fdic-9889",),
+    "JMSB": ("fdic-58243",),
+    "HBAN": ("fdic-6560",),
+    "KEY": ("fdic-17534",),
+    "RNST": ("fdic-12437",),
+    "DCOM": ("fdic-6976",),
+    "PEBO": ("fdic-6544",),
+    "EQBK": ("fdic-25858",),
+    "FMNB": ("fdic-6540",),
+    "TCBX": ("fdic-58716",),
+    "HBT": ("fdic-20369",),
+}
+
+
+def strategy_page_ids(row, known=None):
+    """Institution ids a strategic_priorities row should appear on.
+
+    Uses the row's fi_ids when they match known directory institutions. If none do (or fi_ids
+    is empty), falls back to STRATEGY_TICKERS for the row's ticker.
+    """
+    fids = [x.strip() for x in (row.get("fi_ids") or "").split("|") if x.strip()]
+    if known is not None:
+        valid = [x for x in fids if x in known]
+    else:
+        valid = fids
+    if valid:
+        return valid
+    ticker = (row.get("ticker") or "").strip().upper()
+    mapped = list(STRATEGY_TICKERS.get(ticker, ()))
+    if known is not None:
+        mapped = [x for x in mapped if x in known]
+    return mapped
 
 
 def feature_on(name, is_showcase):
@@ -174,11 +227,19 @@ def load_strategy(root):
     out = {}
     if not os.path.exists(p):
         return out
+    known = None
+    inst = os.path.join(root, "data", "institutions.json")
+    if os.path.exists(inst):
+        db = json.load(open(inst, encoding="utf-8"))
+        known = {dict(zip(db["columns"], row))["id"] for row in db["rows"]}
     with open(p, newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
-            for fid in r["fi_ids"].split("|"):
-                if fid.strip():
-                    out.setdefault(fid.strip(), []).append(r)
+            fids = strategy_page_ids(r, known)
+            if not fids:
+                t = (r.get("ticker") or r.get("row_id") or "?").strip() or "?"
+                print("strategic_priorities: no directory page for", r.get("row_id") or t)
+            for fid in fids:
+                out.setdefault(fid, []).append(r)
     return out
 
 
