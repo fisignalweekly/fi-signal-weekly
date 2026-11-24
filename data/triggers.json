@@ -6982,6 +6982,23 @@
       "fi_assets_as_of": "2026Q2",
       "fi_assets_date": "2026-06-30",
       "fi_match": "name_state"
+    },
+    {
+      "id": "t408",
+      "type": "name_change",
+      "institution": "American United Federal Credit Union (First Californian Credit Union division), renamed Haven Credit Union",
+      "state": "UT",
+      "date": "2026-11-20",
+      "added": "2026-11-24",
+      "summary": "Credit Union Daily reported on November 20, 2026 that American United Federal Credit Union and its First Californian Credit Union division adopted the name Haven Credit Union; the article gives no effective date.",
+      "source_url": "https://thecudaily.com/american-first-fcu-and-its-first-californian-cu-division-adopt-new-name-branding/",
+      "fi_id": "ncua-8187",
+      "fi_name": "American United",
+      "charter_type": "cu",
+      "fi_assets_usd": 382679453,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "override"
     }
   ]
 }
