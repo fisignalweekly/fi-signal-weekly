@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.5.0 (2026-11-24, ET)
+
+Adds a public page for vendor platform notices, with dated facts, the vendor's own wording, and a filterable list of institutions from a login-page scan.
+
 ## v1.4.9 (2026-11-24, ET)
 
 New board signal type: Name change, for a bank or credit union that adopts a new name. It has its own badge color, appears last in the Type filter, works in shareable filter links, and is listed in the type docs.
