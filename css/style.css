@@ -300,6 +300,14 @@ label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
 .badge.name_change{background:var(--name_change)}
 .card.name_change,.sig-list .sig.name_change{border-left-color:var(--name_change)}
 
+/* Sponsor contact line: 44px targets, at least 8px apart */
+#sponsor p:last-of-type a{
+  display:inline-flex;
+  align-items:center;
+  min-height:var(--tap);
+}
+#sponsor p:last-of-type a:first-child{margin-bottom:var(--tap-gap)}
+
 /* /territory/ — mobile-first list of Eastern Time banks above $1.4B */
 .terr{max-width:800px;padding-bottom:40px}
 .terr .hero{padding:28px 0 8px}
