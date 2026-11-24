@@ -2,6 +2,10 @@
 
 Production releases of the FI Signal Weekly site. Entries are dated in Eastern Time and listed newest first. Version numbers follow semantic versioning: the patch number increases for a fix, the minor number for a feature, and the major number for a breaking change.
 
+## v1.5.1 (2026-11-24, ET)
+
+Gives the two sponsor-section contact links a 44-pixel tap target and at least 8 pixels of space between them.
+
 ## v1.5.0 (2026-11-24, ET)
 
 Adds a public page for vendor platform notices, with dated facts, the vendor's own wording, and a filterable list of institutions from a login-page scan.
