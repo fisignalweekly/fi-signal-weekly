@@ -295,6 +295,10 @@ label.check input{width:18px;height:18px;accent-color:var(--navy-700);margin:0}
 @media(max-width:459px){nav a.nav-dir{padding:0 6px}}
 .sig-list .sig.cu_acquires_bank{border-left-color:var(--signal);background:linear-gradient(90deg,#EFFCEE,#fff 60%);box-shadow:0 0 0 1px #9BEF95}
 .sig-list .sig.cu_executive{border-left-color:var(--cu_executive)}.sig-list .sig.cu_merger{border-left-color:var(--cu_merger)}.sig-list .sig.cu_charter{border-left-color:var(--cu_charter)}
+/* ---- Name change board type (bank or CU renamed) ---- */
+:root{--name_change:#475569}
+.badge.name_change{background:var(--name_change)}
+.card.name_change,.sig-list .sig.name_change{border-left-color:var(--name_change)}
 
 /* /territory/ — mobile-first list of Eastern Time banks above $1.4B */
 .terr{max-width:800px;padding-bottom:40px}
