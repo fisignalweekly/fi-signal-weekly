@@ -760,3 +760,107 @@ footer a{display:inline-flex;align-items:center;min-height:var(--tap);padding:0 
   .latest + #board > .sourcing{margin-top:var(--sp-3)}   /* 20 -> 12px: the button's top lands 9px under the header instead of 0.8px */
   .filters-panel.open .filters > div:has(> #f-added){grid-column:1/-1}   /* sheet: Added gets its own row, so From/To stay side by side */
 }
+/* ===== Spec 08: /vendor-changes/ (public vendor platform notices). APPEND TO css/style.css after spec 07 (qa07) =====
+   Replaces the branch's pre-overhaul 15-line ".vc" block (do not keep both). Tokens: system.md (adds --notice-rule, --scan-bg). */
+:root{--notice-rule:var(--navy-700);--scan-bg:#F7F9FC}
+
+.vc{padding-bottom:var(--sp-10)}
+.vc-hero{padding:var(--sp-6) 0 var(--sp-2);max-width:65ch}
+.vc-hero h1{font-size:var(--fs-xl);line-height:var(--lh-tight);font-weight:800;margin:0 0 var(--sp-2);text-wrap:balance}
+.vc-hero p{color:var(--muted);margin:0;font-size:var(--fs-base);line-height:var(--lh-body)}
+
+/* entry card */
+.vc-entry{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-1);
+  padding:var(--sp-4);margin:var(--sp-6) 0 var(--sp-8);scroll-margin-top:var(--sp-2)}
+.vc-vendor{margin:0 0 var(--sp-1);font-size:var(--fs-sm);font-weight:700;color:var(--muted);letter-spacing:.02em}
+.vc-entry h2{margin:0 0 var(--sp-3);font-size:1.125rem;line-height:1.3;text-wrap:balance;overflow-wrap:anywhere}
+
+/* key facts: the effective date is the biggest thing after the title; countdown has its own reserved line (CLS 0) */
+.vc-facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-3);margin:0 0 var(--sp-4);padding:var(--sp-3);
+  background:var(--bg);border-radius:var(--r-md)}
+.vc-facts dt{font-size:var(--fs-sm);font-weight:600;color:var(--muted);margin:0 0 2px}
+.vc-facts dd{margin:0;font-weight:700;font-size:var(--fs-base);line-height:1.35}
+.vc-eff dd{font-size:var(--fs-md)}
+.vc-cd{display:block;min-height:20px;font-size:var(--fs-sm);line-height:20px;font-weight:600;color:var(--ink)}
+
+/* the two kinds of information, labelled in words AND styled apart (not colour alone) */
+.vc-src{border-radius:var(--r-md);padding:var(--sp-3) var(--sp-4) var(--sp-4);margin:0 0 var(--sp-4)}
+.vc-src > p{margin:0 0 var(--sp-3);max-width:65ch;line-height:var(--lh-body)}
+.vc-src > p:last-of-type{margin-bottom:0}
+.vc-src a{color:var(--brand);text-underline-offset:3px}
+.vc-label{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-1) var(--sp-2);margin:0 0 var(--sp-2)!important;
+  font-size:var(--fs-sm);font-weight:700;line-height:1.4;color:var(--ink)}
+.vc-ico{width:18px;height:18px;flex:none;background:currentColor;
+  -webkit-mask:var(--ico) no-repeat center/18px;mask:var(--ico) no-repeat center/18px}
+.vc-notice{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--notice-rule)}
+.vc-notice .vc-label{color:var(--navy-700)}
+.vc-notice .vc-ico{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z'/%3E%3Cpath d='M14 3v6h6M8 15l2.5 2.5L16 12'/%3E%3C/svg%3E")}
+.vc-scan{background:var(--scan-bg);border:1px dashed #9AA9BD;padding-bottom:var(--sp-3)}
+.vc-scan .vc-label{color:var(--muted)}
+.vc-scan .vc-ico{--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4-4'/%3E%3C/svg%3E")}
+.vc-scan-date{flex-basis:100%;font-weight:600;color:var(--muted);padding-left:26px}   /* under the label, aligned with its text */
+
+/* filter: directory pattern (spec 05), not sticky; space is reserved before JS so nothing moves */
+.vc-filter{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-2) var(--sp-3);margin:var(--sp-4) 0 0}
+.vc-filter:not(.ready){visibility:hidden}
+.vc-filter label{font-size:var(--fs-sm);text-transform:none;letter-spacing:0;color:var(--ink);font-weight:600}
+.vc-filter input[type=search]{width:100%;min-height:var(--tap);font:inherit;font-size:16px;padding:9px 12px 9px 38px;border:1px solid var(--line);border-radius:var(--r-md);
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%234A5B73' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4-4'/%3E%3C/svg%3E") no-repeat 12px 50%}
+.vc-filter select{min-height:var(--tap);font-size:16px}
+.vc-count{grid-column:1/-1;margin:0;min-height:20px;font-size:var(--fs-sm);line-height:20px;font-weight:600;color:var(--ink)}
+
+/* groups + rows: the .fi-list row (spec 05 sizes) */
+.vc-group{margin:var(--sp-5) 0 0}
+.vc-group h3{margin:0 0 var(--sp-1);font-size:var(--fs-base);line-height:1.35}
+.vc-intro{margin:0 0 var(--sp-2);font-size:var(--fs-sm);line-height:1.45;color:var(--muted);max-width:65ch}
+/* row separators drawn as 1px shadows in a 1px grid gap: still correct when the filter hides rows, and in 2 columns */
+.vc-list{display:grid;grid-template-columns:minmax(0,1fr);gap:1px}
+.vc-list > li{border:0!important;box-shadow:0 0 0 1px var(--line)}
+.vc-list a,.vc-list .nolink{display:grid;grid-template-columns:minmax(0,1fr);min-height:56px;padding:var(--sp-2) var(--sp-4);align-content:center}
+.vc-list .nolink{color:var(--ink)}
+.vc-list .nm{font-size:var(--fs-base);line-height:1.35;overflow-wrap:anywhere}
+.vc-list .nolink .nm{color:var(--ink)}
+.vc-list .sub{font-size:var(--fs-sm);line-height:1.4;color:var(--muted)}
+.vc-list .scan{display:block}.vc-list .sep{display:none}   /* place · charter, then the scan label on its own line (all widths: rows stay 3 lines, ~78px) */
+.vc-list a:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.vc-list li[hidden]{display:none}
+
+/* "Show N more": a 48px ghost button (board / directory pattern); hidden once open: the rows simply continue */
+.vc-more > summary{display:flex;align-items:center;justify-content:center;min-height:48px;margin:var(--sp-2) 0 0;border-radius:var(--r-md);
+  background:var(--chip);color:var(--ink);font-weight:700;cursor:pointer;list-style:none}
+.vc-more > summary::-webkit-details-marker{display:none}
+.vc-more > summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.vc-more[open] > summary{display:none}
+.vc-group:has(> .vc-more[open]) > .vc-list{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.vc-more[open] > .vc-list{border-top:0;border-top-left-radius:0;border-top-right-radius:0}
+.vc-entry.is-filtering .vc-more > summary{display:none}
+.vc-group[hidden]{display:none}
+
+/* 2+ entries only: jump list (same row) */
+.vc-toc{margin:var(--sp-4) 0 0}
+.vc-toc .sub{font-size:var(--fs-sm)}
+
+/* phone: the entry is not a card (its two source blocks are), so text gets the full width */
+@media(max-width:599px){
+  .vc-entry{background:none;border:0;box-shadow:none;border-radius:0;padding:0;margin:var(--sp-6) 0 var(--sp-8)}
+  .vc-src{padding:var(--sp-3) var(--sp-3) var(--sp-4)}
+  .vc-notice{padding-left:calc(var(--sp-3) + 2px)}
+  .vc-entry + .vc-entry{border-top:1px solid var(--line);padding-top:var(--sp-6)}
+}
+.vc-empty{background:var(--card);border:1px dashed var(--line);border-radius:var(--r-lg);padding:var(--sp-3) var(--sp-4);max-width:60ch}
+
+@media(min-width:600px){
+  .vc-filter{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+}
+@media(min-width:820px){
+  .vc-hero{padding-top:var(--sp-8)}
+  .vc-hero h1{font-size:var(--fs-2xl)}
+  .vc-entry{padding:var(--sp-6)}
+  .vc-entry h2{font-size:var(--fs-lg)}
+  .vc-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .vc-src{padding:var(--sp-4) var(--sp-5) var(--sp-5)}
+  .vc-list{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media(min-width:1024px){
+  .vc-hero h1{font-size:2.25rem}
+}
