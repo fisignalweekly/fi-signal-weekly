@@ -11,7 +11,7 @@ Rows live in `data/triggers.json`. For each publish (weekdays):
 3. Run `python3 scripts/link_institutions.py` (if rows were added), then `python3 scripts/build_directory.py` to refresh the FI directory.
 4. Run `python3 scripts/validate.py`.
 
-Row `type` must be one of the board types in `scripts/trigger_types.py`: `merger`, `core`, `executive`, `digital_banking_change` (shown as "Digital banking change"; staging ids `db-*` map to it), and for credit unions `cu_acquires_bank` (shown as "CU buys bank", highlighted), `cu_merger`, `cu_executive`, `cu_charter`. For staging rows, `python3 scripts/trigger_types.py <staging id> <trigger_type>` prints the board type (e.g. `cuex-…` + `executive` gives `cu_executive`; `db-…` gives `digital_banking_change`). Adding a type means adding it there, in `js/app.js` `TYPE_LABEL`, the `#f-type` options in `index.html` and the colors in `css/style.css`. `validate.py` fails if one is missing.
+Row `type` must be one of the board types in `scripts/trigger_types.py`: `merger`, `core`, `executive`, `digital_banking_change` (shown as "Digital banking change"; staging ids `db-*` map to it), and for credit unions `cu_acquires_bank` (shown as "CU buys bank", highlighted), `cu_merger`, `cu_executive`, `cu_charter`, plus `name_change` (shown as "Name change": a bank or credit union renamed). For staging rows, `python3 scripts/trigger_types.py <staging id> <trigger_type>` prints the board type (e.g. `cuex-…` + `executive` gives `cu_executive`; `db-…` gives `digital_banking_change`). Adding a type means adding it there, in `js/app.js` `TYPE_LABEL`, the `#f-type` options in `index.html` and the colors in `css/style.css`. `validate.py` fails if one is missing.
 
 Each row's `date` is the event/announcement date; `added` is when it went on the board. The board and pagination sort by `date` (newest first), so a backfill row lands in its historical spot, not on top. See `scripts/refresh_notes.md` for sourcing rules.
 
@@ -31,7 +31,7 @@ https://fisignalweekly.com/?state=MI,OH&charter=cu&assets=1b-10b&type=merger&fro
 
 | Param | Values |
 |---|---|
-| `type` | any board type: `merger`, `core`, `executive`, `digital_banking_change`, `cu_acquires_bank`, `cu_merger`, `cu_executive`, `cu_charter` |
+| `type` | any board type: `merger`, `core`, `executive`, `digital_banking_change`, `cu_acquires_bank`, `cu_merger`, `cu_executive`, `cu_charter`, `name_change` |
 | `state` | one or more 2-letter codes, comma-separated |
 | `charter` | `bank`, `cu` |
 | `assets` | `lt500m`, `500m-1b`, `1b-10b`, `10b-50b`, `50b+`, `na` |

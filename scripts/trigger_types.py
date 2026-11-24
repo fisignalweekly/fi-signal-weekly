@@ -16,6 +16,7 @@ use these strings (checked Nov 17, 2026):
     cucr-*  core                        -> core               (these two rows are core conversions, not charter changes)
     db-*    (any staging trigger_type)  -> digital_banking_change  (Phase 1 digital-banking; staging starts Nov 18, 2026)
     branch_opening                     -> branch_opening (FI pages only; the published row gets "fi_only": true)
+    name_change                        -> name_change    (bank or CU renamed; a normal board type, not FI-only)
 A row already typed with a board type (e.g. cu_charter) keeps it. A db-* id always maps to digital_banking_change.
 """
 import sys
@@ -30,6 +31,7 @@ TYPES = {
     "cu_charter": "CU charter change",
     "digital_banking_change": "Digital banking change",
     "branch_opening": "Branch opening",
+    "name_change": "Name change",
 }
 
 # Types that show ONLY on /fi/ institution pages, never on the main board, its filters, feeds, X posts or the digest
