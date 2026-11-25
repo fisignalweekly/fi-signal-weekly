@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "rows": [
     {
       "type": "merger",
@@ -6999,6 +6999,23 @@
       "fi_assets_as_of": "2026Q2",
       "fi_assets_date": "2026-06-30",
       "fi_match": "override"
+    },
+    {
+      "id": "t409",
+      "type": "executive",
+      "institution": "Third Coast Bank (Third Coast Bancshares)",
+      "state": "TX",
+      "date": "2026-11-19",
+      "added": "2026-11-25",
+      "summary": "Third Coast Bank (Humble, TX; about $6.8 billion in assets as of September 30, 2026, per FDIC) appointed Liz Eber, previously Executive Vice President and Chief Legal Officer, as Executive Vice President and Chief Legal and Operating Officer on November 19, 2026.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1781730/000119312526475870/tcbx-20261119.htm",
+      "fi_id": "fdic-58716",
+      "fi_name": "Third Coast Bank",
+      "charter_type": "bank",
+      "fi_assets_usd": 6728468000,
+      "fi_assets_as_of": "2026Q2",
+      "fi_assets_date": "2026-06-30",
+      "fi_match": "name_state"
     }
   ]
 }
