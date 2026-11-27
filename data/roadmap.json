@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-25",
   "intro": "What is live on FI Signal Weekly, what is being built, and what is queued. Dates marked est. are estimates and may move. Showcase means a first public example; full means the feature is on the site for the planned set of institutions.",
   "showcase_pages": {
     "note": "Five institution pages are showcases of what every page will look like once the backfill and updates are done. New features land there first:",
@@ -58,7 +58,7 @@
       "id": "linkedin-business",
       "name": "LinkedIn links and business digital banking",
       "description": "Institution pages will add the company's public LinkedIn page, when the institution publishes one, and the business digital banking provider when a public login-page scan or verified announcement supports it.",
-      "status": "Building",
+      "status": "Live",
       "showcase": {
         "date": "2026-11-18",
         "est": false,
@@ -67,8 +67,8 @@
         "note": "business online banking is live for 63 institutions"
       },
       "full": {
-        "date": "2026-11-23",
-        "est": true
+        "date": "2026-11-24",
+        "est": false
       }
     },
     {
@@ -87,11 +87,11 @@
       "id": "vendor-netteller",
       "name": "Vendor change feed, Jack Henry NetTeller retirement",
       "description": "A feed of public vendor platform notices. The first entry is Jack Henry's planned retirement of NetTeller Online Banking and Cash Management on July 1, 2027, with institutions that may be affected based on a login-page scan.",
-      "status": "Building",
+      "status": "Live",
       "showcase": null,
       "full": {
         "date": "2026-11-24",
-        "est": true
+        "est": false
       }
     },
     {
@@ -194,11 +194,11 @@
       "id": "expanded-news",
       "name": "Expanded news sources",
       "description": "A wider set of public news sources for buying-window signals, still limited to sources we can cite and fact-check.",
-      "status": "Queued",
+      "status": "Live",
       "showcase": null,
       "full": {
-        "date": "2026-11-20",
-        "est": true
+        "date": "2026-11-24",
+        "est": false
       }
     },
     {
@@ -331,11 +331,11 @@
       "id": "faster-intake",
       "name": "Faster signal intake",
       "description": "Every signal is tracked from first sighting through fact-check to publish, so fresh news is prioritized and reaches the board within a business day.",
-      "status": "Building",
+      "status": "Live",
       "showcase": null,
       "full": {
-        "date": "2026-11-23",
-        "est": true
+        "date": "2026-11-24",
+        "est": false
       }
     },
     {
